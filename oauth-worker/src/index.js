@@ -36,8 +36,15 @@ function page(origin, payload, success = true) {
   const html = `<!doctype html><meta charset="utf-8"><title>GitHub sign-in</title>
 <script>
 if (window.opener) {
-  window.opener.postMessage(${JSON.stringify(message)}, ${JSON.stringify(origin)});
-  window.close();
+  const expectedOrigin = ${JSON.stringify(origin)};
+  const finishAuthorization = (event) => {
+    if (event.source !== window.opener || event.origin !== expectedOrigin) return;
+    window.removeEventListener('message', finishAuthorization);
+    window.opener.postMessage(${JSON.stringify(message)}, expectedOrigin);
+    window.close();
+  };
+  window.addEventListener('message', finishAuthorization);
+  window.opener.postMessage('authorizing:github', expectedOrigin);
 } else {
   document.body.textContent = 'Return to the Decap editor to continue.';
 }
