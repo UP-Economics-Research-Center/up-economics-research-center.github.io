@@ -3,6 +3,7 @@
   const requested = params.get('area') || '';
   const title = document.getElementById('area-title');
   const number = document.getElementById('area-number');
+  const kicker = document.getElementById('area-kicker');
   const crumb = document.getElementById('area-crumb');
   const question = document.getElementById('area-question');
   const summary = document.getElementById('area-summary');
@@ -50,7 +51,9 @@
     title.textContent = area.name;
     if (crumb) crumb.textContent = area.name;
     if (question) question.textContent = `${area.name}: research focus`;
-    number.textContent = String(index + 1).padStart(2, '0');
+    const areaNumber = String(index + 1).padStart(2, '0');
+    number.textContent = areaNumber;
+    if (kicker) kicker.textContent = `Research area ${areaNumber}`;
     if (summary) summary.textContent = area.summary;
     if (description) description.textContent = area.overview || area.summary;
 
