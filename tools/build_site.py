@@ -259,7 +259,7 @@ def external_anchor(url: str, text: str, cls="text-link") -> str:
 
 def render_area(area: dict, index: int, *, home=False) -> str:
     slug = quote(area["slug"], safe="-")
-    href = ("/design/" if home else "") + f"research-area.html?area={slug}"
+    href = ("/" if home else "") + f"research-area.html?area={slug}"
     if home:
         return f'<a class="topic-link" href="{e(href)}"><span>{e(area["name"])}</span><span aria-hidden="true">→</span></a>'
     return f'<a class="research-row" href="{e(href)}"><span class="num">{index:02d}</span><strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
@@ -491,6 +491,23 @@ def build() -> None:
                 source = replace_archive(source, "News years", "browseNewsYear", years, "Approved news years will appear here.")
             path.write_text(source, encoding="utf-8")
 
+        # Publish visitor-facing section pages at the repository root. Keep
+        # styles, scripts, and media in design/ as implementation assets.
+        route_pages = ("about", "news", "people", "publications", "research-area", "research", "seminars")
+        for name in route_pages:
+            source = (site / "design" / f"{name}.html").read_text(encoding="utf-8")
+            source = source.replace('href="site-concept.css"', 'href="/design/site-concept.css"')
+            source = source.replace('href="homepage-concept.html"', 'href="/"')
+            source = re.sub(r'(src|href)="(campus-video|mobile-navigation|research-people|publications|news)\.js"', r'\1="/design/\2.js"', source)
+            source = source.replace('src="assets/', 'src="/design/assets/')
+            (site / f"{name}.html").write_text(source, encoding="utf-8")
+
+        # Point homepage navigation at the new canonical section URLs.
+        home_path = site / "index.html"
+        home_source = home_path.read_text(encoding="utf-8")
+        home_source = re.sub(r'href="design/([a-z-]+\.html(?:#[^"]*)?)"', r'href="\1"', home_source)
+        home_path.write_text(home_source, encoding="utf-8")
+
         # Use approved content only in generated search and content feeds.
         people_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["people"]]
         area_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["research_areas"]]
@@ -502,24 +519,24 @@ def build() -> None:
 
         search = list(pages)
         for person in data["people"]:
-            search.append(page_entry(person["name"], person["bio"], " ".join(person.get("research_areas", [])), f'/design/people.html#{quote(person["slug"], safe="-")}', "People"))
+            search.append(page_entry(person["name"], person["bio"], " ".join(person.get("research_areas", [])), f'/people.html#{quote(person["slug"], safe="-")}', "People"))
         for area in data["research_areas"]:
-            search.append(page_entry(area["name"], area["summary"], area["slug"], f'/design/research-area.html?area={quote(area["slug"], safe="-")}', "Research area"))
+            search.append(page_entry(area["name"], area["summary"], area["slug"], f'/research-area.html?area={quote(area["slug"], safe="-")}', "Research area"))
         for pub in data["publications"]:
             authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
             desc = pub["abstract"]
             search.append(page_entry(pub["title"], desc, f'{authors} {pub["year"]} {pub["type"]} {pub["venue"]} ' + " ".join(pub["topics"]), f'/publications/{quote(pub["slug"], safe="-")}/', "Publication"))
         for item in data["news"]:
-            search.append(page_entry(item["title"], item["summary"], item.get("category", "News"), f'/design/news.html#{quote(item["slug"], safe="-")}', "News"))
+            search.append(page_entry(item["title"], item["summary"], item.get("category", "News"), f'/news.html#{quote(item["slug"], safe="-")}', "News"))
         for item in data["seminars"]:
-            search.append(page_entry(item["title"], item["description"], f'{item["speaker"]} {item["series"]} {item["date"]}', f'/design/seminars.html#{quote(item["slug"], safe="-")}', "Seminar"))
+            search.append(page_entry(item["title"], item["description"], f'{item["speaker"]} {item["series"]} {item["date"]}', f'/seminars.html#{quote(item["slug"], safe="-")}', "Seminar"))
         write_json(site / "search-index.json", search)
 
         template_path = ROOT / "templates/publication-detail.html"
         template = template_path.read_text(encoding="utf-8")
         for pub in data["publications"]:
             author_html = ", ".join(e(a if isinstance(a, str) else a["name"]) for a in pub["authors"])
-            topic_html = "".join(f'<a class="tag" href="/design/research-area.html?area={quote(key, safe="-")}">{e(area_names[key])}</a>' for key in pub["topics"])
+            topic_html = "".join(f'<a class="tag" href="/research-area.html?area={quote(key, safe="-")}">{e(area_names[key])}</a>' for key in pub["topics"])
             canonical_link = external_anchor(pub.get("canonical_url", ""), "View publisher page")
             pdf_url = pub.get("pdf") or pub.get("pdf_url")
             download_link = external_anchor(pdf_url, "Download paper (PDF)") if pdf_url else ""
