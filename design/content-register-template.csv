@@ -1,0 +1,6 @@
+"record_type","record_id","title_or_name","authors_or_people","year_or_date","type_or_series","research_areas","project_id","summary_or_abstract","canonical_url_or_doi","status","editor","verified_on","publicly_publishable"
+"person","P-001","Example name","","","Faculty researcher","education-and-human-capital","","Short bio / interests","Profile link","draft","","","no"
+"project","PR-001","Example project title","P-001","","Research project","education-and-human-capital","PR-001","Research question and short summary","Project link","draft","","","no"
+"publication","PUB-001","Example paper title","P-001","2026","Working paper","education-and-human-capital","PR-001","One-sentence summary","DOI or repository URL","draft","","","no"
+"event","EV-001","Example seminar title","P-001","2026-10-01 12:00 America/Mexico_City","General Research Seminar","education-and-human-capital","PR-001","Abstract / access details","Event page","draft","","","no"
+"announcement","N-001","Example announcement","P-001","2026-10-01","New publication","education-and-human-capital","PR-001","Short announcement copy","Related item URL","draft","","","no"
