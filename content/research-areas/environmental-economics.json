@@ -1,10 +1,29 @@
 {
   "name": "Environmental Economics",
   "slug": "environmental-economics",
-  "summary": "Environmental conditions and public policy shape economic activity, behavior, and quality of life.",
+  "summary": "Research examines how pollution, climate, and environmental policy affect economic behavior, public health, and quality of life.",
   "people": [],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/environmental-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "Projects study the effects of weather and air quality on transportation choices, as well as how rainfall scarcity changes water collection and labor supply.",
+  "projects": [
+    {
+      "title": "Air Quality and Temperature Effects on Bike-Sharing Demand: Evidence from Washington, D.C.",
+      "summary": "Studies how weather and air pollution relate to bike-share ridership in Washington, D.C.",
+      "researchers": [
+        "Mauricio Patton Escamilla",
+        "Patricio Antonio Lorenzana Márquez",
+        "Akito Kamei"
+      ]
+    },
+    {
+      "title": "Who Walks for Water? Water Consumption and Labor Supply Response to Rainfall Scarcity in Uganda",
+      "summary": "Studies how rainfall scarcity affects water collection and labor supply, including the burden on women and girls.",
+      "researchers": [
+        "Akito Kamei"
+      ]
+    }
+  ]
 }

@@ -154,8 +154,22 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         path = row.pop("_path")
         require_text(path, row, "name")
         require_text(path, row, "summary")
+        require_text(path, row, "overview")
         validate_url(path, "source_url", row.get("source_url", ""))
         require_text(path, row, "verified_on")
+        projects = row.get("projects", [])
+        if not isinstance(projects, list):
+            fail(path, "projects", "expected a list of project records")
+        for project in projects:
+            if not isinstance(project, dict):
+                fail(path, "projects", "each project must be an object")
+            for key in ("title", "summary"):
+                if not isinstance(project.get(key), str) or not project[key].strip():
+                    fail(path, "projects", f"each project needs a non-empty {key}")
+            researchers = project.get("researchers", [])
+            if not isinstance(researchers, list) or not all(isinstance(item, str) and item.strip() for item in researchers):
+                fail(path, "projects", "researchers must be a list of names")
+        row["projects"] = projects
         members = row.get("people", [])
         if not isinstance(members, list) or not all(isinstance(item, str) for item in members):
             fail(path, "people", "expected a list of researcher slugs")
@@ -521,7 +535,7 @@ def build() -> None:
         for person in data["people"]:
             search.append(page_entry(person["name"], person["bio"], " ".join(person.get("research_areas", [])), f'/people.html#{quote(person["slug"], safe="-")}', "People"))
         for area in data["research_areas"]:
-            search.append(page_entry(area["name"], area["summary"], area["slug"], f'/research-area.html?area={quote(area["slug"], safe="-")}', "Research area"))
+            search.append(page_entry(area["name"], area["summary"] + " " + area.get("overview", "") + " " + " ".join(p["title"] + " " + p["summary"] for p in area.get("projects", [])), area["slug"], f'/research-area.html?area={quote(area["slug"], safe="-")}', "Research area"))
         for pub in data["publications"]:
             authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
             desc = pub["abstract"]

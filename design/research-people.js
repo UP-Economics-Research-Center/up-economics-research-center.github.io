@@ -3,7 +3,11 @@
   const requested = params.get('area') || '';
   const title = document.getElementById('area-title');
   const number = document.getElementById('area-number');
+  const crumb = document.getElementById('area-crumb');
+  const question = document.getElementById('area-question');
+  const summary = document.getElementById('area-summary');
   const description = document.getElementById('area-description');
+  const projectsHost = document.getElementById('project-list');
   const team = document.getElementById('area-team');
   const outputs = document.getElementById('outputs-list');
   if (!title || !team || !outputs) return;
@@ -44,8 +48,35 @@
     }
 
     title.textContent = area.name;
+    if (crumb) crumb.textContent = area.name;
+    if (question) question.textContent = `${area.name}: research focus`;
     number.textContent = String(index + 1).padStart(2, '0');
-    if (description) description.textContent = area.summary;
+    if (summary) summary.textContent = area.summary;
+    if (description) description.textContent = area.overview || area.summary;
+
+    const projects = area.projects || [];
+    if (projectsHost) {
+      if (!projects.length) setNote(projectsHost, 'No current projects are listed for this area.');
+      else projectsHost.replaceChildren(...projects.map(project => {
+        const article = document.createElement('article');
+        article.className = 'publication';
+        const text = document.createElement('div');
+        const heading = document.createElement('h3');
+        heading.className = 'pub-title';
+        heading.textContent = project.title;
+        const detail = document.createElement('p');
+        detail.textContent = project.summary;
+        text.append(heading, detail);
+        if (project.researchers && project.researchers.length) {
+          const names = document.createElement('p');
+          names.className = 'pub-authors';
+          names.textContent = project.researchers.join(', ');
+          text.append(names);
+        }
+        article.append(text);
+        return article;
+      }));
+    }
 
     const members = people.filter(person => (person.research_areas || []).includes(area.slug));
     if (!members.length) {

@@ -1,12 +1,14 @@
 {
   "name": "Political Economy",
   "slug": "political-economy",
-  "summary": "Institutions, governance, and political decisions shape economic development, policy, and social outcomes.",
+  "summary": "Research examines how governance, institutions, property rights, trade, monetary arrangements, and regulation shape resource allocation and economic outcomes.",
   "people": [
     "esteban"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/political-economy",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The area connects institutional incentives to development, growth, inequality, and macroeconomic stability, drawing on historical, policy, and empirical approaches.",
+  "projects": []
 }

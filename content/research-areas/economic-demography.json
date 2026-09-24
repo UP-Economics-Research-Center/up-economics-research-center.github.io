@@ -1,10 +1,31 @@
 {
   "name": "Economic Demography",
   "slug": "economic-demography",
-  "summary": "Family decisions, population dynamics, and social norms shape economic and social outcomes.",
+  "summary": "Research studies how family decisions, population change, and social norms shape education, health, labor, and household welfare.",
   "people": [],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/demographic-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The agenda includes son preference, fertility, women’s health and safety, marriage timing, and intergenerational behavior within households.",
+  "projects": [
+    {
+      "title": "Beyond Fertility: Son Preference and Women’s Health in Nepal",
+      "summary": "Examines the relationship between son preference, fertility behavior, and maternal health in Nepal.",
+      "researchers": [
+        "Akito Kamei",
+        "Mukesh Kumar"
+      ]
+    },
+    {
+      "title": "Push and Pull Factors for (Early) Marriage, Bangladesh Integrated Household Survey Questionnaire (BIHS)",
+      "summary": "Uses the Bangladesh Integrated Household Survey to investigate factors associated with marriage timing.",
+      "researchers": [
+        "Akito Kamei",
+        "Mary Arends-Kuenning",
+        "Abigail Stocker",
+        "Farhana Kabir"
+      ]
+    }
+  ]
 }

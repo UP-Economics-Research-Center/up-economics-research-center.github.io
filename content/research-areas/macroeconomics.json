@@ -1,13 +1,24 @@
 {
   "name": "Macroeconomics",
   "slug": "macroeconomics",
-  "summary": "Research on economic growth, crises, financial systems, public spending, inflation, and policy.",
+  "summary": "Research addresses economic growth, crises, inflation, sovereign debt, productivity, trade, and the institutions that guide macroeconomic policy.",
   "people": [
     "arnulfo",
     "juan-alvaro"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/macro-economy",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The agenda includes the consequences of sovereign default, productivity costs during crises, trade agreements, monetary institutions, and inflation expectations in Mexico.",
+  "projects": [
+    {
+      "title": "Inflation Expectations and the Phillips Curve in Mexico",
+      "summary": "Studies the relationship between inflation expectations and price dynamics in Mexico, including the role of credibility in the inflation-targeting regime.",
+      "researchers": [
+        "Juan Álvaro D. Kedilhac",
+        "Arnulfo Rodríguez Hernández"
+      ]
+    }
+  ]
 }

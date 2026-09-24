@@ -1,14 +1,34 @@
 {
   "name": "Education and Human Capital",
   "slug": "education-and-human-capital",
-  "summary": "Education and investment in human capital shape economic opportunity and long-term well-being.",
+  "summary": "Research examines barriers to quality learning, learning poverty, and unequal access to educational resources, and how these gaps shape income and social mobility.",
   "people": [
     "akito",
     "jose-miguel",
     "luciano"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/education-and-human-capital",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The agenda evaluates scalable education policies and interventions using experimental and quasi-experimental methods alongside administrative and survey data.",
+  "projects": [
+    {
+      "title": "Scaling Digital Learning to Reduce Inequality: Evidence from a Randomized Trial in Mexico",
+      "summary": "A randomized trial evaluates the UNICEF and Microsoft Learning Passport in Mexican upper-secondary schools, with attention to learning outcomes and inequality.",
+      "researchers": [
+        "Akito Kamei",
+        "Janina Cuevas Zúñiga",
+        "Marta Carnelli",
+        "Thomas Dreesen"
+      ]
+    },
+    {
+      "title": "Human Capital in Mexico: Does Being Late Have a Cost? Starting Age, Schooling Delay, and Returns to Education",
+      "summary": "Studies whether school starting age and delayed progression through school affect later labor-market outcomes.",
+      "researchers": [
+        "José Miguel Montoya Morales"
+      ]
+    }
+  ]
 }

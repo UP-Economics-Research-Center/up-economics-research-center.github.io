@@ -1,12 +1,30 @@
 {
   "name": "Digital and Business Economics",
   "slug": "digital-and-business-economics",
-  "summary": "Digital technologies and business decisions shape work, learning, communication, and economic opportunity.",
+  "summary": "Research studies how digital technologies, platforms, financial innovation, and business decisions reshape organizations, markets, work, and economic opportunity.",
   "people": [
     "eugenio"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/digital-and-business-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "Current work considers digital government, fintech adoption and inclusion, and how organizations communicate policies and compete in changing markets.",
+  "projects": [
+    {
+      "title": "Impact of Government Digitalization on Business: Evidence from Estonia’s Digital Transformation",
+      "summary": "Uses a synthetic-control design to examine whether Estonia’s e-government transformation translated into measurable business and economic benefits.",
+      "researchers": [
+        "Akito Kamei"
+      ]
+    },
+    {
+      "title": "Bridging the Fintech Gap: Regulatory Frictions and Active Financial Inclusion in an Emerging Economy",
+      "summary": "Uses stakeholder interviews to investigate why Mexico’s developed fintech infrastructure has not yet produced broad financial inclusion.",
+      "researchers": [
+        "Eugenio Gómez-Alatorre",
+        "Laura Jiménez Casillas"
+      ]
+    }
+  ]
 }
