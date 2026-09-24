@@ -1,3 +1,5 @@
 _site/
 __pycache__/
 .pages-build-*/
+.wrangler/
+.wrangler/
