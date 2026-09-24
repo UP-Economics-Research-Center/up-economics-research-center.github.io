@@ -9,7 +9,7 @@
       "name": "Rafael Garduno Rivera"
     }
   ],
-  "abstract": "A synthetic-control analysis finds that the estimated per-capita GDP effects of U.S. free-trade agreements differ across member countries, with positive estimates for Chile and Jordan and a potentially negative estimate for Mexico under NAFTA.",
+  "abstract": "This study estimates the effects on member countries’ per-capita GDP of signing free-trade agreements with the United States. It applies the synthetic-control method to construct a counterfactual path for each country’s GDP in the absence of an agreement, allowing the difference from observed outcomes to be interpreted as an estimated causal effect. The results are heterogeneous: the estimates indicate positive effects for Chile and Jordan, while NAFTA is estimated to have harmed Mexico’s per-capita GDP.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Regional Science Policy & Practice",
@@ -21,5 +21,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/political-economy",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

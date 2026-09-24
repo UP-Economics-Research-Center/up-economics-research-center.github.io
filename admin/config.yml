@@ -132,7 +132,7 @@ collections:
         fields:
           - { label: Author name, name: name, widget: string }
           - { label: Center researcher slug, name: person_id, widget: string, required: false }
-      - { label: Abstract, name: abstract, widget: text }
+      - { label: Complete abstract, name: abstract, widget: text, hint: Write a complete, source-checked paraphrase of the paper’s abstract, covering the question, method, main findings, and conclusion. Do not copy publisher text verbatim. }
       - { label: Year, name: year, widget: number, value_type: int, min: 1900, max: 2100 }
       - label: Publication type
         name: type

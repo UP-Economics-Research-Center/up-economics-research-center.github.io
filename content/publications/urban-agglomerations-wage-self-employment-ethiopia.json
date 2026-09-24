@@ -9,7 +9,7 @@
       "name": "Shohei Nakamura"
     }
   ],
-  "abstract": "Using worker-level data and an instrumental-variable strategy, the study finds that larger towns shift employment away from self-employment toward wage jobs, with stronger patterns for women, younger people, and workers with less education.",
+  "abstract": "Evidence on urban agglomeration and worker productivity is well established for developed economies but remains limited for developing countries. This study examines how town size relates to the balance between wage employment and self-employment in Ethiopia, one of the world’s least urbanized low-income countries. An instrumental-variable analysis of cross-sectional worker data estimates that a one-log increase in town population lowers the probability of self-employment by 7.9 percentage points. Women, younger people, and people with less education are especially likely to work in wage jobs in larger towns, pointing to an important relationship between urban growth and changing employment patterns.",
   "year": 2022,
   "type": "Journal article",
   "venue": "The Journal of Development Studies",
@@ -20,5 +20,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/development-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

@@ -12,7 +12,7 @@
       "name": "Ignacio Ferrero"
     }
   ],
-  "abstract": "A cluster-randomized study at a Mexican pawnshop chain tests communication approaches for an existing code of ethics. The intervention did not significantly improve workers’ understanding of the code.",
+  "abstract": "Organizations often communicate codes of ethics without knowing whether those communications improve employees’ understanding. This study uses a cluster-randomized field experiment at a Mexican pawnshop chain, involving 519 workers, to evaluate communication about an existing code. The tested communication did not produce a statistically significant improvement in workers’ understanding of the code. The results highlight the difference between distributing an ethics policy and ensuring that employees comprehend it.",
   "year": 2022,
   "type": "Journal article",
   "venue": "Business and Society Review",
@@ -23,5 +23,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/digital-and-business-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

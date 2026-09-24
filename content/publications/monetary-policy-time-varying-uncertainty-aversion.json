@@ -9,7 +9,7 @@
       "name": "Arnulfo Rodriguez"
     }
   ],
-  "abstract": "The paper analyzes monetary-policy decisions in a model where aversion to uncertainty changes over time, focusing on how uncertainty and regime shifts affect policy responses.",
+  "abstract": "The paper develops a framework for studying optimal policy by an inflation-targeting central bank that is uncertain about the structure of the economy and whose degree of uncertainty aversion changes over time. Such shifts can reflect structural breaks or shocks to prices, output, or the real exchange rate. Robust control represents the policymaker’s aversion to model uncertainty, while a Markov chain captures changes in that aversion. The model generally implies a more forceful interest-rate response when uncertainty aversion is higher or is more likely to rise. Greater aversion also lowers the policymaker’s welfare, while the effect of Markov transition probabilities on expected losses is ambiguous.",
   "year": 2013,
   "type": "Journal article",
   "venue": "Computational Economics",
@@ -20,5 +20,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/macro-economy",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

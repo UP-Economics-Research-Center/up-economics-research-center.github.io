@@ -6,7 +6,7 @@
       "name": "Akito Kamei"
     }
   ],
-  "abstract": "The study examines how the sex composition of children and son preference relate to family size and domestic violence against mothers in India and Nepal.",
+  "abstract": "This article studies how children’s sex composition relates to intimate partner violence in India and Nepal, where the preference to have at least one son is widespread. Using household surveys, the analysis compares women whose earlier children have the same sex composition but whose next newborn differs in sex. The sex of the first or second child is not associated with a change in mothers’ IPV risk. By the third birth, however, having no son is associated with a 9.6% higher violence index than having a son; the association is larger in less-affluent households and where the husband has no education. Sensitivity checks address possible unobserved factors related to sex-selective abortion. Mediation analysis attributes about 40% of the increase in IPV in the more disadvantaged groups to the decision to have another child. The findings connect pressure for sons, subsequent fertility decisions, and women’s safety.",
   "year": 2025,
   "type": "Journal article",
   "venue": "The Journal of Development Studies",
@@ -17,5 +17,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/demographic-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

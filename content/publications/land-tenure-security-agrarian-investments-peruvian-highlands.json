@@ -15,7 +15,7 @@
       "name": "Esteban Colla De Robertis"
     }
   ],
-  "abstract": "The study investigates how land-tenure security relates to agricultural investment in the Peruvian Highlands.",
+  "abstract": "The empirical relationship between secure land tenure and agricultural investment has been mixed. This study estimates a simultaneous-equation model of tenure security and nine types of land investment using Peru’s agricultural census, focusing on the Peruvian Highlands and its land-titling program. Greater tenure security is positively and significantly associated with five of the nine investments, although the estimated effects are small; for two investments associated with customary land management, the relationship is negative. The results suggest that titling can support rural investment but may be insufficient on its own, and should complement rather than replace customary institutions where those institutions function well. The analysis also points to education, training, and gender equality as relevant parts of rural-development policy.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Land Use Policy",
@@ -27,5 +27,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }
