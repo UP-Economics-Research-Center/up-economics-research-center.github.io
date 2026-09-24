@@ -1,12 +1,13 @@
 {
   "retrieved": "2026-09-24",
   "video": {
-    "title": "Universidad Panamericana - CDMX v2023",
-    "author": "UP Internacional",
-    "sourcePage": "https://www.up.edu.mx/en/aboutus/",
-    "url": "https://www.youtube.com/watch?v=rjUKsJuxgVQ",
+    "title": "Ciudad Panamericana | Video institucional 2025 - 2026",
+    "author": "Universidad Panamericana",
+    "authorUrl": "https://www.youtube.com/@upmexico",
+    "sourcePage": "https://www.youtube.com/watch?v=RW-7awQGxPY",
+    "url": "https://www.youtube.com/watch?v=RW-7awQGxPY",
     "poster": "assets/up-campus-video-poster.jpg",
-    "implementation": "Click to play; existing YouTube embed; original-link fallback. Not generated."
+    "implementation": "Muted autoplay with visible controls; click-to-play fallback when reduced motion is requested. Not generated."
   },
   "portraits": [
     {
