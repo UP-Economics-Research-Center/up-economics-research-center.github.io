@@ -551,3 +551,29 @@ footer{padding-top:64px}
 .publication-detail .pub-tags{display:flex;flex-wrap:wrap;gap:8px}
 .publication-detail .pub-tags .tag{display:inline-flex}
 @media(max-width:640px){.publication-abstract{margin:30px 0}.publication-detail-actions{display:grid;justify-items:start}}
+
+/* Mobile spacing for research and long publication titles. */
+@media(max-width:760px){
+ .area-content{gap:24px}
+ .side-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+ .side-index a{font-size:14px;line-height:1.35;min-width:0;overflow-wrap:anywhere}
+ .area-main{min-width:0}
+ .area-main .split-label{margin-top:36px}
+ .area-main .publication{grid-template-columns:minmax(0,1fr);gap:8px;padding:22px 0}
+ .area-main .pub-title{font-size:clamp(19px,5vw,22px);line-height:1.35}
+ .area-main .pub-authors{font-size:15px;line-height:1.5}
+ .publication-detail-layout,.publication-detail{min-width:0;width:100%}
+ .publication-detail .pub-authors,.publication-detail .pub-venue{overflow-wrap:anywhere;line-height:1.55}
+ .publication-abstract p{font-size:17px;line-height:1.7}
+ .publication-detail-actions{gap:8px}
+ .publication-detail-actions .text-link{line-height:1.5;overflow-wrap:anywhere}
+}
+@media(max-width:420px){
+ .side-index{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}
+ .feature-area-copy{padding-top:28px;padding-bottom:34px}
+ .feature-area-copy p{font-size:17px;line-height:1.65}
+ .area-main .split-label{margin-top:30px}
+ .area-main h2{font-size:clamp(25px,7vw,32px);line-height:1.25}
+ .area-main .publication{padding:19px 0}
+ .pub-actions a,.publication-detail-actions .text-link{min-height:48px}
+}
