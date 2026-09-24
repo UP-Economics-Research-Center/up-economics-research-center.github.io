@@ -91,6 +91,18 @@ collections:
       - { label: Name, name: name, widget: string }
       - { label: Stable URL ID, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
       - { label: Summary, name: summary, widget: text }
+      - { label: Area overview, name: overview, widget: text, hint: Explain the research questions and scope in a short paragraph. }
+      - label: Current projects
+        name: projects
+        widget: list
+        required: false
+        fields:
+          - { label: Project title, name: title, widget: string }
+          - { label: Project summary, name: summary, widget: text }
+          - label: Researchers
+            name: researchers
+            widget: list
+            field: { label: Researcher name, name: name, widget: string }
       - label: Researchers
         name: people
         widget: list

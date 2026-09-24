@@ -1,0 +1,25 @@
+{
+  "title": "The effect of a free trade agreement with the United States on member countries’ per capita GDP: A synthetic control analysis",
+  "slug": "fta-member-gdp-synthetic-control",
+  "authors": [
+    {
+      "name": "Esteban Colla-De-Robertis"
+    },
+    {
+      "name": "Rafael Garduno Rivera"
+    }
+  ],
+  "abstract": "A synthetic-control analysis finds that the estimated per-capita GDP effects of U.S. free-trade agreements differ across member countries, with positive estimates for Chile and Jordan and a potentially negative estimate for Mexico under NAFTA.",
+  "year": 2021,
+  "type": "Journal article",
+  "venue": "Regional Science Policy & Practice",
+  "doi": "10.1111/rsp3.12402",
+  "canonical_url": "https://doi.org/10.1111/rsp3.12402",
+  "topics": [
+    "political-economy",
+    "development-economics"
+  ],
+  "source_url": "https://sites.google.com/view/akitokamei/political-economy",
+  "verified_on": "2026-09-24",
+  "published": true
+}

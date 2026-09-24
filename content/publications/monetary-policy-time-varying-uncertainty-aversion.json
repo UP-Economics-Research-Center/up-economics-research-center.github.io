@@ -1,0 +1,24 @@
+{
+  "title": "Monetary Policy Under Time-Varying Uncertainty Aversion",
+  "slug": "monetary-policy-time-varying-uncertainty-aversion",
+  "authors": [
+    {
+      "name": "Fidel Gonzalez"
+    },
+    {
+      "name": "Arnulfo Rodriguez"
+    }
+  ],
+  "abstract": "The paper analyzes monetary-policy decisions in a model where aversion to uncertainty changes over time, focusing on how uncertainty and regime shifts affect policy responses.",
+  "year": 2013,
+  "type": "Journal article",
+  "venue": "Computational Economics",
+  "doi": "10.1007/s10614-011-9303-x",
+  "canonical_url": "https://doi.org/10.1007/s10614-011-9303-x",
+  "topics": [
+    "macroeconomics"
+  ],
+  "source_url": "https://sites.google.com/view/akitokamei/macro-economy",
+  "verified_on": "2026-09-24",
+  "published": true
+}

@@ -1,13 +1,32 @@
 {
   "name": "Health, Water and Sanitation",
   "slug": "health-water-sanitation",
-  "summary": "Health and essential services, including water and sanitation, affect well-being and economic development.",
+  "summary": "Research studies health risks connected to poverty, infrastructure, and access to essential services, including drinking water, sanitation, and nutrition.",
   "people": [
     "akito",
     "andrea"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The agenda includes water quality and treatment, child health, nutritional outcomes, and family health decisions, using survey evidence and causal methods.",
+  "projects": [
+    {
+      "title": "Water Treatment, E. coli in Drinking Water, and Diarrhea: Causal Inference Using Double/Debiased Machine Learning",
+      "summary": "Applies double/debiased machine learning to estimate links between drinking-water contamination and child diarrhea across 25 countries.",
+      "researchers": [
+        "Juan Álvaro Díaz Raimond Kedilhac",
+        "Akito Kamei"
+      ]
+    },
+    {
+      "title": "Intergenerational Transmission of Obesity in Mexico",
+      "summary": "Studies parent-adolescent obesity patterns in Mexican health-survey data, including differences by parent and child gender.",
+      "researchers": [
+        "Andrea Corte Aréchiga",
+        "Akito Kamei"
+      ]
+    }
+  ]
 }

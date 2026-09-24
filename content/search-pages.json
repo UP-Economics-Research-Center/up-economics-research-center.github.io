@@ -1,9 +1,9 @@
 [
   {"name":"Home","description":"UP Economics Research Center at Universidad Panamericana.","keywords":"home welcome universidad panamericana campus","url":"/","group":"Page"},
-  {"name":"Research","description":"Explore approved research areas and current work.","keywords":"research areas topics projects","url":"/design/research.html","group":"Section"},
-  {"name":"People","description":"Approved profiles of Center researchers.","keywords":"people faculty researchers staff team profiles","url":"/design/people.html","group":"Section"},
-  {"name":"Publications","description":"Browse verified articles, working papers, books, and briefs.","keywords":"publications papers journal article working paper books abstract authors pdf doi","url":"/design/publications.html","group":"Section"},
-  {"name":"Seminars","description":"Browse confirmed research talks and seminar recordings.","keywords":"seminars talks events speaker calendar research","url":"/design/seminars.html","group":"Section"},
-  {"name":"News","description":"Read approved announcements from the Center.","keywords":"news announcements updates","url":"/design/news.html","group":"Section"},
-  {"name":"About and contact","description":"Learn about the Center and find verified public contact details.","keywords":"about contact collaboration email","url":"/design/about.html#contact","group":"Section"}
+  {"name":"Research","description":"Explore approved research areas and current work.","keywords":"research areas topics projects","url":"/research.html","group":"Section"},
+  {"name":"People","description":"Approved profiles of Center researchers.","keywords":"people faculty researchers staff team profiles","url":"/people.html","group":"Section"},
+  {"name":"Publications","description":"Browse verified articles, working papers, books, and briefs.","keywords":"publications papers journal article working paper books abstract authors pdf doi","url":"/publications.html","group":"Section"},
+  {"name":"Seminars","description":"Browse confirmed research talks and seminar recordings.","keywords":"seminars talks events speaker calendar research","url":"/seminars.html","group":"Section"},
+  {"name":"News","description":"Read approved announcements from the Center.","keywords":"news announcements updates","url":"/news.html","group":"Section"},
+  {"name":"About and contact","description":"Learn about the Center and find verified public contact details.","keywords":"about contact collaboration email","url":"/about.html#contact","group":"Section"}
 ]

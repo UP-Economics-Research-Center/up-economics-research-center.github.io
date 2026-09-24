@@ -1,7 +1,7 @@
 {
   "name": "Development Economics",
   "slug": "development-economics",
-  "summary": "Economic and social challenges shape well-being, inequality, and long-term development.",
+  "summary": "Research studies well-being, inequality, and economic development, including gaps in education, health, employment, and public safety.",
   "people": [
     "akito",
     "esteban",
@@ -10,7 +10,35 @@
     "luciano"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/development-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "The area examines how institutions and socioeconomic conditions affect households and communities, with empirical work focused on Mexico and other lower- and middle-income settings.",
+  "projects": [
+    {
+      "title": "Inequality and Intergenerational Persistence in Mexico: A Subnational Great Gatsby Curve Using EMOVI 2023",
+      "summary": "Measures how inequality and social mobility vary across regions and groups in Mexico using EMOVI 2023.",
+      "researchers": [
+        "Marytell Arciniega Castellanos"
+      ]
+    },
+    {
+      "title": "Inequality, Economic Conditions, and Crime Types: Evidence from Mexican Municipalities",
+      "summary": "Studies how municipal economic and social conditions relate to different types of crime across Mexico.",
+      "researchers": [
+        "Joshua M. Torres",
+        "Akito Kamei"
+      ]
+    },
+    {
+      "title": "Child Labor, Workplace Risks, and Health Outcomes in Mexico",
+      "summary": "Uses Mexico’s ENTI 2022 survey to study children’s work risks and associated health outcomes.",
+      "researchers": [
+        "Luciano A. Quintana",
+        "Enrique Minor",
+        "Akito Kamei",
+        "Hyuk Harry Son"
+      ]
+    }
+  ]
 }

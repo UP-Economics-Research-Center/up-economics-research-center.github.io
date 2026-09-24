@@ -1,10 +1,22 @@
 {
   "name": "Agricultural Economics",
   "slug": "agricultural-economics",
-  "summary": "Agricultural and production decisions affect households, firms, land, and natural resources.",
+  "summary": "Research studies land, natural resources, food systems, and rural economic development, including the incentives that shape investment and conservation.",
   "people": [],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "overview": "Current work examines land tenure, farm investment, agricultural technology, climate risk, and the institutional conditions that influence production and environmental practices.",
+  "projects": [
+    {
+      "title": "Land Tenure and Soil Conservation in Peru: Evidence from Double/Debiased Machine Learning",
+      "summary": "Examines whether land titles support soil-conservation practices in Peru, combining agricultural census information with local institutional measures.",
+      "researchers": [
+        "Esteban Colla-De-Robertis",
+        "Akito Kamei",
+        "Sandro Navarro-Castañeda"
+      ]
+    }
+  ]
 }
