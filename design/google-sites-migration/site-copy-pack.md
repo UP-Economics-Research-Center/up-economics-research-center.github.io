@@ -118,7 +118,7 @@ Research links: Digital and Business Economics; Political Economy; Macroeconomic
 Portrait file: assets/people/esteban.jpg
 Profile link: https://www.up.edu.mx/en/investigador/esteban-colla-de-robertis/
 
-### Majo
+### Maria Jose Favela
 Group: Faculty Researchers
 Summary: Studies labor markets, disability, and educational inequality, with interests in institutions and urban development.
 Research links: Related areas — not a confirmed team assignment: Education and Human Capital; Development Economics.

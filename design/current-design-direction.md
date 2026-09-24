@@ -53,4 +53,4 @@ Home now uses a click-to-play existing UP campus film instead of generated photo
 
 ## Completed people imagery and topic links
 
-All twelve portraits are now present. Mini biographies accompany the profiles, with research-area links and reciprocal team links on all nine area views. Majo’s related topics are distinguished from documented team membership.
+All twelve portraits are now present. Mini biographies accompany the profiles, with research-area links and reciprocal team links on all nine area views. Maria Jose Favela’s related topics are distinguished from documented team membership.
