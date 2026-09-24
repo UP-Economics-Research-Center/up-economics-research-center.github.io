@@ -59,7 +59,7 @@
       if (!projects.length) setNote(projectsHost, 'No current projects are listed for this area.');
       else projectsHost.replaceChildren(...projects.map(project => {
         const article = document.createElement('article');
-        article.className = 'publication';
+        article.className = 'publication project-card';
         const text = document.createElement('div');
         const heading = document.createElement('h3');
         heading.className = 'pub-title';
