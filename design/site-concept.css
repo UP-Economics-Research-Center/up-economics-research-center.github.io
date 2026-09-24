@@ -551,3 +551,9 @@ footer{padding-top:64px}
 .publication-detail .pub-tags{display:flex;flex-wrap:wrap;gap:8px}
 .publication-detail .pub-tags .tag{display:inline-flex}
 @media(max-width:640px){.publication-abstract{margin:30px 0}.publication-detail-actions{display:grid;justify-items:start}}
+
+
+/* Project summaries have one content column, unlike publication rows. */
+.project-card{grid-template-columns:minmax(0,1fr)}
+.project-card>div{min-width:0}
+.project-card .pub-title{overflow-wrap:break-word;word-break:normal}
