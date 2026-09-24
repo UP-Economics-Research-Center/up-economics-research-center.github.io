@@ -1,55 +1,62 @@
 # Econ Site
 
-Static website for the **Economics Research Center, Universidad Panamericana**. The live organization site is <https://up-economics-research-center.github.io/>.
+Static website for the **Economics Research Center, Universidad Panamericana**. The public site is <https://up-economics-research-center.github.io/>.
 
-## Project files
+## How the site is built
 
-- `index.html` and `design/` contain the site pages, shared styles, scripts, and original media.
-- `docs/` contains design decisions, migration materials, and the CMS design specification.
-- `admin/` and `content/` are reserved for the Decap CMS editor and its records.
+- `index.html`, `design/`, and local media define the presentation.
+- `content/` contains Decap CMS records. Only records with `published: true` appear publicly.
+- `tools/build_site.py` validates editorial records and builds the complete static site into `_site/`.
+- `.github/workflows/pages.yml` builds `_site/` and deploys it to GitHub Pages after a change is merged into `main`.
+- `admin/` contains the Decap CMS entry point; `oauth-worker/` contains the GitHub sign-in service source.
 
-The current site is a static mock hosted by GitHub Pages. Its layout and visual design remain in the existing HTML and `design/site-concept.css`.
+Build locally with Python 3 (no packages required):
 
-## Decap CMS for editors
+```sh
+python3 tools/build_site.py
+python3 -m http.server --directory _site 8000
+```
 
-**Setup status:** Decap CMS is being prepared. The steps below describe the agreed workflow; `/admin/` will be ready after the CMS and GitHub sign-in service are deployed.
+Then open <http://localhost:8000/>. Do not edit generated `_site/` files; change the HTML/CSS or the records they are generated from.
 
-1. Open <https://up-economics-research-center.github.io/admin/> and choose **Login with GitHub**. The organization owner must first invite you to the repository and you must authorize the sign-in application.
-2. Choose a section such as People, Research Areas, Publications, Seminars, News, or Site Settings.
-3. Open an existing item to update it, or choose **New** to add one. Fill in the named fields, keep the source link and verification information, and use the preview to review the result. You do not need to edit HTML or CSS.
-4. Save your work as a draft, then mark it ready for review. Decap creates a pull request; this does not publish the change.
-5. A maintainer checks the facts, sources, image permissions, links, and preview. The change goes live only after a maintainer approves and merges the pull request.
-6. GitHub Actions deploys the approved change to the public site after the merge. The site update may take a short time to appear.
+## Using Decap CMS
 
-People who are not invited to the CMS can propose a change by opening a pull request from GitHub. A maintainer reviews it before publication.
+The CMS is at <https://up-economics-research-center.github.io/admin/>. **Sign-in becomes available only after the organization owner completes the OAuth setup below and deploys the updated Pages site.** Editors need a GitHub account invited as a collaborator to the repository.
 
-### Adding or changing an image
+1. Open `/admin/` and choose **Login with GitHub**.
+2. Choose a collection: Researchers, Research Areas, Publications, News, Seminars, Site Settings, or About.
+3. Edit named fields, keep the source URL and verification date, and use the editor’s preview pane to review the formatted record. You do not need to edit HTML or CSS.
+4. Mark your work ready for review. Decap prepares it for review in GitHub; the public site does not change yet.
+5. A maintainer checks the facts, sources, links, and image permissions, then approves and merges the pull request.
+6. GitHub Actions builds and publishes the merged content. Check the Pages workflow in the repository’s **Actions** tab if the site has not updated after a few minutes.
 
-Use the CMS media chooser to add the image. Enter useful alternative text, keep the original media source and permission information, and preview the crop. Do not upload generated or unapproved portraits. The source media register is `design/assets/media-sources.json`.
+People who are not invited as repository collaborators can propose edits by opening a GitHub pull request. A maintainer must review and merge it before publication.
+
+### Adding a publication
+
+Enter the title, author names in citation order, abstract, year, type, and source URL. Add a DOI or canonical publisher page when one exists, select verified research-area IDs, and add a PDF only when the Center has permission to distribute it. The site makes a detail page with the abstract, authors, citation details, topic links, publisher page, and optional PDF download. A paper appears only after the maintainer reviews and merges its record.
+
+### Adding images
+
+Use the CMS media chooser and provide useful alternative text. Keep source and permission information in the review. Do not upload generated or unapproved portraits. The original media register is in `design/assets/media-sources.json` and is used by the editors; it is not copied to the public build.
 
 ### Content review
 
-- Keep research biographies, affiliations, event dates, citations, and contact details current and sourced.
-- Do not publish illustrative publication records, unconfirmed events, or unsupported contact information as facts.
-- If a record has not been verified, leave it in draft and mention what needs checking in the pull request.
+Keep affiliations, biographies, event dates, citations, and contact details current and supported by a source. Leave uncertain entries unpublished and explain what needs checking in the pull request. The initial researcher and research-area records were transcribed from the Center source page linked from the existing directory; check their current roles and research-area matches during future edits.
 
-### Owner setup required before editors can sign in
+## Owner setup: GitHub sign-in
 
-The organization owner needs to deploy the OAuth Worker, create a GitHub OAuth App, store its secret in Cloudflare, invite editors to the repository, and require a pull request review for `main`. Never put a client secret or access token in this repository. The implementation guide will replace this setup note with the final account steps once the CMS is installed.
+These one-time steps require an organization/repository maintainer and access to the Center’s Cloudflare account. Until they are complete, `/admin/` displays a setup notice and editors cannot sign in.
 
-## Local preview
+1. Create a **GitHub OAuth App** under the organization. Set its callback URL to `https://YOUR-WORKER.workers.dev/callback`. The Worker handles only the repository’s public content and requests the `public_repo` scope.
+2. In `oauth-worker/wrangler.toml`, set `SITE_ORIGIN` to `https://up-economics-research-center.github.io`. Deploy the Worker from the `oauth-worker/` directory using Cloudflare Wrangler.
+3. Set the Worker secrets with Wrangler: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and a long random `STATE_SIGNING_SECRET`. Never commit these values or put the client secret in Decap configuration.
+4. In `admin/config.yml`, replace `backend.base_url` with the deployed Worker origin, for example `https://YOUR-WORKER.workers.dev` (without a trailing slash). Commit and merge this configuration change so GitHub Pages deploys it.
+5. Invite each editor as a collaborator to the public site repository and require at least one maintainer approval for changes to `main` in the repository’s branch protection/ruleset settings.
+6. Ask an invited editor to sign in at `/admin/`, save a small draft, and confirm it arrives for review without changing the live site. Merge only after review.
 
-From the repository root, run:
+If GitHub returns an access or organization-permission error, ask an organization owner to invite the editor or adjust repository access. Never share OAuth secrets or personal access tokens in pull requests or chat. To rotate credentials, update the Worker secret bindings and redeploy it; do not add credentials to this repository.
 
-```sh
-python3 -m http.server 8000
-```
+## Design guidance
 
-Then visit <http://localhost:8000/>. Open `design/homepage-concept.html` to compare the source design page. GitHub Pages serves `index.html` at the organization root.
-
-## Editorial and visual guidance
-
-- Preserve the existing HTML, shared styles, and local media unless the Center asks for a redesign.
-- Keep dates and citations current and link each item to its canonical source.
-- Editors should change content fields, not page styling.
-- See `AGENTS.md` for project-wide editing guidance and use the setup status above to tell whether CMS sign-in is available yet.
+Preserve the existing HTML, shared styles, and local media unless the Center approves a redesign. Keep public copy and paper metadata sourced. Editors should change content fields; the implementation plan and design decisions are in `docs/`.

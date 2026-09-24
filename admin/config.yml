@@ -59,7 +59,10 @@ collections:
     fields:
       - { label: Name, name: name, widget: string }
       - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - { label: Role, name: role, widget: string }
+      - label: Role
+        name: role
+        widget: select
+        options: [Lead researcher, Research professional, Other]
       - { label: Biography, name: bio, widget: text }
       - { label: Portrait, name: portrait, widget: image, required: false }
       - { label: Portrait alternative text, name: portrait_alt, widget: string, required: false }
@@ -151,8 +154,12 @@ collections:
       - { label: Title, name: title, widget: string }
       - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
       - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - label: Category
+        name: category
+        widget: select
+        options: [Announcement, Publication, People, Seminar, Research]
       - { label: Summary, name: summary, widget: text }
-      - { label: Story, name: body, widget: markdown, required: false }
+      - { label: Story, name: body, widget: text, required: false }
       - { label: Canonical URL, name: canonical_url, widget: string, required: false }
       - { label: Source URL, name: source_url, widget: string }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }

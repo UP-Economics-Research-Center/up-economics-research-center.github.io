@@ -1,0 +1,6 @@
+name = "up-economics-decap-auth"
+main = "src/index.js"
+compatibility_date = "2026-09-24"
+
+[vars]
+SITE_ORIGIN = "https://up-economics-research-center.github.io"
