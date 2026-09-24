@@ -1,6 +1,6 @@
 # Econ Site
 
-Static website for the **Economics Research Center, Universidad Panamericana**. The live organization site is <https://up-economic-research-center.github.io/>.
+Static website for the **Economics Research Center, Universidad Panamericana**. The live organization site is <https://up-economics-research-center.github.io/>.
 
 ## Project files
 
@@ -14,7 +14,7 @@ The current site is a static mock hosted by GitHub Pages. Its layout and visual 
 
 **Setup status:** Decap CMS is being prepared. The steps below describe the agreed workflow; `/admin/` will be ready after the CMS and GitHub sign-in service are deployed.
 
-1. Open <https://up-economic-research-center.github.io/admin/> and choose **Login with GitHub**. The organization owner must first invite you to the repository and you must authorize the sign-in application.
+1. Open <https://up-economics-research-center.github.io/admin/> and choose **Login with GitHub**. The organization owner must first invite you to the repository and you must authorize the sign-in application.
 2. Choose a section such as People, Research Areas, Publications, Seminars, News, or Site Settings.
 3. Open an existing item to update it, or choose **New** to add one. Fill in the named fields, keep the source link and verification information, and use the preview to review the result. You do not need to edit HTML or CSS.
 4. Save your work as a draft, then mark it ready for review. Decap creates a pull request; this does not publish the change.
