@@ -27,7 +27,7 @@
       "name": "Amy J. Pickering"
     }
   ],
-  "abstract": "A randomized implementation trial in rural Odisha evaluates in-line chlorination as a way to reduce microbial contamination in drinking water while limiting the time households must spend treating water.",
+  "abstract": "In-line chlorination can disinfect piped water automatically, potentially reducing illness while avoiding the daily work of treating water at home. This one-year cluster-randomized implementation trial tested two chlorine-dosing devices in 20 villages in Rayagada district, Odisha, India. The study assessed installation and operation, community acceptance, chlorine levels, fecal contamination, and antibiotic-resistant E. coli using household surveys and water samples. Chlorine was detected in 51% of treatment-group tap samples, increasing to 78% after the target dose was raised; E. coli prevalence fell by 70% in tap water and 47% in stored water, while antibiotic-resistant E. coli in stored water fell by 67%. Residents continued using piped water despite some taste complaints, and treatment households spent less time treating water manually, work usually done by women. The results show potential for better water quality and lower household time costs, while underscoring the need for sustained implementation and monitoring.",
   "year": 2026,
   "type": "Journal article",
   "venue": "PLOS Water",
@@ -38,5 +38,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

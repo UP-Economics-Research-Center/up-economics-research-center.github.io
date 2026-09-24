@@ -6,7 +6,7 @@
       "name": "Eugenio Gomez-Alatorre"
     }
   ],
-  "abstract": "This teaching case follows a Mexican stablecoin payments company as it competes with larger providers, considering strategic choices around small and medium-sized businesses, payroll, treasury services, and customer focus.",
+  "abstract": "This teaching case follows VelaFi, a Mexico-based company using dollar-linked stablecoins to make cross-border payments faster and less costly than traditional correspondent banking. After demonstrating its model, the startup faces competition from much larger financial and technology firms entering the same market. The case asks how a resource-constrained company can establish a defensible position, considering specialization in international payroll or treasury services, a focus on underserved Latin American businesses, and service features that larger competitors may find difficult to match. It is intended to support discussion of stablecoins, disruption, and regulation in emerging-market financial services.",
   "year": 2026,
   "type": "Other",
   "venue": "Emerald Emerging Markets Case Studies",
@@ -17,5 +17,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/digital-and-business-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

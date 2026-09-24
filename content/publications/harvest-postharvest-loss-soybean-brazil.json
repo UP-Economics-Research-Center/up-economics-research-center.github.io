@@ -18,7 +18,7 @@
       "name": "Gisele Esser Romani"
     }
   ],
-  "abstract": "The paper examines factors associated with soybean harvest and postharvest losses among farmers in western Paraná, Brazil.",
+  "abstract": "This article analyzes self-reported harvest losses among 243 soybean farmers in Paraná, Brazil, and asks how farm and harvesting arrangements contribute to food loss. The authors identify a principal-agent problem: operators may prioritize finishing quickly even though slower, properly adjusted combines reduce losses, and farmers also cite operator training as important. Farmers who hire a third party to harvest report losses 1.5 percentage points higher. More education is associated with lower losses, while larger planted areas are associated with higher losses. The findings suggest that the identity and incentives of the person operating harvesting equipment matter, and that training and contract arrangements aligning farmers’ and operators’ incentives may help reduce losses.",
   "year": 2022,
   "type": "Journal article",
   "venue": "Food Policy",
@@ -29,5 +29,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

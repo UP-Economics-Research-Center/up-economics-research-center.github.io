@@ -12,7 +12,7 @@
       "name": "Rebecca Thornton"
     }
   ],
-  "abstract": "A randomized trial with women in northern Uganda evaluates whether access to pregnancy tests changes demand for family-planning services.",
+  "abstract": "This randomized trial provides experimental evidence on whether access to pregnancy tests affects demand for modern family planning among women in Northern Uganda who were not using modern contraception. The study assigned 810 women to offers of an immediate urine test, a home-use test kit, both offers, or a control group; home kits were offered free or at randomly assigned prices. Four weeks later, women could obtain contraception at no charge through local outreach centers. Sixty-two percent accepted a free immediate test, and 97% accepted a free home-use strip, while demand for future-use tests declined as the price increased. Despite this substantial interest in testing, the offers did not produce a large or statistically significant overall increase in family-planning uptake. The findings suggest that tests may support family-planning demand, but further work is needed to understand beliefs about pregnancy risk and the pathways that shape reproductive-health decisions.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Reproductive Health",
@@ -23,5 +23,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

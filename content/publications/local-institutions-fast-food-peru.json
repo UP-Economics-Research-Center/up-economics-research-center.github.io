@@ -9,7 +9,7 @@
       "name": "Sandro Navarro Castañeda"
     }
   ],
-  "abstract": "The study examines how municipal institutions and local infrastructure relate to the presence and number of fast-food outlets in Peru.",
+  "abstract": "This paper studies whether local institutional quality helps explain where fast-food outlets enter and how many operate in urban districts of Peru, where many districts have no outlets. The authors develop a market-entry framework in which demand, infrastructure, and local government institutions shape the equilibrium number of businesses. They build institutional-quality measures from municipal administrative and organizational characteristics and estimate separate relationships for outlet presence and outlet counts using a zero-inflated Poisson model. Institutional quality is most clearly associated with whether an outlet is present; urban-development management, information systems, and municipal investment-planning offices are among the relevant factors. The findings link effective local institutions with infrastructure that can lower business-entry costs, while data limitations prevent the study from assessing several other potential entry conditions.",
   "year": 2017,
   "type": "Journal article",
   "venue": "Management Research: Journal of the Iberoamerican Academy of Management",
@@ -20,5 +20,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/political-economy",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

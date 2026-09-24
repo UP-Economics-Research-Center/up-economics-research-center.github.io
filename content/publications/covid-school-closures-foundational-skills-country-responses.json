@@ -21,7 +21,7 @@
       "name": "Annika Rigole"
     }
   ],
-  "abstract": "Drawing on surveys from 13 countries, the study documents disruptions to school participation and learning and reviews government responses, including remote-learning provision, during COVID-19 closures.",
+  "abstract": "This article examines how school disruption and dropout relate to children’s foundational skills before and during the COVID-19 pandemic. Household survey data from 13 low- and lower-middle-income countries show that children who miss school or leave school tend to have weaker reading and numeracy outcomes. The authors also assess countries’ pandemic remote-learning responses and find that these efforts often did not reach every child, prevent dropout, or offset expected learning losses, particularly for marginalized children and those at pre-primary level.",
   "year": 2021,
   "type": "Journal article",
   "venue": "International Journal of Educational Development",
@@ -32,5 +32,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/education-and-human-capital",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

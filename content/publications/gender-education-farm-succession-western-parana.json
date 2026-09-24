@@ -18,7 +18,7 @@
       "name": "Pery Francisco Assis Shikida"
     }
   ],
-  "abstract": "The study examines how gender and education relate to succession decisions on farms in western Paraná, Brazil.",
+  "abstract": "Smallholder farming supports food security, but population aging, lower fertility, and expanded educational opportunities can make intergenerational farm succession more difficult. Using face-to-face survey data from a random, regionally representative sample of 205 soybean farmers in Western Paraná, Brazil, this study examines plans to pass a farm business to the next generation. About 64% planned a succession. Linear-probability estimates show that a household with no sons has a succession probability 37 percentage points lower; farms larger than 72 hectares are more likely to have a family successor, while farmers with college education are less likely to plan to pass the farm to their children. Participation in subsidized-credit programs such as Pronaf is associated with a greater chance of succession to a son or daughter. The findings indicate that traditional gender norms constrain succession, especially as families have fewer children, and suggest that credit programs and support for rural youth may help sustain family agriculture.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Land Use Policy",
@@ -30,5 +30,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

@@ -6,7 +6,7 @@ Create and maintain records through `/admin/` after the organization owner confi
 - `settings/about.json`: approved About-page scope, collaboration, and public contact.
 - `people/`: approved researcher profiles. Use source links for affiliation and research claims.
 - `research-areas/`: approved topic labels, short `summary`, fuller `overview`, repeatable `projects` (each with title, summary, and researcher names), links to researcher IDs, and the area source URL. Keep current projects separate from publication records.
-- `publications/`: papers with ordered authors, abstracts, year, type, venue, DOI/canonical link, topics, and optional approved PDF.
+- `publications/`: papers with ordered authors, complete source-checked abstract paraphrases, year, type, venue, DOI/canonical link, topics, and optional approved PDF. Preserve the full abstract on publication pages; do not shorten it to a teaser or copy publisher wording verbatim.
 - `news/`: sourced announcements with publication date and summary/body.
 - `seminars/`: confirmed talks with time zone, registration/location, and source links.
 

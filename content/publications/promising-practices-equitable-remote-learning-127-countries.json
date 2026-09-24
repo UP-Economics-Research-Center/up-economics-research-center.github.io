@@ -27,7 +27,7 @@
       "name": "Javier Santiago Ortiz"
     }
   ],
-  "abstract": "A review of education responses in 127 countries describes unequal access to remote learning and the value of combining digital and non-digital ways for children to continue learning.",
+  "abstract": "This brief reviews education responses to COVID-19 school closures across 127 countries, focusing on whether remote-learning opportunities reached children equitably. It synthesizes country-reported approaches and lessons about the reach and limitations of technology-dependent delivery, particularly where access to devices, connectivity, or other resources is uneven. The review points toward combining digital and non-digital learning options and designing responses around the needs of children who are most likely to be left out.",
   "year": 2020,
   "type": "Policy brief",
   "venue": "UNICEF Innocenti Research Briefs, 2020-10",
@@ -39,5 +39,6 @@
   "source_url": "https://sites.google.com/view/akitokamei/education-and-human-capital",
   "verified_on": "2026-09-24",
   "published": true,
-  "pdf_url": "https://www.unicef.org/innocenti/media/6246/file/UNICEF-IRB-Promising-Practices-Equitable-Remote-Learning-2020.pdf"
+  "pdf_url": "https://www.unicef.org/innocenti/media/6246/file/UNICEF-IRB-Promising-Practices-Equitable-Remote-Learning-2020.pdf",
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

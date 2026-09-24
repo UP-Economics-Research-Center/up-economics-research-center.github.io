@@ -9,7 +9,7 @@
       "name": "Bhowmik Sujey Soori"
     }
   ],
-  "abstract": "Evidence from nearly 60,000 households in 25 low- and middle-income countries documents widespread drinking-water contamination alongside limited or ineffective household treatment.",
+  "abstract": "This study uses household survey data from nearly 60,000 households in 25 low- and middle-income countries to examine drinking-water contamination and household treatment choices. It finds that E. coli contamination is widespread, yet many households do not treat their water, and some of the treatment methods in use do not reliably address the contamination risk. The analysis documents substantial gaps between water-quality risk and protective behavior and considers how households respond to risks that cannot be seen, providing evidence relevant to the design of water-safety policy.",
   "year": 2026,
   "type": "Journal article",
   "venue": "PLOS One",
@@ -20,5 +20,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }

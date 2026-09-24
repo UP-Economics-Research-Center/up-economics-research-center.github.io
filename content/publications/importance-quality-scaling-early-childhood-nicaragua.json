@@ -12,7 +12,7 @@
       "name": "Akito Kamei"
     }
   ],
-  "abstract": "Nationwide home-visiting evidence from Nicaragua indicates that early-childhood development services can improve child development, preschool completion, and parenting practices. The findings also highlight the role of service quality and community-based monitoring when programs expand.",
+  "abstract": "This study evaluates a national home-visiting early-childhood development program in Nicaragua, asking how its effects change when delivery quality is monitored during scale-up. Experimental evidence shows improvements in children’s development and preschool completion, alongside changes in parenting practices. The findings indicate that expansion can preserve benefits when service quality is actively supported and tracked, including through community-based monitoring.",
   "year": 2025,
   "type": "Journal article",
   "venue": "The World Bank Economic Review",
@@ -23,5 +23,6 @@
   ],
   "source_url": "https://sites.google.com/view/akitokamei/education-and-human-capital",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "abstract_source": "Complete editorial paraphrase based on the linked publisher or institutional record"
 }
