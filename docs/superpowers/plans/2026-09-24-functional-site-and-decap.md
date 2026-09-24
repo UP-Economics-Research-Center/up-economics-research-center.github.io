@@ -74,7 +74,9 @@
 - [ ] Add a small build entry point using only Python standard library modules (`json`, `pathlib`, `shutil`, `html`, `urllib.parse`, `sys`).
 - [ ] Copy existing homepage and design pages/assets into `_site/` without changing presentation CSS or media; make the current root `index.html` the canonical generated homepage and keep its navigation prefixed correctly for `/design/` destinations.
 - [ ] Validate stable IDs, local paths, allowed link schemes (`https`, `mailto`, `tel`, and site-relative), required fields, and references before writing any artifact.
+- [ ] Render published people, research areas, publications, news, seminars, site settings, and About-page values into marked slots in their existing HTML templates; render an accessible empty state when an approved collection has no records. Keep template structure/CSS in the existing HTML/CSS and escape every inserted value.
 - [ ] Generate `/publications/<slug>/index.html` from the publication template for each published publication, HTML-escaping all text and attributes.
+- [ ] Generate `/people.json`, `/research-areas.json`, `/publications.json`, `/news.json`, and `/seminars.json` only where page scripts need structured records; each must contain published records only.
 - [ ] Write a compact `_site/search-index.json` containing approved page, area, person, publication, seminar, and news fields with their correct root-relative route.
 - [ ] Update `.github/workflows/pages.yml` to run the builder, then upload `_site/`; retain `configure-pages`, `deploy-pages`, permissions, `main` trigger, and concurrency.
 - [ ] Inspect the build output paths and workflow YAML manually. Confirm source files and `docs/` are not copied as the Pages source except where expressly linked public docs are required.

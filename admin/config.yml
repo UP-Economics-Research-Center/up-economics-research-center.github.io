@@ -1,0 +1,187 @@
+backend:
+  name: github
+  repo: UP-Economics-Research-Center/up-economic-research-center.github.io
+  branch: main
+  base_url: https://REPLACE_WITH_CLOUDFLARE_WORKER.workers.dev
+  auth_endpoint: auth
+  auth_scope: public_repo
+  squash_merges: true
+publish_mode: editorial_workflow
+locale: en
+media_folder: design/assets/uploads
+public_folder: /design/assets/uploads
+site_url: https://up-economics-research-center.github.io
+show_preview_links: false
+collections:
+  - name: site_settings
+    label: Site settings
+    description: Update approved home-page copy and site-wide details.
+    files:
+      - name: site
+        label: Home page and site details
+        file: content/settings/site.json
+        format: json
+        fields:
+          - { label: Center name, name: center_name, widget: string }
+          - { label: University, name: university, widget: string }
+          - { label: Home-page heading, name: hero_heading, widget: string, required: false, hint: Use only copy approved by the Center. }
+          - { label: Home-page introduction, name: hero_summary, widget: text, required: false, hint: Keep claims supported by an official source. }
+          - { label: Campus video ID, name: campus_video_id, widget: string, pattern: ['^[A-Za-z0-9_-]{11}$', 'Enter the 11-character YouTube video ID.'] }
+          - { label: Campus video caption, name: campus_video_caption, widget: string }
+          - { label: Footer note, name: footer_note, widget: string, required: false, hint: Preserve the design-preview note until the Center approves final copy. }
+  - name: about_settings
+    label: About page
+    description: Keep all public claims and contact details supported by a current source.
+    files:
+      - name: about
+        label: About-page details
+        file: content/settings/about.json
+        format: json
+        fields:
+          - { label: Publish these details, name: published, widget: boolean, default: false, hint: Keep this off until the content and source are reviewed. }
+          - { label: Center scope, name: scope, widget: text, required: false }
+          - { label: Research scope, name: research_scope, widget: text, required: false }
+          - { label: Collaboration information, name: collaboration, widget: text, required: false }
+          - { label: Public contact email, name: contact_email, widget: string, required: false }
+          - { label: Source URL, name: source_url, widget: string, required: false }
+          - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+  - name: people
+    label: Researchers
+    label_singular: Researcher
+    description: Add a person only after their affiliation, role, and profile text are verified.
+    folder: content/people
+    create: true
+    extension: json
+    format: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}} · {{role}}'
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - { label: Role, name: role, widget: string }
+      - { label: Biography, name: bio, widget: text }
+      - { label: Portrait, name: portrait, widget: image, required: false }
+      - { label: Portrait alternative text, name: portrait_alt, widget: string, required: false }
+      - label: Research areas
+        name: research_areas
+        widget: list
+        field: { label: Research-area ID, name: area_id, widget: string }
+        required: false
+        hint: Use the stable slug of a published Research Area.
+      - { label: Official profile URL, name: canonical_url, widget: string, required: false }
+      - { label: Source URL, name: source_url, widget: string }
+      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Publish this profile, name: published, widget: boolean, default: false }
+  - name: research_areas
+    label: Research areas
+    label_singular: Research area
+    description: Use a stable topic ID and link all people by their record slug.
+    folder: content/research-areas
+    create: true
+    extension: json
+    format: json
+    identifier_field: name
+    slug: '{{fields.slug}}'
+    summary: '{{name}}'
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Stable URL ID, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - { label: Summary, name: summary, widget: text }
+      - label: Researchers
+        name: people
+        widget: list
+        field: { label: Researcher slug, name: person_id, widget: string }
+        required: false
+      - { label: Official page URL, name: canonical_url, widget: string, required: false }
+      - { label: Source URL, name: source_url, widget: string }
+      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Publish this area, name: published, widget: boolean, default: false }
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    description: Every author, abstract, citation, and paper link must be checked against a source.
+    folder: content/publications
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{fields.slug}}'
+    summary: '{{year}} · {{title}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - label: Authors in citation order
+        name: authors
+        widget: list
+        fields:
+          - { label: Author name, name: name, widget: string }
+          - { label: Center researcher slug, name: person_id, widget: string, required: false }
+      - { label: Abstract, name: abstract, widget: text }
+      - { label: Year, name: year, widget: number, value_type: int, min: 1900, max: 2100 }
+      - label: Publication type
+        name: type
+        widget: select
+        options: ['Journal article', 'Working paper', 'Book', 'Book chapter', 'Policy brief', 'Other']
+      - { label: Journal, series, or publisher, name: venue, widget: string, required: false }
+      - { label: DOI, name: doi, widget: string, required: false, hint: Enter the DOI only, such as 10.1234/example. }
+      - { label: Publisher or canonical page, name: canonical_url, widget: string, required: false }
+      - { label: Approved paper file, name: pdf, widget: file, required: false }
+      - { label: External download URL, name: pdf_url, widget: string, required: false }
+      - label: Research-area IDs
+        name: topics
+        widget: list
+        field: { label: Research-area slug, name: topic_id, widget: string }
+        required: false
+      - { label: Source URL, name: source_url, widget: string }
+      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Publish this publication, name: published, widget: boolean, default: false }
+  - name: news
+    label: News
+    label_singular: News item
+    description: Publish only sourced announcements from the Center.
+    folder: content/news
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{fields.slug}}'
+    summary: '{{date}} · {{title}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Story, name: body, widget: markdown, required: false }
+      - { label: Canonical URL, name: canonical_url, widget: string, required: false }
+      - { label: Source URL, name: source_url, widget: string }
+      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Publish this item, name: published, widget: boolean, default: false }
+  - name: seminars
+    label: Seminars
+    label_singular: Seminar
+    description: Add events only after the speaker, date, and details are confirmed.
+    folder: content/seminars
+    create: true
+    extension: json
+    format: json
+    identifier_field: title
+    slug: '{{fields.slug}}'
+    summary: '{{date}} · {{title}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - label: Series
+        name: series
+        widget: select
+        options: ['General Research Seminar', 'Student Research Seminar', 'Other']
+      - { label: Speaker, name: speaker, widget: string }
+      - { label: Date and time, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: HH:mm }
+      - { label: Time zone, name: timezone, widget: string, hint: Use an IANA zone such as America/Mexico_City. }
+      - { label: Description, name: description, widget: text }
+      - { label: Location, name: location, widget: string, required: false }
+      - { label: Registration or event URL, name: event_url, widget: string, required: false }
+      - { label: Recording URL, name: recording_url, widget: string, required: false }
+      - { label: Source URL, name: source_url, widget: string }
+      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
+      - { label: Publish this event, name: published, widget: boolean, default: false }
