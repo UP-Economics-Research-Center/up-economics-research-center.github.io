@@ -1,0 +1,17 @@
+{
+  "name": "Akito Kamei",
+  "slug": "akito",
+  "role": "Lead researcher",
+  "bio": "Studies development economics, human-capital investment, health, sanitation, water, and education, combining empirical methods with experiments and large administrative and survey datasets.",
+  "portrait": "/design/assets/people/akito.jpg",
+  "portrait_alt": "Portrait of Akito Kamei.",
+  "research_areas": [
+    "development-economics",
+    "education-and-human-capital",
+    "health-water-sanitation"
+  ],
+  "canonical_url": "",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "verified_on": "2026-09-24",
+  "published": true
+}

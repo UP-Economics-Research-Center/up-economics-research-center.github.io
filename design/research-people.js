@@ -1,1 +1,105 @@
-(()=>{const people={"akito":{"name":"Akito Kamei","bio":"Studies how education, health, and basic services shape human development, using experiments and large datasets.","portrait":"assets/people/akito.jpg"},"eugenio":{"name":"Eugenio Gómez Alatorre","bio":"Examines digital transformation, artificial intelligence, and business decisions, including organizational ethics and gender inclusion.","portrait":"assets/people/eugenio.jpg"},"esteban":{"name":"Esteban Colla de Robertis","bio":"Studies how institutions and policy shape development, resource use, investment, and economic decision-making.","portrait":"assets/people/esteban.jpg"},"majo":{"name":"Majo","bio":"Studies labor markets, disability, and educational inequality, with interests in institutions and urban development.","portrait":"assets/people/majo.jpg"},"arnulfo":{"name":"Arnulfo Rodríguez Hernández","bio":"Studies monetary policy, inflation, and forecasting, applying econometric methods to the Mexican economy.","portrait":"assets/people/arnulfo.jpg"},"sergio":{"name":"Sergio Rodríguez García","bio":"Investigates pension sustainability and economic history, alongside financial economics and competition policy.","portrait":"assets/people/sergio.jpg"},"jose-miguel":{"name":"José Miguel Montoya Morales","bio":"Examines how educational trajectories shape employment opportunities, with broader interests in poverty and inequality.","portrait":"assets/people/jose-miguel.jpg"},"marytell":{"name":"Marytell Arciniega Castellanos","bio":"Studies inequality and intergenerational mobility, including how family background and institutions shape economic opportunities.","portrait":"assets/people/marytell.jpg"},"juan-alvaro":{"name":"Juan Álvaro Díaz Raimond Kedilhac","bio":"Applies econometrics and machine learning to inflation, household behavior, health, and labor markets.","portrait":"assets/people/juan-alvaro.jpg"},"andrea":{"name":"Andrea Corte Aréchiga","bio":"Uses applied microeconometrics to investigate health investments, poverty, labor markets, and public policy.","portrait":"assets/people/andrea.jpg"},"joshua":{"name":"Joshua M. Torres","bio":"Uses econometrics and municipal data to examine violence, economic incentives, and risk in Mexico.","portrait":"assets/people/joshua.jpg"},"luciano":{"name":"Luciano A. Quintana","bio":"Studies poverty and human capital, including how child labor and workplace risks affect health.","portrait":"assets/people/luciano.jpg"}};const teams={"education-and-human-capital":["akito","jose-miguel"],"digital-and-business-economics":["eugenio","esteban","marytell"],"political-economy":["esteban","sergio"],"macro-economy":["arnulfo","esteban","juan-alvaro"],"development-economics":["akito","marytell","joshua","luciano"],"water-and-sanitation":["akito","juan-alvaro","andrea"],"agriculture-economics":["esteban","akito"],"environmental-economics":["akito"],"demographic-economics":["akito"]};const requested=new URLSearchParams(location.search).get("area");const key=Object.hasOwn(teams,requested)?requested:"education-and-human-capital";const host=document.getElementById("area-team");if(!host)return;for(const [position,id] of teams[key].entries()){const person=people[id],link=document.createElement("a"),img=document.createElement("img"),text=document.createElement("span"),name=document.createElement("strong"),detail=document.createElement("small");link.href="people.html#"+id;link.className="area-person";img.src=person.portrait;img.alt="";img.width=64;img.height=80;img.loading="lazy";name.textContent=person.name;detail.textContent=position===0?"Area lead · View profile →":"View profile →";text.append(name,detail);link.append(img,text);host.append(link);}})();
+(async () => {
+  const params = new URLSearchParams(location.search);
+  const requested = params.get('area') || '';
+  const title = document.getElementById('area-title');
+  const number = document.getElementById('area-number');
+  const description = document.getElementById('area-description');
+  const team = document.getElementById('area-team');
+  const outputs = document.getElementById('outputs-list');
+  if (!title || !team || !outputs) return;
+
+  const setNote = (host, message) => {
+    const note = document.createElement('p');
+    note.className = 'note';
+    note.textContent = message;
+    host.replaceChildren(note);
+  };
+  const makeLink = (href, label, className = '') => {
+    const link = document.createElement('a');
+    link.href = href;
+    link.className = className;
+    link.textContent = label;
+    return link;
+  };
+
+  try {
+    const [areaResponse, peopleResponse, publicationResponse] = await Promise.all([
+      fetch('/research-areas.json'), fetch('/people.json'), fetch('/publications.json'),
+    ]);
+    if (![areaResponse, peopleResponse, publicationResponse].every(response => response.ok)) {
+      throw new Error('The research directory could not be loaded.');
+    }
+    const [areas, people, publications] = await Promise.all([
+      areaResponse.json(), peopleResponse.json(), publicationResponse.json(),
+    ]);
+    const index = areas.findIndex(area => area.slug === requested);
+    const area = areas[index];
+    if (!area) {
+      title.textContent = 'Research area unavailable';
+      number.textContent = '—';
+      if (description) description.textContent = 'Choose a published research area from the Research page.';
+      setNote(team, 'No published researchers are listed for this area.');
+      setNote(outputs, 'No published papers are listed for this area.');
+      return;
+    }
+
+    title.textContent = area.name;
+    number.textContent = String(index + 1).padStart(2, '0');
+    if (description) description.textContent = area.summary;
+
+    const members = people.filter(person => (person.research_areas || []).includes(area.slug));
+    if (!members.length) {
+      setNote(team, 'No published researcher profiles are linked to this area yet.');
+    } else {
+      team.replaceChildren(...members.map(person => {
+        const link = document.createElement('a');
+        link.href = `people.html#${encodeURIComponent(person.slug)}`;
+        link.className = 'area-person';
+        if (person.portrait) {
+          const img = document.createElement('img');
+          img.src = person.portrait;
+          img.alt = '';
+          img.width = 64;
+          img.height = 80;
+          img.loading = 'lazy';
+          link.append(img);
+        }
+        const text = document.createElement('span');
+        const name = document.createElement('strong');
+        const detail = document.createElement('small');
+        name.textContent = person.name;
+        detail.textContent = 'View profile →';
+        text.append(name, detail);
+        link.append(text);
+        return link;
+      }));
+    }
+
+    const related = publications.filter(publication => (publication.topics || []).includes(area.slug));
+    if (!related.length) {
+      setNote(outputs, 'No verified publications are linked to this area yet.');
+    } else {
+      outputs.replaceChildren(...related.map(publication => {
+        const article = document.createElement('article');
+        article.className = 'publication';
+        const year = document.createElement('div');
+        year.className = 'pub-year';
+        year.textContent = String(publication.year);
+        const text = document.createElement('div');
+        const heading = document.createElement('h3');
+        heading.className = 'pub-title';
+        heading.append(makeLink(`/publications/${encodeURIComponent(publication.slug)}/`, publication.title));
+        const authors = document.createElement('p');
+        authors.className = 'pub-authors';
+        authors.textContent = (publication.authors || []).map(author => typeof author === 'string' ? author : author.name).join(', ');
+        text.append(heading, authors);
+        article.append(year, text);
+        return article;
+      }));
+    }
+  } catch {
+    title.textContent = 'Research area';
+    setNote(team, 'The research directory is temporarily unavailable. Browse all research areas or try again later.');
+    setNote(outputs, 'The publication directory is temporarily unavailable.');
+  }
+})();

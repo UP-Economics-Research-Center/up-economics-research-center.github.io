@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#173f35">
+    <title>Content editor | UP Economics Research Center</title>
+    <link rel="icon" type="image/png" href="../design/assets/erc-logo-concept.png">
+    <style>
+      :root { color-scheme: light; font: 16px/1.55 system-ui, sans-serif; color: #18382f; background: #f5f5f0; }
+      body { margin: 0; }
+      .setup-note { max-width: 52rem; margin: 1rem auto; padding: 1rem 1.25rem; border-left: 4px solid #987131; background: #fff9e9; }
+      .setup-note[hidden] { display: none; }
+      .setup-note a { color: #17483b; }
+    </style>
+  </head>
+  <body>
+    <aside class="setup-note" id="setup-note" role="status" hidden>
+      <strong>Editor setup is not complete.</strong>
+      <span>A repository owner must deploy the OAuth Worker and configure its address before editors can log in. Follow the owner setup in the project README.</span>
+      <a href="https://github.com/UP-Economics-Research-Center/up-economics-research-center.github.io#owner-setup-required-before-editors-can-sign-in">Open setup instructions</a>
+    </aside>
+    <script src="./setup-status.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.15.1/dist/decap-cms.js"></script>
+    <script src="./preview-templates.js"></script>
+  </body>
+</html>
