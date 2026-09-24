@@ -17,7 +17,7 @@
 - Use Decap CMS and GitHub authentication for invited repository collaborators. Other contributors may submit GitHub pull requests for review.
 - Do not publish demo, unverified, or unsupported content as fact. The six `[Demo]` publication records currently embedded in `design/publications.html` are illustrative and must not appear in the public list, search index, or generated detail pages.
 - Do not commit OAuth secrets, tokens, or other credentials.
-- Keep the organization root URL: `https://up-economics-research-center.github.io/` and repository `UP-Economics-Research-Center/up-economic-research-center.github.io`.
+- Keep the organization root URL: `https://up-economics-research-center.github.io/` and repository `UP-Economics-Research-Center/up-economics-research-center.github.io`.
 - Preserve the homepage's muted autoplay video and reduced-motion behavior.
 - No automated test files or test suites are added or run; perform focused source/configuration and path inspections as requested by project guidance.
 
@@ -51,7 +51,7 @@
 
 - [ ] Inspect each existing record and preserve only currently approved content; do not convert `[Demo]` publications or unconfirmed events into published records.
 - [ ] Create Decap collections matching the spec with explicit user-facing labels, required fields, repeatable authors/topics, media paths, draft/published state, and validation hints.
-- [ ] Configure Decap GitHub backend for `UP-Economics-Research-Center/up-economic-research-center.github.io`, branch `main`, editorial workflow enabled, local media under `design/assets/uploads`, and no Open Authoring.
+- [ ] Configure Decap GitHub backend for `UP-Economics-Research-Center/up-economics-research-center.github.io`, branch `main`, editorial workflow enabled, local media under `design/assets/uploads`, and no Open Authoring.
 - [ ] Keep OAuth credentials out of `admin/config.yml`; leave only documented public Worker URL/client ID configuration placeholders.
 - [ ] Inspect YAML and JSON syntax with available standard-library parsers and inspect each configured media/content path.
 

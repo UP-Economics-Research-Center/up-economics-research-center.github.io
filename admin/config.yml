@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: UP-Economics-Research-Center/up-economic-research-center.github.io
+  repo: UP-Economics-Research-Center/up-economics-research-center.github.io
   branch: main
   base_url: https://REPLACE_WITH_CLOUDFLARE_WORKER.workers.dev
   auth_endpoint: auth

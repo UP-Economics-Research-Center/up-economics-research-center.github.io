@@ -9,7 +9,7 @@ Turn the current static site into a reliable, editable research center website w
 
 ## Agreed constraints
 
-- Keep the organization root URL: <https://up-economics-research-center.github.io/> and the repository `UP-Economics-Research-Center/up-economic-research-center.github.io`.
+- Keep the organization root URL: <https://up-economics-research-center.github.io/> and the repository `UP-Economics-Research-Center/up-economics-research-center.github.io`.
 - Preserve the current HTML and shared CSS as presentation source of truth, along with existing local media and responsive/accessibility behavior.
 - Use GitHub Pages with GitHub Actions. Do not use `docs/` as the Pages source.
 - Use Decap CMS and GitHub authentication for invited repository collaborators. Other contributors may submit GitHub pull requests for review.
@@ -26,7 +26,7 @@ Turn the current static site into a reliable, editable research center website w
 
 The site remains a static GitHub Pages publication built from the root repository source by GitHub Actions. Existing HTML and `design/site-concept.css` remain the visual source of truth. A dependency-free Python build step reads structured files under `content/`, validates references and publication approval state, and creates the Pages artifact in a temporary build directory. The step retains the current page templates and local design assets, produces approved publication detail pages, and writes a search index from the approved public content. GitHub Actions uploads that artifact to Pages.
 
-Decap CMS lives under `/admin/`. Its GitHub backend targets `UP-Economics-Research-Center/up-economic-research-center.github.io` on `main`, with editorial workflow enabled. A small Cloudflare Worker supplies the OAuth authorization and callback Decap requires; GitHub Pages does not provide server-side authentication. The Worker holds OAuth credentials as secrets. Repository configuration contains only the public client ID and Worker endpoint.
+Decap CMS lives under `/admin/`. Its GitHub backend targets `UP-Economics-Research-Center/up-economics-research-center.github.io` on `main`, with editorial workflow enabled. A small Cloudflare Worker supplies the OAuth authorization and callback Decap requires; GitHub Pages does not provide server-side authentication. The Worker holds OAuth credentials as secrets. Repository configuration contains only the public client ID and Worker endpoint.
 
 The current homepage's muted autoplay video remains. Existing pages and media stay locally referenced where possible. Site-wide navigation, footer links, research-area links, people profile anchors, homepage calls to action, and publication filters must resolve to a real page, valid section anchor, or valid external destination. External destinations open only when appropriate and are labelled accessibly.
 
