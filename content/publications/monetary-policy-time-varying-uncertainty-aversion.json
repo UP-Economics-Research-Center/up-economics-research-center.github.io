@@ -10,7 +10,7 @@
       "person_id": "arnulfo"
     }
   ],
-  "abstract": "The paper analyzes monetary-policy decisions in a model where aversion to uncertainty changes over time, focusing on how uncertainty and regime shifts affect policy responses.",
+  "abstract": "The authors develop a framework for optimal policy by an inflation-targeting central bank that is uncertain about its model and whose degree of mistrust changes as the economy’s structure changes. Structural breaks and price, output, or real-exchange-rate shocks can alter the perceived uncertainty. Robust control represents policymakers’ uncertainty aversion, while a Markov chain captures changes in that aversion over time. The analysis finds that a more aggressive interest-rate response is generally optimal when policymakers are more uncertainty-averse or when future uncertainty aversion is more likely. Greater uncertainty aversion also lowers policymakers’ welfare. The effects of the Markov transition probabilities on expected losses are ambiguous, showing that the timing and persistence of uncertainty can complicate monetary-policy decisions.",
   "year": 2013,
   "type": "Journal article",
   "venue": "Computational Economics",
