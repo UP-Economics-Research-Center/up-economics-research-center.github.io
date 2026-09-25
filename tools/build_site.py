@@ -521,7 +521,11 @@ def build() -> None:
                 source = re.sub(r'data-video-id="[^"]*"', f'data-video-id="{e(site_settings["campus_video_id"])}"', source, count=1)
                 source = re.sub(r'<img src="(?:design/)?assets/[^"]+" alt="[^"]*" width="\d+" height="\d+"', f'<img src="{e(site_settings["campus_video_poster"])}" alt="{e(site_settings["campus_video_poster_alt"])}" width="480" height="360"', source, count=1)
                 source = re.sub(r'href="https://www\.youtube\.com/watch\?v=[A-Za-z0-9_-]{11}"', f'href="https://www.youtube.com/watch?v={e(site_settings["campus_video_id"])}"', source, count=1)
-                source = re.sub(r'(?<=<strong>)[^<]+(?=</strong>)', e(site_settings["campus_video_title"]), source, count=1)
+                source = re.sub(
+                    r'(<button[^>]*class="film-play"[^>]*>.*?<strong>)[^<]+(</strong>)',
+                    lambda match: match.group(1) + e(site_settings["campus_video_title"]) + match.group(2),
+                    source, count=1, flags=re.S,
+                )
                 source = re.sub(r'aria-label="Play [^"]*"', f'aria-label="Play {e(site_settings["campus_video_title"])}"', source, count=1)
             source = source.replace("UP Economics Research Center", e(site_settings.get("center_name", "UP Economics Research Center")))
             source = source.replace("Universidad Panamericana", e(site_settings.get("university", "Universidad Panamericana")))
