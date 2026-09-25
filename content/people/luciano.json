@@ -2,7 +2,7 @@
   "name": "Luciano A. Quintana",
   "slug": "luciano",
   "role": "Research professional",
-  "bio": "Studies poverty, economic development, and human capital, including how child labor and hazardous working conditions affect health.",
+  "bio": "Luciano’s research interests focus on poverty, economic development, and human capital, with particular attention to how education, health, and public policy can expand economic opportunities and reduce inequality. His current work examines the relationship between child labor and health outcomes in Mexico, exploring how hazardous working conditions affect children’s well-being. He has also participated in research projects analyzing the National Care System and its implications for poverty reduction. As a member of the Student Research Club (CIA UP), he actively engages in applied research and quantitative analysis aimed at informing evidence-based policymaking. Outside academia, he enjoys cooking.",
   "portrait": "/design/assets/people/luciano.jpg",
   "portrait_alt": "Portrait of Luciano A. Quintana.",
   "research_areas": [
@@ -12,5 +12,6 @@
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 110
 }

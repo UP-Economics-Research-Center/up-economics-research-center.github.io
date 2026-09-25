@@ -59,6 +59,7 @@ collections:
     fields:
       - { label: Name, name: name, widget: string }
       - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
+      - { label: Display order, name: display_order, widget: number, value_type: int, min: 1, step: 1 }
       - label: Role
         name: role
         widget: select

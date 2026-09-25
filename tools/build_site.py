@@ -139,6 +139,12 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         require_text(path, row, "name")
         require_text(path, row, "role")
         require_text(path, row, "bio")
+        try:
+            row["display_order"] = int(row.get("display_order"))
+        except (TypeError, ValueError):
+            fail(path, "display_order", "must be a positive integer")
+        if row["display_order"] < 1:
+            fail(path, "display_order", "must be a positive integer")
         row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         require_text(path, row, "verified_on")
         row["portrait"] = local_asset(path, "portrait", row.get("portrait", ""), optional=True) if row.get("portrait") else ""
@@ -292,6 +298,7 @@ def render_person(person: dict, areas: dict[str, dict]) -> str:
 
 
 def render_people(people: list[dict], areas: dict[str, dict]) -> str:
+    people = sorted(people, key=lambda person: (person["display_order"], person["name"].casefold()))
     groups = [
         ("lead-researchers", "Lead researchers", [p for p in people if p["role"] == "Lead researcher"]),
         ("research-professionals", "Research professionals", [p for p in people if p["role"] == "Research professional"]),
@@ -523,7 +530,7 @@ def build() -> None:
         home_path.write_text(home_source, encoding="utf-8")
 
         # Use approved content only in generated search and content feeds.
-        people_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["people"]]
+        people_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in sorted(data["people"], key=lambda person: (person["display_order"], person["name"].casefold()))]
         area_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["research_areas"]]
         publication_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["publications"]]
         news_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["news"]]

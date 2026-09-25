@@ -2,7 +2,7 @@
   "name": "Andrea Corte Aréchiga",
   "slug": "andrea",
   "role": "Research professional",
-  "bio": "Uses applied microeconometrics to study health investment, poverty, labor markets, and the effects of public policy.",
+  "bio": "Andrea’s research interests focus on applied microeconometrics and causal mechanisms, with particular emphasis on understanding how human behavior and public policies shape economic outcomes. Her work is especially motivated by questions related to health investments, poverty, and labor markets, with the goal of designing evidence-based solutions to persistent social and economic challenges. Outside of her academic interests, she has been active in student and athletic activities, serving as Vice President of the Foráneos student association and previously as captain of her high school women’s soccer team.",
   "portrait": "/design/assets/people/andrea.jpg",
   "portrait_alt": "Portrait of Andrea Corte Aréchiga.",
   "research_areas": [
@@ -12,5 +12,6 @@
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 90
 }

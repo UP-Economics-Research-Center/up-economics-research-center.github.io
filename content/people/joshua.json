@@ -2,7 +2,7 @@
   "name": "Joshua M. Torres",
   "slug": "joshua",
   "role": "Research professional",
-  "bio": "Uses municipal data and applied econometrics to study violence, economic incentives, and risk in Mexico.",
+  "bio": "Joshua’s research interests lie in applied econometrics and quantitative data analysis, with a focus on understanding how economic incentives and risk shape individual and social outcomes. His current work uses municipal-level data from Mexico to examine socio-economic determinants of violence in Mexico. More broadly, he is interested in applying econometric and predictive methods to study risk and decision-making in complex systems. He has participated in the IMC Prosperity Algorithmic Trading Challenge, an international competition focused on algorithmic trading, statistical modeling, and market analysis. Beyond research, he has experience in corporate diagnostics and business analytics, applying quantitative methods to decision-making.",
   "portrait": "/design/assets/people/joshua.jpg",
   "portrait_alt": "Portrait of Joshua M. Torres.",
   "research_areas": [
@@ -11,5 +11,6 @@
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 100
 }

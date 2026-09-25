@@ -2,12 +2,13 @@
   "name": "Marytell Arciniega Castellanos",
   "slug": "marytell",
   "role": "Research professional",
-  "bio": "Studies inequality, social mobility, and how family background and institutional conditions shape economic opportunities across generations.",
+  "bio": "Marytell’s research interests center on inequality, social mobility, and the role of family background in shaping economic opportunities across generations. Her work focuses on understanding how institutional and socioeconomic conditions influence intergenerational mobility and equality. She has contributed to research on government digitalization and corruption and economic growth in Mexico, and is the founder and former editor of Merkatus, the first student-led economics journal at UP.",
   "portrait": "/design/assets/people/marytell.jpg",
   "portrait_alt": "Portrait of Marytell Arciniega Castellanos.",
   "research_areas": [],
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 70
 }

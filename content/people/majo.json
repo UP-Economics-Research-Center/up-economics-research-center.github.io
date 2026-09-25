@@ -2,12 +2,13 @@
   "research_areas": [],
   "canonical_url": "",
   "portrait_alt": "Portrait of Maria Jose Favela.",
-  "bio": "Studies labor and institutional economics, urban development, and how disability and educational differences shape labor-market outcomes.",
-  "name": "María Jose Favela Cantarero",
+  "bio": "Her research interests include labor economics, institutional economics, and urban development. Her background in government affairs has made her particularly attuned to public policy issues and their implications. She has experience working with labor market data from Latin America, and her graduate research has focused on disability as a determinant of labor market outcomes, with attention to heterogeneities in educational endowments across individuals. More recently, she is working on urban planning and development projects.",
+  "name": "Maria Jose Favela",
   "slug": "majo",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "published": true,
   "role": "Lead researcher",
   "verified_on": "2026-09-24",
-  "portrait": "/design/assets/people/majo.jpg"
+  "portrait": "/design/assets/people/majo.jpg",
+  "display_order": 40
 }

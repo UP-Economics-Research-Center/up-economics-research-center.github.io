@@ -2,15 +2,16 @@
   "name": "Esteban Colla de Robertis",
   "slug": "esteban",
   "role": "Lead researcher",
-  "bio": "Studies political economy, institutions, and economic development, including the effects of governance, incentives, and public policy.",
-  "portrait": "/design/assets/people/esteban.jpg",
-  "portrait_alt": "Portrait of Esteban Colla de Robertis.",
+  "bio": "Esteban’s research focuses on political economy, institutions, and economic development, examining how governance structures, incentives, and public policy shape macroeconomic and social outcomes. His work spans topics including monetary policy committees, land tenure and agrarian investment, free trade agreements, sovereign default, natural resource governance, innovation networks, and local economic institutions, with a broader interest in how institutional design influences development, productivity, and decision-making under uncertainty.",
+  "portrait": "",
+  "portrait_alt": "",
   "research_areas": [
     "political-economy",
     "development-economics"
   ],
-  "canonical_url": "https://www.up.edu.mx/en/investigador/esteban-colla-de-robertis/",
+  "canonical_url": "https://www.up.edu.mx/en/investigacion/esteban-colla-de-robertis/",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 20
 }

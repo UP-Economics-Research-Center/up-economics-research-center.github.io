@@ -2,7 +2,7 @@
   "name": "Akito Kamei",
   "slug": "akito",
   "role": "Lead researcher",
-  "bio": "Studies development economics, human-capital investment, health, sanitation, water, and education, combining empirical methods with experiments and large administrative and survey datasets.",
+  "bio": "Akito’s research focuses on development economics, with particular interests in human capital investment, including health, sanitation, water, child, and education in low- and middle-income countries. His work combines rigorous empirical methods, including RCTs and large-scale administrative and survey data. He has worked with international organizations including UNICEF, the World Bank, and the Inter-American Development Bank, and served as a Postdoctoral Scholar at the Development Innovation Lab (DIL) at the University of Chicago.",
   "portrait": "/design/assets/people/akito.jpg",
   "portrait_alt": "Portrait of Akito Kamei.",
   "research_areas": [
@@ -10,8 +10,9 @@
     "education-and-human-capital",
     "health-water-sanitation"
   ],
-  "canonical_url": "",
+  "canonical_url": "https://sites.google.com/view/akitokamei/home",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
-  "published": true
+  "published": true,
+  "display_order": 10
 }
