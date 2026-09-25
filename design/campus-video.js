@@ -6,7 +6,7 @@
   const playCampusVideo=(focusPlayer=false)=>{
     const frame=document.createElement('iframe');
     frame.src=`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&playsinline=1&controls=1&rel=0`;
-    frame.title='Ciudad Panamericana — Universidad Panamericana institutional video 2025–2026';
+    frame.title=document.querySelector('.film-play strong')?.textContent||'Universidad Panamericana video';
     frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
     frame.allowFullscreen=true;
     frame.referrerPolicy='strict-origin-when-cross-origin';

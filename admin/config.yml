@@ -27,7 +27,22 @@ collections:
           - { label: Home-page heading, name: hero_heading, widget: string, required: false, hint: Use only copy approved by the Center. }
           - { label: Home-page introduction, name: hero_summary, widget: text, required: false, hint: Keep claims supported by an official source. }
           - { label: Campus video ID, name: campus_video_id, widget: string, pattern: ['^[A-Za-z0-9_-]{11}$', 'Enter the 11-character YouTube video ID.'] }
+          - { label: Campus video title, name: campus_video_title, widget: string }
+          - { label: Campus video poster, name: campus_video_poster, widget: image }
+          - { label: Poster alternative text, name: campus_video_poster_alt, widget: string }
           - { label: Campus video caption, name: campus_video_caption, widget: string }
+          - label: Featured paper
+            name: featured_publication_slug
+            widget: relation
+            collection: publications
+            search_fields: [title]
+            display_fields: [title]
+            value_field: slug
+            required: false
+          - { label: Feature image, name: featured_image, widget: image, required: false }
+          - { label: Feature image alternative text, name: featured_image_alt, widget: string, required: false }
+          - { label: Image credit, name: featured_image_credit, widget: string, required: false }
+          - { label: Image source URL, name: featured_image_source_url, widget: string, required: false }
           - { label: Footer note, name: footer_note, widget: string, required: false, hint: Preserve the design-preview note until the Center approves final copy. }
   - name: about_settings
     label: About page

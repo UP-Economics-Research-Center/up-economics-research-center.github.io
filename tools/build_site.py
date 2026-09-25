@@ -265,6 +265,20 @@ def external_anchor(url: str, text: str, cls="text-link") -> str:
     return f'<a class="{cls}" href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(text)} ↗</a>'
 
 
+def render_featured_paper(pub: dict, settings: dict) -> str:
+    authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
+    image = f'<img src="{e(settings["featured_image"])}" alt="{e(settings["featured_image_alt"])}" width="1200" height="800" loading="lazy" decoding="async">'
+    credit = e(settings.get("featured_image_credit", ""))
+    credit_html = f'<p class="featured-paper-credit">{credit}</p>' if credit else ""
+    source = external_anchor(settings.get("featured_image_source_url", ""), "Image source", "featured-paper-source")
+    return (f'<section class="featured-paper" aria-labelledby="featured-paper-title"><div class="wrap featured-paper-layout">'
+            f'<div class="featured-paper-image">{image}{credit_html}{source}</div><div class="featured-paper-copy">'
+            f'<div class="eyebrow">Featured research</div><h2 id="featured-paper-title">{e(pub["title"])}</h2>'
+            f'<p class="featured-paper-authors">{e(authors)}</p><p>{e(pub["abstract"])}</p>'
+            f'<a class="button" href="/publications/{quote(pub["slug"], safe="-")}/">Read the paper details <span aria-hidden="true">→</span></a>'
+            f'</div></div></section>')
+
+
 def render_area(area: dict, index: int, *, home=False) -> str:
     slug = quote(area["slug"], safe="-")
     href = ("/" if home else "") + f"research-area.html?area={slug}"
@@ -416,6 +430,15 @@ def build() -> None:
     video_id = require_text(CONTENT / "settings/site.json", site_settings, "campus_video_id")
     if not YOUTUBE_ID_RE.fullmatch(video_id):
         fail(CONTENT / "settings/site.json", "campus_video_id", "must be a valid 11-character YouTube ID")
+    for key in ("campus_video_title", "campus_video_poster_alt"):
+        require_text(CONTENT / "settings/site.json", site_settings, key)
+    site_settings["campus_video_poster"] = local_asset(CONTENT / "settings/site.json", "campus_video_poster", site_settings.get("campus_video_poster", ""))
+    featured_slug = optional_text(CONTENT / "settings/site.json", site_settings, "featured_publication_slug")
+    featured_image = optional_text(CONTENT / "settings/site.json", site_settings, "featured_image")
+    if featured_image:
+        site_settings["featured_image"] = local_asset(CONTENT / "settings/site.json", "featured_image", featured_image)
+        require_text(CONTENT / "settings/site.json", site_settings, "featured_image_alt")
+        site_settings["featured_image_source_url"] = validate_url(CONTENT / "settings/site.json", "featured_image_source_url", site_settings.get("featured_image_source_url", ""), optional=True)
     if about_settings.get("published"):
         for key in ("scope", "research_scope", "collaboration", "verified_on"):
             require_text(CONTENT / "settings/about.json", about_settings, key)
@@ -438,6 +461,9 @@ def build() -> None:
         asset_path = ROOT / "design" / "assets" / "research-areas" / filename if filename else None
         if asset_path and asset_path.is_file():
             area["illustration"] = f"/design/assets/research-areas/{filename}"
+    publications_by_id = {publication["slug"]: publication for publication in data["publications"]}
+    if featured_slug and featured_slug not in publications_by_id:
+        fail(CONTENT / "settings/site.json", "featured_publication_slug", f"unknown or unpublished publication '{featured_slug}'")
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
     area_names = {key: value["name"] for key, value in areas_by_id.items()}
 
@@ -467,13 +493,16 @@ def build() -> None:
         shutil.copytree(ROOT / "design" / "assets", public_design / "assets",
                          ignore=shutil.ignore_patterns("media-sources.json"))
         shutil.copytree(ROOT / "admin", site / "admin")
+        for icon in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
+            shutil.copy2(ROOT / icon, site / icon)
 
         # Static pages are the canonical templates; each record collection replaces only its marked content slot.
         replacements = {
             "index.html": {"home_heading": e(site_settings.get("hero_heading", "")) or None,
                             "home_summary": e(site_settings.get("hero_summary", "")) or None,
                             "homepage_areas": "".join(render_area(a, i, home=True) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>',
-                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None},
+                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None,
+                            "featured_paper": render_featured_paper(publications_by_id[featured_slug], site_settings) if featured_slug and featured_image else ""},
             "design/research.html": {"research_areas": "".join(render_area(a, i) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>'},
             "design/people.html": {"people_directory": render_people(data["people"], areas_by_id)},
             "design/about.html": {"about_content": render_about(about_settings)},
@@ -490,6 +519,10 @@ def build() -> None:
             source = minify_slots(source)
             if relpath in {"index.html", "design/homepage-concept.html"}:
                 source = re.sub(r'data-video-id="[^"]*"', f'data-video-id="{e(site_settings["campus_video_id"])}"', source, count=1)
+                source = re.sub(r'<img src="(?:design/)?assets/[^"]+" alt="[^"]*" width="\d+" height="\d+"', f'<img src="{e(site_settings["campus_video_poster"])}" alt="{e(site_settings["campus_video_poster_alt"])}" width="480" height="360"', source, count=1)
+                source = re.sub(r'href="https://www\.youtube\.com/watch\?v=[A-Za-z0-9_-]{11}"', f'href="https://www.youtube.com/watch?v={e(site_settings["campus_video_id"])}"', source, count=1)
+                source = re.sub(r'(?<=<strong>)[^<]+(?=</strong>)', e(site_settings["campus_video_title"]), source, count=1)
+                source = re.sub(r'aria-label="Play [^"]*"', f'aria-label="Play {e(site_settings["campus_video_title"])}"', source, count=1)
             source = source.replace("UP Economics Research Center", e(site_settings.get("center_name", "UP Economics Research Center")))
             source = source.replace("Universidad Panamericana", e(site_settings.get("university", "Universidad Panamericana")))
             source = source.replace("Design preview · Illustrative content", e(site_settings.get("footer_note", "Design preview · Illustrative content")))

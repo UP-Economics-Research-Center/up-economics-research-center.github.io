@@ -1,13 +1,15 @@
 {
   "retrieved": "2026-09-24",
   "video": {
-    "title": "Ciudad Panamericana | Video institucional 2025 - 2026",
+    "retrieved": "2026-09-25",
+    "title": "Reinventamos la Economía | Universidad Panamericana",
     "author": "Universidad Panamericana",
     "authorUrl": "https://www.youtube.com/@upmexico",
-    "sourcePage": "https://www.youtube.com/watch?v=RW-7awQGxPY",
-    "url": "https://www.youtube.com/watch?v=RW-7awQGxPY",
-    "poster": "assets/up-campus-video-poster.jpg",
-    "implementation": "Muted autoplay with visible controls; click-to-play fallback when reduced motion is requested. Not generated."
+    "sourcePage": "https://www.youtube.com/watch?v=ISvo7S30of4",
+    "url": "https://www.youtube.com/watch?v=ISvo7S30of4",
+    "poster": "assets/reinventamos-economia-poster.jpg",
+    "posterSource": "https://i.ytimg.com/vi/ISvo7S30of4/hqdefault.jpg",
+    "implementation": "Muted autoplay with visible controls; click-to-play fallback when reduced motion is requested. Official YouTube metadata and thumbnail verified."
   },
   "portraits": [
     {
