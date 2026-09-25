@@ -6,8 +6,7 @@ backend:
   base_url: https://up-economics-decap-auth.jadrk040507.workers.dev
   auth_endpoint: auth
   auth_scope: public_repo
-  squash_merges: true
-publish_mode: editorial_workflow
+publish_mode: simple
 locale: en
 media_folder: design/assets/uploads
 public_folder: /design/assets/uploads
@@ -39,7 +38,7 @@ collections:
         file: content/settings/about.json
         format: json
         fields:
-          - { label: Publish these details, name: published, widget: boolean, default: false, hint: Keep this off until the content and source are reviewed. }
+          - { label: Publish these details, name: published, widget: boolean, default: false, hint: Turn this on only when the content is ready to appear on the public site. }
           - { label: Center scope, name: scope, widget: text, required: false }
           - { label: Research scope, name: research_scope, widget: text, required: false }
           - { label: Collaboration information, name: collaboration, widget: text, required: false }
