@@ -57,6 +57,9 @@ collections:
           - { label: Center scope, name: scope, widget: text, required: false }
           - { label: Research scope, name: research_scope, widget: text, required: false }
           - { label: Collaboration information, name: collaboration, widget: text, required: false }
+          - { label: Seminar information, name: seminar_description, widget: text, required: false, hint: Keep the public description in English. }
+          - { label: Seminar proposal form URL, name: seminar_form_url, widget: string, required: false, hint: The linked Google Form is currently in Spanish. }
+          - { label: Seminar information source, name: seminar_source_url, widget: string, required: false }
           - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
           - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
           - { label: Publish public Contact details, name: contact_published, widget: boolean, default: false }

@@ -29,6 +29,10 @@ The CMS is at <https://up-economics-research-center.github.io/admin/>. **Sign-in
 4. For a new record, set its “Publish this…” switch to true when it is ready. Save the record in Decap; the change commits directly to `main` and is deployed by GitHub Actions. The live site updates after the Pages workflow succeeds. Editors publish directly to `main`; no pull request is required.
 5. If a Pages deployment fails, check the workflow in the repository’s **Actions** tab and ask a repository maintainer for help.
 
+### About and seminar proposals
+
+Keep the Center description and seminar information in English. The Research Seminar block in About summarizes proposal types and links to the Google Form; that form is currently in Spanish, and the button labels this before editors publish it. Maintain its meeting schedule only while it remains verified against the internal seminar information source.
+
 ### Adding a publication
 
 Enter the title, author names in citation order, abstract, year, and type. A Reference URL is optional and can point to any page or document that supports the record; it does not need to be a personal website. Add a DOI or canonical publisher page when one exists, select research areas from the existing list, and add a PDF only when the Center has permission to distribute it. The site makes a detail page with the abstract, authors, citation details, topic links, publisher page, and optional PDF download. A paper appears when its `published` field is true and the Pages deployment succeeds.

@@ -1,13 +1,16 @@
 {
-  "published": false,
-  "scope": "",
-  "research_scope": "",
-  "collaboration": "",
+  "published": true,
+  "scope": "The UP Economics Research Center brings together faculty and students to produce rigorous, policy-relevant economic research on social and economic challenges in Mexico and around the world. Its work spans human capital, political economy, digital and business economics, and public policy, using empirical methods.",
+  "research_scope": "Empirical economics for policy and society",
+  "collaboration": "We welcome research conversations and collaboration with colleagues, public institutions, businesses, research centers, and other organizations.",
   "contact_email": "akamei@up.edu.mx",
-  "source_url": "",
-  "verified_on": "",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "verified_on": "2026-09-25",
   "contact_published": true,
   "contact_address": "Autopista La Venta–Chamapa s/n, Lote único\nEx ejido de San Cristóbal\nC.P. 52796, Texcalucan, Huixquilucan\nEstado de México, México",
   "contact_source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
-  "contact_verified_on": "2026-09-25"
+  "contact_verified_on": "2026-09-25",
+  "seminar_description": "The Research Seminar is a space to present work in progress, share early-stage ideas for feedback, invite an external speaker, or propose a research workshop. It normally meets on the last Friday of the month from 10:00 to 11:00 a.m. in a hybrid format at CDUP and on Zoom.",
+  "seminar_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSeohtvdNLdCbWJMMD5Ud_3z9bhb7igiiX5ekSsgzykBk3U4qQ/viewform",
+  "seminar_source_url": "https://sites.google.com/up.edu.mx/up-econresearchcenter-portal/seminar"
 }

@@ -365,10 +365,17 @@ def render_about(settings: dict) -> str:
     about_text = settings.get("scope", "")
     research = settings.get("research_scope", "")
     collaboration = settings.get("collaboration", "")
-    source = external_anchor(settings.get("source_url", ""), "Source")
+    source = external_anchor(settings.get("source_url", ""), "Center information source")
+    seminar_url = settings.get("seminar_form_url", "")
+    seminar_description = settings.get("seminar_description", "")
+    seminar_html = ""
+    if seminar_url:
+        seminar_action = external_anchor(seminar_url, "Submit a seminar proposal · form in Spanish", "button")
+        seminar_html = (f'<div class="split-label"><div class="eyebrow">Research seminar</div><h2>Share work and ideas</h2></div>'
+                        f'<p>{e(seminar_description)}</p>{seminar_action}')
     return (f'<div><div class="eyebrow">Research scope</div><h2>{e(research) if research else "About the Center"}</h2>'
-            f'<p>{e(about_text)}</p><div class="split-label"><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2></div>'
-            f'<p>{e(collaboration)}</p>{source}</div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div>'
+            f'<p>{e(about_text)}</p>{source}<div class="split-label"><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2></div>'
+            f'<p>{e(collaboration)}</p>{seminar_html}</div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div>'
             f'<h2>Get in touch</h2></div>{contact_html}</aside>')
 
 
@@ -443,6 +450,10 @@ def build() -> None:
         for key in ("scope", "research_scope", "collaboration", "verified_on"):
             require_text(CONTENT / "settings/about.json", about_settings, key)
         about_settings["source_url"] = validate_url(CONTENT / "settings/about.json", "source_url", about_settings.get("source_url", ""), optional=True)
+        for key in ("seminar_source_url", "seminar_form_url"):
+            about_settings[key] = validate_url(CONTENT / "settings/about.json", key, about_settings.get(key, ""), optional=True)
+        if about_settings.get("seminar_form_url"):
+            require_text(CONTENT / "settings/about.json", about_settings, "seminar_description")
     if about_settings.get("contact_published"):
         contact_email = require_text(CONTENT / "settings/about.json", about_settings, "contact_email")
         if not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", contact_email):
