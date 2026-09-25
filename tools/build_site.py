@@ -370,7 +370,7 @@ def render_about(settings: dict) -> str:
     seminar_description = settings.get("seminar_description", "")
     seminar_html = ""
     if seminar_url:
-        seminar_action = external_anchor(seminar_url, "Submit a seminar proposal · form in Spanish", "button")
+        seminar_action = external_anchor(seminar_url, "Submit a seminar proposal", "button")
         seminar_html = (f'<div class="split-label"><div class="eyebrow">Research seminar</div><h2>Share work and ideas</h2></div>'
                         f'<p>{e(seminar_description)}</p>{seminar_action}')
     return (f'<div><div class="eyebrow">Research scope</div><h2>{e(research) if research else "About the Center"}</h2>'
