@@ -46,7 +46,7 @@
       "asset": "assets/people/sergio.jpg",
       "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
       "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72vzeQ50Ll7SEXlwH4lOc0y4V2eT7EnEMXq6amsC42gsw83l54WS9haM_Em7URU4bs8iIoowaBmY5zqGhWH37Q9gZtGU95bXLUOSCv8Sj3AcrhMYuwHMg2s3aYYKyj1xwVAFP7OKNNh5GRbbmqs9YNG-Xjen5LxGG55UOyCAtHvJBj56DuQgcTOFad0TEBzYw3k4tsYOMw4d3RBkbspzYJfubvPokij6VlksFgIH=w1280",
-      "status": "saved"
+      "status": "retained unused; replaced by the user-provided current portrait"
     },
     {
       "asset": "assets/people/jose-miguel.jpg",
@@ -83,6 +83,12 @@
       "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
       "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uDmdfJ77iWxjb5OXeywU74fYTixd-Q96S8ChvlPNGO0uz2XXLOFe7uT_BbHYV1QwTChJ35MkmE2oeSTHSOLFllEx5W-a0Yjd6YZr9vuOmeg9fFz9aDJ-YedryZz5E1JIVc3x56DzfZu1Op_OTxWRp4J7xER0mB8yY3DIl_Pi4_0_kC4qCtvjHX1EkR5t_qA89TtY186sZvQ9WTwvJzWzzFi3CN0BSfT9Yfv3aW=w1280",
       "status": "saved from refreshed public source URL"
+    },
+    {
+      "asset": "assets/people/sergio-rodriguez-garcia.png",
+      "sourcePage": "User-provided portrait",
+      "originalImage": "SergioRdz_UP2.png",
+      "status": "saved from user-provided file on 2026-09-25"
     }
   ]
 }
