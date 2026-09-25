@@ -1,14 +1,14 @@
 {
-  "name": "Sergio Rodríguez García",
-  "slug": "sergio",
-  "role": "Lead researcher",
-  "bio": "His research spans pension economics, financial economics, and economic history, with particular interests in the financial and actuarial sustainability of pension systems and the evolution of social protection institutions in Mexico. His current research examines the historical development and decline of early survivor pension institutions using historical, demographic, financial, and actuarial evidence. His broader research agenda also includes industrial organization and competition economics, particularly abuse of dominance and competition in digital markets. Sergio is a Ph.D. candidate in Economics at the University of Massachusetts Amherst.",
-  "portrait": "design/assets/people/sergio-rodriguez-garcia.png",
-  "portrait_alt": "Portrait of Sergio Rodríguez García.",
   "research_areas": [],
   "canonical_url": "",
+  "portrait_alt": "Portrait of Sergio Rodríguez García.",
+  "bio": "Sergio's research spans pension economics, financial economics, and economic history, with particular interests in the financial and actuarial sustainability of pension systems and the evolution of social protection institutions in Mexico. His current research examines the historical development and decline of early survivor pension institutions using historical, demographic, financial, and actuarial evidence. His broader research agenda also includes industrial organization and competition economics, particularly abuse of dominance and competition in digital markets. Sergio is a Ph.D. candidate in Economics at the University of Massachusetts Amherst.",
+  "name": "Sergio Rodríguez García",
+  "slug": "sergio",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
-  "verified_on": "2026-09-25",
   "published": true,
-  "display_order": 60
+  "display_order": 60,
+  "role": "Lead researcher",
+  "verified_on": "2026-09-25",
+  "portrait": "design/assets/people/sergio-rodriguez-garcia.png"
 }
