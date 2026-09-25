@@ -105,7 +105,7 @@ collections:
   - name: research_areas
     label: Research areas
     label_singular: Research area
-    description: Use a stable topic ID and link all people by their record slug.
+    description: Use a stable topic ID and link all people by their record slug. Projects are ongoing or planned work; add published outputs in Publications.
     folder: content/research-areas
     create: true
     extension: json
@@ -141,7 +141,7 @@ collections:
   - name: publications
     label: Publications
     label_singular: Publication
-    description: Every author, abstract, citation, and paper link must be checked against a source.
+    description: Papers are research outputs with citation details; every author, abstract, year, and paper link must be checked against a source.
     folder: content/publications
     create: true
     extension: json

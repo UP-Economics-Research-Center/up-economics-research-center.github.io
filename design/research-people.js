@@ -123,7 +123,9 @@ function formatAreaByline(authors) {
       }));
     }
 
-    const related = publications.filter(publication => (publication.topics || []).includes(area.slug));
+    const related = publications
+      .filter(publication => (publication.topics || []).includes(area.slug))
+      .sort((a, b) => Number(b.year) - Number(a.year) || a.title.localeCompare(b.title));
     if (!related.length) {
       setNote(outputs, 'No verified publications are linked to this area yet.');
     } else {

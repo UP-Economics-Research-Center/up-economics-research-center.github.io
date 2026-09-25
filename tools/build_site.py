@@ -467,6 +467,7 @@ def build() -> None:
             fail(CONTENT / "settings/about.json", "contact_verified_on", "use an ISO date")
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
     data = validate_records(raw)
+    data["publications"].sort(key=lambda publication: (-publication["year"], publication["title"].casefold()))
     for area in data["research_areas"]:
         filename = AREA_ILLUSTRATIONS.get(area["slug"])
         asset_path = ROOT / "design" / "assets" / "research-areas" / filename if filename else None
