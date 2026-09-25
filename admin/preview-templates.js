@@ -34,7 +34,7 @@
       h('div', { className: 'eyebrow' }, 'Content preview'),
       h('h1', {}, title),
       h('div', {}, blocks.length ? blocks : [h('p', { key: 'empty' }, 'Add details to see them in this preview.')]),
-      h('p', { className: 'note' }, field(entry, 'published') ? 'Marked for publication; a maintainer still reviews and merges the change.' : 'Draft only; this record will not appear on the public site.')
+      h('p', { className: 'note' }, field(entry, 'published') ? 'Marked for publication; it will appear after this change is saved and Pages finishes deploying.' : 'Draft only; this record will not appear on the public site.')
     );
   }
   ['site', 'about', 'people', 'research_areas', 'publications', 'news', 'seminars'].forEach(function (collection) {
