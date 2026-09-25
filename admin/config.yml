@@ -2,6 +2,7 @@ backend:
   name: github
   repo: UP-Economics-Research-Center/up-economics-research-center.github.io
   branch: main
+  open_authoring: false
   base_url: https://up-economics-decap-auth.jadrk040507.workers.dev
   auth_endpoint: auth
   auth_scope: public_repo
@@ -43,7 +44,7 @@ collections:
           - { label: Research scope, name: research_scope, widget: text, required: false }
           - { label: Collaboration information, name: collaboration, widget: text, required: false }
           - { label: Public contact email, name: contact_email, widget: string, required: false }
-          - { label: Source URL, name: source_url, widget: string, required: false }
+          - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
           - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
   - name: people
     label: Researchers
@@ -68,12 +69,15 @@ collections:
       - { label: Portrait alternative text, name: portrait_alt, widget: string, required: false }
       - label: Research areas
         name: research_areas
-        widget: list
-        field: { label: Research-area ID, name: area_id, widget: string }
+        widget: relation
+        collection: research_areas
+        search_fields: [name]
+        display_fields: [name]
+        value_field: slug
+        multiple: true
         required: false
-        hint: Use the stable slug of a published Research Area.
       - { label: Official profile URL, name: canonical_url, widget: string, required: false }
-      - { label: Source URL, name: source_url, widget: string }
+      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this profile, name: published, widget: boolean, default: false }
   - name: research_areas
@@ -109,7 +113,7 @@ collections:
         field: { label: Researcher slug, name: person_id, widget: string }
         required: false
       - { label: Official page URL, name: canonical_url, widget: string, required: false }
-      - { label: Source URL, name: source_url, widget: string }
+      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this area, name: published, widget: boolean, default: false }
   - name: publications
@@ -143,12 +147,16 @@ collections:
       - { label: Publisher or canonical page, name: canonical_url, widget: string, required: false }
       - { label: Approved paper file, name: pdf, widget: file, required: false }
       - { label: External download URL, name: pdf_url, widget: string, required: false }
-      - label: Research-area IDs
+      - label: Research areas
         name: topics
-        widget: list
-        field: { label: Research-area slug, name: topic_id, widget: string }
+        widget: relation
+        collection: research_areas
+        search_fields: [name]
+        display_fields: [name]
+        value_field: slug
+        multiple: true
         required: false
-      - { label: Source URL, name: source_url, widget: string }
+      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this publication, name: published, widget: boolean, default: false }
   - name: news
@@ -173,7 +181,7 @@ collections:
       - { label: Summary, name: summary, widget: text }
       - { label: Story, name: body, widget: text, required: false }
       - { label: Canonical URL, name: canonical_url, widget: string, required: false }
-      - { label: Source URL, name: source_url, widget: string }
+      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this item, name: published, widget: boolean, default: false }
   - name: seminars
@@ -201,6 +209,6 @@ collections:
       - { label: Location, name: location, widget: string, required: false }
       - { label: Registration or event URL, name: event_url, widget: string, required: false }
       - { label: Recording URL, name: recording_url, widget: string, required: false }
-      - { label: Source URL, name: source_url, widget: string }
+      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this event, name: published, widget: boolean, default: false }

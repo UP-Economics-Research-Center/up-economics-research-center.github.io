@@ -16,17 +16,17 @@
       if (value) blocks.push(h('p', { key: label }, h('strong', {}, label + ': '), String(value)));
     }
     if (kind === 'publications') {
-      line('Authors', field(entry, 'authors')); line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Venue', field(entry, 'venue')); line('Abstract', field(entry, 'abstract')); line('Topics', field(entry, 'topics')); line('DOI', field(entry, 'doi')); line('PDF', field(entry, 'pdf') || field(entry, 'pdf_url'));
+      line('Authors', field(entry, 'authors')); line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Venue', field(entry, 'venue')); line('Abstract', field(entry, 'abstract')); line('Topics', field(entry, 'topics')); line('DOI', field(entry, 'doi')); line('PDF', field(entry, 'pdf') || field(entry, 'pdf_url')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else if (kind === 'people') {
-      line('Role', field(entry, 'role')); line('Biography', field(entry, 'bio')); line('Research areas', field(entry, 'research_areas')); line('Profile', field(entry, 'canonical_url'));
+      line('Role', field(entry, 'role')); line('Biography', field(entry, 'bio')); line('Research areas', field(entry, 'research_areas')); line('Official profile', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else if (kind === 'research_areas') {
-      line('Research focus', field(entry, 'summary')); line('Researchers', field(entry, 'people'));
+      line('Research focus', field(entry, 'summary')); line('Researchers', field(entry, 'people')); line('Official page', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else if (kind === 'news') {
-      line('Date', field(entry, 'date')); line('Category', field(entry, 'category')); line('Summary', field(entry, 'summary')); line('Story', field(entry, 'body')); line('Source', field(entry, 'canonical_url') || field(entry, 'source_url'));
+      line('Date', field(entry, 'date')); line('Category', field(entry, 'category')); line('Summary', field(entry, 'summary')); line('Story', field(entry, 'body')); line('Canonical page', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else if (kind === 'seminars') {
-      line('Series', field(entry, 'series')); line('Speaker', field(entry, 'speaker')); line('Date and time', field(entry, 'date')); line('Time zone', field(entry, 'timezone')); line('Description', field(entry, 'description')); line('Location', field(entry, 'location')); line('Registration', field(entry, 'event_url'));
+      line('Series', field(entry, 'series')); line('Speaker', field(entry, 'speaker')); line('Date and time', field(entry, 'date')); line('Time zone', field(entry, 'timezone')); line('Description', field(entry, 'description')); line('Location', field(entry, 'location')); line('Registration', field(entry, 'event_url')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else if (kind === 'about') {
-      line('Research scope', field(entry, 'research_scope')); line('About the Center', field(entry, 'scope')); line('Collaboration', field(entry, 'collaboration')); line('Public contact', field(entry, 'contact_email'));
+      line('Research scope', field(entry, 'research_scope')); line('About the Center', field(entry, 'scope')); line('Collaboration', field(entry, 'collaboration')); line('Public contact', field(entry, 'contact_email')); line('Reference URL (optional)', field(entry, 'source_url'));
     } else {
       line('University', field(entry, 'university')); line('Introduction', field(entry, 'hero_summary')); line('Campus video', field(entry, 'campus_video_caption'));
     }
