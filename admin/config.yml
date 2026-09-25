@@ -42,9 +42,13 @@ collections:
           - { label: Center scope, name: scope, widget: text, required: false }
           - { label: Research scope, name: research_scope, widget: text, required: false }
           - { label: Collaboration information, name: collaboration, widget: text, required: false }
-          - { label: Public contact email, name: contact_email, widget: string, required: false }
           - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
           - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
+          - { label: Publish public Contact details, name: contact_published, widget: boolean, default: false }
+          - { label: Public contact email, name: contact_email, widget: string, required: false }
+          - { label: Public institutional address, name: contact_address, widget: text, required: false }
+          - { label: Contact reference URL, name: contact_source_url, widget: string, required: false }
+          - { label: Contact last verified, name: contact_verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
   - name: people
     label: Researchers
     label_singular: Researcher
@@ -166,56 +170,3 @@ collections:
       - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
       - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
       - { label: Publish this publication, name: published, widget: boolean, default: false }
-  - name: news
-    label: News
-    label_singular: News item
-    description: Publish only sourced announcements from the Center.
-    folder: content/news
-    create: true
-    extension: json
-    format: json
-    identifier_field: title
-    slug: '{{fields.slug}}'
-    summary: '{{date}} · {{title}}'
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - label: Category
-        name: category
-        widget: select
-        options: [Announcement, Publication, People, Seminar, Research]
-      - { label: Summary, name: summary, widget: text }
-      - { label: Story, name: body, widget: text, required: false }
-      - { label: Canonical URL, name: canonical_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this item, name: published, widget: boolean, default: false }
-  - name: seminars
-    label: Seminars
-    label_singular: Seminar
-    description: Add events only after the speaker, date, and details are confirmed.
-    folder: content/seminars
-    create: true
-    extension: json
-    format: json
-    identifier_field: title
-    slug: '{{fields.slug}}'
-    summary: '{{date}} · {{title}}'
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - label: Series
-        name: series
-        widget: select
-        options: ['General Research Seminar', 'Student Research Seminar', 'Other']
-      - { label: Speaker, name: speaker, widget: string }
-      - { label: Date and time, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: HH:mm }
-      - { label: Time zone, name: timezone, widget: string, hint: Use an IANA zone such as America/Mexico_City. }
-      - { label: Description, name: description, widget: text }
-      - { label: Location, name: location, widget: string, required: false }
-      - { label: Registration or event URL, name: event_url, widget: string, required: false }
-      - { label: Recording URL, name: recording_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this event, name: published, widget: boolean, default: false }

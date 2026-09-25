@@ -22,8 +22,6 @@ COLLECTIONS = {
     "people": "people",
     "research_areas": "research-areas",
     "publications": "publications",
-    "news": "news",
-    "seminars": "seminars",
 }
 
 
@@ -232,27 +230,6 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         row["topics"] = topics
         row["venue"] = optional_text(path, row, "venue")
 
-    for collection in ("news", "seminars"):
-        for row in data[collection]:
-            path = row.pop("_path")
-            required = ("title", "summary", "verified_on") if collection == "news" else ("title", "series", "speaker", "date", "timezone", "description", "verified_on")
-            for key in required:
-                require_text(path, row, key)
-            row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
-            for key in (("canonical_url",) if collection == "news" else ("event_url", "recording_url")):
-                row[key] = validate_url(path, key, row.get(key, ""), optional=True)
-            try:
-                date.fromisoformat(str(row["date"])[:10])
-            except ValueError:
-                fail(path, "date", "use an ISO date or date-time")
-            if collection == "news":
-                row["category"] = optional_text(path, row, "category", "Announcement") or "Announcement"
-                row["body"] = optional_text(path, row, "body")
-            else:
-                row["location"] = optional_text(path, row, "location")
-                if row["series"] not in {"General Research Seminar", "Student Research Seminar", "Other"}:
-                    fail(path, "series", "choose a supported seminar series")
-
     return data
 
 
@@ -341,15 +318,27 @@ def render_seminar(item: dict, archived=False) -> str:
 
 
 def render_about(settings: dict) -> str:
+    contact_html = '<p class="note">A public contact will be added after it is verified.</p>'
+    if settings.get("contact_published"):
+        email = optional_text(CONTENT / "settings/about.json", settings, "contact_email")
+        address = optional_text(CONTENT / "settings/about.json", settings, "contact_address")
+        address_html = "<br>".join(e(line.strip()) for line in address.splitlines() if line.strip())
+        contact_html = (f'<p>For research, seminar, or collaboration enquiries:</p>'
+                        f'<a class="text-link" href="mailto:{e(email)}">{e(email)} →</a>'
+                        f'<address class="contact-address">{address_html}</address>')
     if not settings.get("published"):
-        return '<div><div class="eyebrow">Research scope</div><h2>About information is under review.</h2><p class="note">Approved Center scope and collaboration details will appear here when provided.</p></div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2></div><p class="note">A public contact will be added after it is verified.</p></aside>'
+        return ('<div><div class="eyebrow">Research scope</div><h2>About information is under review.</h2>'
+                '<p class="note">Approved Center scope and collaboration details will appear here when provided.</p></div>'
+                '<aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2></div>'
+                + contact_html + '</aside>')
     about_text = settings.get("scope", "")
     research = settings.get("research_scope", "")
     collaboration = settings.get("collaboration", "")
     source = external_anchor(settings.get("source_url", ""), "Source")
-    contact = optional_text(CONTENT / "settings/about.json", settings, "contact_email")
-    contact_html = f'<p>For research, seminar, or collaboration enquiries:</p><a class="text-link" href="mailto:{e(contact)}">{e(contact)} →</a>' if contact else '<p class="note">A public contact will be added after it is verified.</p>'
-    return f'<div><div class="eyebrow">Research scope</div><h2>{e(research) if research else "About the Center"}</h2><p>{e(about_text)}</p><div class="split-label"><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2></div><p>{e(collaboration)}</p>{source}</div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2></div>{contact_html}</aside>'
+    return (f'<div><div class="eyebrow">Research scope</div><h2>{e(research) if research else "About the Center"}</h2>'
+            f'<p>{e(about_text)}</p><div class="split-label"><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2></div>'
+            f'<p>{e(collaboration)}</p>{source}</div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div>'
+            f'<h2>Get in touch</h2></div>{contact_html}</aside>')
 
 
 
@@ -403,6 +392,8 @@ def build() -> None:
         fail(CONTENT / "settings/about.json", "record", "expected a JSON object")
     if not isinstance(about_settings.get("published", False), bool):
         fail(CONTENT / "settings/about.json", "published", "must be true or false")
+    if not isinstance(about_settings.get("contact_published", False), bool):
+        fail(CONTENT / "settings/about.json", "contact_published", "must be true or false")
     for key in ("center_name", "university", "campus_video_caption"):
         require_text(CONTENT / "settings/site.json", site_settings, key)
     video_id = require_text(CONTENT / "settings/site.json", site_settings, "campus_video_id")
@@ -412,9 +403,17 @@ def build() -> None:
         for key in ("scope", "research_scope", "collaboration", "verified_on"):
             require_text(CONTENT / "settings/about.json", about_settings, key)
         about_settings["source_url"] = validate_url(CONTENT / "settings/about.json", "source_url", about_settings.get("source_url", ""), optional=True)
-        contact_email = optional_text(CONTENT / "settings/about.json", about_settings, "contact_email")
-        if contact_email and not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", contact_email):
+    if about_settings.get("contact_published"):
+        contact_email = require_text(CONTENT / "settings/about.json", about_settings, "contact_email")
+        if not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", contact_email):
             fail(CONTENT / "settings/about.json", "contact_email", "must be a valid public email address")
+        require_text(CONTENT / "settings/about.json", about_settings, "contact_address")
+        about_settings["contact_source_url"] = validate_url(CONTENT / "settings/about.json", "contact_source_url", about_settings.get("contact_source_url", ""))
+        contact_verified = require_text(CONTENT / "settings/about.json", about_settings, "contact_verified_on")
+        try:
+            date.fromisoformat(contact_verified)
+        except ValueError:
+            fail(CONTENT / "settings/about.json", "contact_verified_on", "use an ISO date")
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
     data = validate_records(raw)
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
@@ -438,9 +437,8 @@ def build() -> None:
         public_design = site / "design"
         public_design.mkdir()
         public_files = (
-            "about.html", "homepage-concept.html", "news.html", "people.html",
-            "publications.html", "research-area.html", "research.html", "seminars.html",
-            "campus-video.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
+            "about.html", "people.html", "research-area.html", "research.html",
+            "campus-video.js", "mobile-navigation.js", "research-people.js", "site-concept.css",
         )
         for relative in public_files:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
@@ -454,16 +452,8 @@ def build() -> None:
                             "home_summary": e(site_settings.get("hero_summary", "")) or None,
                             "homepage_areas": "".join(render_area(a, i, home=True) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>',
                             "video_caption": e(site_settings.get("campus_video_caption", "")) or None},
-            "design/homepage-concept.html": {"home_heading": e(site_settings.get("hero_heading", "")) or None,
-                            "home_summary": e(site_settings.get("hero_summary", "")) or None,
-                            "homepage_areas": "".join(render_area(a, i, home=True) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>',
-                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None},
             "design/research.html": {"research_areas": "".join(render_area(a, i) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>'},
             "design/people.html": {"people_directory": render_people(data["people"], areas_by_id)},
-            "design/publications.html": {"publication_list": "".join(render_publication_card(pub, area_names) for pub in data["publications"]) or '<p class="empty-state">No verified publications have been added yet.</p>'},
-            "design/news.html": {"news_list": "".join(render_news(item) for item in data["news"]) or '<p class="empty-state">No approved announcements have been added yet.</p>'},
-            "design/seminars.html": {"seminar_upcoming": "".join(render_seminar(item) for item in data["seminars"] if iso_day(item["date"]) >= date.today().isoformat()) or '<p class="note">Confirmed upcoming seminars will appear here.</p>',
-                                      "seminar_archive": "".join(render_seminar(item, archived=True) for item in data["seminars"] if iso_day(item["date"]) < date.today().isoformat()) or '<p class="note">Confirmed past seminars will appear here.</p>'},
             "design/about.html": {"about_content": render_about(about_settings)},
         }
         for relpath, slots in replacements.items():
@@ -483,45 +473,20 @@ def build() -> None:
             source = source.replace("Design preview · Illustrative content", e(site_settings.get("footer_note", "Design preview · Illustrative content")))
             path.write_text(source, encoding="utf-8")
 
-        # Remove every fictional inline dataset from public output, retaining external shared scripts.
-        for relpath, marker in (("design/publications.html", "demoPubs"), ("design/news.html", "const updates=")):
-            path = site / relpath
-            source = path.read_text(encoding="utf-8")
-            source, count = re.subn(r"<script>(?:(?!</script>).)*" + re.escape(marker) + r"(?:(?!</script>).)*</script>", "", source, count=1, flags=re.S)
-            if count != 1:
-                raise BuildError(f"{relpath}: expected to remove the illustrative inline script containing {marker}")
-            if relpath == "design/publications.html":
-                source = re.sub(r"<p class=\"note\">Interface demonstration only:.*?</p>", "", source, count=1)
-            else:
-                source = re.sub(r"<p class=\"note\">Illustrative announcement records for interface review only\..*?</p>", "", source, count=1)
-            if relpath == "design/publications.html":
-                years = sorted({str(pub["year"]) for pub in data["publications"]}, reverse=True)
-                topics = sorted({key for pub in data["publications"] for key in pub["topics"]})
-                types = sorted({pub["type"] for pub in data["publications"]})
-                source = replace_select_options(source, "pub-topic", "All topics", [(key, area_names[key]) for key in topics])
-                source = replace_select_options(source, "pub-year", "All years", [(year, year) for year in years])
-                source = replace_select_options(source, "pub-type", "All types", [(kind, kind) for kind in types])
-                source = source.replace("Showing 6 illustrative records", f"Showing {len(data['publications'])} verified publications", 1)
-                source = replace_archive(source, "Publication years", "browsePubYear", years, "Verified publication years will appear here.") if 'Publication years' in source else source
-            else:
-                years = sorted({iso_day(item["date"])[:4] for item in data["news"]}, reverse=True)
-                categories = sorted({item["category"] for item in data["news"]})
-                source = replace_select_options(source, "news-year", "All years", [(year, year) for year in years])
-                source = replace_select_options(source, "news-type", "All updates", [(category, category) for category in categories])
-                source = source.replace('aria-label="News years"', 'aria-label="News years"', 1)
-                source = replace_archive(source, "News years", "browseNewsYear", years, "Approved news years will appear here.")
-            path.write_text(source, encoding="utf-8")
-
         # Publish visitor-facing section pages at the repository root. Keep
         # styles, scripts, and media in design/ as implementation assets.
-        route_pages = ("about", "news", "people", "publications", "research-area", "research", "seminars")
+        route_pages = ("about", "people", "research-area", "research")
         for name in route_pages:
             source = (site / "design" / f"{name}.html").read_text(encoding="utf-8")
             source = source.replace('href="site-concept.css"', 'href="/design/site-concept.css"')
             source = source.replace('href="homepage-concept.html"', 'href="/"')
-            source = re.sub(r'(src|href)="(campus-video|mobile-navigation|research-people|publications|news)\.js"', r'\1="/design/\2.js"', source)
+            source = re.sub(r'(src|href)="(campus-video|mobile-navigation|research-people)\.js"', r'\1="/design/\2.js"', source)
             source = source.replace('src="assets/', 'src="/design/assets/')
             (site / f"{name}.html").write_text(source, encoding="utf-8")
+
+        # Source templates are build inputs; only the canonical root pages are public routes.
+        for template_page in public_design.glob("*.html"):
+            template_page.unlink()
 
         # Point homepage navigation at the new canonical section URLs.
         home_path = site / "index.html"
@@ -529,13 +494,20 @@ def build() -> None:
         home_source = re.sub(r'href="design/([a-z-]+\.html(?:#[^"]*)?)"', r'href="\1"', home_source)
         home_path.write_text(home_source, encoding="utf-8")
 
+        redirect = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+                    '<meta name="viewport" content="width=device-width,initial-scale=1">'
+                    '<meta http-equiv="refresh" content="0;url=/research.html#areas">'
+                    '<link rel="canonical" href="https://up-economics-research-center.github.io/research.html#areas">'
+                    '<title>Papers by research area | UP Economics Research Center</title></head>'
+                    '<body><main><h1>Find papers by research area</h1><p>The publication directory has moved to Research.</p>'
+                    '<p><a href="/research.html#areas">Browse research areas</a></p></main></body></html>')
+        (site / "publications.html").write_text(redirect, encoding="utf-8")
+
         # Use approved content only in generated search and content feeds.
         people_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in sorted(data["people"], key=lambda person: (person["display_order"], person["name"].casefold()))]
         area_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["research_areas"]]
         publication_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["publications"]]
-        news_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["news"]]
-        seminar_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["seminars"]]
-        for name, value in (("people.json", people_feed), ("research-areas.json", area_feed), ("publications.json", publication_feed), ("news.json", news_feed), ("seminars.json", seminar_feed)):
+        for name, value in (("people.json", people_feed), ("research-areas.json", area_feed), ("publications.json", publication_feed)):
             write_json(site / name, value)
 
         search = list(pages)
@@ -547,10 +519,6 @@ def build() -> None:
             authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
             desc = pub["abstract"]
             search.append(page_entry(pub["title"], desc, f'{authors} {pub["year"]} {pub["type"]} {pub["venue"]} ' + " ".join(pub["topics"]), f'/publications/{quote(pub["slug"], safe="-")}/', "Publication"))
-        for item in data["news"]:
-            search.append(page_entry(item["title"], item["summary"], item.get("category", "News"), f'/news.html#{quote(item["slug"], safe="-")}', "News"))
-        for item in data["seminars"]:
-            search.append(page_entry(item["title"], item["description"], f'{item["speaker"]} {item["series"]} {item["date"]}', f'/seminars.html#{quote(item["slug"], safe="-")}', "Seminar"))
         write_json(site / "search-index.json", search)
 
         template_path = ROOT / "templates/publication-detail.html"

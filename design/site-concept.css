@@ -523,6 +523,7 @@ footer{padding-top:64px}
 }
 
 /* Researcher summaries and reciprocal topic navigation. */
+.contact-address { margin-top: 1.25rem; font-style: normal; line-height: 1.75; }
 .person-bio{max-width:48ch;line-height:1.65!important}
 .person-topics{margin-top:18px}
 .person-topics-label{display:block;font-size:13px;font-weight:750;letter-spacing:.045em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
