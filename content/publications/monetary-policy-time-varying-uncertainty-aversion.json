@@ -6,7 +6,8 @@
       "name": "Fidel Gonzalez"
     },
     {
-      "name": "Arnulfo Rodriguez"
+      "name": "Arnulfo Rodriguez",
+      "person_id": "arnulfo"
     }
   ],
   "abstract": "The paper analyzes monetary-policy decisions in a model where aversion to uncertainty changes over time, focusing on how uncertainty and regime shifts affect policy responses.",

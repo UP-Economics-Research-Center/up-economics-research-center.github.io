@@ -1,3 +1,17 @@
+function formatAreaByline(authors) {
+  const source = Array.isArray(authors) ? authors : [];
+  const linkedPeople = [];
+  const collaborators = [];
+  for (const author of source) {
+    const name = typeof author === 'string' ? author : (author && author.name) || '';
+    if (!name) continue;
+    if (author && typeof author === 'object' && author.person_id) linkedPeople.push(name);
+    else collaborators.push(name);
+  }
+  if (!linkedPeople.length) return source.map(author => typeof author === 'string' ? author : author.name).join(', ');
+  return linkedPeople.join(', ') + (collaborators.length ? ` with ${collaborators.join(', ')}` : '');
+}
+
 (async () => {
   const params = new URLSearchParams(location.search);
   const requested = params.get('area') || '';
@@ -125,7 +139,7 @@
         heading.append(makeLink(`/publications/${encodeURIComponent(publication.slug)}/`, publication.title));
         const authors = document.createElement('p');
         authors.className = 'pub-authors';
-        authors.textContent = (publication.authors || []).map(author => typeof author === 'string' ? author : author.name).join(', ');
+        authors.textContent = formatAreaByline(publication.authors);
         text.append(heading, authors);
         article.append(year, text);
         return article;

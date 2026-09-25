@@ -135,7 +135,14 @@ collections:
         widget: list
         fields:
           - { label: Author name, name: name, widget: string }
-          - { label: Center researcher slug, name: person_id, widget: string, required: false }
+          - label: Center researcher
+            name: person_id
+            widget: relation
+            collection: people
+            search_fields: [name]
+            display_fields: [name]
+            value_field: slug
+            required: false
       - { label: Abstract, name: abstract, widget: text }
       - { label: Year, name: year, widget: number, value_type: int, min: 1900, max: 2100 }
       - label: Publication type
