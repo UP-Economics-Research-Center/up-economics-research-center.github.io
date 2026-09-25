@@ -21,20 +21,18 @@ Then open <http://localhost:8000/>. Do not edit generated `_site/` files; change
 
 ## Using Decap CMS
 
-The CMS is at <https://up-economics-research-center.github.io/admin/>. **Sign-in becomes available only after the organization owner completes the OAuth setup below and deploys the updated Pages site.** Editors need a GitHub account invited as a collaborator to the repository.
+The CMS is at <https://up-economics-research-center.github.io/admin/>. **Sign-in becomes available only after the organization owner completes the OAuth setup below and deploys the updated Pages site.** Only GitHub accounts invited to this repository with write access can edit. The invite must be accepted first; sign-in alone does not grant access.
 
 1. Open `/admin/` and choose **Login with GitHub**.
 2. Choose a collection: Researchers, Research Areas, Publications, News, Seminars, Site Settings, or About.
-3. Edit named fields, keep the source URL and verification date, and use the editor’s preview pane to review the formatted record. You do not need to edit HTML or CSS.
-4. Mark your work ready for review. Decap prepares it for review in GitHub; the public site does not change yet.
-5. A maintainer checks the facts, sources, links, and image permissions, then approves and merges the pull request.
-6. GitHub Actions builds and publishes the merged content. Check the Pages workflow in the repository’s **Actions** tab if the site has not updated after a few minutes.
-
-People who are not invited as repository collaborators can propose edits by opening a GitHub pull request. A maintainer must review and merge it before publication.
+3. Edit the fields and use the preview pane to review the record. Research areas are selected from the existing area list. You do not need to edit HTML or CSS.
+4. Save the entry as a draft in Decap. It creates or updates a GitHub pull request; the public site remains unchanged.
+5. A maintainer reviews the pull request and merges it on GitHub. The **Publish** action in Decap tries to merge immediately, so it cannot publish past the required GitHub review.
+6. GitHub Actions builds and publishes after the pull request is merged. Check the Pages workflow in the repository’s **Actions** tab if the site has not updated after a few minutes.
 
 ### Adding a publication
 
-Enter the title, author names in citation order, abstract, year, type, and source URL. Add a DOI or canonical publisher page when one exists, select verified research-area IDs, and add a PDF only when the Center has permission to distribute it. The site makes a detail page with the abstract, authors, citation details, topic links, publisher page, and optional PDF download. A paper appears only after the maintainer reviews and merges its record.
+Enter the title, author names in citation order, abstract, year, and type. A Reference URL is optional and can point to any page or document that supports the record; it does not need to be a personal website. Add a DOI or canonical publisher page when one exists, select research areas from the existing list, and add a PDF only when the Center has permission to distribute it. The site makes a detail page with the abstract, authors, citation details, topic links, publisher page, and optional PDF download. A paper appears only after the maintainer reviews and merges its record.
 
 ### Adding images
 
@@ -42,7 +40,7 @@ Use the CMS media chooser and provide useful alternative text. Keep source and p
 
 ### Content review
 
-Keep affiliations, biographies, event dates, citations, and contact details current and supported by a source. Leave uncertain entries unpublished and explain what needs checking in the pull request. The initial researcher and research-area records were transcribed from the Center source page linked from the existing directory; check their current roles and research-area matches during future edits.
+Keep affiliations, biographies, event dates, citations, and contact details accurate and reviewable. The optional Reference URL can point to any supporting source, not only a researcher’s personal site. Leave uncertain entries unpublished and explain what needs checking in the pull request. When a record has a Reference URL, recheck it before changing the related facts.
 
 ## Owner setup: GitHub sign-in
 
@@ -52,7 +50,7 @@ These one-time steps require an organization/repository maintainer and access to
 2. In `oauth-worker/wrangler.toml`, set `SITE_ORIGIN` to `https://up-economics-research-center.github.io`. Deploy the Worker from the `oauth-worker/` directory using Cloudflare Wrangler.
 3. Set the Worker secrets with Wrangler: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and a long random `STATE_SIGNING_SECRET`. Never commit these values or put the client secret in Decap configuration.
 4. In `admin/config.yml`, replace `backend.base_url` with the deployed Worker origin, for example `https://YOUR-WORKER.workers.dev` (without a trailing slash). Commit and merge this configuration change so GitHub Pages deploys it.
-5. Invite each editor as a collaborator to the public site repository and require at least one maintainer approval for changes to `main` in the repository’s branch protection/ruleset settings.
+5. Invite each editor to the public site repository with write access; they must accept the invitation. Require at least one maintainer approval for changes to `main` in the repository’s branch protection/ruleset settings.
 6. Ask an invited editor to sign in at `/admin/`, save a small draft, and confirm it arrives for review without changing the live site. Merge only after review.
 
 If GitHub returns an access or organization-permission error, ask an organization owner to invite the editor or adjust repository access. Never share OAuth secrets or personal access tokens in pull requests or chat. To rotate credentials, update the Worker secret bindings and redeploy it; do not add credentials to this repository.

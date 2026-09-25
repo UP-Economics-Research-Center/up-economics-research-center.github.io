@@ -13,6 +13,8 @@
       .setup-note { max-width: 52rem; margin: 1rem auto; padding: 1rem 1.25rem; border-left: 4px solid #987131; background: #fff9e9; }
       .setup-note[hidden] { display: none; }
       .setup-note a { color: #17483b; }
+      .workflow-note { max-width: 52rem; margin: 1rem auto; padding: 1rem 1.25rem; border-left: 4px solid #17483b; background: #eef5f1; }
+      .workflow-note p { margin: .35rem 0 0; }
     </style>
   </head>
   <body>
@@ -20,6 +22,10 @@
       <strong>Editor setup is not complete.</strong>
       <span>A repository owner must configure the GitHub OAuth App and Worker before editors can log in. Follow the owner setup in the project README.</span>
       <a href="https://github.com/UP-Economics-Research-Center/up-economics-research-center.github.io#owner-setup-github-sign-in">Open setup instructions</a>
+    </aside>
+    <aside class="workflow-note" role="note" aria-label="How to publish content">
+      <strong>Submit changes for review</strong>
+      <p>Only invited GitHub repository collaborators with write access can edit. Save an entry as a draft to create or update its pull request. A maintainer reviews and merges that pull request on GitHub; the site publishes after the merge. The Publish action in Decap tries to merge immediately and cannot bypass the required review.</p>
     </aside>
     <script src="./setup-status.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.15.1/dist/decap-cms.js"></script>

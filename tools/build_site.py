@@ -139,7 +139,7 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         require_text(path, row, "name")
         require_text(path, row, "role")
         require_text(path, row, "bio")
-        validate_url(path, "source_url", row.get("source_url", ""))
+        row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         require_text(path, row, "verified_on")
         row["portrait"] = local_asset(path, "portrait", row.get("portrait", ""), optional=True) if row.get("portrait") else ""
         row["canonical_url"] = validate_url(path, "canonical_url", row.get("canonical_url", ""), optional=True)
@@ -155,7 +155,7 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         require_text(path, row, "name")
         require_text(path, row, "summary")
         require_text(path, row, "overview")
-        validate_url(path, "source_url", row.get("source_url", ""))
+        row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         require_text(path, row, "verified_on")
         projects = row.get("projects", [])
         if not isinstance(projects, list):
@@ -181,9 +181,9 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
     types = {"Journal article", "Working paper", "Book", "Book chapter", "Policy brief", "Other"}
     for row in data["publications"]:
         path = row.pop("_path")
-        for key in ("title", "abstract", "type", "source_url", "verified_on"):
+        for key in ("title", "abstract", "type", "verified_on"):
             require_text(path, row, key)
-        validate_url(path, "source_url", row["source_url"])
+        row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         if row["type"] not in types:
             fail(path, "type", "choose a supported publication type")
         try:
@@ -229,10 +229,10 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
     for collection in ("news", "seminars"):
         for row in data[collection]:
             path = row.pop("_path")
-            required = ("title", "summary", "source_url", "verified_on") if collection == "news" else ("title", "series", "speaker", "date", "timezone", "description", "source_url", "verified_on")
+            required = ("title", "summary", "verified_on") if collection == "news" else ("title", "series", "speaker", "date", "timezone", "description", "verified_on")
             for key in required:
                 require_text(path, row, key)
-            validate_url(path, "source_url", row["source_url"])
+            row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
             for key in (("canonical_url",) if collection == "news" else ("event_url", "recording_url")):
                 row[key] = validate_url(path, key, row.get(key, ""), optional=True)
             try:
@@ -402,9 +402,9 @@ def build() -> None:
     if not YOUTUBE_ID_RE.fullmatch(video_id):
         fail(CONTENT / "settings/site.json", "campus_video_id", "must be a valid 11-character YouTube ID")
     if about_settings.get("published"):
-        for key in ("scope", "research_scope", "collaboration", "source_url", "verified_on"):
+        for key in ("scope", "research_scope", "collaboration", "verified_on"):
             require_text(CONTENT / "settings/about.json", about_settings, key)
-        validate_url(CONTENT / "settings/about.json", "source_url", about_settings.get("source_url", ""))
+        about_settings["source_url"] = validate_url(CONTENT / "settings/about.json", "source_url", about_settings.get("source_url", ""), optional=True)
         contact_email = optional_text(CONTENT / "settings/about.json", about_settings, "contact_email")
         if contact_email and not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", contact_email):
             fail(CONTENT / "settings/about.json", "contact_email", "must be a valid public email address")
