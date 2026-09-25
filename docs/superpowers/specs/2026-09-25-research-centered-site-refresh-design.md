@@ -15,6 +15,7 @@ Refocus the public UP Economics Research Center site around its people and resea
 - Remove the general Publications directory while retaining each paper’s individual details page. Research-area cards link directly to those pages. An old `/publications.html` URL redirects to the Research area index so existing links have a useful destination.
 - Keep News and Seminars out of the public site, search, and CMS for now. Leave the internal Google Sites seminar portal and existing source records untouched; do not migrate or expose its content.
 - Preserve existing site assets and the responsive design. Add only assets selected for this approved direction.
+- Replace the home-page video with the Center-approved YouTube video `https://www.youtube.com/watch?v=ISvo7S30of4`, keeping muted autoplay and the existing reduced-motion fallback.
 
 ## People
 
@@ -37,13 +38,15 @@ Refocus the public UP Economics Research Center site around its people and resea
 - Create nine locally stored, original SVG line illustrations, one for each research area. The drawings should feel like refined architectural concept sketches: thin, precise but expressive lines, distinct motifs, open negative space, and no large filled shapes.
 - Use the existing palette: ink `#242126`, wine `#8A1538`, warm paper `#F7F5F2`, and sparing gold `#BA9357`. Keep the SVG backgrounds transparent so they sit naturally in the existing pages.
 - Use each drawing as a decorative area marker on the Research hub and a larger editorial illustration on its area page. Area titles and descriptions remain visible text; decorative SVGs use empty alternative text.
+- Add a favicon set based on a geometric ivory `E` on a wine square, echoing the current wordmark accent. Deliver a root-level SVG, an `.ico` fallback, and a 180px Apple touch PNG from the same artwork. Include root-relative icon links on the public page sources, the CMS entry page, and publication detail template; copy the icon assets into the static build. Do not use the rejected book-and-arch concept asset.
 - Add a Home-page research highlight using the provided people/article image and the existing record `gender-education-farm-succession-western-parana`. The image and call to action link to that paper’s internal details page. Store the image in the project and provide CMS fields for image, alternative text, credit/source, and a relation to the publication record.
 - Keep the people/article image separate from the conceptual area illustrations. Confirm image identity, resolution, share access, and reuse permission before putting it in the public build. If the Drive file is not accessible to the editor or is not suitable, request an accessible approved file before publishing the highlight.
 
 ## Contact and CMS
 
 - Move the original Center contact email and institutional address into the public Contact area on the new site. Make Contact reachable from the primary navigation and retain a contact link in the footer.
-- Extend the existing Decap schema for people ordering and the Home research highlight. Use a relation field to select an existing publication so the feature cannot point to a guessed URL.
+- Extend the existing Decap schema for people ordering, the Home research highlight, and campus video poster/alternative text. Use a relation field to select an existing publication so the feature cannot point to a guessed URL.
+- Set the campus video ID to `ISvo7S30of4`. Update its local poster, alternative text, caption, accessible iframe title, and “Watch on YouTube” link to match the new film. Add CMS fields for the local poster and its alternative text so later video updates can keep the thumbnail accurate. Keep the CMS video ID, caption, and poster synchronized with the generated embed/link.
 - Configure publication author relations so the build can distinguish Center people from external coauthors and format area-card bylines consistently while retaining the official full author metadata.
 - Remove News and Seminars from Decap for this public-site period. Do not delete any existing content/source files as part of this change.
 - Update README editor instructions to describe the current, simpler Research/People/About workflow, the direct-publishing behavior already configured, image accessibility/source requirements, and how papers are reached through research areas.
@@ -51,6 +54,7 @@ Refocus the public UP Economics Research Center site around its people and resea
 ## Implementation boundaries
 
 - Keep the HTML and shared CSS as the presentation source of truth. Update generated navigation consistently on the canonical pages and their design-source counterparts.
+- Keep the video muted, inline, and set to autoplay on the normal motion path. Preserve the current click-to-play behavior when reduced motion is requested, as well as visible player controls. Use the new film’s thumbnail as the local poster.
 - Keep generated publication detail routes under `/publications/<slug>/`; do not generate or index the old publication listing. Keep the legacy `/publications.html` location as a redirect only.
 - Exclude News and Seminars pages, data feeds, CMS collections, and search records from the public build. Preserve the original source files and the separate internal seminar portal.
 - No replacement of current media with generated photographs. The nine requested conceptual SVG sketches are new custom illustrations; the user-provided feature photograph remains authentic source media.
@@ -68,7 +72,9 @@ Refocus the public UP Economics Research Center site around its people and resea
 7. All published papers remain reachable from their research areas; cards prioritize linked UP researchers and use “with” for remaining coauthors, while details preserve the full official author order.
 8. An old `/publications.html` visit redirects to the Research index without breaking any individual paper detail URL.
 9. The About/Contact page presents the original approved email and address, and Decap exposes the agreed editorial fields without exposing private content.
-10. Manual review confirms page paths, internal links, keyboard navigation, mobile rendering, and the static build output. No automated tests are added or run.
+10. The new video ID, embedded player, muted autoplay settings, reduced-motion fallback, title, poster, caption, and direct YouTube link all refer to the approved video; Decap exposes the poster and alternative text with the video ID.
+11. The favicon appears consistently on the home page, section pages, CMS, and generated paper detail routes, including on mobile browser tabs/home screens.
+12. Manual review confirms page paths, internal links, keyboard navigation, mobile rendering, and the static build output. No automated tests are added or run.
 
 ## Sources and remaining content check
 
@@ -76,4 +82,5 @@ Refocus the public UP Economics Research Center site around its people and resea
 - Esteban’s selected official UP profile: <https://www.up.edu.mx/en/investigacion/esteban-colla-de-robertis/>
 - Eugenio’s personal profile candidate in the existing People source: <https://eugeniogomeza.github.io/eugeniogomez/>. Confirm it remains the preferred current link before publication.
 - Feature image: user-provided Drive item `<https://drive.google.com/open?id=1t8vYzwhCzM3XeRZ7G-gd92lqcpBp8FdA&usp=drive_fs>`. Its contents were not accessible to the current web inspection tool; image identity and reuse permission remain to be checked before publication.
+- Home video selected by the Center: <https://www.youtube.com/watch?v=ISvo7S30of4>. YouTube page metadata could not be fetched during planning; verify its title and retrieve its matching thumbnail when implementing.
 - Internal seminar portal: <https://sites.google.com/up.edu.mx/up-econresearchcenter-portal/seminar>. It remains internal and is not part of this migration.
