@@ -18,6 +18,17 @@ CONTENT = ROOT / "content"
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 YOUTUBE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$")
+AREA_ILLUSTRATIONS = {
+    "education-and-human-capital": "education-and-human-capital.svg",
+    "digital-and-business-economics": "digital-and-business-economics.svg",
+    "political-economy": "political-economy.svg",
+    "macroeconomics": "macroeconomics.svg",
+    "development-economics": "development-economics.svg",
+    "health-water-sanitation": "health-water-sanitation.svg",
+    "agricultural-economics": "agricultural-economics.svg",
+    "environmental-economics": "environmental-economics.svg",
+    "economic-demography": "economic-demography.svg",
+}
 COLLECTIONS = {
     "people": "people",
     "research_areas": "research-areas",
@@ -259,7 +270,13 @@ def render_area(area: dict, index: int, *, home=False) -> str:
     href = ("/" if home else "") + f"research-area.html?area={slug}"
     if home:
         return f'<a class="topic-link" href="{e(href)}"><span>{e(area["name"])}</span><span aria-hidden="true">→</span></a>'
-    return f'<a class="research-row" href="{e(href)}"><span class="num">{index:02d}</span><strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
+    image = (f'<img src="{e(area["illustration"])}" alt="" width="640" height="400" loading="lazy" decoding="async">'
+             if area.get("illustration") else "")
+    return (f'<a class="research-card" href="{e(href)}"><span class="research-card-art" aria-hidden="true">{image}</span>'
+            f'<span class="research-card-meta"><span class="research-card-num">{index:02d}</span><span class="research-card-arrow" aria-hidden="true">↗</span></span>'
+            f'<h3 class="research-card-title">{e(area["name"])}</h3><span class="research-card-summary">{e(area["summary"])}</span>'
+            f'<span class="research-card-link">Explore area <span aria-hidden="true">→</span></span></a>')
+
 
 
 def render_person(person: dict, areas: dict[str, dict]) -> str:
@@ -416,6 +433,11 @@ def build() -> None:
             fail(CONTENT / "settings/about.json", "contact_verified_on", "use an ISO date")
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
     data = validate_records(raw)
+    for area in data["research_areas"]:
+        filename = AREA_ILLUSTRATIONS.get(area["slug"])
+        asset_path = ROOT / "design" / "assets" / "research-areas" / filename if filename else None
+        if asset_path and asset_path.is_file():
+            area["illustration"] = f"/design/assets/research-areas/{filename}"
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
     area_names = {key: value["name"] for key, value in areas_by_id.items()}
 

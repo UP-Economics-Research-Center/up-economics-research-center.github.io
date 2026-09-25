@@ -16,8 +16,8 @@ function formatAreaByline(authors) {
   const params = new URLSearchParams(location.search);
   const requested = params.get('area') || '';
   const title = document.getElementById('area-title');
-  const number = document.getElementById('area-number');
   const kicker = document.getElementById('area-kicker');
+  const artwork = document.getElementById('area-illustration');
   const crumb = document.getElementById('area-crumb');
   const question = document.getElementById('area-question');
   const summary = document.getElementById('area-summary');
@@ -55,7 +55,6 @@ function formatAreaByline(authors) {
     const area = areas[index];
     if (!area) {
       title.textContent = 'Research area unavailable';
-      number.textContent = '—';
       if (description) description.textContent = 'Choose a published research area from the Research page.';
       setNote(team, 'No published researchers are listed for this area.');
       setNote(outputs, 'No published papers are listed for this area.');
@@ -63,10 +62,11 @@ function formatAreaByline(authors) {
     }
 
     title.textContent = area.name;
+    if (artwork && area.illustration) artwork.src = area.illustration;
+    else if (artwork && artwork.parentElement) artwork.parentElement.hidden = true;
     if (crumb) crumb.textContent = area.name;
     if (question) question.textContent = `${area.name}: research focus`;
     const areaNumber = String(index + 1).padStart(2, '0');
-    number.textContent = areaNumber;
     if (kicker) kicker.textContent = `Research area ${areaNumber}`;
     if (summary) summary.textContent = area.summary;
     if (description) description.textContent = area.overview || area.summary;
