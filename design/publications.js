@@ -1,4 +1,5 @@
 (() => {
+ const {t,language}=window.SiteLanguage||{t:value=>value,language:'en'};
  const form=document.querySelector('.filters');
  const list=document.getElementById('publication-list');
  const count=document.getElementById('result-count');
@@ -17,10 +18,10 @@
    card.hidden=!match;if(match)shown++;
   }
   const initialEmpty=list.querySelector('.empty-state');
-  if(records.length&&shown===0){if(!initialEmpty){const empty=document.createElement('p');empty.className='empty-state';empty.dataset.filterEmpty='true';empty.textContent='No publications match these filters. Clear filters or try a broader search.';list.append(empty);}}
+  if(records.length&&shown===0){if(!initialEmpty){const empty=document.createElement('p');empty.className='empty-state';empty.dataset.filterEmpty='true';empty.textContent=t('No publications match these filters. Clear filters or try a broader search.');list.append(empty);}}
   else list.querySelector('[data-filter-empty]')?.remove();
-  count.textContent=records.length?`Showing ${shown} verified publication${shown===1?'':'s'}`:'No verified publications have been added yet.';
-  if(updateUrl){const next=new URL(location.href);for(const [key,element] of Object.entries(keys)){if(element.value)next.searchParams.set(key,element.value);else next.searchParams.delete(key);}history.replaceState({},'',next);}
+  count.textContent=records.length?(language==='es'?`Mostrando ${shown} publicaci${shown===1?"ón verificada":"ones verificadas"}`:`Showing ${shown} verified publication${shown===1?'':'s'}`):t('No verified publications have been added yet.');
+  if(updateUrl){const next=new URL(location.href);for(const [key,element] of Object.entries(keys)){if(element.value)next.searchParams.set(key,element.value);else next.searchParams.delete(key);}history.replaceState({},'',next);window.dispatchEvent(new Event('up:urlchange'));}
  }
  window.filterPubs=()=>apply();window.resetPubs=()=>{search.value='';Object.values(fields).forEach(element=>element.value='');apply();};
  window.browsePubYear=year=>{fields.year.value=year;apply();fields.year.focus();form.scrollIntoView({block:'start'});};

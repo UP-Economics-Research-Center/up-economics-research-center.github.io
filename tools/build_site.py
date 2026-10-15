@@ -11,6 +11,7 @@ import tempfile
 from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlparse
+from site_locales import generate_languages, LocaleError
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "_site"
@@ -143,6 +144,7 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         require_text(path, row, "verified_on")
         row["portrait"] = local_asset(path, "portrait", row.get("portrait", ""), optional=True) if row.get("portrait") else ""
         row["canonical_url"] = validate_url(path, "canonical_url", row.get("canonical_url", ""), optional=True)
+        row["personal_website"] = validate_url(path, "personal_website", row.get("personal_website", ""), optional=True)
         topics = row.get("research_areas", [])
         if not isinstance(topics, list) or not all(isinstance(item, str) for item in topics):
             fail(path, "research_areas", "expected a list of area slugs")
@@ -271,47 +273,48 @@ def external_anchor(url: str, text: str, cls="text-link") -> str:
     return f'<a class="{cls}" href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(text)} ↗</a>'
 
 
+def image_html(record: dict, cls: str = "research-photo") -> str:
+    if not record.get("image"):
+        return ""
+    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}" width="960" height="640" loading="lazy">'
+
+
 def render_area(area: dict, index: int, *, home=False) -> str:
-    slug = quote(area["slug"], safe="-")
-    href = ("/" if home else "") + f"research-area.html?area={slug}"
+    href = f'/research-area.html?area={quote(area["slug"], safe="-")}'
     if home:
         return f'<a class="topic-link" href="{e(href)}"><span>{e(area["name"])}</span><span aria-hidden="true">→</span></a>'
-    return f'<a class="research-row" href="{e(href)}"><span class="num">{index:02d}</span><strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
+    art = f'<span class="research-art" data-area="{e(area["slug"])}"><span class="art-paper" aria-hidden="true"></span>{image_html(area)}<span class="art-detail" aria-hidden="true"></span></span>'
+    return f'<a class="research-row" href="{e(href)}">{art}<strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
 
 
 def render_person(person: dict, areas: dict[str, dict]) -> str:
-    portrait = f'<img class="person-portrait" src="{e(person["portrait"])}" alt="{e(person.get("portrait_alt") or person["name"])}" width="110" height="138" loading="lazy">' if person.get("portrait") else ""
-    topics = [areas[key] for key in person.get("research_areas", [])]
+    portrait = f'<img class="person-portrait" src="{e(person["portrait"])}" alt="{e(person.get("portrait_alt") or person["name"])}" width="240" height="300" loading="lazy">' if person.get("portrait") else ""
+    topics = [area for key, area in areas.items() if key in person.get("research_areas", [])]
     topic_html = ""
     if topics:
-        links = "".join(f'<li><a href="research-area.html?area={quote(area["slug"], safe="-")}">{e(area["name"])} <span aria-hidden="true">→</span></a></li>' for area in topics)
+        links = "".join(f'<li><a href="/research-area.html?area={quote(area["slug"], safe="-")}">{e(area["name"])} <span aria-hidden="true">→</span></a></li>' for area in topics)
         topic_html = f'<div class="person-topics"><span class="person-topics-label">Research areas</span><ul>{links}</ul></div>'
-    profile = external_anchor(person.get("canonical_url", ""), "Research profile", "profile-link")
-    bio = f'<p class="person-bio">{e(person["bio"])}</p>'
-    return f'<article class="person" id="{e(person["slug"])}">{portrait}<div><h3>{e(person["name"])}</h3><p class="eyebrow">{e(person["role"])}</p>{bio}{topic_html}{profile}</div></article>'
+    profile = external_anchor(person.get("personal_website", ""), "Personal website", "profile-link")
+    if person.get("canonical_url") and person["canonical_url"] != person.get("personal_website"):
+        profile += external_anchor(person["canonical_url"], "Research profile", "profile-link")
+    return f'<article class="person" id="{e(person["slug"])}"><div class="person-visual">{portrait}{topic_html}</div><div class="person-copy"><h3>{e(person["name"])}</h3><p class="person-bio">{e(person["bio"])}</p>{profile}</div></article>'
 
 
 def render_people(people: list[dict], areas: dict[str, dict]) -> str:
-    groups = [
-        ("lead-researchers", "Lead researchers", [p for p in people if p["role"] == "Lead researcher"]),
-        ("research-professionals", "Research professionals", [p for p in people if p["role"] == "Research professional"]),
-        ("other-researchers", "Researchers", [p for p in people if p["role"] not in {"Lead researcher", "Research professional"}]),
-    ]
-    blocks = []
-    for slug, title, members in groups:
-        if not members and slug == "other-researchers":
-            continue
-        cards = "".join(render_person(person, areas) for person in members) or '<p class="note">Profiles will appear here after their details are verified.</p>'
-        blocks.append(f'<div class="people-group" id="{slug}"><div class="eyebrow">Research team</div><h2>{e(title)}</h2><div class="people-list">{cards}</div></div>')
-    return "".join(blocks)
+    groups = [("lead-researchers", "Lead researchers", [p for p in people if p["role"] == "Lead researcher"]),
+              ("research-professionals", "Research professionals", [p for p in people if p["role"] == "Research professional"]),
+              ("other-researchers", "Researchers", [p for p in people if p["role"] not in {"Lead researcher", "Research professional"}])]
+    return "".join(f'<div class="people-group" id="{slug}"><h2>{title}</h2><div class="people-list">' + "".join(render_person(person, areas) for person in members) + '</div></div>' for slug, title, members in groups if members)
 
 
 def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
-    topics = "".join(f'<span class="tag">{e(area_names[key])}</span>' for key in pub["topics"])
-    return (f'<article class="publication" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
-            f'<div class="pub-year">{pub["year"]}</div><div><h3 class="pub-title"><a href="/publications/{quote(pub["slug"], safe="-")}/">{e(pub["title"])}</a></h3><p class="pub-authors">{e(authors)}</p>'
-            f'<div class="pub-venue">{e(pub["type"])}{(" · " + e(pub["venue"])) if pub["venue"] else ""}</div><div class="pub-tags">{topics}</div></div>'
+    url = pub.get("canonical_url") or pub.get("pdf") or pub.get("pdf_url") or f'/publications/{quote(pub["slug"], safe="-")}/'
+    photo = f'<a class="paper-image" href="{e(url)}" aria-label="{e(pub["title"])}">{image_html(pub, "paper-photo")}</a>' if pub.get("image") else ""
+    venue = pub["venue"] or pub["type"]
+    return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
+            f'{photo}<div><h3 class="pub-title"><a translate="no" href="{e(url)}">{e(pub["title"])}</a></h3><p class="pub-authors" translate="no">{e(authors)}</p>'
+            f'<div class="pub-venue"><span>{e(venue)}</span> · {pub["year"]}</div></div>'
             f'<div class="pub-actions"><a class="text-link" href="/publications/{quote(pub["slug"], safe="-")}/">Abstract and details →</a></div></article>')
 
 
@@ -333,17 +336,20 @@ def render_seminar(item: dict, archived=False) -> str:
     return f'<article class="event-line seminar-record" id="{e(item["slug"])}"><div class="event-date">{event_date}</div><div><h3>{e(item["title"])}</h3><p>{summary}</p></div><div>{links}</div></article>'
 
 
+def render_scope(settings: dict) -> str:
+    if not settings.get("published"):
+        return '<p class="note">About information is under review.</p>'
+    return f'<div class="eyebrow">Research scope</div><h2>{e(settings.get("research_scope", ""))}</h2><p>{e(settings.get("scope", ""))}</p><p>{e(settings.get("affiliation", ""))}</p>'
+
+
 def render_about(settings: dict) -> str:
     if not settings.get("published"):
-        return '<div><div class="eyebrow">Research scope</div><h2>About information is under review.</h2><p class="note">Approved Center scope and collaboration details will appear here when provided.</p></div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2></div><p class="note">A public contact will be added after it is verified.</p></aside>'
-    about_text = settings.get("scope", "")
-    research = settings.get("research_scope", "")
-    collaboration = settings.get("collaboration", "")
-    source = external_anchor(settings.get("source_url", ""), "Source")
-    contact = optional_text(CONTENT / "settings/about.json", settings, "contact_email")
-    contact_html = f'<p>For research, seminar, or collaboration enquiries:</p><a class="text-link" href="mailto:{e(contact)}">{e(contact)} →</a>' if contact else '<p class="note">A public contact will be added after it is verified.</p>'
-    return f'<div><div class="eyebrow">Research scope</div><h2>{e(research) if research else "About the Center"}</h2><p>{e(about_text)}</p><div class="split-label"><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2></div><p>{e(collaboration)}</p>{source}</div><aside><div class="split-label" id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2></div>{contact_html}</aside>'
-
+        return '<p class="note">About information is under review.</p>'
+    address = "<br>".join(e(line) for line in settings.get("address", "").splitlines())
+    note = f'<p class="note">{e(settings["editorial_note"])}</p>' if settings.get("editorial_note") else ""
+    return (f'<div><div class="eyebrow">Collaboration</div><h2>Work with the Center</h2><p>{e(settings["collaboration"])}</p></div>'
+            f'<aside id="contact"><div class="eyebrow">Contact</div><h2>Get in touch</h2><p>{e(settings.get("contact_intro", ""))}</p>'
+            f'<a class="text-link" href="mailto:{e(settings.get("contact_email", ""))}">{e(settings.get("contact_email", ""))} →</a><address>{address}</address>{note}</aside>')
 
 
 def replace_select_options(source: str, element_id: str, default_label: str, options: list[tuple[str, str]]) -> str:
@@ -410,6 +416,32 @@ def build() -> None:
             fail(CONTENT / "settings/about.json", "contact_email", "must be a valid public email address")
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
     data = validate_records(raw)
+    for collection in ("research_areas", "people"):
+        for row in data[collection]:
+            value = row.get("display_order", 999)
+            if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+                fail(CONTENT / COLLECTIONS[collection] / (row["slug"] + ".json"), "display_order", "must be a positive integer")
+        data[collection].sort(key=lambda row: (row.get("display_order", 999), row["name"]))
+    for collection in ("research_areas", "publications"):
+        for row in data[collection]:
+            path = CONTENT / COLLECTIONS[collection] / (row["slug"] + ".json")
+            row["image"] = local_asset(path, "image", row.get("image", ""), optional=True)
+            for field in ("image_source_url", "image_license_url"):
+                row[field] = validate_url(path, field, row.get(field, ""), optional=True)
+            if row["image"]:
+                require_text(path, row, "image_alt")
+                require_text(path, row, "image_alt_es")
+                require_text(path, row, "image_credit")
+            if collection == "research_areas":
+                for project in row["projects"]:
+                    project["image"] = local_asset(path, "projects.image", project.get("image", ""), optional=True)
+                    project["url"] = validate_url(path, "projects.url", project.get("url", ""), optional=True)
+                    for field in ("image_source_url", "image_license_url"):
+                        project[field] = validate_url(path, "projects." + field, project.get(field, ""), optional=True)
+                    if project["image"]:
+                        require_text(path, project, "image_alt_es")
+                        require_text(path, project, "image_alt")
+                        require_text(path, project, "image_credit")
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
     area_names = {key: value["name"] for key, value in areas_by_id.items()}
 
@@ -433,24 +465,28 @@ def build() -> None:
         public_files = (
             "about.html", "homepage-concept.html", "news.html", "people.html",
             "publications.html", "research-area.html", "research.html", "seminars.html",
-            "campus-video.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
+            "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
         )
         for relative in public_files:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
         shutil.copytree(ROOT / "design" / "assets", public_design / "assets",
-                         ignore=shutil.ignore_patterns("media-sources.json"))
+                         ignore=shutil.ignore_patterns("media-sources.json", "juan-alvaro-source-2022.jpg"))
         shutil.copytree(ROOT / "admin", site / "admin")
 
         # Static pages are the canonical templates; each record collection replaces only its marked content slot.
         replacements = {
             "index.html": {"home_heading": e(site_settings.get("hero_heading", "")) or None,
-                            "home_summary": e(site_settings.get("hero_summary", "")) or None,
+                            "home_summary": e(site_settings.get("hero_summary", "")).replace("UPward", '<span class="up-emphasis">UP</span>ward') or None,
                             "homepage_areas": "".join(render_area(a, i, home=True) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>',
-                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None},
+                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None,
+                            "home_scope": render_scope(about_settings),
+                            "home_contact": render_about(about_settings)},
             "design/homepage-concept.html": {"home_heading": e(site_settings.get("hero_heading", "")) or None,
-                            "home_summary": e(site_settings.get("hero_summary", "")) or None,
+                            "home_summary": e(site_settings.get("hero_summary", "")).replace("UPward", '<span class="up-emphasis">UP</span>ward') or None,
                             "homepage_areas": "".join(render_area(a, i, home=True) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>',
-                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None},
+                            "video_caption": e(site_settings.get("campus_video_caption", "")) or None,
+                            "home_scope": render_scope(about_settings),
+                            "home_contact": render_about(about_settings)},
             "design/research.html": {"research_areas": "".join(render_area(a, i) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>'},
             "design/people.html": {"people_directory": render_people(data["people"], areas_by_id)},
             "design/publications.html": {"publication_list": "".join(render_publication_card(pub, area_names) for pub in data["publications"]) or '<p class="empty-state">No verified publications have been added yet.</p>'},
@@ -489,7 +525,7 @@ def build() -> None:
                 source = re.sub(r"<p class=\"note\">Illustrative announcement records for interface review only\..*?</p>", "", source, count=1)
             if relpath == "design/publications.html":
                 years = sorted({str(pub["year"]) for pub in data["publications"]}, reverse=True)
-                topics = sorted({key for pub in data["publications"] for key in pub["topics"]})
+                topics = [area["slug"] for area in data["research_areas"] if any(area["slug"] in pub["topics"] for pub in data["publications"])]
                 types = sorted({pub["type"] for pub in data["publications"]})
                 source = replace_select_options(source, "pub-topic", "All topics", [(key, area_names[key]) for key in topics])
                 source = replace_select_options(source, "pub-year", "All years", [(year, year) for year in years])
@@ -570,6 +606,34 @@ def build() -> None:
             route.parent.mkdir(parents=True, exist_ok=True)
             route.write_text(output, encoding="utf-8")
 
+        # Paused sections stay editable in source, but emit no public pages or feeds.
+        public_data = dict(data)
+        for section in ("news", "seminars"):
+            if site_settings.get("show_" + section, False):
+                continue
+            public_data[section] = []
+            for relative in (f"{section}.html", f"design/{section}.html", f"{section}.json"):
+                (site / relative).unlink(missing_ok=True)
+            for page in site.rglob("*.html"):
+                if "admin" in page.relative_to(site).parts:
+                    continue
+                source = page.read_text(encoding="utf-8")
+                source = re.sub(r'<a\b[^>]*href="(?:[^"<>]*/)?' + section + r'\.html(?:[?#][^"]*)?"[^>]*>.*?</a>', "", source, flags=re.S)
+                block = "home-note" if section == "news" else "home-seminars"
+                source = re.sub(r'<section class="' + block + r'"[^>]*>.*?</section>', "", source, flags=re.S)
+                page.write_text(source, encoding="utf-8")
+        for page in site.rglob("*.html"):
+            if "admin" in page.relative_to(site).parts:
+                continue
+            source = page.read_text(encoding="utf-8")
+            if not site_settings.get("show_news", False) and not site_settings.get("show_seminars", False):
+                source = source.replace("Find people, papers, research areas, seminars, and news.", "Find people, papers, and research areas.")
+                source = source.replace("Try education, working papers, or seminars", "Try education, development, or working papers")
+            page.write_text(source, encoding="utf-8")
+        search = [row for row in search if not any(not site_settings.get("show_" + section, False) and re.search(r"/" + section + r"\.html(?:[?#]|$)", row["url"]) for section in ("news", "seminars"))]
+        write_json(site / "search-index.json", search)
+        generate_languages(site, public_data, site_settings, about_settings)
+
         # Write metadata fields that remain public; source and validation-only values are not emitted as HTML.
         if OUT.exists():
             shutil.rmtree(OUT)
@@ -583,7 +647,7 @@ def main() -> int:
     try:
         build()
         return 0
-    except BuildError as exc:
+    except (BuildError, LocaleError) as exc:
         print(f"Site build error: {exc}", file=sys.stderr)
         return 1
 

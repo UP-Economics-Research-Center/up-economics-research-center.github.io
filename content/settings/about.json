@@ -1,9 +1,19 @@
 {
-  "published": false,
-  "scope": "",
-  "research_scope": "",
-  "collaboration": "",
-  "contact_email": "",
-  "source_url": "",
-  "verified_on": ""
+  "published": true,
+  "scope": "UP Economics Research Center promotes rigorous, policy-relevant economic research addressing social and economic challenges in Mexico and around the world. The Center brings together faculty and students working across areas such as human capital investment, political economy, digital innovation, business economics, and public policy, using empirical methods.",
+  "research_scope": "Empirical and applied economics.",
+  "collaboration": "We welcome research conversations with UP schools, public institutions, businesses, research centers, and other organizations.",
+  "contact_email": "akamei@up.edu.mx",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "verified_on": "2026-10-15",
+  "contact_intro": "Have a research idea, question, or collaboration proposal? Interested in presenting your work or requesting feedback on an academic paper? We would be happy to hear from you.",
+  "address": "Universidad Panamericana\nAutopista La Venta–Chamapa s/n, Lote único\nEx ejido de San Cristóbal\nC.P. 52796, Texcalucan, Huixquilucan\nEstado de México, México.",
+  "affiliation": "The UP Economics Research Center is part of Universidad Panamericana’s School of Government and Economics.",
+  "editorial_note": "Confirm the public contact before launch.",
+  "scope_es": "El Centro de Investigación Económica UP promueve investigación económica rigurosa y relevante para las políticas públicas que aborda desafíos sociales y económicos en México y el mundo. El centro reúne a profesores y estudiantes que trabajan en áreas como inversión en capital humano, economía política, innovación digital, economía de los negocios y políticas públicas, mediante métodos empíricos.",
+  "research_scope_es": "Economía empírica y aplicada.",
+  "collaboration_es": "Damos la bienvenida a conversaciones de investigación con escuelas de la UP, instituciones públicas, empresas, centros de investigación y otras organizaciones.",
+  "contact_intro_es": "¿Tienes una idea de investigación, una pregunta o una propuesta de colaboración? ¿Te interesa presentar tu trabajo o recibir comentarios sobre un artículo académico? Nos dará gusto saber de ti.",
+  "affiliation_es": "El Centro de Investigación Económica UP forma parte de la Escuela de Gobierno y Economía de la Universidad Panamericana.",
+  "editorial_note_es": "Confirmar el contacto público antes del lanzamiento."
 }

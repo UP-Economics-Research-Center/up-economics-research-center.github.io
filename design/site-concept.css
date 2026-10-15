@@ -563,3 +563,120 @@ footer{padding-top:64px}
 .publication-detail-page .page-hero-grid{grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
 .publication-detail-page .page-hero h1{max-width:1100px;font-size:clamp(38px,4.2vw,60px);line-height:1.14;overflow-wrap:break-word}
 .publication-detail-page .page-hero-grid>p{font-size:18px}
+
+/* Editorial review, October 2026: people, authentic photography and language controls. */
+.up-emphasis{font-weight:850;color:var(--wine,#8a1538);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.13em}
+.intro-description p{font-size:clamp(1.3rem,2.2vw,2rem);line-height:1.35}
+.home-intro h1{font-size:clamp(2.5rem,5.5vw,5.6rem);max-width:13ch}
+.home-scope .prose{max-width:1000px}.home-scope p{max-width:80ch}.home-contact{scroll-margin-top:6rem}.home-contact #contact{scroll-margin-top:7rem}
+.home-scope{padding-bottom:clamp(28px,4vw,48px)}
+.home-scope + .home-section{padding-top:clamp(28px,4vw,48px)}
+.home-contact address{font-style:normal;line-height:1.7;margin-top:1.5rem}.home-contact .note{font-size:.85rem}
+.language-switch{display:flex;align-items:center;gap:.35rem;font-size:.75rem;white-space:nowrap;margin-left:1rem}
+.language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;min-height:44px;text-decoration:none;border-bottom:2px solid transparent}
+.language-switch a[aria-current]{font-weight:800;border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid #8a1538;outline-offset:3px}
+.people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding:2.5rem 0}
+.person-visual .person-portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;max-width:none;filter:saturate(.65)}
+.person-copy h3{font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.15;margin:0 0 1rem}.person-copy .person-bio{max-width:60ch;font-size:1.05rem;line-height:1.75}
+.person-visual .person-topics{margin-top:1rem}.person-topics ul{display:flex;flex-direction:column;gap:.35rem}.person-topics li{margin:0}
+.person-visual .person-topics ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,100px),1fr));gap:8px 12px}
+.person-visual .person-topics a{display:flex;align-items:flex-start;gap:4px;min-height:44px;padding:7px 0;font-size:13px;line-height:1.4;overflow-wrap:normal;word-break:normal}
+.person-visual .person-topics a span{flex-shrink:0}
+.research-index .research-row{grid-template-columns:150px 2.5rem 1fr auto;gap:1.5rem;align-items:center;padding:1.25rem 0}.research-row .research-photo{width:150px;height:105px;object-fit:cover;filter:grayscale(.55) saturate(.65)}
+.feature-area-visual{margin:0;position:relative;overflow:hidden}.feature-area-visual #area-image{width:100%;height:100%;min-height:340px;object-fit:cover;filter:grayscale(.35) saturate(.7)}
+.feature-area-visual:has(#area-image:not([hidden])) #area-number{display:none}.photo-credit{font-size:.7rem;line-height:1.5}.feature-area-visual .photo-credit{position:absolute;bottom:0;left:0;right:0;background:rgba(247,245,242,.94);padding:.6rem 1rem;color:#242126}.photo-credit a{text-decoration:underline}
+.area-description p{margin:0 0 1.25rem;line-height:1.8}.project-card{display:block}.project-card p{white-space:pre-line}.project-card .pub-title{margin-bottom:1rem}
+.publication.paper-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.4rem;align-items:start}.publication.paper-row.has-image{grid-template-columns:140px minmax(0,1fr) auto}.paper-photo{width:140px;height:100px;object-fit:cover;filter:saturate(.7)}.paper-image{display:block}.paper-row .pub-venue{margin-top:.6rem}.project-photo{width:160px;height:110px;object-fit:cover;float:left;margin:0 1.5rem 1rem 0}
+[hidden]{display:none!important}
+@media(max-width:1000px){.language-switch{margin-left:.35rem}.nav{gap:.7rem}.nav nav{gap:1rem}.wordmark-first{font-size:1.2rem}.wordmark-second{font-size:1.05rem}}
+@media(max-width:700px){.people-list .person{grid-template-columns:minmax(110px,35%) minmax(0,1fr);gap:1.2rem}.person-copy h3{font-size:1.5rem}.person-copy .person-bio{font-size:.95rem}.person-topics a{font-size:.8rem}.research-index .research-row{grid-template-columns:80px 1fr auto;gap:1rem}.research-row .research-photo{width:80px;height:75px}.research-row .num{display:none}.publication.paper-row,.publication.paper-row.has-image{grid-template-columns:minmax(0,1fr)}.paper-row .paper-photo{width:120px;height:85px}.paper-row .pub-actions{margin:0}.feature-area-visual #area-image{min-height:260px}.language-switch{margin-left:auto}.nav .mobile-controls{margin-left:0}}
+@media(max-width:420px){.people-list .person{grid-template-columns:1fr}.person-visual{max-width:240px}.person-copy h3{font-size:1.8rem}.language-switch a{min-width:28px}.wordmark-first{font-size:1.05rem}.wordmark-second{font-size:.95rem}}
+.feature-area{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:3rem;padding:3.5rem max(28px,calc((100vw - 1280px)/2));align-items:start}
+.feature-area .feature-area-copy{width:100%;padding:0;margin:0}.feature-area-copy h1{font-size:clamp(2.4rem,4.3vw,4rem)}
+.feature-area-visual{display:block;aspect-ratio:4/5;align-self:stretch}.feature-area-visual #area-image{position:absolute;inset:0;min-height:0;object-position:center}.feature-area-visual .photo-credit p{margin:0}
+.people-page .person-copy h3{font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.2}.photo-source{padding:1.5rem 0;border-bottom:1px solid var(--line)}
+@media(max-width:760px){.feature-area{grid-template-columns:minmax(0,1fr);padding:2rem 28px;gap:2rem}.feature-area-visual{aspect-ratio:16/10}.feature-area-copy h1{font-size:clamp(2rem,8vw,3rem)}}
+@media(max-width:420px){.feature-area{padding:2rem 20px}.people-page .person-copy h3{font-size:1.8rem}}
+@media(max-width:650px){
+ .nav{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;min-height:112px}
+ .nav .brand.wordmark{max-width:none;min-width:0}.nav .wordmark-name{min-width:0}.nav .wordmark-first{font-size:16px;gap:5px}.nav .wordmark-second{font-size:15px}.nav .wordmark-university{font-size:10px}
+ .nav .language-switch{margin:0;gap:0}.nav .language-switch a{min-width:27px}.nav .mobile-controls{margin:0;gap:6px}
+}
+
+/* Preview refinement: introductory copy and campus film share the desktop hero. */
+.home-hero{background:var(--paper);padding:64px 0 58px}
+.home-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.home-hero .home-intro,.home-hero .home-video{padding:0;background:transparent;min-width:0}
+.home-hero .wrap{width:100%;max-width:none}
+.home-hero>.wrap{width:min(1280px,calc(100% - 96px));margin-inline:auto}
+.home-hero .intro-layout{display:block;padding:0}.home-hero .intro-description{margin-top:24px}
+.home-hero .home-intro h1{max-width:none;font-size:clamp(2.4rem,3.8vw,3.8rem);line-height:1.08}
+.home-hero .intro-description p{font-size:clamp(1.2rem,1.7vw,1.65rem);line-height:1.4;max-width:30ch}
+.home-hero .intro-actions{flex-wrap:wrap;gap:16px 24px}.home-hero .film-caption{font-size:12px;flex-wrap:wrap;gap:5px 16px}
+@media(max-width:1180px){.home-hero>.wrap{width:calc(100% - 56px)}.home-hero-grid{gap:32px}}
+@media(max-width:960px){.home-hero-grid{grid-template-columns:minmax(0,1fr);gap:32px}.home-hero{padding:40px 0}.home-hero .home-intro h1{font-size:clamp(2.4rem,6vw,3.8rem)}.home-hero .intro-description p{max-width:42ch}}
+@media(max-width:650px){.home-hero>.wrap{width:calc(100% - 40px)}.home-hero{padding:32px 0}.home-hero .home-intro h1{font-size:clamp(2.1rem,9vw,3rem)}}
+
+/* Authentic photographs composed as editorial cut-outs; source pixels stay intact. */
+.research-art{--art-ground:#e6d9c8;--art-line:#a28b78;position:relative;display:block;isolation:isolate;overflow:hidden;background:var(--paper);border-radius:0}
+.research-art .art-paper{position:absolute;z-index:0;inset:13% 2% 14% 10%;background:var(--art-ground);transform:rotate(-5deg);clip-path:polygon(0 3%,98% 0,100% 96%,3% 100%)}
+.research-art .art-detail{position:absolute;z-index:2;inset:5% 7% 18% 2%;border:1px solid var(--art-line);opacity:.45;pointer-events:none;clip-path:polygon(0 0,70% 0,70% 1%,1% 1%,1% 99%,38% 99%,38% 100%,0 100%)}
+.research-art .research-photo,.feature-area-visual.research-art #area-image{position:absolute;z-index:1;inset:7% 5% 14% 5%;width:90%;height:79%;object-fit:cover;filter:sepia(.14) saturate(1.02) contrast(1.04) brightness(1.04);clip-path:polygon(3% 0,100% 4%,97% 100%,0 95%);mask-image:linear-gradient(165deg,#000 90%,rgba(0,0,0,.92) 96%,transparent 100%)}
+.feature-area-visual.research-art{align-self:center;aspect-ratio:1;min-height:0;overflow:visible;background:transparent}
+.feature-area-visual.research-art .photo-credit{position:absolute;z-index:3;inset:auto 5% 0;background:none;padding:0;color:var(--muted);font-size:11px;line-height:1.5}
+.feature-area-visual.research-art .photo-credit p{margin:0}
+.research-art[data-area="development-economics"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="digital-and-business-economics"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="digital-and-business-economics"] .art-paper{background-color:var(--art-ground);background-image:linear-gradient(#9caeaa45 1px,transparent 1px),linear-gradient(90deg,#9caeaa45 1px,transparent 1px);background-size:22px 22px;transform:rotate(3deg)}
+.research-art[data-area="digital-and-business-economics"] :is(img,#area-image){clip-path:polygon(0 12%,88% 0,100% 88%,12% 100%);object-position:60% 50%}
+.research-art[data-area="education-and-human-capital"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="education-and-human-capital"] .art-paper{inset:16% 5% 14% 3%;transform:rotate(5deg)}
+.research-art[data-area="education-and-human-capital"] :is(img,#area-image){clip-path:inset(0 8% 0 8% round 46% 46% 0 0);object-position:30% 40%;mask-image:linear-gradient(#000 88%,transparent 100%)}
+.research-art[data-area="political-economy"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="political-economy"] :is(img,#area-image){clip-path:polygon(0 6%,100% 0,100% 94%,4% 100%);object-position:50% 20%}
+.research-art[data-area="macroeconomics"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="macroeconomics"] :is(img,#area-image){clip-path:polygon(0 0,96% 3%,100% 96%,2% 100%);object-position:50% 70%}
+.research-art[data-area="health-water-sanitation"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="health-water-sanitation"] .art-paper{border-radius:50%;transform:none;inset:7% 0 15% 7%}
+.research-art[data-area="health-water-sanitation"] :is(img,#area-image){clip-path:polygon(3% 0,100% 4%,97% 100%,0 95%);object-position:48% 50%}
+.research-art[data-area="agricultural-economics"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="agricultural-economics"] :is(img,#area-image){clip-path:polygon(6% 0,100% 9%,91% 100%,0 91%)}
+.research-art[data-area="environmental-economics"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="environmental-economics"] .art-paper{transform:rotate(5deg)}
+.research-art[data-area="environmental-economics"] :is(img,#area-image){clip-path:polygon(0 8%,96% 0,100% 94%,4% 100%);object-position:50% 60%}
+.research-art[data-area="economic-demography"]{--art-ground:#e6d9c8;--art-line:#a28b78}
+.research-art[data-area="economic-demography"] :is(img,#area-image){clip-path:polygon(2% 0,100% 3%,98% 100%,0 97%);object-position:50% 30%}
+.research-art[data-area="economic-demography"] .art-detail{clip-path:none;border-radius:50%;inset:9% 1% 19% 10%;transform:rotate(-8deg)}
+.research-index .research-row{grid-template-columns:170px minmax(0,1fr) 30px;gap:28px;min-height:150px;padding:18px 0}
+.research-row .research-art{width:170px;height:125px;background:transparent}
+.research-row .research-art .research-photo{width:90%;height:79%}
+.research-row:focus-visible{outline:2px solid var(--wine);outline-offset:5px;background:var(--paper)}
+.research-row:hover strong{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}
+.button:focus-visible,.text-link:focus-visible,.profile-link:focus-visible{outline:2px solid var(--wine);outline-offset:5px}
+.button:active{background:var(--red-dark)}
+@media(prefers-reduced-motion:no-preference){.research-row .arrow{transition:transform .18s ease}.research-row:hover .arrow{transform:translateX(4px)}}
+@media(max-width:700px){.research-index .research-row{grid-template-columns:100px minmax(0,1fr) 20px;gap:16px;min-height:112px}.research-row .research-art{width:100px;height:90px}.research-row strong{font-size:20px}.feature-area-visual.research-art{aspect-ratio:1.15;max-width:520px;width:100%;justify-self:center}}
+
+/* Wider frames preserve the meeting table and all three family members. */
+.feature-area-visual.research-art:is([data-area="macroeconomics"],[data-area="economic-demography"]){aspect-ratio:4/3}
+
+/* Shared area heading centered above a consistently aligned introduction. */
+.feature-area{display:block;padding:48px max(48px,calc((100vw - 1280px)/2)) 56px}
+.area-heading{margin-bottom:40px}.area-heading .crumb{text-align:left;margin-bottom:32px}
+.area-heading>.eyebrow,.area-heading>h1{text-align:center}
+.area-heading>h1{max-width:1100px;margin:16px auto 0;font-size:clamp(36px,4.3vw,64px);line-height:1.12}
+.area-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center}
+.area-intro>.feature-area-copy{padding:0;margin:0;min-width:0}.area-intro .area-description p:last-child{margin-bottom:0}
+@media(max-width:760px){.feature-area{padding:32px 28px 40px}.area-heading{margin-bottom:28px}.area-heading .crumb{margin-bottom:24px}.area-intro{grid-template-columns:minmax(0,1fr);gap:28px}.area-heading>h1{font-size:clamp(32px,7vw,46px)}}
+@media(max-width:420px){.feature-area{padding-inline:20px}}
+
+/* Recognizable monetary symbol and natural multigenerational scene. */
+.research-art[data-area="macroeconomics"] :is(img,#area-image){object-position:50% 62%}
+.feature-area-visual.research-art[data-area="macroeconomics"]{aspect-ratio:4/5;max-width:400px;width:100%;justify-self:center}
+.research-art[data-area="economic-demography"] :is(img,#area-image){object-position:50% 56%}
+
+/* Keep the UP Economics name treatment consistent wherever the full name appears. */
+.center-name-emphasis{font-weight:800}
+
+/* Bring all three generations closer while keeping the same cut-out footprint. */
+.research-art[data-area="economic-demography"] :is(img,#area-image){transform:scale(1.5);clip-path:inset(16.667%);mask-image:none;object-position:50% 48%}

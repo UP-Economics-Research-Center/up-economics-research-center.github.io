@@ -1,5 +1,6 @@
 
 (() => {
+ const {t,prefix,language}=window.SiteLanguage||{t:value=>value,prefix:'',language:'en'};
  const menu=document.querySelector('.mobile-menu');
  const panel=document.getElementById('site-search');
  const input=document.getElementById('site-query');
@@ -17,8 +18,8 @@
   {name:'News',description:'Announcements and updates from the Center.',keywords:'news announcements updates archive',url:'/design/news.html',group:'Section'},
   {name:'About and contact',description:'The Center, collaborations, and contact information.',keywords:'about contact collaboration institutions email',url:'/design/about.html',group:'Section'}
  ];
- let index=fallbackIndex;let indexAvailable=false;
- fetch('/search-index.json').then(response=>response.ok?response.json():Promise.reject()).then(rows=>{if(Array.isArray(rows)){index=rows;indexAvailable=true;render();}}).catch(()=>{indexAvailable=false;render();});
+ let index=fallbackIndex.filter(item=>!(['News','Seminars'].includes(item.name)&&!window.UP_PUBLIC_SECTIONS?.[item.name.toLowerCase()])).map(item=>({...item,name:t(item.name),description:t(item.description),url:prefix+item.url.replace('/design/','/').replace('/about.html','/#contact')}));let indexAvailable=false;
+ fetch(prefix+'/search-index.json').then(response=>response.ok?response.json():Promise.reject()).then(rows=>{if(Array.isArray(rows)){index=rows;indexAvailable=true;render();}}).catch(()=>{indexAvailable=false;render();});
  const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
  function draw(items){
   const list=document.createElement('ul');list.className='search-result-list';
@@ -37,8 +38,8 @@
   clear.hidden=!input.value;
   results.replaceChildren();
   if(!query){
-   status.textContent=indexAvailable?'Explore the Center':'Search index unavailable. Browse the site sections below.';
-   draw(index.filter(item=>['Research','People','Publications','Seminars'].includes(item.name)).slice(0,4));
+   status.textContent=t(indexAvailable?'Explore the Center':'Search index unavailable. Browse the site sections below.');
+   draw(index.filter(item=>['Research','People','Publications'].map(t).includes(item.name)).slice(0,4));
    return;
   }
   const terms=query.split(' ');
@@ -48,9 +49,9 @@
    const score=(name===query?100:0)+(name.startsWith(query)?40:0)+(name.includes(query)?20:0)+terms.filter(term=>name.includes(term)).length*5;
    return {item,match,score};
   }).filter(x=>x.match).sort((a,b)=>b.score-a.score).map(x=>x.item);
-  status.textContent=matches.length ? matches.length+' result'+(matches.length===1?'':'s')+' for “'+input.value.trim()+'”' : (indexAvailable?'No results for “'+input.value.trim()+'”':'Search index unavailable. Browse the site sections below.');
+  status.textContent=matches.length ? (language==='es'?matches.length+' resultados para “':matches.length+' result'+(matches.length===1?'':'s')+' for “')+input.value.trim()+'”' : (indexAvailable?(language==='es'?'Sin resultados para “':'No results for “')+input.value.trim()+'”':t('Search index unavailable. Browse the site sections below.'));
   if(matches.length){draw(matches);return;}
-  const hint=document.createElement('p');hint.className='search-empty';hint.textContent='Try a broader topic, such as education or development, or browse these sections.';
+  const hint=document.createElement('p');hint.className='search-empty';hint.textContent=t('Try a broader topic, such as education or development, or browse these sections.');
   results.append(hint);draw(index.slice(0,4));
  }
  function setOpen(open,restore=false){

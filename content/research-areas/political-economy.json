@@ -1,14 +1,24 @@
 {
   "name": "Political Economy",
   "slug": "political-economy",
-  "summary": "Research examines how governance, institutions, property rights, trade, monetary arrangements, and regulation shape resource allocation and economic outcomes.",
+  "summary": "Political and economic institutions play a central role in shaping economic development, public policy, and long-term social outcomes. Decisions related to governance, property rights, trade integration, monetary policy, and regulation influence how societies allocate resources, respond to crises, and create opportunities for growth and innovation. Differences in institutional quality and incentive structures can lead to large disparities in productivity, inequality, and economic stability across countries and regions.",
   "people": [
     "esteban"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/political-economy",
-  "verified_on": "2026-09-24",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/political-economy",
+  "verified_on": "2026-10-15",
   "published": true,
-  "overview": "The area connects institutional incentives to development, growth, inequality, and macroeconomic stability, drawing on historical, policy, and empirical approaches.",
-  "projects": []
+  "overview": "This research agenda examines how institutions, governance structures, and incentives affect economic development and macroeconomic outcomes. Current projects explore topics such as free trade agreements, sovereign default, monetary policy committees, land tenure systems, innovation networks, natural resource governance, and the role of local institutions in shaping economic behavior and development trajectories.",
+  "projects": [],
+  "display_order": 4,
+  "name_es": "Economía Política",
+  "summary_es": "Las instituciones políticas y económicas desempeñan un papel central en el desarrollo económico, las políticas públicas y los resultados sociales a largo plazo. Las decisiones relacionadas con la gobernanza, los derechos de propiedad, la integración comercial, la política monetaria y la regulación influyen en cómo las sociedades asignan recursos, responden a las crisis y generan oportunidades de crecimiento e innovación. Las diferencias en la calidad institucional y las estructuras de incentivos pueden producir grandes disparidades de productividad, desigualdad y estabilidad económica entre países y regiones.",
+  "overview_es": "Esta agenda de investigación examina cómo las instituciones, las estructuras de gobernanza y los incentivos afectan el desarrollo económico y los resultados macroeconómicos. Los proyectos actuales exploran temas como los tratados de libre comercio, el incumplimiento de la deuda soberana, los comités de política monetaria, los sistemas de tenencia de la tierra, las redes de innovación, la gobernanza de los recursos naturales y el papel de las instituciones locales en el comportamiento económico y las trayectorias de desarrollo.",
+  "image": "/design/assets/research/john-stuart-mill.jpg",
+  "image_alt": "Portrait of John Stuart Mill, circa 1870.",
+  "image_alt_es": "Retrato de John Stuart Mill, hacia 1870.",
+  "image_credit": "London Stereoscopic Company · Public domain",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg",
+  "image_license_url": ""
 }

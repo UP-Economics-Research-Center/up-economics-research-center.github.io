@@ -81,6 +81,14 @@
       "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
       "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uDmdfJ77iWxjb5OXeywU74fYTixd-Q96S8ChvlPNGO0uz2XXLOFe7uT_BbHYV1QwTChJ35MkmE2oeSTHSOLFllEx5W-a0Yjd6YZr9vuOmeg9fFz9aDJ-YedryZz5E1JIVc3x56DzfZu1Op_OTxWRp4J7xER0mB8yY3DIl_Pi4_0_kC4qCtvjHX1EkR5t_qA89TtY186sZvQ9WTwvJzWzzFi3CN0BSfT9Yfv3aW=w1280",
       "status": "saved from refreshed public source URL"
+    },
+    {
+      "asset": "assets/people/juan-alvaro-edited-2026.png",
+      "sourceFile": "assets/people/juan-alvaro-source-2022.jpg",
+      "sourceProvidedBy": "Juan Álvaro, user attachment IMG-20220611-WA0071.jpg",
+      "status": "AI-assisted edit of supplied photograph, requested by the subject on 2026-10-15; used in local preview. Slightly more frontal face/gaze and vertical crop. Previous portrait retained.",
+      "tool": "Built-in image_gen",
+      "editPrompt": "Turn the head and gaze slightly toward the camera, preserve facial identity, hair, beard, natural skin texture, dark suit, white shirt, pink striped tie and wood background. Vertical 4:5 head and upper torso crop, exclude the other person and gesturing hand; subtly reduce yellow cast, no beautification or background replacement."
     }
   ]
 }

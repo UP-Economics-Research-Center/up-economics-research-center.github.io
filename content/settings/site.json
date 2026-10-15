@@ -3,7 +3,14 @@
   "university": "Universidad Panamericana",
   "campus_video_id": "RW-7awQGxPY",
   "campus_video_caption": "Ciudad Panamericana · UP institutional film 2025–2026",
-  "hero_heading": "",
-  "hero_summary": "",
-  "footer_note": "Design preview · Illustrative content"
+  "hero_heading": "UP Economics Research Center",
+  "hero_summary": "Generating empirical evidence to move society UPward",
+  "footer_note": "Design preview · Illustrative content",
+  "center_name_es": "Centro de Investigación Económica UP",
+  "hero_heading_es": "Centro de Investigación Económica UP",
+  "hero_summary_es": "Generamos evidencia empírica para impulsar el progreso de la sociedad",
+  "campus_video_caption_es": "Ciudad Panamericana · Video institucional UP 2025–2026",
+  "footer_note_es": "Vista previa de diseño · Contenido ilustrativo",
+  "show_news": false,
+  "show_seminars": false
 }

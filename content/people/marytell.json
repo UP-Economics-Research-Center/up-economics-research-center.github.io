@@ -5,9 +5,13 @@
   "bio": "Studies inequality, social mobility, and how family background and institutional conditions shape economic opportunities across generations.",
   "portrait": "/design/assets/people/marytell.jpg",
   "portrait_alt": "Portrait of Marytell Arciniega Castellanos.",
-  "research_areas": [],
+  "research_areas": [
+    "development-economics"
+  ],
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
-  "verified_on": "2026-09-24",
-  "published": true
+  "verified_on": "2026-10-15",
+  "published": true,
+  "bio_es": "Estudia la desigualdad, la movilidad social y cómo el origen familiar y las condiciones institucionales determinan las oportunidades económicas entre generaciones.",
+  "portrait_alt_es": "Retrato de Marytell Arciniega Castellanos."
 }

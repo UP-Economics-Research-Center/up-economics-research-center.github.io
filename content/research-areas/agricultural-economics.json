@@ -1,22 +1,32 @@
 {
   "name": "Agricultural Economics",
   "slug": "agricultural-economics",
-  "summary": "Research studies land, natural resources, food systems, and rural economic development, including the incentives that shape investment and conservation.",
+  "summary": "Agricultural and environmental economics examine how households, firms, and governments make decisions about land, natural resources, food systems, and rural development. Agriculture remains central to livelihoods, poverty reduction, climate adaptation, and environmental sustainability, particularly in low- and middle-income countries. At the same time, land degradation, water scarcity, insecure property rights, and climate shocks continue to shape productivity and long-term welfare.",
   "people": [],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
-  "verified_on": "2026-09-24",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics",
+  "verified_on": "2026-10-15",
   "published": true,
-  "overview": "Current work examines land tenure, farm investment, agricultural technology, climate risk, and the institutional conditions that influence production and environmental practices.",
+  "overview": "This research agenda studies how institutions, incentives, and environmental conditions affect agricultural investment, conservation, and rural development.",
   "projects": [
     {
       "title": "Land Tenure and Soil Conservation in Peru: Evidence from Double/Debiased Machine Learning",
-      "summary": "Examines whether land titles support soil-conservation practices in Peru, combining agricultural census information with local institutional measures.",
-      "researchers": [
-        "Esteban Colla-De-Robertis",
-        "Akito Kamei",
-        "Sandro Navarro-Castañeda"
-      ]
+      "summary": "Farmers often make long-term investments in soil conservation only when they feel secure about their land and future livelihoods. This project examines whether land ownership and formal land titles encourage farmers in Peru to adopt conservation practices that protect soil quality and improve the sustainability of agricultural production. Using nationwide agricultural census data, the research studies practices such as intercropping, organic fertilizer use, and traditional conservation infrastructure including andenes and terraces. The project also explores how geography, local institutions, and environmental conditions shape conservation decisions across different regions of Peru.",
+      "researcher_note": "UP Researchers: Esteban Colla‐De‐Robertis and Akito Kamei\nwith Sandro Navarro-Castañeda (Universidad de Piura)\n\nPresentation at Asociación Peruana de Economía (APE) in 2026.",
+      "researchers": [],
+      "title_es": "Tenencia de la tierra y conservación del suelo en Perú: evidencia mediante aprendizaje automático doble/desesgado",
+      "summary_es": "Los agricultores suelen realizar inversiones a largo plazo en la conservación del suelo solo cuando se sienten seguros respecto de sus tierras y sus medios de vida futuros. Este proyecto examina si la propiedad de la tierra y los títulos formales alientan a los agricultores peruanos a adoptar prácticas de conservación que protejan la calidad del suelo y mejoren la sostenibilidad de la producción agrícola. Con datos del censo agropecuario nacional, la investigación estudia prácticas como los cultivos intercalados, el uso de fertilizantes orgánicos y la infraestructura tradicional de conservación, incluidos los andenes y las terrazas. El proyecto también explora cómo la geografía, las instituciones locales y las condiciones ambientales determinan las decisiones de conservación en distintas regiones del Perú.",
+      "researcher_note_es": "Investigadores UP: Esteban Colla‐De‐Robertis y Akito Kamei\ncon Sandro Navarro-Castañeda (Universidad de Piura)\n\nPresentación en Asociación Peruana de Economía (APE) en 2026."
     }
-  ]
+  ],
+  "display_order": 7,
+  "name_es": "Economía Agrícola",
+  "summary_es": "La economía agrícola y ambiental examina cómo los hogares, las empresas y los gobiernos toman decisiones sobre la tierra, los recursos naturales, los sistemas alimentarios y el desarrollo rural. La agricultura sigue siendo fundamental para los medios de vida, la reducción de la pobreza, la adaptación climática y la sostenibilidad ambiental, particularmente en países de ingresos bajos y medios. Al mismo tiempo, la degradación de la tierra, la escasez de agua, la inseguridad de los derechos de propiedad y las perturbaciones climáticas siguen determinando la productividad y el bienestar a largo plazo.",
+  "overview_es": "Esta agenda de investigación estudia cómo las instituciones, los incentivos y las condiciones ambientales afectan la inversión agrícola, la conservación y el desarrollo rural.",
+  "image": "/design/assets/research/golden-wheat.jpg",
+  "image_alt": "Golden wheat fields with trees under an open sky.",
+  "image_alt_es": "Campos de trigo dorado con árboles bajo un cielo abierto.",
+  "image_credit": "Nupur Dasgupta · CC BY 2.0",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Golden_wheat_field.jpg",
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0/"
 }

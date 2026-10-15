@@ -1,30 +1,43 @@
 {
   "name": "Digital and Business Economics",
   "slug": "digital-and-business-economics",
-  "summary": "Research studies how digital technologies, platforms, financial innovation, and business decisions reshape organizations, markets, work, and economic opportunity.",
+  "summary": "Digital technologies and business innovation are transforming the way individuals work, communicate, learn, and access economic opportunities. Advances in artificial intelligence, fintech, digital platforms, and data-driven decision making are reshaping industries and labor markets worldwide, while also creating new challenges related to inequality, productivity, ethics, regulation, and access to technology.",
   "people": [
     "eugenio"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/digital-and-business-economics",
-  "verified_on": "2026-09-24",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+  "verified_on": "2026-10-15",
   "published": true,
-  "overview": "Current work considers digital government, fintech adoption and inclusion, and how organizations communicate policies and compete in changing markets.",
+  "overview": "This research agenda examines how technological change and business innovation affect organizations, labor markets, financial systems, and economic development. Current projects explore topics such as digital transformation, financial technology (fintech), artificial intelligence, organizational ethics, gender inclusion in leadership, and the role of technology and innovation in promoting inclusive and sustainable economic growth.",
   "projects": [
     {
-      "title": "Impact of Government Digitalization on Business: Evidence from Estonia’s Digital Transformation",
-      "summary": "Uses a synthetic-control design to examine whether Estonia’s e-government transformation translated into measurable business and economic benefits.",
-      "researchers": [
-        "Akito Kamei"
-      ]
+      "title": "Impact of Government Digitalization on Business: Evidence from Estonia's Digital Transformation",
+      "summary": "As governments worldwide invest heavily in e-government infrastructure, a critical empirical question is whether digital public administration translates into measurable gains for firms and the broader economy. Using synthetic control methods, this project evaluates Estonia's landmark digitalization reforms — including the X-Road interoperability platform launched in the early 2000s — against a carefully constructed counterfactual of comparable transition and European economies. The analysis examines the causal effect of digital government on corruption control, drawing on World Bank Governance Indicators spanning the full post-independence period.",
+      "researcher_note": "UP Researchers: Eugenio Gómez\nEsteban Colla\nMarytell A. Castellanos",
+      "researchers": [],
+      "title_es": "Impacto de la digitalización gubernamental en las empresas: evidencia de la transformación digital de Estonia",
+      "summary_es": "Mientras los gobiernos de todo el mundo invierten cuantiosos recursos en infraestructura de gobierno electrónico, una pregunta empírica fundamental es si la administración pública digital se traduce en mejoras medibles para las empresas y la economía en general. Mediante métodos de control sintético, este proyecto evalúa las reformas emblemáticas de digitalización de Estonia —incluida la plataforma de interoperabilidad X-Road, lanzada a principios de los años 2000— frente a un escenario contrafactual cuidadosamente construido con economías europeas y en transición comparables. El análisis examina el efecto causal del gobierno digital en el control de la corrupción, utilizando los Indicadores de Gobernanza del Banco Mundial para todo el periodo posterior a la independencia.",
+      "researcher_note_es": "Investigadores UP: Eugenio Gómez\nEsteban Colla\nMarytell A. Castellanos"
     },
     {
       "title": "Bridging the Fintech Gap: Regulatory Frictions and Active Financial Inclusion in an Emerging Economy",
-      "summary": "Uses stakeholder interviews to investigate why Mexico’s developed fintech infrastructure has not yet produced broad financial inclusion.",
-      "researchers": [
-        "Eugenio Gómez-Alatorre",
-        "Laura Jiménez Casillas"
-      ]
+      "summary": "As digital financial infrastructure expands across emerging markets, a critical question remains unresolved: under what conditions does fintech development translate into spcially impactful financial inclusion rather than mere formal access? This study examines Mexico's fintech ecosystem — one of Latin America's largest and most dynamic — through the lens of a structural paradox: advanced regulatory and technological infrastructure coexisting with persistently low adoption rates and deep inclusion gaps. Drawing on thematic analysis of semi-structured interviews with key stakeholders across Mexico's digital financial ecosystem — including regulators, fintech entrepreneurs, incumbent financial institutions, and financial inclusion specialists — the study identifies structural frictions that explain the divergence between infrastructure development and active inclusion",
+      "researcher_note": "UP Researchers: Eugenio Gómez\nLaura Jiménez Casillas\nAndrée Marie López-Fernández",
+      "researchers": [],
+      "title_es": "Cerrar la brecha fintech: fricciones regulatorias e inclusión financiera activa en una economía emergente",
+      "summary_es": "A medida que se expande la infraestructura financiera digital en los mercados emergentes, persiste una pregunta fundamental: ¿en qué condiciones el desarrollo fintech se traduce en una inclusión financiera con impacto social, en lugar de limitarse al acceso formal? Este estudio examina el ecosistema fintech de México —uno de los más grandes y dinámicos de América Latina— desde una paradoja estructural: una infraestructura regulatoria y tecnológica avanzada que coexiste con tasas de adopción persistentemente bajas y profundas brechas de inclusión. Mediante un análisis temático de entrevistas semiestructuradas con actores clave del ecosistema financiero digital de México —reguladores, emprendedores fintech, instituciones financieras establecidas y especialistas en inclusión financiera—, el estudio identifica las fricciones estructurales que explican la divergencia entre el desarrollo de infraestructura y la inclusión activa.",
+      "researcher_note_es": "Investigadores UP: Eugenio Gómez\nLaura Jiménez Casillas\nAndrée Marie López-Fernández"
     }
-  ]
+  ],
+  "display_order": 2,
+  "name_es": "Economía Digital y de los Negocios",
+  "summary_es": "Las tecnologías digitales y la innovación empresarial están transformando la manera en que las personas trabajan, se comunican, aprenden y acceden a oportunidades económicas. Los avances en inteligencia artificial, fintech, plataformas digitales y toma de decisiones basada en datos están transformando las industrias y los mercados laborales en todo el mundo, al tiempo que generan nuevos desafíos relacionados con la desigualdad, la productividad, la ética, la regulación y el acceso a la tecnología.",
+  "overview_es": "Esta agenda de investigación examina cómo el cambio tecnológico y la innovación empresarial afectan a las organizaciones, los mercados laborales, los sistemas financieros y el desarrollo económico. Los proyectos actuales exploran temas como la transformación digital, la tecnología financiera (fintech), la inteligencia artificial, la ética organizacional, la inclusión de género en el liderazgo y el papel de la tecnología y la innovación para promover un crecimiento económico inclusivo y sostenible.",
+  "image": "/design/assets/research/server-aisle.jpg",
+  "image_alt": "Rows of server racks in a data center.",
+  "image_alt_es": "Filas de servidores en un centro de datos.",
+  "image_credit": "Robert.Harker · CC BY-SA 3.0",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Network_Aisle_Rear.jpg",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
 }

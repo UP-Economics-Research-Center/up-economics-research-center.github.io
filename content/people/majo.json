@@ -1,5 +1,7 @@
 {
-  "research_areas": [],
+  "research_areas": [
+    "development-economics"
+  ],
   "canonical_url": "",
   "portrait_alt": "Portrait of Maria Jose Favela.",
   "bio": "Studies labor and institutional economics, urban development, and how disability and educational differences shape labor-market outcomes.",
@@ -8,6 +10,9 @@
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "published": true,
   "role": "Lead researcher",
-  "verified_on": "2026-09-24",
-  "portrait": "/design/assets/people/majo.jpg"
+  "verified_on": "2026-10-15",
+  "portrait": "/design/assets/people/majo.jpg",
+  "bio_es": "Estudia economía laboral e institucional, desarrollo urbano y cómo la discapacidad y las diferencias educativas determinan los resultados del mercado laboral.",
+  "portrait_alt_es": "Retrato de María Jose Favela Cantarero.",
+  "display_order": 4
 }

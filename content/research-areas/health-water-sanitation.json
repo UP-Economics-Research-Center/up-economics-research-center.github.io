@@ -1,32 +1,53 @@
 {
-  "name": "Health, Water and Sanitation",
+  "name": "Health Economics",
   "slug": "health-water-sanitation",
-  "summary": "Research studies health risks connected to poverty, infrastructure, and access to essential services, including drinking water, sanitation, and nutrition.",
+  "summary": "Health is a fundamental component of human well-being and economic development, yet millions of people around the world continue to face preventable health risks linked to poverty, inadequate infrastructure, and limited access to essential services. Unsafe water, inadequate sanitation, poor hygiene, and malnutrition remain major contributors to disease, mortality, and long-term deficits in human capital, particularly in low- and middle-income countries, while obesity and diet-related chronic diseases have become growing public health challenges in advanced economies.",
   "people": [
     "akito",
     "andrea"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
-  "verified_on": "2026-09-24",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation",
+  "verified_on": "2026-10-15",
   "published": true,
-  "overview": "The agenda includes water quality and treatment, child health, nutritional outcomes, and family health decisions, using survey evidence and causal methods.",
+  "overview": "This research agenda in health economics examines how environmental conditions, household behavior, and public health interventions influence health outcomes and economic well-being. Current research is organized around two main strands: Water and Sanitation, which focuses on water treatment interventions and household responses to water quality risks, and Nutritional Health, which examines nutrition, food environments, and their implications for health, productivity, and human development.",
   "projects": [
     {
       "title": "Water Treatment, E. coli in Drinking Water, and Diarrhea: Causal Inference Using Double/Debiased Machine Learning",
-      "summary": "Applies double/debiased machine learning to estimate links between drinking-water contamination and child diarrhea across 25 countries.",
-      "researchers": [
-        "Juan Álvaro Díaz Raimond Kedilhac",
-        "Akito Kamei"
-      ]
+      "summary": "Household decisions to treat drinking water are influenced by a wide range of socioeconomic and environmental factors, making causal inference difficult in observational settings. This study applies Double/Debiased Machine Learning (DDML) to estimate the causal effects of household water treatment on E. coli contamination and child diarrhea across 25 countries in Sub-Saharan Africa, Latin America, and Asia.",
+      "researcher_note": "UP Researchers: Juan Alvaro Diaz Raimond Kedilhac, Akito Kamei",
+      "researchers": [],
+      "title_es": "Tratamiento del agua, E. coli en agua potable y diarrea: inferencia causal mediante aprendizaje automático doble/desesgado",
+      "summary_es": "Las decisiones de los hogares de tratar el agua potable están influidas por una amplia variedad de factores socioeconómicos y ambientales, lo que dificulta la inferencia causal en contextos observacionales. Este estudio aplica aprendizaje automático doble/desesgado (DDML) para estimar los efectos causales del tratamiento doméstico del agua sobre la contaminación por E. coli y la diarrea infantil en 25 países de África subsahariana, América Latina y Asia.",
+      "researcher_note_es": "Investigadores UP: Juan Alvaro Diaz Raimond Kedilhac, Akito Kamei"
+    },
+    {
+      "title": "Spatial Inequality in Access to Kidney Transplantation in Mexico",
+      "summary": "How much does where you live determine your chances of receiving a kidney transplant in Mexico? This project explores how geography shapes access to transplantation, focusing on differences in patients’ likelihood of receiving a transplant and how long they must wait. By combining patient, hospital, and regional information, it highlights where access barriers are greatest and where transplant capacity may be most unevenly distributed.",
+      "researcher_note": "UP Researchers: María Isabel Espín, Román Rodríguez Aguilar (Business School) \nwith Dr. Enrique Minor Campa (Development Studies, Centro de Investigación y Docencia Económicas, CIDE)",
+      "researchers": [],
+      "title_es": "Desigualdad espacial en el acceso al trasplante renal en México",
+      "summary_es": "¿En qué medida el lugar donde vives determina tus posibilidades de recibir un trasplante renal en México? Este proyecto explora cómo la geografía determina el acceso a los trasplantes, con énfasis en las diferencias en la probabilidad de recibir un trasplante y el tiempo de espera. Al combinar información de pacientes, hospitales y regiones, identifica dónde son mayores las barreras de acceso y dónde puede ser más desigual la distribución de la capacidad de trasplante.",
+      "researcher_note_es": "Investigadores UP: María Isabel Espín y Román Rodríguez Aguilar (Escuela de Negocios),\ncon el Dr. Enrique Minor Campa (Estudios del Desarrollo, Centro de Investigación y Docencia Económicas, CIDE)."
     },
     {
       "title": "Intergenerational Transmission of Obesity in Mexico",
-      "summary": "Studies parent-adolescent obesity patterns in Mexican health-survey data, including differences by parent and child gender.",
-      "researchers": [
-        "Andrea Corte Aréchiga",
-        "Akito Kamei"
-      ]
+      "summary": "Obesity has increased rapidly in many developing countries, creating important challenges for public health and long-term well-being. This project examines how obesity is transmitted across generations in Mexico and explores whether these patterns differ between mothers, fathers, sons, and daughters. Using nationally representative health survey data, the research studies the relationship between parental obesity and adolescent obesity in the context of Mexico’s ongoing nutritional transition.",
+      "researcher_note": "UP Researchers: Andrea Corte Aréchiga, Akito Kamei",
+      "researchers": [],
+      "title_es": "Transmisión intergeneracional de la obesidad en México",
+      "summary_es": "La obesidad ha aumentado rápidamente en muchos países en desarrollo, generando desafíos importantes para la salud pública y el bienestar a largo plazo. Este proyecto examina cómo se transmite la obesidad entre generaciones en México y explora si estos patrones difieren entre madres, padres, hijos e hijas. Con datos de encuestas de salud representativas a nivel nacional, la investigación estudia la relación entre la obesidad de los padres y la de los adolescentes en el contexto de la transición nutricional de México.",
+      "researcher_note_es": "Investigadores UP: Andrea Corte Aréchiga, Akito Kamei"
     }
-  ]
+  ],
+  "display_order": 6,
+  "name_es": "Economía de la Salud",
+  "summary_es": "La salud es un componente fundamental del bienestar humano y el desarrollo económico; sin embargo, millones de personas en todo el mundo siguen enfrentando riesgos de salud prevenibles vinculados con la pobreza, la infraestructura inadecuada y el acceso limitado a servicios esenciales. El agua no segura, el saneamiento inadecuado, la mala higiene y la desnutrición siguen siendo causas importantes de enfermedad, mortalidad y déficits de capital humano a largo plazo, particularmente en países de ingresos bajos y medios, mientras que la obesidad y las enfermedades crónicas relacionadas con la alimentación se han convertido en desafíos crecientes de salud pública en economías avanzadas.",
+  "overview_es": "Esta agenda de investigación en economía de la salud examina cómo las condiciones ambientales, el comportamiento de los hogares y las intervenciones de salud pública influyen en la salud y el bienestar económico. La investigación actual se organiza en dos vertientes principales: Agua y Saneamiento, centrada en intervenciones de tratamiento del agua y las respuestas de los hogares a los riesgos de calidad del agua, y Salud Nutricional, que examina la nutrición, los entornos alimentarios y sus implicaciones para la salud, la productividad y el desarrollo humano.",
+  "image": "/design/assets/research/community-health.jpg",
+  "image_alt": "A community health worker prepares a vaccination beside a mother and baby in Odisha, India.",
+  "image_alt_es": "Una trabajadora de salud comunitaria prepara una vacuna junto a una madre y su bebé en Odisha, India.",
+  "image_credit": "Pippa Ranger/Department for International Development · CC BY-SA 2.0",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Community_health_worker_gives_a_vaccination_in_Odisha_state,_India_(8380317750).jpg",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
 }

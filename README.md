@@ -1,6 +1,6 @@
 # Econ Site
 
-Static website for the **Economics Research Center, Universidad Panamericana**. The public site is <https://up-economics-research-center.github.io/>.
+Static website for the **UP Economics Research Center, Universidad Panamericana**. The public site is <https://up-economics-research-center.github.io/>.
 
 ## How the site is built
 
@@ -56,4 +56,18 @@ If GitHub returns an access or organization-permission error, ask an organizatio
 
 ## Design guidance
 
+Team-supplied design resources are saved in [docs/design-references.md](docs/design-references.md). The current comment-by-comment review, including agreed image treatment and the proposed research-area order, is tracked in [docs/editorial-review-2026-10-15.md](docs/editorial-review-2026-10-15.md).
+
 Preserve the existing HTML, shared styles, and local media unless the Center approves a redesign. Keep public copy and paper metadata sourced. Editors should change content fields; the implementation plan and design decisions are in `docs/`.
+
+### Bilingual site and October 2026 editorial changes
+
+English is the default. **EN / ES** switches between complete static pages and remembers the reader's explicit selection when browser storage is available. The same page, research-area query, publication filters and anchor are retained. Spanish routes live under `/es/`; no translation service or account is needed. Links still select a language when storage is unavailable.
+
+In the CMS, fill in the English fields and their **Spanish** companions before publishing. Paper titles, author names and journal names stay in their original language. Keep the complete approved area descriptions; the originals and their sources are archived under `docs/sources/`. The **Home scope and contact** collection controls the information moved from About to the home page. Contact details remain in the final home-page block and are linked from the footer; Contact is omitted from the desktop and mobile header. Publications precedes Seminars on the home page.
+
+Research photos have source/license credits. Project and paper photos are optional and disappear when absent. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers remain in Publications; a separate series is deferred.
+
+For local review, build with `python3 tools/build_site.py`, then serve `_site/` as described above. Inspect `/`, `/es/`, People, area pages and publication details. Project instructions prohibit running tests unless requested; this change uses the static build, syntax/path inspection and manual browser review.
+
+News and Seminars are currently hidden from the public navigation, home page, search, routes and JSON feeds in both languages. Their source pages and CMS records are retained. Use **Show News publicly** and **Show Seminars publicly** in Site settings to restore them when approved. The area-page paper section is titled Publications / Publicaciones.

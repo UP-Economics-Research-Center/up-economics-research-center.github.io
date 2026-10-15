@@ -5,3 +5,6 @@ __pycache__/
 .wrangler/
 
 .worktrees/
+
+# Unedited personal photo retained locally; only the approved portrait is published.
+/design/assets/people/juan-alvaro-source-2022.jpg

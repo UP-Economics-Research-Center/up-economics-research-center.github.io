@@ -7,10 +7,16 @@
   "portrait_alt": "Portrait of Esteban Colla de Robertis.",
   "research_areas": [
     "political-economy",
-    "development-economics"
+    "development-economics",
+    "digital-and-business-economics",
+    "macroeconomics",
+    "agricultural-economics"
   ],
   "canonical_url": "https://www.up.edu.mx/en/investigador/esteban-colla-de-robertis/",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
-  "verified_on": "2026-09-24",
-  "published": true
+  "verified_on": "2026-10-15",
+  "published": true,
+  "bio_es": "Estudia economía política, instituciones y desarrollo económico, incluidos los efectos de la gobernanza, los incentivos y las políticas públicas.",
+  "portrait_alt_es": "Retrato de Esteban Colla de Robertis.",
+  "display_order": 2
 }

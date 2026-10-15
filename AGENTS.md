@@ -21,3 +21,7 @@ This repository contains the visual mock and assets for the UP Economics Researc
 - Avoid adding dependencies unless they are needed for the chosen hosting or CMS workflow.
 - Do not run tests unless asked. For content/config changes, inspect paths and configuration syntax where feasible.
 - Keep README instructions current when editor workflows or setup change.
+
+## Design references and editorial review
+- Consult `docs/design-references.md` for the design resources supplied by the team.
+- Consult `docs/editorial-review-2026-10-15.md` for the latest review decisions and unresolved questions. Preserve the distinction between agreed direction and pending details.

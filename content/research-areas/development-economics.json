@@ -1,7 +1,7 @@
 {
   "name": "Development Economics",
   "slug": "development-economics",
-  "summary": "Research studies well-being, inequality, and economic development, including gaps in education, health, employment, and public safety.",
+  "summary": "Development economics examines the economic and social challenges that shape human well-being, inequality, and long-term development. Differences in access to education, health, employment opportunities, and public safety can create persistent disparities across households, communities, and regions. Understanding how economic conditions and public policies influence these outcomes is important for designing effective and equitable development strategies.",
   "people": [
     "akito",
     "esteban",
@@ -10,35 +10,47 @@
     "luciano"
   ],
   "canonical_url": "",
-  "source_url": "https://sites.google.com/view/akitokamei/development-economics",
-  "verified_on": "2026-09-24",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics",
+  "verified_on": "2026-10-15",
   "published": true,
-  "overview": "The area examines how institutions and socioeconomic conditions affect households and communities, with empirical work focused on Mexico and other lower- and middle-income settings.",
+  "overview": "This research agenda studies how inequality, institutions, and socioeconomic conditions affect human behavior and development outcomes in low- and middle-income countries. Current projects examine topics such as inequality and social mobility, crime and violence, and the role of government programs and local institutions in shaping economic opportunity and social welfare.",
   "projects": [
     {
       "title": "Inequality and Intergenerational Persistence in Mexico: A Subnational Great Gatsby Curve Using EMOVI 2023",
-      "summary": "Measures how inequality and social mobility vary across regions and groups in Mexico using EMOVI 2023.",
-      "researchers": [
-        "Marytell Arciniega Castellanos"
-      ]
+      "summary": "Economic inequality can shape opportunities across generations, affecting whether children are able to achieve better living standards than their parents. This project examines the relationship between inequality and social mobility across different regions and demographic groups in Mexico using data from the EMOVI 2023 survey. The research explores how strongly family background influences economic outcomes and whether higher inequality is associated with lower intergenerational mobility. The project also studies how these relationships differ across rural and urban areas, gender, and age groups, contributing to broader discussions on inequality, opportunity, and social mobility in Mexico.",
+      "researcher_note": "UP Researchers: Marytell Arciniega Castellanos",
+      "researchers": [],
+      "title_es": "Desigualdad y persistencia intergeneracional en México: una curva del Gran Gatsby subnacional con EMOVI 2023",
+      "summary_es": "La desigualdad económica puede determinar las oportunidades entre generaciones e influir en la posibilidad de que los hijos alcancen mejores niveles de vida que sus padres. Este proyecto examina la relación entre desigualdad y movilidad social en distintas regiones y grupos demográficos de México con datos de la encuesta EMOVI 2023. La investigación explora la intensidad con la que el origen familiar influye en los resultados económicos y si una mayor desigualdad se asocia con una menor movilidad intergeneracional. El proyecto también estudia cómo varían estas relaciones entre zonas rurales y urbanas, géneros y grupos de edad, contribuyendo al debate sobre desigualdad, oportunidades y movilidad social en México.",
+      "researcher_note_es": "Investigadores UP: Marytell Arciniega Castellanos"
     },
     {
       "title": "Inequality, Economic Conditions, and Crime Types: Evidence from Mexican Municipalities",
-      "summary": "Studies how municipal economic and social conditions relate to different types of crime across Mexico.",
-      "researchers": [
-        "Joshua M. Torres",
-        "Akito Kamei"
-      ]
+      "summary": "Crime and violence are closely connected to economic and social conditions, yet different types of crime may respond differently to inequality, unemployment, and local economic activity. This project examines how municipal characteristics such as income inequality, labor market conditions, population size, and mental health are associated with crime patterns across municipalities in Mexico. Using nationwide municipal-level data, the research explores how economic and social factors relate to different categories of crime, including property crimes, domestic violence, and homicide. The project highlights how inequality and economic conditions shape public safety outcomes and contributes to understanding the social and economic dimensions of crime in urban and regional development.",
+      "researcher_note": "UP Researchers: Joshua M. Torres and Akito Kamei",
+      "researchers": [],
+      "title_es": "Desigualdad, condiciones económicas y tipos de delitos: evidencia de los municipios mexicanos",
+      "summary_es": "El crimen y la violencia están estrechamente relacionados con las condiciones económicas y sociales, aunque distintos tipos de delitos pueden responder de manera diferente a la desigualdad, el desempleo y la actividad económica local. Este proyecto examina cómo las características municipales, como la desigualdad de ingresos, las condiciones del mercado laboral, el tamaño de la población y la salud mental, se asocian con los patrones delictivos en los municipios de México. Con datos municipales de todo el país, la investigación explora cómo los factores económicos y sociales se relacionan con distintas categorías de delitos, incluidos los delitos contra la propiedad, la violencia doméstica y el homicidio. El proyecto destaca cómo la desigualdad y las condiciones económicas determinan los resultados de seguridad pública y contribuye a comprender las dimensiones sociales y económicas del crimen en el desarrollo urbano y regional.",
+      "researcher_note_es": "Investigadores UP: Joshua M. Torres y Akito Kamei"
     },
     {
       "title": "Child Labor, Workplace Risks, and Health Outcomes in Mexico",
-      "summary": "Uses Mexico’s ENTI 2022 survey to study children’s work risks and associated health outcomes.",
-      "researchers": [
-        "Luciano A. Quintana",
-        "Enrique Minor",
-        "Akito Kamei",
-        "Hyuk Harry Son"
-      ]
+      "summary": "Child labor remains a major concern in developing countries, yet not all forms of work may affect children in the same way. This project examines whether children working in hazardous environments experience worse health outcomes than those engaged in other types of work or those who do not work. Using data from Mexico’s National Child Labor Survey (ENTI 2022), the study explores how different workplace risks are associated with a wide range of health symptoms. The research contributes to a better understanding of the consequences of hazardous child labor and provides empirical evidence relevant to ongoing policy discussions about the measurement, regulation, and prevention of child labor.",
+      "researcher_note": "UP Researchers: Luciano A. Quintana, Enrique Minor, and Akito Kamei\n With: Hyuk Harry Son (Northeastern University, USA)",
+      "researchers": [],
+      "title_es": "Trabajo infantil, riesgos laborales y resultados de salud en México",
+      "summary_es": "El trabajo infantil sigue siendo una preocupación importante en los países en desarrollo, pero no todas las formas de trabajo afectan a los niños de la misma manera. Este proyecto examina si los niños que trabajan en entornos peligrosos presentan peores resultados de salud que quienes realizan otros trabajos o no trabajan. Con datos de la Encuesta Nacional de Trabajo Infantil de México (ENTI 2022), el estudio explora cómo distintos riesgos laborales se asocian con una amplia variedad de síntomas de salud. La investigación contribuye a comprender mejor las consecuencias del trabajo infantil peligroso y aporta evidencia empírica relevante para los debates de política pública sobre la medición, regulación y prevención del trabajo infantil.",
+      "researcher_note_es": "Investigadores UP: Luciano A. Quintana, Enrique Minor, y Akito Kamei\n Con: Hyuk Harry Son (Northeastern University, USA)"
     }
-  ]
+  ],
+  "display_order": 1,
+  "name_es": "Economía del Desarrollo",
+  "summary_es": "La economía del desarrollo examina los desafíos económicos y sociales que determinan el bienestar humano, la desigualdad y el desarrollo a largo plazo. Las diferencias en el acceso a la educación, la salud, las oportunidades de empleo y la seguridad pública pueden generar disparidades persistentes entre hogares, comunidades y regiones. Comprender cómo las condiciones económicas y las políticas públicas influyen en estos resultados es importante para diseñar estrategias de desarrollo eficaces y equitativas.",
+  "overview_es": "Esta agenda de investigación estudia cómo la desigualdad, las instituciones y las condiciones socioeconómicas afectan el comportamiento humano y los resultados del desarrollo en países de ingresos bajos y medios. Los proyectos actuales examinan temas como la desigualdad y la movilidad social, el crimen y la violencia, y el papel de los programas gubernamentales y las instituciones locales en la configuración de las oportunidades económicas y el bienestar social.",
+  "image": "/design/assets/research/rocinha-panorama.jpg",
+  "image_alt": "Rocinha hillside neighborhood in Rio de Janeiro.",
+  "image_alt_es": "Barrio de Rocinha en las laderas de Río de Janeiro.",
+  "image_credit": "chensiyuan · CC BY-SA 4.0",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Rocinha_rio_de_janeiro_panorama_2010.jpg",
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
 }
