@@ -2,7 +2,7 @@
   "name": "Juan Álvaro Díaz Raimond Kedilhac",
   "slug": "juan-alvaro",
   "role": "Research professional",
-  "bio": "Applies econometric methods and machine learning to macroeconomic and microeconomic questions, including inflation, household behavior, health, and labor markets. He also helped with the launch of the center.",
+  "bio": "Juan Álvaro’s research interests span both macroeconomic and microeconomic empirical analysis, with a particular focus on econometric methods and machine learning applications in economics. His work combines causal inference, time-series analysis, and high-dimensional statistical techniques to study inflation dynamics and household behavior. He is especially interested in applying modern quantitative methods to policy-relevant questions in macroeconomics, health, and labor markets. He has led workshops on GitHub and LaTeX, supporting research collaboration, reproducibility, and scientific communication. He also helped with the launch of the center.",
   "portrait": "/design/assets/people/juan-alvaro-edited-2026.png",
   "portrait_alt": "Portrait of Juan Álvaro Díaz Raimond Kedilhac.",
   "research_areas": [
@@ -13,6 +13,7 @@
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-10-15",
   "published": true,
-  "bio_es": "Aplica métodos econométricos y aprendizaje automático a preguntas macroeconómicas y microeconómicas, como la inflación, el comportamiento de los hogares, la salud y los mercados laborales. También colaboró en la puesta en marcha del centro.",
+  "display_order": 90,
+  "bio_es": "Los intereses de investigación de Juan Álvaro abarcan el análisis empírico macroeconómico y microeconómico, con especial atención a los métodos econométricos y las aplicaciones del aprendizaje automático en economía. Su trabajo combina inferencia causal, análisis de series de tiempo y técnicas estadísticas de alta dimensión para estudiar la dinámica de la inflación y el comportamiento de los hogares. Le interesa especialmente aplicar métodos cuantitativos modernos a preguntas relevantes para las políticas públicas en macroeconomía, salud y mercados laborales. Ha impartido talleres de GitHub y LaTeX para apoyar la colaboración en investigación, la reproducibilidad y la comunicación científica. También colaboró en la puesta en marcha del centro.",
   "portrait_alt_es": "Retrato de Juan Álvaro Díaz Raimond Kedilhac."
 }

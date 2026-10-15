@@ -9,7 +9,8 @@
       "name": "Vaishnavi Prathap"
     },
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Sidhartha Giri"
@@ -27,7 +28,7 @@
       "name": "Amy J. Pickering"
     }
   ],
-  "abstract": "A randomized implementation trial in rural Odisha evaluates in-line chlorination as a way to reduce microbial contamination in drinking water while limiting the time households must spend treating water.",
+  "abstract": "This randomized implementation trial tests in-line chlorination in piped drinking-water systems across 20 rural villages in Odisha, India, over one year. The study assesses whether chlorine-tablet systems can be installed and operated, whether households continue to use treated piped water, and whether treatment reduces fecal contamination, including antibiotic-resistant bacteria. Chlorine was detected in about half of tap-water samples during the study and more often after the target dose was raised. The intervention reduced E. coli in household tap and stored water and reduced the time people spent treating water manually, a task usually performed by women. Despite some complaints about taste and odor, households continued to rely on piped water. The results show that water-quality gains are possible, while consistent dosing, monitoring, and attention to user preferences remain important implementation needs.",
   "year": 2026,
   "type": "Journal article",
   "venue": "PLOS Water",
@@ -39,5 +40,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Un ensayo aleatorizado de implementación en zonas rurales de Odisha evalúa la cloración en línea para reducir la contaminación microbiana del agua potable y limitar el tiempo que los hogares deben dedicar a tratarla."
+  "abstract_es": "Este ensayo aleatorizado de implementación evalúa la cloración en línea de sistemas de agua potable entubada en 20 aldeas rurales de Odisha, India, durante un año. Analiza si los sistemas de tabletas de cloro pueden instalarse y operarse, si los hogares siguen utilizando el agua entubada tratada y si el tratamiento reduce la contaminación fecal, incluidas bacterias resistentes a antibióticos. Se detectó cloro en aproximadamente la mitad de las muestras de agua del grifo, con mayor frecuencia tras elevar la dosis objetivo. La intervención redujo E. coli en el agua del grifo y almacenada en los hogares, y disminuyó el tiempo dedicado al tratamiento manual del agua, tarea generalmente realizada por mujeres. Pese a algunas quejas sobre sabor y olor, los hogares siguieron recurriendo al agua entubada. Los resultados muestran que es posible mejorar la calidad del agua, aunque la dosificación constante, la supervisión y la atención a las preferencias de los usuarios siguen siendo necesidades importantes de implementación."
 }

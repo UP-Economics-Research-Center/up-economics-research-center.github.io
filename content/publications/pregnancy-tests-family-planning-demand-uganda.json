@@ -3,7 +3,8 @@
   "slug": "pregnancy-tests-family-planning-demand-uganda",
   "authors": [
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Ryoko Sato"
@@ -12,7 +13,7 @@
       "name": "Rebecca Thornton"
     }
   ],
-  "abstract": "A randomized trial with women in northern Uganda evaluates whether access to pregnancy tests changes demand for family-planning services.",
+  "abstract": "A randomized trial with 810 women of reproductive age in northern Uganda tests whether access to pregnancy tests affects demand for modern family planning. Participants were offered an on-the-spot urine test, a home test kit for future use, both options, or no test; offers and prices for future-use kits varied by assignment. Interest in testing was high: 62% accepted a free on-the-spot test and 97% accepted a free kit for future use, while kit purchases fell as prices rose. However, test offers did not produce a large or statistically significant overall increase in use of modern contraception at community outreach centers about four weeks later. The findings indicate demand for pregnancy tests but suggest that access alone may not change contraceptive uptake; beliefs about pregnancy risk and coordination with family-planning services warrant further study.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Reproductive Health",
@@ -24,5 +25,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Un ensayo aleatorizado con mujeres del norte de Uganda evalúa si el acceso a pruebas de embarazo modifica la demanda de servicios de planificación familiar."
+  "abstract_es": "Un ensayo aleatorizado con 810 mujeres en edad reproductiva del norte de Uganda evalúa si el acceso a pruebas de embarazo afecta la demanda de planificación familiar moderna. Se ofreció una prueba de orina inmediata, un kit casero para uso futuro, ambas opciones o ninguna prueba; las ofertas y precios de los kits variaron según la asignación. El interés fue alto: el 62 % aceptó una prueba inmediata gratuita y el 97 % un kit gratuito para uso futuro, mientras que las compras disminuyeron al aumentar los precios. Sin embargo, las ofertas no produjeron un aumento global grande ni estadísticamente significativo en el uso de anticoncepción moderna en centros comunitarios unas cuatro semanas después. Los resultados indican demanda de pruebas, pero sugieren que el acceso por sí solo podría no cambiar la adopción de anticonceptivos; las creencias sobre el riesgo de embarazo y la coordinación con servicios de planificación familiar requieren más estudio."
 }

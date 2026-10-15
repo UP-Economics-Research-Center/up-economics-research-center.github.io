@@ -307,13 +307,22 @@ def render_people(people: list[dict], areas: dict[str, dict]) -> str:
     return "".join(f'<div class="people-group" id="{slug}"><h2>{title}</h2><div class="people-list">' + "".join(render_person(person, areas) for person in members) + '</div></div>' for slug, title, members in groups if members)
 
 
+def render_authors(pub: dict) -> str:
+    return ", ".join(
+        f'<a href="/people.html#{quote(author["person_id"], safe="-")}">{e(author["name"])}</a>'
+        if isinstance(author, dict) and author.get("person_id")
+        else e(author if isinstance(author, str) else author["name"])
+        for author in pub["authors"]
+    )
+
+
 def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
     url = pub.get("canonical_url") or pub.get("pdf") or pub.get("pdf_url") or f'/publications/{quote(pub["slug"], safe="-")}/'
     photo = f'<a class="paper-image" href="{e(url)}" aria-label="{e(pub["title"])}">{image_html(pub, "paper-photo")}</a>' if pub.get("image") else ""
     venue = pub["venue"] or pub["type"]
     return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
-            f'{photo}<div><h3 class="pub-title"><a translate="no" href="{e(url)}">{e(pub["title"])}</a></h3><p class="pub-authors" translate="no">{e(authors)}</p>'
+            f'{photo}<div><h3 class="pub-title"><a translate="no" href="{e(url)}">{e(pub["title"])}</a></h3><p class="pub-authors" translate="no">{render_authors(pub)}</p>'
             f'<div class="pub-venue"><span>{e(venue)}</span> · {pub["year"]}</div></div>'
             f'<div class="pub-actions"><a class="text-link" href="/publications/{quote(pub["slug"], safe="-")}/">Abstract and details →</a></div></article>')
 
@@ -472,6 +481,8 @@ def build() -> None:
         shutil.copytree(ROOT / "design" / "assets", public_design / "assets",
                          ignore=shutil.ignore_patterns("media-sources.json", "juan-alvaro-source-2022.jpg"))
         shutil.copytree(ROOT / "admin", site / "admin")
+        for icon in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
+            shutil.copy2(ROOT / icon, site / icon)
 
         # Static pages are the canonical templates; each record collection replaces only its marked content slot.
         replacements = {
@@ -507,6 +518,14 @@ def build() -> None:
             source = minify_slots(source)
             if relpath in {"index.html", "design/homepage-concept.html"}:
                 source = re.sub(r'data-video-id="[^"]*"', f'data-video-id="{e(site_settings["campus_video_id"])}"', source, count=1)
+                source = re.sub(r'<img src="(?:design/)?assets/[^"]+" alt="[^"]*" width="\d+" height="\d+"', f'<img src="{e(site_settings["campus_video_poster"])}" alt="{e(site_settings["campus_video_poster_alt"])}" width="480" height="360"', source, count=1)
+                source = re.sub(r'href="https://www\.youtube\.com/watch\?v=[A-Za-z0-9_-]{11}"', f'href="https://www.youtube.com/watch?v={e(site_settings["campus_video_id"])}"', source, count=1)
+                source = re.sub(
+                    r'(<button[^>]*class="film-play"[^>]*>.*?<strong>)[^<]+(</strong>)',
+                    lambda match: match.group(1) + e(site_settings["campus_video_title"]) + match.group(2),
+                    source, count=1, flags=re.S,
+                )
+                source = re.sub(r'aria-label="Play [^"]*"', f'aria-label="Play {e(site_settings["campus_video_title"])}"', source, count=1)
             source = source.replace("UP Economics Research Center", e(site_settings.get("center_name", "UP Economics Research Center")))
             source = source.replace("Universidad Panamericana", e(site_settings.get("university", "Universidad Panamericana")))
             source = source.replace("Design preview · Illustrative content", e(site_settings.get("footer_note", "Design preview · Illustrative content")))
@@ -585,7 +604,7 @@ def build() -> None:
         template_path = ROOT / "templates/publication-detail.html"
         template = template_path.read_text(encoding="utf-8")
         for pub in data["publications"]:
-            author_html = ", ".join(e(a if isinstance(a, str) else a["name"]) for a in pub["authors"])
+            author_html = render_authors(pub)
             topic_html = "".join(f'<a class="tag" href="/research-area.html?area={quote(key, safe="-")}">{e(area_names[key])}</a>' for key in pub["topics"])
             canonical_link = external_anchor(pub.get("canonical_url", ""), "View publisher page")
             pdf_url = pub.get("pdf") or pub.get("pdf_url")

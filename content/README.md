@@ -16,7 +16,7 @@ The initial 11 public people profiles and nine areas were mapped from Akito Kame
 
 The English field and its companion **Spanish** field describe the same content. Complete both before publishing. Paper titles, author names and journal names keep their original spelling in both languages. The build stops when a published profile, research area, project or abstract is missing its required Spanish text. Interface translations are maintained in `settings/interface-es.json`.
 
-The nine area descriptions and ongoing research were transcribed from Akito's linked pages on 2026-10-15. Keep that English wording intact unless an editorial update is approved; translate it faithfully into Spanish. Full source transcriptions are retained in `docs/sources/`. These source texts replace the earlier paraphrased area descriptions; publication abstracts remain separately maintained editorial summaries.
+The nine area descriptions and ongoing research were transcribed from Akito's linked pages on 2026-10-15. Keep that English wording intact unless an editorial update is approved; translate it faithfully into Spanish. Full source transcriptions are retained in `docs/sources/`. These source texts replace the earlier paraphrased area descriptions; publication abstracts remain separately maintained editorial summaries. The latest complete biographies and publication abstracts from the public main branch were retained during publication integration, with matching Spanish translations.
 
 `settings/about.json` now supplies the scope, affiliation, collaboration and contact blocks on the home page. Preserve its editorial note until it is resolved. Contact navigation leads to the bottom of the home page; the old About address redirects there.
 

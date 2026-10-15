@@ -13,255 +13,761 @@ public_folder: /design/assets/uploads
 site_url: https://up-economics-research-center.github.io
 show_preview_links: false
 collections:
-  - name: site_settings
-    label: Site settings
-    description: Update approved home-page copy and site-wide details.
-    files:
-      - name: site
-        label: Home page and site details
-        file: content/settings/site.json
-        format: json
-        fields:
-          - { label: Center name, name: center_name, widget: string }
-          - { label: "Center name — Spanish", name: center_name_es, widget: string, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: University, name: university, widget: string }
-          - { label: Show News publicly, name: show_news, widget: boolean, default: false, required: false }
-          - { label: Show Seminars publicly, name: show_seminars, widget: boolean, default: false, required: false }
-          - { label: Home-page heading, name: hero_heading, widget: string, required: false, hint: Use only copy approved by the Center. }
-          - { label: "Home-page heading — Spanish", name: hero_heading_es, widget: string, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Home-page introduction, name: hero_summary, widget: text, required: false, hint: Keep claims supported by an official source. }
-          - { label: "Home-page introduction — Spanish", name: hero_summary_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Campus video ID, name: campus_video_id, widget: string, pattern: ['^[A-Za-z0-9_-]{11}$', 'Enter the 11-character YouTube video ID.'] }
-          - { label: Campus video caption, name: campus_video_caption, widget: string }
-          - { label: "Campus video caption — Spanish", name: campus_video_caption_es, widget: string, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Footer note, name: footer_note, widget: string, required: false, hint: Preserve the design-preview note until the Center approves final copy. }
-          - { label: "Footer note — Spanish", name: footer_note_es, widget: string, required: false, hint: "Translate the complete English text faithfully before publishing." }
-  - name: about_settings
-    label: Home scope and contact
-    description: Keep all public claims and contact details supported by a current source.
-    files:
-      - name: about
-        label: Home scope, collaboration and contact
-        file: content/settings/about.json
-        format: json
-        fields:
-          - { label: Publish these details, name: published, widget: boolean, default: false, hint: Turn this on only when the content is ready to appear on the public site. }
-          - { label: Center scope, name: scope, widget: text, required: false }
-          - { label: "Center scope — Spanish", name: scope_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Research scope, name: research_scope, widget: text, required: false }
-          - { label: "Research scope — Spanish", name: research_scope_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Collaboration information, name: collaboration, widget: text, required: false }
-          - { label: "Collaboration — Spanish", name: collaboration_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - { label: Contact introduction, name: contact_intro, widget: text, required: false }
-          - { label: Contact introduction — Spanish, name: contact_intro_es, widget: text, required: false }
-          - { label: Institutional affiliation, name: affiliation, widget: text, required: false }
-          - { label: Institutional affiliation — Spanish, name: affiliation_es, widget: text, required: false }
-          - { label: Postal address, name: address, widget: text, required: false }
-          - { label: Editorial review note, name: editorial_note, widget: text, required: false }
-          - { label: Editorial review note — Spanish, name: editorial_note_es, widget: text, required: false }
-          - { label: Public contact email, name: contact_email, widget: string, required: false }
-          - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-          - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false, required: false }
-  - name: people
-    label: Researchers
-    label_singular: Researcher
-    description: Add a person only after their affiliation, role, and profile text are verified.
-    folder: content/people
-    create: true
-    extension: json
+- name: site_settings
+  label: Site settings
+  description: Update approved home-page copy and site-wide details.
+  files:
+  - name: site
+    label: Home page and site details
+    file: content/settings/site.json
     format: json
-    identifier_field: name
-    slug: '{{fields.slug}}'
-    summary: '{{name}} · {{role}}'
     fields:
-      - { label: Name, name: name, widget: string }
-      - { label: Display order, name: display_order, widget: number, value_type: int, min: 1, default: 999, required: false, hint: "Lower numbers appear first within the person's group." }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - label: Role
-        name: role
-        widget: select
-        options: [Lead researcher, Research professional, Other]
-      - { label: Biography, name: bio, widget: text }
-      - { label: "Biography — Spanish", name: bio_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - { label: Portrait, name: portrait, widget: image, required: false }
-      - { label: Portrait alternative text, name: portrait_alt, widget: string, required: false }
-      - { label: "Portrait alternative text — Spanish", name: portrait_alt_es, widget: string, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - label: Research areas
-        name: research_areas
-        widget: relation
-        collection: research_areas
-        search_fields: [name]
-        display_fields: [name]
-        value_field: slug
-        multiple: true
-        required: false
-      - { label: Personal website URL, name: personal_website, widget: string, required: false, hint: "Use a verified personal site. Leave empty if none is known." }
-      - { label: Official profile URL, name: canonical_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this profile, name: published, widget: boolean, default: false }
-  - name: research_areas
-    label: Research areas
-    label_singular: Research area
-    description: Use a stable topic ID and link all people by their record slug.
-    folder: content/research-areas
-    create: true
-    extension: json
+    - label: Center name
+      name: center_name
+      widget: string
+    - label: Center name — Spanish
+      name: center_name_es
+      widget: string
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: University
+      name: university
+      widget: string
+    - label: Show News publicly
+      name: show_news
+      widget: boolean
+      default: false
+      required: false
+    - label: Show Seminars publicly
+      name: show_seminars
+      widget: boolean
+      default: false
+      required: false
+    - label: Home-page heading
+      name: hero_heading
+      widget: string
+      required: false
+      hint: Use only copy approved by the Center.
+    - label: Home-page heading — Spanish
+      name: hero_heading_es
+      widget: string
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Home-page introduction
+      name: hero_summary
+      widget: text
+      required: false
+      hint: Keep claims supported by an official source.
+    - label: Home-page introduction — Spanish
+      name: hero_summary_es
+      widget: text
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Campus video ID
+      name: campus_video_id
+      widget: string
+      pattern:
+      - ^[A-Za-z0-9_-]{11}$
+      - Enter the 11-character YouTube video ID.
+    - label: Campus video caption
+      name: campus_video_caption
+      widget: string
+    - label: Campus video caption — Spanish
+      name: campus_video_caption_es
+      widget: string
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Footer note
+      name: footer_note
+      widget: string
+      required: false
+      hint: Preserve the design-preview note until the Center approves final copy.
+    - label: Footer note — Spanish
+      name: footer_note_es
+      widget: string
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Campus video title
+      name: campus_video_title
+      widget: string
+    - label: Campus video poster
+      name: campus_video_poster
+      widget: image
+    - label: Poster alternative text
+      name: campus_video_poster_alt
+      widget: string
+    - label: Featured paper
+      name: featured_publication_slug
+      widget: relation
+      collection: publications
+      search_fields:
+      - title
+      display_fields:
+      - title
+      value_field: slug
+      required: false
+    - label: Feature image
+      name: featured_image
+      widget: image
+      required: false
+    - label: Feature image alternative text
+      name: featured_image_alt
+      widget: string
+      required: false
+    - label: Image credit
+      name: featured_image_credit
+      widget: string
+      required: false
+    - label: Image source URL
+      name: featured_image_source_url
+      widget: string
+      required: false
+- name: about_settings
+  label: Home scope and contact
+  description: Keep all public claims and contact details supported by a current source.
+  files:
+  - name: about
+    label: Home scope, collaboration and contact
+    file: content/settings/about.json
     format: json
-    identifier_field: name
-    slug: '{{fields.slug}}'
-    summary: '{{name}}'
     fields:
-      - { label: Name, name: name, widget: string }
-      - { label: Name — Spanish, name: name_es, widget: string }
-      - { label: Display order, name: display_order, widget: number, value_type: int, min: 1 }
-      - { label: Stable URL ID, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - { label: Summary, name: summary, widget: text }
-      - { label: "Summary — Spanish", name: summary_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - { label: Photograph, name: image, widget: image, required: false, hint: "Optional. The public image block is hidden when empty." }
-      - { label: Photograph alternative text, name: image_alt, widget: string, required: false }
-      - { label: Photograph alternative text — Spanish, name: image_alt_es, widget: string, required: false }
-      - { label: Photograph credit and license, name: image_credit, widget: string, required: false }
-      - { label: Photograph source URL, name: image_source_url, widget: string, required: false }
-      - { label: Photograph license URL, name: image_license_url, widget: string, required: false }
-      - { label: Area overview, name: overview, widget: text, hint: Preserve the complete source wording and paragraph breaks. }
-      - { label: "Area overview — Spanish", name: overview_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - label: Ongoing research
-        name: projects
-        widget: list
-        required: false
-        fields:
-          - { label: Project title, name: title, widget: string }
-          - { label: Project title — Spanish, name: title_es, widget: string }
-          - { label: Project summary, name: summary, widget: text }
-          - { label: Researcher and presentation notes, name: researcher_note, widget: text, required: false }
-          - { label: Researcher and presentation notes — Spanish, name: researcher_note_es, widget: text, required: false }
-          - { label: Article URL, name: url, widget: string, required: false }
-          - { label: Photograph, name: image, widget: image, required: false }
-          - { label: Photograph alternative text, name: image_alt, widget: string, required: false }
-          - { label: Photograph alternative text — Spanish, name: image_alt_es, widget: string, required: false }
-          - { label: Photograph credit and license, name: image_credit, widget: string, required: false }
-          - { label: Photograph source URL, name: image_source_url, widget: string, required: false }
-          - { label: Photograph license URL, name: image_license_url, widget: string, required: false }
-          - { label: "Summary — Spanish", name: summary_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-          - label: Researchers
-            name: researchers
-            widget: list
-            field: { label: Researcher name, name: name, widget: string }
-      - label: Researchers
-        name: people
-        widget: list
-        field: { label: Researcher slug, name: person_id, widget: string }
-        required: false
-      - { label: Official page URL, name: canonical_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this area, name: published, widget: boolean, default: false }
-  - name: publications
-    label: Publications
-    label_singular: Publication
-    description: Every author, abstract, citation, and paper link must be checked against a source.
-    folder: content/publications
-    create: true
-    extension: json
-    format: json
-    identifier_field: title
-    slug: '{{fields.slug}}'
-    summary: '{{year}} · {{title}}'
+    - label: Publish these details
+      name: published
+      widget: boolean
+      default: false
+      hint: Turn this on only when the content is ready to appear on the public site.
+    - label: Center scope
+      name: scope
+      widget: text
+      required: false
+    - label: Center scope — Spanish
+      name: scope_es
+      widget: text
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Research scope
+      name: research_scope
+      widget: text
+      required: false
+    - label: Research scope — Spanish
+      name: research_scope_es
+      widget: text
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Collaboration information
+      name: collaboration
+      widget: text
+      required: false
+    - label: Collaboration — Spanish
+      name: collaboration_es
+      widget: text
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Contact introduction
+      name: contact_intro
+      widget: text
+      required: false
+    - label: Contact introduction — Spanish
+      name: contact_intro_es
+      widget: text
+      required: false
+    - label: Institutional affiliation
+      name: affiliation
+      widget: text
+      required: false
+    - label: Institutional affiliation — Spanish
+      name: affiliation_es
+      widget: text
+      required: false
+    - label: Postal address
+      name: address
+      widget: text
+      required: false
+    - label: Editorial review note
+      name: editorial_note
+      widget: text
+      required: false
+    - label: Editorial review note — Spanish
+      name: editorial_note_es
+      widget: text
+      required: false
+    - label: Public contact email
+      name: contact_email
+      widget: string
+      required: false
+    - label: Reference URL (optional)
+      name: source_url
+      widget: string
+      required: false
+      hint: Optional link to any page or document that supports this information.
+    - label: Last verified
+      name: verified_on
+      widget: datetime
+      date_format: YYYY-MM-DD
+      time_format: false
+      required: false
+    - label: Seminar information
+      name: seminar_description
+      widget: text
+      required: false
+      hint: This section remains hidden while Seminars is disabled.
+    - label: Seminar proposal form URL
+      name: seminar_form_url
+      widget: string
+      required: false
+      hint: The linked Google Form is currently in Spanish.
+    - label: Seminar information source
+      name: seminar_source_url
+      widget: string
+      required: false
+    - label: Publish public Contact details
+      name: contact_published
+      widget: boolean
+      default: false
+    - label: Public institutional address
+      name: contact_address
+      widget: text
+      required: false
+    - label: Contact reference URL
+      name: contact_source_url
+      widget: string
+      required: false
+    - label: Contact last verified
+      name: contact_verified_on
+      widget: datetime
+      date_format: YYYY-MM-DD
+      time_format: false
+      required: false
+- name: people
+  label: Researchers
+  label_singular: Researcher
+  description: Add a person only after their affiliation, role, and profile text are verified.
+  folder: content/people
+  create: true
+  extension: json
+  format: json
+  identifier_field: name
+  slug: '{{fields.slug}}'
+  summary: '{{name}} · {{role}}'
+  fields:
+  - label: Name
+    name: name
+    widget: string
+  - label: Display order
+    name: display_order
+    widget: number
+    value_type: int
+    min: 1
+    default: 999
+    required: false
+    hint: Lower numbers appear first within the person's group.
+  - label: Stable URL slug
+    name: slug
+    widget: string
+    pattern:
+    - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    - Use lowercase letters, numbers, and single hyphens.
+  - label: Role
+    name: role
+    widget: select
+    options:
+    - Lead researcher
+    - Research professional
+    - Other
+  - label: Biography
+    name: bio
+    widget: text
+  - label: Biography — Spanish
+    name: bio_es
+    widget: text
+    required: true
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Portrait
+    name: portrait
+    widget: image
+    required: false
+  - label: Portrait alternative text
+    name: portrait_alt
+    widget: string
+    required: false
+  - label: Portrait alternative text — Spanish
+    name: portrait_alt_es
+    widget: string
+    required: false
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Research areas
+    name: research_areas
+    widget: relation
+    collection: research_areas
+    search_fields:
+    - name
+    display_fields:
+    - name
+    value_field: slug
+    multiple: true
+    required: false
+  - label: Personal website URL
+    name: personal_website
+    widget: string
+    required: false
+    hint: Use a verified personal site. Leave empty if none is known.
+  - label: Official profile URL
+    name: canonical_url
+    widget: string
+    required: false
+  - label: Reference URL (optional)
+    name: source_url
+    widget: string
+    required: false
+    hint: Optional link to any page or document that supports this information.
+  - label: Last verified
+    name: verified_on
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Publish this profile
+    name: published
+    widget: boolean
+    default: false
+- name: research_areas
+  label: Research areas
+  label_singular: Research area
+  description: Use a stable topic ID and link all people by their record slug.
+  folder: content/research-areas
+  create: true
+  extension: json
+  format: json
+  identifier_field: name
+  slug: '{{fields.slug}}'
+  summary: '{{name}}'
+  fields:
+  - label: Name
+    name: name
+    widget: string
+  - label: Name — Spanish
+    name: name_es
+    widget: string
+  - label: Display order
+    name: display_order
+    widget: number
+    value_type: int
+    min: 1
+  - label: Stable URL ID
+    name: slug
+    widget: string
+    pattern:
+    - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    - Use lowercase letters, numbers, and single hyphens.
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Summary — Spanish
+    name: summary_es
+    widget: text
+    required: false
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Photograph
+    name: image
+    widget: image
+    required: false
+    hint: Optional. The public image block is hidden when empty.
+  - label: Photograph alternative text
+    name: image_alt
+    widget: string
+    required: false
+  - label: Photograph alternative text — Spanish
+    name: image_alt_es
+    widget: string
+    required: false
+  - label: Photograph credit and license
+    name: image_credit
+    widget: string
+    required: false
+  - label: Photograph source URL
+    name: image_source_url
+    widget: string
+    required: false
+  - label: Photograph license URL
+    name: image_license_url
+    widget: string
+    required: false
+  - label: Area overview
+    name: overview
+    widget: text
+    hint: Preserve the complete source wording and paragraph breaks.
+  - label: Area overview — Spanish
+    name: overview_es
+    widget: text
+    required: false
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Ongoing research
+    name: projects
+    widget: list
+    required: false
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - label: Authors in citation order
-        name: authors
-        widget: list
-        fields:
-          - { label: Author name, name: name, widget: string }
-          - { label: Center researcher slug, name: person_id, widget: string, required: false }
-      - { label: Photograph, name: image, widget: image, required: false, hint: "Optional. The public image block is hidden when empty." }
-      - { label: Photograph alternative text, name: image_alt, widget: string, required: false }
-      - { label: Photograph alternative text — Spanish, name: image_alt_es, widget: string, required: false }
-      - { label: Photograph credit and license, name: image_credit, widget: string, required: false }
-      - { label: Photograph source URL, name: image_source_url, widget: string, required: false }
-      - { label: Photograph license URL, name: image_license_url, widget: string, required: false }
-      - { label: Abstract, name: abstract, widget: text }
-      - { label: "Abstract — Spanish", name: abstract_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - { label: Year, name: year, widget: number, value_type: int, min: 1900, max: 2100 }
-      - label: Publication type
-        name: type
-        widget: select
-        options: ['Journal article', 'Working paper', 'Book', 'Book chapter', 'Policy brief', 'Other']
-      - { label: Journal, series, or publisher, name: venue, widget: string, required: false }
-      - { label: DOI, name: doi, widget: string, required: false, hint: Enter the DOI only, such as 10.1234/example. }
-      - { label: Publisher or canonical page, name: canonical_url, widget: string, required: false }
-      - { label: Approved paper file, name: pdf, widget: file, required: false }
-      - { label: External download URL, name: pdf_url, widget: string, required: false }
-      - label: Research areas
-        name: topics
-        widget: relation
-        collection: research_areas
-        search_fields: [name]
-        display_fields: [name]
-        value_field: slug
-        multiple: true
-        required: false
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this publication, name: published, widget: boolean, default: false }
-  - name: news
-    label: News
-    label_singular: News item
-    description: Publish only sourced announcements from the Center.
-    folder: content/news
-    create: true
-    extension: json
-    format: json
-    identifier_field: title
-    slug: '{{fields.slug}}'
-    summary: '{{date}} · {{title}}'
+    - label: Project title
+      name: title
+      widget: string
+    - label: Project title — Spanish
+      name: title_es
+      widget: string
+    - label: Project summary
+      name: summary
+      widget: text
+    - label: Researcher and presentation notes
+      name: researcher_note
+      widget: text
+      required: false
+    - label: Researcher and presentation notes — Spanish
+      name: researcher_note_es
+      widget: text
+      required: false
+    - label: Article URL
+      name: url
+      widget: string
+      required: false
+    - label: Photograph
+      name: image
+      widget: image
+      required: false
+    - label: Photograph alternative text
+      name: image_alt
+      widget: string
+      required: false
+    - label: Photograph alternative text — Spanish
+      name: image_alt_es
+      widget: string
+      required: false
+    - label: Photograph credit and license
+      name: image_credit
+      widget: string
+      required: false
+    - label: Photograph source URL
+      name: image_source_url
+      widget: string
+      required: false
+    - label: Photograph license URL
+      name: image_license_url
+      widget: string
+      required: false
+    - label: Summary — Spanish
+      name: summary_es
+      widget: text
+      required: false
+      hint: Translate the complete English text faithfully before publishing.
+    - label: Researchers
+      name: researchers
+      widget: list
+      field:
+        label: Researcher name
+        name: name
+        widget: string
+  - label: Researchers
+    name: people
+    widget: list
+    field:
+      label: Researcher slug
+      name: person_id
+      widget: string
+    required: false
+  - label: Official page URL
+    name: canonical_url
+    widget: string
+    required: false
+  - label: Reference URL (optional)
+    name: source_url
+    widget: string
+    required: false
+    hint: Optional link to any page or document that supports this information.
+  - label: Last verified
+    name: verified_on
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Publish this area
+    name: published
+    widget: boolean
+    default: false
+- name: publications
+  label: Publications
+  label_singular: Publication
+  description: Every author, abstract, citation, and paper link must be checked against a source.
+  folder: content/publications
+  create: true
+  extension: json
+  format: json
+  identifier_field: title
+  slug: '{{fields.slug}}'
+  summary: '{{year}} · {{title}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Stable URL slug
+    name: slug
+    widget: string
+    pattern:
+    - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    - Use lowercase letters, numbers, and single hyphens.
+  - label: Authors in citation order
+    name: authors
+    widget: list
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Title — Spanish, name: title_es, widget: string }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - label: Category
-        name: category
-        widget: select
-        options: [Announcement, Publication, People, Seminar, Research]
-      - { label: Summary, name: summary, widget: text }
-      - { label: "Summary — Spanish", name: summary_es, widget: text, required: false, hint: "Translate the complete English text faithfully before publishing." }
-      - { label: Story, name: body, widget: text, required: false }
-      - { label: Story — Spanish, name: body_es, widget: text, required: false }
-      - { label: Canonical URL, name: canonical_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this item, name: published, widget: boolean, default: false }
-  - name: seminars
-    label: Seminars
-    label_singular: Seminar
-    description: Add events only after the speaker, date, and details are confirmed.
-    folder: content/seminars
-    create: true
-    extension: json
-    format: json
-    identifier_field: title
-    slug: '{{fields.slug}}'
-    summary: '{{date}} · {{title}}'
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Title — Spanish, name: title_es, widget: string }
-      - { label: Stable URL slug, name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and single hyphens.'] }
-      - label: Series
-        name: series
-        widget: select
-        options: ['General Research Seminar', 'Student Research Seminar', 'Other']
-      - { label: Speaker, name: speaker, widget: string }
-      - { label: Date and time, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: HH:mm }
-      - { label: Time zone, name: timezone, widget: string, hint: Use an IANA zone such as America/Mexico_City. }
-      - { label: Description, name: description, widget: text }
-      - { label: Description — Spanish, name: description_es, widget: text }
-      - { label: Location, name: location, widget: string, required: false }
-      - { label: Registration or event URL, name: event_url, widget: string, required: false }
-      - { label: Recording URL, name: recording_url, widget: string, required: false }
-      - { label: Reference URL (optional), name: source_url, widget: string, required: false, hint: "Optional link to any page or document that supports this information." }
-      - { label: Last verified, name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false }
-      - { label: Publish this event, name: published, widget: boolean, default: false }
+    - label: Author name
+      name: name
+      widget: string
+    - label: Center researcher
+      name: person_id
+      widget: relation
+      required: false
+      collection: people
+      search_fields:
+      - name
+      display_fields:
+      - name
+      value_field: slug
+  - label: Photograph
+    name: image
+    widget: image
+    required: false
+    hint: Optional. The public image block is hidden when empty.
+  - label: Photograph alternative text
+    name: image_alt
+    widget: string
+    required: false
+  - label: Photograph alternative text — Spanish
+    name: image_alt_es
+    widget: string
+    required: false
+  - label: Photograph credit and license
+    name: image_credit
+    widget: string
+    required: false
+  - label: Photograph source URL
+    name: image_source_url
+    widget: string
+    required: false
+  - label: Photograph license URL
+    name: image_license_url
+    widget: string
+    required: false
+  - label: Abstract
+    name: abstract
+    widget: text
+  - label: Abstract — Spanish
+    name: abstract_es
+    widget: text
+    required: true
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Year
+    name: year
+    widget: number
+    value_type: int
+    min: 1900
+    max: 2100
+  - label: Publication type
+    name: type
+    widget: select
+    options:
+    - Journal article
+    - Working paper
+    - Book
+    - Book chapter
+    - Policy brief
+    - Other
+  - label: Journal
+    series: null
+    or publisher: null
+    name: venue
+    widget: string
+    required: false
+  - label: DOI
+    name: doi
+    widget: string
+    required: false
+    hint: Enter the DOI only
+    such as 10.1234/example.: null
+  - label: Publisher or canonical page
+    name: canonical_url
+    widget: string
+    required: false
+  - label: Approved paper file
+    name: pdf
+    widget: file
+    required: false
+  - label: External download URL
+    name: pdf_url
+    widget: string
+    required: false
+  - label: Research areas
+    name: topics
+    widget: relation
+    collection: research_areas
+    search_fields:
+    - name
+    display_fields:
+    - name
+    value_field: slug
+    multiple: true
+    required: false
+  - label: Reference URL (optional)
+    name: source_url
+    widget: string
+    required: false
+    hint: Optional link to any page or document that supports this information.
+  - label: Last verified
+    name: verified_on
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Publish this publication
+    name: published
+    widget: boolean
+    default: false
+- name: news
+  label: News
+  label_singular: News item
+  description: Publish only sourced announcements from the Center.
+  folder: content/news
+  create: true
+  extension: json
+  format: json
+  identifier_field: title
+  slug: '{{fields.slug}}'
+  summary: '{{date}} · {{title}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Title — Spanish
+    name: title_es
+    widget: string
+  - label: Stable URL slug
+    name: slug
+    widget: string
+    pattern:
+    - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    - Use lowercase letters, numbers, and single hyphens.
+  - label: Date
+    name: date
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Category
+    name: category
+    widget: select
+    options:
+    - Announcement
+    - Publication
+    - People
+    - Seminar
+    - Research
+  - label: Summary
+    name: summary
+    widget: text
+  - label: Summary — Spanish
+    name: summary_es
+    widget: text
+    required: false
+    hint: Translate the complete English text faithfully before publishing.
+  - label: Story
+    name: body
+    widget: text
+    required: false
+  - label: Story — Spanish
+    name: body_es
+    widget: text
+    required: false
+  - label: Canonical URL
+    name: canonical_url
+    widget: string
+    required: false
+  - label: Reference URL (optional)
+    name: source_url
+    widget: string
+    required: false
+    hint: Optional link to any page or document that supports this information.
+  - label: Last verified
+    name: verified_on
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Publish this item
+    name: published
+    widget: boolean
+    default: false
+- name: seminars
+  label: Seminars
+  label_singular: Seminar
+  description: Add events only after the speaker, date, and details are confirmed.
+  folder: content/seminars
+  create: true
+  extension: json
+  format: json
+  identifier_field: title
+  slug: '{{fields.slug}}'
+  summary: '{{date}} · {{title}}'
+  fields:
+  - label: Title
+    name: title
+    widget: string
+  - label: Title — Spanish
+    name: title_es
+    widget: string
+  - label: Stable URL slug
+    name: slug
+    widget: string
+    pattern:
+    - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+    - Use lowercase letters, numbers, and single hyphens.
+  - label: Series
+    name: series
+    widget: select
+    options:
+    - General Research Seminar
+    - Student Research Seminar
+    - Other
+  - label: Speaker
+    name: speaker
+    widget: string
+  - label: Date and time
+    name: date
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: HH:mm
+  - label: Time zone
+    name: timezone
+    widget: string
+    hint: Use an IANA zone such as America/Mexico_City.
+  - label: Description
+    name: description
+    widget: text
+  - label: Description — Spanish
+    name: description_es
+    widget: text
+  - label: Location
+    name: location
+    widget: string
+    required: false
+  - label: Registration or event URL
+    name: event_url
+    widget: string
+    required: false
+  - label: Recording URL
+    name: recording_url
+    widget: string
+    required: false
+  - label: Reference URL (optional)
+    name: source_url
+    widget: string
+    required: false
+    hint: Optional link to any page or document that supports this information.
+  - label: Last verified
+    name: verified_on
+    widget: datetime
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Publish this event
+    name: published
+    widget: boolean
+    default: false

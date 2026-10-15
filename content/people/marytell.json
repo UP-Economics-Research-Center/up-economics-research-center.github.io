@@ -1,17 +1,18 @@
 {
-  "name": "Marytell Arciniega Castellanos",
-  "slug": "marytell",
-  "role": "Research professional",
-  "bio": "Studies inequality, social mobility, and how family background and institutional conditions shape economic opportunities across generations.",
-  "portrait": "/design/assets/people/marytell.jpg",
-  "portrait_alt": "Portrait of Marytell Arciniega Castellanos.",
   "research_areas": [
     "development-economics"
   ],
   "canonical_url": "",
+  "portrait_alt": "Portrait of Marytell Arciniega Castellanos.",
+  "bio": "Marytell’s research interests center on inequality, social mobility, and the role of family background in shaping economic opportunities across generations. Her work focuses on understanding how institutional and socioeconomic conditions influence intergenerational mobility and equality. She has contributed to research on government digitalization and corruption and economic growth in Mexico, and is the founder and former editor of Merkatus, the first student-led economics journal at UP.",
+  "name": "Marytell Arciniega Castellanos",
+  "slug": "marytell",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
-  "verified_on": "2026-10-15",
   "published": true,
-  "bio_es": "Estudia la desigualdad, la movilidad social y cómo el origen familiar y las condiciones institucionales determinan las oportunidades económicas entre generaciones.",
+  "display_order": 80,
+  "role": "Research professional",
+  "verified_on": "2026-10-15",
+  "portrait": "/design/assets/people/marytell.jpg",
+  "bio_es": "Los intereses de investigación de Marytell se centran en desigualdad, movilidad social y el papel del origen familiar en las oportunidades económicas entre generaciones. Su trabajo busca comprender cómo las condiciones institucionales y socioeconómicas influyen en la movilidad intergeneracional y la igualdad. Ha contribuido a investigaciones sobre digitalización gubernamental y corrupción, y crecimiento económico en México. Es fundadora y exeditora de Merkatus, la primera revista de economía dirigida por estudiantes en la UP.",
   "portrait_alt_es": "Retrato de Marytell Arciniega Castellanos."
 }

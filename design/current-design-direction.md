@@ -1,3 +1,5 @@
+> **Current approved direction — 2026-09-25:** The public site is GitHub Pages at the organization root. Home features the new Universidad Panamericana film “Reinventamos la Economía” with muted autoplay, followed by a featured research item when an approved image is available. Research and People are the public focus; News and Seminars stay internal. Nine hand-drawn area sketches, the Manrope wordmark, shared responsive styles, and the wine-square `E` favicon are current. Individual publication detail pages stay available from research areas/search. Earlier mock descriptions below are historical notes where they differ from this direction.
+
 # Current visual direction
 
 This revision replaces the previous ticker, large 09 panel, blue-dominant backgrounds, serif headlines, and very small typography.

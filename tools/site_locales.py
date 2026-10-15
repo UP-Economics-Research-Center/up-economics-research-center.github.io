@@ -101,6 +101,7 @@ def decorate(source, english_url, language):
     source = source.replace('</head>', f'<link rel="alternate" hreflang="en" href="https://up-economics-research-center.github.io{english_url}"><link rel="alternate" hreflang="es" href="https://up-economics-research-center.github.io/es{english_url}">{scripts}</head>')
     if language == 'es':
         source = source.replace('https://up-economics-research-center.github.io/publications/', 'https://up-economics-research-center.github.io/es/publications/')
+    source = source.replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></head>')
     return emphasize_center_name(source)
 
 
@@ -183,5 +184,7 @@ def generate_languages(site: Path, data, settings, about):
         translated = translated.replace('content="0;url=/#contact"', 'content="0;url=/es/#contact"')
         target = site / 'es' / rel
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(decorate(translated, english_url, 'es'))
-        path.write_text(decorate(source, english_url, 'en'))
+        def version_scripts(markup):
+            return re.sub(r'src="(/design/[^"?]+\.js)"', lambda m: 'src="' + m[1] + '?v=' + hashlib.sha256((site / m[1].lstrip('/')).read_bytes()).hexdigest()[:12] + '"', markup)
+        target.write_text(version_scripts(decorate(translated, english_url, 'es')))
+        path.write_text(version_scripts(decorate(source, english_url, 'en')))

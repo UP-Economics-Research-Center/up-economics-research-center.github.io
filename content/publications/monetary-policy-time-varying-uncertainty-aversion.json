@@ -6,10 +6,11 @@
       "name": "Fidel Gonzalez"
     },
     {
-      "name": "Arnulfo Rodriguez"
+      "name": "Arnulfo Rodriguez",
+      "person_id": "arnulfo"
     }
   ],
-  "abstract": "The paper analyzes monetary-policy decisions in a model where aversion to uncertainty changes over time, focusing on how uncertainty and regime shifts affect policy responses.",
+  "abstract": "The authors develop a framework for optimal policy by an inflation-targeting central bank that is uncertain about its model and whose degree of mistrust changes as the economy’s structure changes. Structural breaks and price, output, or real-exchange-rate shocks can alter the perceived uncertainty. Robust control represents policymakers’ uncertainty aversion, while a Markov chain captures changes in that aversion over time. The analysis finds that a more aggressive interest-rate response is generally optimal when policymakers are more uncertainty-averse or when future uncertainty aversion is more likely. Greater uncertainty aversion also lowers policymakers’ welfare. The effects of the Markov transition probabilities on expected losses are ambiguous, showing that the timing and persistence of uncertainty can complicate monetary-policy decisions.",
   "year": 2013,
   "type": "Journal article",
   "venue": "Computational Economics",
@@ -21,5 +22,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/macro-economy",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "El artículo analiza decisiones de política monetaria en un modelo en el que la aversión a la incertidumbre cambia con el tiempo, con énfasis en cómo la incertidumbre y los cambios de régimen afectan las respuestas de política."
+  "abstract_es": "Los autores desarrollan un marco de política óptima para un banco central con metas de inflación que enfrenta incertidumbre sobre su modelo y cuyo grado de desconfianza cambia conforme se transforma la estructura económica. Las rupturas estructurales y los choques de precios, producción o tipo de cambio real pueden alterar la incertidumbre percibida. El control robusto representa la aversión a la incertidumbre de las autoridades, mientras que una cadena de Markov captura sus cambios en el tiempo. El análisis encuentra que, en general, una respuesta más agresiva de la tasa de interés es óptima cuando las autoridades son más adversas a la incertidumbre o es más probable una mayor aversión futura. Una mayor aversión también reduce el bienestar de las autoridades. Los efectos de las probabilidades de transición de Markov sobre las pérdidas esperadas son ambiguos, lo que muestra que la aparición y persistencia de la incertidumbre pueden complicar las decisiones de política monetaria."
 }

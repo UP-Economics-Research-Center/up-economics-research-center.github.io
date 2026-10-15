@@ -9,7 +9,8 @@
       "name": "Marcos Garcias"
     },
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Pery Francisco Assis Shikida"
@@ -18,7 +19,7 @@
       "name": "Gisele Esser Romani"
     }
   ],
-  "abstract": "The paper examines factors associated with soybean harvest and postharvest losses among farmers in western Paraná, Brazil.",
+  "abstract": "Based on a survey of 243 soybean farmers in Paraná, Brazil, this study examines factors associated with self-reported harvest losses. It focuses on the principal–agent relationship between farmers and combine operators: operators may have incentives to finish jobs quickly, while slower operation and proper machine adjustment can reduce losses. Farmers identify operator training as an important factor. Reported harvest loss is 1.5 percentage points higher when a third party harvests the crop than when farmers harvest themselves. Higher farmer education is associated with lower loss, while larger planted areas are associated with greater loss. The findings indicate that the identity and incentives of the person harvesting matter and suggest that training, contracts, and other arrangements aligning operator and farmer incentives could help limit losses.",
   "year": 2022,
   "type": "Journal article",
   "venue": "Food Policy",
@@ -30,5 +31,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "El artículo examina los factores asociados con las pérdidas de cosecha y poscosecha de soya entre agricultores del oeste de Paraná, Brasil."
+  "abstract_es": "A partir de una encuesta a 243 productores de soja de Paraná, Brasil, este estudio examina factores asociados con las pérdidas de cosecha declaradas por los agricultores. Se centra en la relación principal-agente entre agricultores y operadores de cosechadoras: estos pueden tener incentivos para terminar rápidamente, mientras que operar más despacio y ajustar adecuadamente la maquinaria puede reducir las pérdidas. Los agricultores identifican la capacitación del operador como un factor importante. La pérdida declarada es 1,5 puntos porcentuales mayor cuando cosecha un tercero que cuando lo hace el propio agricultor. Una mayor educación del productor se asocia con menores pérdidas, mientras que mayores superficies cultivadas se asocian con pérdidas superiores. Los resultados indican que importan la identidad y los incentivos de quien cosecha, y sugieren que la capacitación, los contratos y otros acuerdos que alineen los incentivos del operador y el agricultor podrían limitar las pérdidas."
 }

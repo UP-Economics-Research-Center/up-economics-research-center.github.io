@@ -98,7 +98,12 @@
       const img = photo(pub, 'paper-photo');
       if (img) {const anchor = link(href, '', 'paper-image');anchor.setAttribute('aria-label', pub.title);anchor.append(img);article.append(anchor);article.classList.add('has-image');}
       const text = node('div'); const heading = node('h3', '', 'pub-title');heading.append(link(href, pub.title));
-      const authors = node('p', pub.authors.map(author => typeof author === 'string' ? author : author.name).join(', '), 'pub-authors');
+      const authors = node('p', '', 'pub-authors');
+      pub.authors.forEach((author, index) => {
+        if (index) authors.append(', ');
+        if (typeof author === 'object' && author.person_id) authors.append(link(`${prefix}/people.html#${encodeURIComponent(author.person_id)}`, author.name));
+        else authors.append(typeof author === 'string' ? author : author.name);
+      });
       const venue = pub.venue || t(pub.type);
       text.append(heading, authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
       if (img) text.append(credit(pub));

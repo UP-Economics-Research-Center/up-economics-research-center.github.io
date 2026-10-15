@@ -3,10 +3,11 @@
   "slug": "son-preference-family-size-domestic-violence-south-asia",
   "authors": [
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     }
   ],
-  "abstract": "The study examines how the sex composition of children and son preference relate to family size and domestic violence against mothers in India and Nepal.",
+  "abstract": "Using household surveys from India and Nepal, this study examines whether the sex composition of children is related to intimate partner violence in a region where many families prefer to have at least one son. The analysis compares women whose previous children have the same sex composition but who differ in the sex of a subsequent child. The sex of the first or second child is not associated with a change in the mother’s risk of violence. By contrast, having no son by the third birth is associated with a 9.6% increase in the violence index relative to having a son, with larger effects in less affluent households and where husbands have no education. Mediation analysis attributes around 40% of the increase in these groups to the decision to have another child. The findings connect son preference, fertility decisions, and women’s exposure to violence.",
   "year": 2025,
   "type": "Journal article",
   "venue": "The Journal of Development Studies",
@@ -18,5 +19,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/demographic-economics",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "El estudio examina cómo la composición por sexo de los hijos y la preferencia por varones se relacionan con el tamaño de la familia y la violencia doméstica contra las madres en India y Nepal."
+  "abstract_es": "Mediante encuestas de hogares de India y Nepal, este estudio examina si la composición por sexo de los hijos se relaciona con la violencia de pareja en una región donde muchas familias prefieren tener al menos un hijo varón. Compara mujeres cuyos hijos anteriores tienen la misma composición por sexo, pero que difieren en el sexo de un hijo posterior. El sexo del primer o segundo hijo no se asocia con cambios en el riesgo de violencia para la madre. En cambio, no tener un varón al tercer nacimiento se asocia con un aumento de 9,6 % en el índice de violencia respecto a tenerlo, con efectos mayores en hogares menos acomodados y donde el esposo carece de educación. El análisis de mediación atribuye alrededor del 40 % del aumento en estos grupos a la decisión de tener otro hijo. Los resultados conectan preferencia por hijos varones, decisiones de fecundidad y exposición de las mujeres a la violencia."
 }

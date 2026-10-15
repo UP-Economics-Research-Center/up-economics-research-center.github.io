@@ -3,13 +3,14 @@
   "slug": "fta-member-gdp-synthetic-control",
   "authors": [
     {
-      "name": "Esteban Colla-De-Robertis"
+      "name": "Esteban Colla-De-Robertis",
+      "person_id": "esteban"
     },
     {
       "name": "Rafael Garduno Rivera"
     }
   ],
-  "abstract": "A synthetic-control analysis finds that the estimated per-capita GDP effects of U.S. free-trade agreements differ across member countries, with positive estimates for Chile and Jordan and a potentially negative estimate for Mexico under NAFTA.",
+  "abstract": "This study uses the synthetic control method to estimate how signing a free-trade agreement with the United States affects member countries’ GDP per capita. For each country, the method constructs a counterfactual estimate of income had the agreement not been signed and compares it with observed outcomes. The results are heterogeneous: agreements are associated with positive per-capita GDP effects in Chile and Jordan, while NAFTA is estimated to have harmed Mexico’s per-capita GDP; several other cases show no discernible significant effect. The analysis also finds that agreements appear less beneficial when a country depends more heavily on trade with the United States. The findings contribute to debates about trade as a development strategy and show that an agreement with a high-income technology-frontier economy does not by itself ensure economic growth.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Regional Science Policy & Practice",
@@ -22,5 +23,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/political-economy",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Un análisis de control sintético encuentra que los efectos estimados de los tratados de libre comercio con Estados Unidos sobre el PIB per cápita difieren entre países miembros, con estimaciones positivas para Chile y Jordania y una estimación potencialmente negativa para México bajo el TLCAN."
+  "abstract_es": "Este estudio utiliza el método de control sintético para estimar cómo la firma de un tratado de libre comercio con Estados Unidos afecta el PIB per cápita de los países miembros. Para cada país, construye una estimación contrafactual del ingreso si no se hubiera firmado el acuerdo y la compara con los resultados observados. Los efectos son heterogéneos: los acuerdos se asocian con efectos positivos sobre el PIB per cápita en Chile y Jordania, mientras que se estima que el TLCAN perjudicó el PIB per cápita de México; otros casos no muestran efectos significativos discernibles. El análisis también encuentra que los acuerdos parecen menos beneficiosos cuando un país depende más del comercio con Estados Unidos. Los resultados contribuyen al debate sobre el comercio como estrategia de desarrollo y muestran que un acuerdo con una economía de altos ingresos en la frontera tecnológica no garantiza por sí mismo el crecimiento económico."
 }

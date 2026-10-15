@@ -3,7 +3,8 @@
   "slug": "knowledge-use-home-pregnancy-test-uganda",
   "authors": [
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Ryoko Sato"
@@ -12,7 +13,7 @@
       "name": "Rebecca Thornton"
     }
   ],
-  "abstract": "Survey evidence from 1,008 women in northern Uganda examines awareness and use of home pregnancy tests and how autonomy and access relate to their uptake.",
+  "abstract": "This study uses survey data from 1,008 women aged 18–35 in Northern Uganda to document awareness and use of home pregnancy tests and barriers to obtaining them. In the sample, 65% had heard of home tests and 29% had used one. Awareness was more common among women with higher education and wealth, salaried work, and closer proximity to a health facility. Among women who knew about the tests, many reported that they would need to ask a partner for money; some said they would hide a purchase, and nearly one third expected their partner not to support it. Lack of support was associated with women’s age, prior pregnancies, employment, fertility preferences, and differences between partners’ desired family size. These patterns highlight how financial access and household decision-making may shape use.",
   "year": 2023,
   "type": "Journal article",
   "venue": "PLOS Global Public Health",
@@ -24,5 +25,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/water-and-sanitation",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Con datos de encuestas a 1,008 mujeres del norte de Uganda, el estudio examina el conocimiento y el uso de pruebas de embarazo en el hogar y cómo la autonomía y el acceso se relacionan con su adopción."
+  "abstract_es": "Este estudio utiliza encuestas de 1.008 mujeres de 18 a 35 años del norte de Uganda para documentar el conocimiento y uso de pruebas caseras de embarazo y las barreras para obtenerlas. En la muestra, el 65 % había oído hablar de estas pruebas y el 29 % había utilizado una. El conocimiento era más frecuente entre mujeres con mayor educación y riqueza, trabajo asalariado y mayor cercanía a un centro de salud. Entre quienes conocían las pruebas, muchas señalaron que tendrían que pedir dinero a su pareja; algunas ocultarían la compra y casi un tercio esperaba que su pareja no la apoyara. La falta de apoyo se asociaba con la edad, embarazos previos, empleo, preferencias reproductivas y diferencias entre el tamaño de familia deseado por ambos miembros de la pareja. Estos patrones destacan cómo el acceso financiero y las decisiones dentro del hogar pueden determinar el uso de las pruebas."
 }

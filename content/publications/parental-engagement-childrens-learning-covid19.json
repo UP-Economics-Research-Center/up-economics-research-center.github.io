@@ -9,7 +9,8 @@
       "name": "Manuel Cardoso"
     },
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Sakshi Mishra"
@@ -21,7 +22,7 @@
       "name": "Nicolas Reuge"
     }
   ],
-  "abstract": "This brief discusses parental support in children’s foundational reading and numeracy and the additional demands placed on families when schools close.",
+  "abstract": "This UNICEF research brief examines parental engagement in children’s learning during COVID-19 school closures and its relationship with foundational reading and numeracy skills. Using data from the MICS6 modules on foundational learning and parental engagement, it describes differences in home learning environments within and across countries. Access to child-oriented books and parent support are unevenly distributed and are associated with children’s learning opportunities. When classroom instruction is unavailable, parents and caregivers take on a larger role, including in households without reliable access to digital learning. The brief argues that remote-education planning should account for caregivers’ time, resources, and ability to support learning; otherwise, learning responses may deepen existing inequalities, especially for children in vulnerable households.",
   "year": 2020,
   "type": "Policy brief",
   "venue": "UNICEF Innocenti Research Briefs, 2020-09",
@@ -34,5 +35,5 @@
   "verified_on": "2026-09-24",
   "published": true,
   "pdf_url": "https://www.unicef.org/innocenti/media/6236/file/UNICEF-IRB-Parental-Engagement-Childrens-Learning-2020-cover.pdf",
-  "abstract_es": "Esta nota analiza el apoyo de los padres al aprendizaje de lectura y aritmética básica de sus hijos y las exigencias adicionales para las familias cuando cierran las escuelas."
+  "abstract_es": "Este informe de investigación de UNICEF examina la participación de los padres en el aprendizaje durante los cierres escolares por COVID-19 y su relación con las habilidades fundamentales de lectura y numeración. Mediante datos de los módulos MICS6 sobre aprendizaje fundamental y participación parental, describe diferencias en los entornos de aprendizaje del hogar dentro de los países y entre ellos. El acceso a libros infantiles y el apoyo parental se distribuyen de manera desigual y se asocian con las oportunidades de aprendizaje. Cuando no hay enseñanza presencial, padres y cuidadores asumen un papel mayor, incluso en hogares sin acceso confiable al aprendizaje digital. El informe sostiene que la planeación de la educación a distancia debe considerar el tiempo, los recursos y la capacidad de los cuidadores para apoyar el aprendizaje; de otro modo, las respuestas podrían profundizar desigualdades existentes, especialmente entre niños de hogares vulnerables."
 }

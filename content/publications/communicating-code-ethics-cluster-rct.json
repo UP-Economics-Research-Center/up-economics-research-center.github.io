@@ -3,7 +3,8 @@
   "slug": "communicating-code-ethics-cluster-rct",
   "authors": [
     {
-      "name": "Eugenio Gómez-Alatorre"
+      "name": "Eugenio Gómez-Alatorre",
+      "person_id": "eugenio"
     },
     {
       "name": "Juncal Cuñado"
@@ -12,7 +13,7 @@
       "name": "Ignacio Ferrero"
     }
   ],
-  "abstract": "A cluster-randomized study at a Mexican pawnshop chain tests communication approaches for an existing code of ethics. The intervention did not significantly improve workers’ understanding of the code.",
+  "abstract": "This study evaluates how organizations can communicate a code of ethics and whether explaining the code improves employees’ understanding. The authors conduct a cluster-randomized controlled trial with 519 workers at a prominent Mexican pawnshop chain, comparing communication and explanation approaches against the existing program. They find no evidence that the interventions enhanced workers’ understanding of the code. The result raises the possibility that ethics programs based mainly on distributing or explaining a written code may fail to achieve their intended purpose and may use resources without changing employee comprehension. The paper also demonstrates that a cluster-randomized trial can be implemented in the business-ethics setting, providing a rigorous approach for evaluating organizational ethics initiatives and informing the design of more effective programs.",
   "year": 2022,
   "type": "Journal article",
   "venue": "Business and Society Review",
@@ -24,5 +25,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/digital-and-business-economics",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Un estudio aleatorizado por conglomerados en una cadena mexicana de casas de empeño evalúa formas de comunicar un código de ética existente. La intervención no mejoró significativamente la comprensión del código entre los trabajadores."
+  "abstract_es": "Este estudio evalúa cómo pueden las organizaciones comunicar un código de ética y si explicarlo mejora la comprensión de los empleados. Los autores realizan un ensayo controlado aleatorizado por conglomerados con 519 trabajadores de una importante cadena mexicana de casas de empeño, comparando distintas formas de comunicación y explicación con el programa existente. No encuentran evidencia de que las intervenciones mejoraran la comprensión del código. El resultado plantea que los programas éticos basados principalmente en distribuir o explicar un código escrito podrían no cumplir su propósito y consumir recursos sin cambiar la comprensión de los empleados. El artículo también demuestra la viabilidad de realizar un ensayo aleatorizado por conglomerados en el ámbito de la ética empresarial, ofreciendo un método riguroso para evaluar iniciativas de ética organizacional y orientar el diseño de programas más eficaces."
 }

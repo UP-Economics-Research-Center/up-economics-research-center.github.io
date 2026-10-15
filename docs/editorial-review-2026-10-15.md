@@ -169,3 +169,10 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 
 - At the subject’s explicit request, edited his supplied IMG-20220611-WA0071.jpg with the built-in image_gen tool for a slightly more frontal head and gaze, preserving identity, clothing and the wood background. Used a vertical crop excluding the other person and hand.
 - New local profile asset: `design/assets/people/juan-alvaro-edited-2026.png`. Supplied original and previous website portrait retained. Provenance and editing prompt recorded in the media-source register. No live CMS publication.
+
+### Publication integration — authorized 2026-10-15
+
+- User explicitly approved publication of the reviewed website, bilingual editor and new portrait.
+- Integrated current public main (6c24b84), preserving complete biographies and abstracts, the newer Esteban/Sergio portraits, publication author relationships and the already-published video/identity assets. Added full matching Spanish translations; retained this review’s area assignments, ordering, titles, images and home layout.
+- Retained approved edited Juan Álvaro portrait; excluded the unedited supplied source photo from Git and public build.
+- Fingerprinted public scripts as well as styles so browser caches cannot pair old scripts with the updated bilingual markup.

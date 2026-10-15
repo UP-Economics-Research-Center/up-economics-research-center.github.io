@@ -2,7 +2,7 @@
   "name": "José Miguel Montoya Morales",
   "slug": "jose-miguel",
   "role": "Research professional",
-  "bio": "Studies human-capital investment and how educational trajectories shape labor-market opportunities, poverty, and inequality.",
+  "bio": "José Miguel's research focuses on human capital investment, with particular interest in how educational trajectories—beyond years of schooling—shape labor market opportunities. His broader interests span poverty and inequality, public policy, behavioral science, and the role of institutions in shaping social outcomes. He is the founder of the Student Research Club (CIA UP) and a co-author of applied research on corporate sustainability with Roland Berger.",
   "portrait": "/design/assets/people/jose-miguel.jpg",
   "portrait_alt": "Portrait of José Miguel Montoya Morales.",
   "research_areas": [
@@ -12,6 +12,7 @@
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-09-24",
   "published": true,
-  "bio_es": "Estudia la inversión en capital humano y cómo las trayectorias educativas determinan los resultados laborales, la pobreza y la desigualdad.",
+  "display_order": 70,
+  "bio_es": "La investigación de José Miguel se centra en la inversión en capital humano, con especial interés en cómo las trayectorias educativas —más allá de los años de escolaridad— determinan las oportunidades laborales. Sus intereses más amplios abarcan pobreza y desigualdad, políticas públicas, ciencias del comportamiento y el papel de las instituciones en los resultados sociales. Es fundador del Club de Investigación de Alumnos (CIA UP) y coautor de investigación aplicada sobre sostenibilidad empresarial con Roland Berger.",
   "portrait_alt_es": "Retrato de José Miguel Montoya Morales."
 }

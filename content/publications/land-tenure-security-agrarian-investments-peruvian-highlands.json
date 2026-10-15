@@ -12,10 +12,11 @@
       "name": "Mercedes Burguillo"
     },
     {
-      "name": "Esteban Colla De Robertis"
+      "name": "Esteban Colla De Robertis",
+      "person_id": "esteban"
     }
   ],
-  "abstract": "The study investigates how land-tenure security relates to agricultural investment in the Peruvian Highlands.",
+  "abstract": "This study examines the relationship between land-tenure security and nine types of agricultural investment in Peru’s Highlands, using agricultural census data and a simultaneous-equations approach to account for the possibility that tenure security and investment affect one another. Tenure security is positively associated with five investment types, although the estimated effects are smaller than the institutional argument for titling might suggest. For two investments, the estimated relationship is negative, consistent with customary practices serving as effective forms of land management. The findings suggest that land-titling programs can support rural development, but are not sufficient on their own and should complement functioning local institutions. Education, training, and gender equality also matter for rural development.",
   "year": 2021,
   "type": "Journal article",
   "venue": "Land Use Policy",
@@ -28,5 +29,5 @@
   "source_url": "https://sites.google.com/view/akitokamei/agriculture-economics",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "El estudio investiga cómo la seguridad de la tenencia de la tierra se relaciona con la inversión agrícola en la sierra peruana."
+  "abstract_es": "Este estudio examina la relación entre seguridad de la tenencia de la tierra y nueve tipos de inversión agrícola en la sierra peruana, utilizando datos del censo agropecuario y un modelo de ecuaciones simultáneas para considerar que la seguridad de la tenencia y la inversión pueden influirse mutuamente. La seguridad de la tenencia se asocia positivamente con cinco tipos de inversión, aunque los efectos estimados son menores de lo que podría sugerir el argumento institucional a favor de la titulación. Para dos inversiones, la relación estimada es negativa, lo que es compatible con que las prácticas consuetudinarias funcionen como formas eficaces de gestión de la tierra. Los resultados sugieren que los programas de titulación pueden apoyar el desarrollo rural, pero no bastan por sí solos y deben complementar a las instituciones locales que funcionan. La educación, la capacitación y la igualdad de género también son importantes para el desarrollo rural."
 }

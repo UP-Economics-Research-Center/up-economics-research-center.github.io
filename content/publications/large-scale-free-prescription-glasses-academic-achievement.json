@@ -3,7 +3,8 @@
   "slug": "large-scale-free-prescription-glasses-academic-achievement",
   "authors": [
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     },
     {
       "name": "Michael Kremer"
@@ -12,7 +13,7 @@
       "name": "Pablo A. Peña"
     }
   ],
-  "abstract": "Using grade records for approximately 5.5 million students in Mexico, the study estimates positive academic effects from a large-scale eyeglasses program, with stronger benefits for underserved students and children with more severe vision impairment.",
+  "abstract": "This study evaluates the academic effects of a large-scale program that provided free prescription glasses to schoolchildren in Mexico. Using administrative grade records covering approximately 5.5 million students, the authors estimate how access to the program relates to students’ academic achievement and examine whether effects differ across groups. The reported results indicate improvements in academic outcomes, with larger benefits for students who are underserved and for children with more severe vision impairment. By examining an intervention delivered at scale and using a very large student population, the study contributes evidence on whether addressing correctable vision needs can support learning. The estimates also point to the value of considering baseline disadvantage and the severity of impairment when designing or targeting school-based vision programs.",
   "year": 2025,
   "type": "Working paper",
   "venue": "",
@@ -25,5 +26,5 @@
   "verified_on": "2026-09-24",
   "published": true,
   "pdf_url": "https://drive.google.com/uc?export=download&id=10ODlT2xna_riYS5BujGoB3oCl1TeFePi",
-  "abstract_es": "Con registros de calificaciones de aproximadamente 5.5 millones de estudiantes en México, el estudio estima efectos académicos positivos de un programa de anteojos a gran escala, con mayores beneficios para estudiantes desatendidos y niños con problemas visuales más graves."
+  "abstract_es": "Este estudio evalúa los efectos académicos de un programa a gran escala que proporcionó lentes graduados gratuitos a escolares en México. Mediante registros administrativos de calificaciones de aproximadamente 5,5 millones de estudiantes, los autores estiman la relación entre el acceso al programa y el rendimiento académico, y examinan diferencias entre grupos. Los resultados indican mejoras académicas, con mayores beneficios para estudiantes desatendidos y niños con deficiencias visuales más graves. Al analizar una intervención aplicada a gran escala y utilizar una población estudiantil muy amplia, el estudio aporta evidencia sobre si atender necesidades visuales corregibles puede favorecer el aprendizaje. Las estimaciones también apuntan al valor de considerar las desventajas iniciales y la gravedad de la deficiencia al diseñar o focalizar programas de atención visual en las escuelas."
 }

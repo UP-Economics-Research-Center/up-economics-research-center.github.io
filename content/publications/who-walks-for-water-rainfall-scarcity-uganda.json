@@ -3,10 +3,11 @@
   "slug": "who-walks-for-water-rainfall-scarcity-uganda",
   "authors": [
     {
-      "name": "Akito Kamei"
+      "name": "Akito Kamei",
+      "person_id": "akito"
     }
   ],
-  "abstract": "Combining a nationally representative Uganda household panel with satellite rainfall data, the paper finds that drought changes water-collection time and household labor supply, with women and girls bearing much of the added burden.",
+  "abstract": "This study combines a nationally representative household panel from Uganda with satellite-based rainfall measures to examine how drought affects water access and the time households devote to collecting water. Rainfall scarcity is associated with less use of surface water and greater distance and waiting time at water sources, while households do not substantially reduce water consumption. Instead, drought-affected households become more likely to pay user fees and spend additional time fetching water. The increase in collection time falls disproportionately on women and girls, with consequences for their available time and work. The findings reveal an often overlooked cost of weather shocks and show that water scarcity can create unequal burdens within households.",
   "year": 2024,
   "type": "Working paper",
   "venue": "",
@@ -20,5 +21,5 @@
   "verified_on": "2026-09-24",
   "published": true,
   "pdf_url": "https://drive.google.com/uc?export=download&id=1c_dXSCm8J5LgGw68bA2sYMdq9wOaM6Cd",
-  "abstract_es": "Al combinar un panel de hogares de Uganda representativo a nivel nacional con datos satelitales de lluvia, el artículo encuentra que la sequía modifica el tiempo de recolección de agua y la oferta laboral de los hogares, con mujeres y niñas soportando gran parte de la carga adicional."
+  "abstract_es": "Este estudio combina un panel de hogares representativo de Uganda con mediciones satelitales de precipitación para examinar cómo las sequías afectan el acceso al agua y el tiempo dedicado a recolectarla. La escasez de lluvia se asocia con menor uso de agua superficial y mayores distancias y tiempos de espera en las fuentes, mientras que los hogares no reducen sustancialmente su consumo. En cambio, los hogares afectados por sequía tienen mayor probabilidad de pagar cuotas de uso y dedicar tiempo adicional a buscar agua. El aumento del tiempo de recolección recae desproporcionadamente en mujeres y niñas, con consecuencias para su tiempo disponible y trabajo. Los resultados revelan un costo de los choques meteorológicos que suele pasarse por alto y muestran que la escasez de agua puede generar cargas desiguales dentro de los hogares."
 }
