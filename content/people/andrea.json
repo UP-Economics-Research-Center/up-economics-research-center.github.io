@@ -3,7 +3,7 @@
   "slug": "andrea",
   "role": "Research professional",
   "bio": "Andrea’s research interests focus on applied microeconometrics and causal mechanisms, with particular emphasis on understanding how human behavior and public policies shape economic outcomes. Her work is especially motivated by questions related to health investments, poverty, and labor markets, with the goal of designing evidence-based solutions to persistent social and economic challenges. Outside of her academic interests, she has been active in student and athletic activities, serving as Vice President of the Foráneos student association and previously as captain of her high school women’s soccer team.",
-  "portrait": "/design/assets/people/andrea.jpg",
+  "portrait": "/design/assets/people/andrea-original.png",
   "portrait_alt": "Portrait of Andrea Corte Aréchiga.",
   "research_areas": [
     "health-water-sanitation",
@@ -16,5 +16,11 @@
   "display_order": 100,
   "bio_es": "Los intereses de investigación de Andrea se centran en la microeconometría aplicada y los mecanismos causales, con especial énfasis en comprender cómo el comportamiento humano y las políticas públicas determinan los resultados económicos. Su trabajo está motivado especialmente por preguntas sobre inversión en salud, pobreza y mercados laborales, con el objetivo de diseñar soluciones basadas en evidencia para desafíos sociales y económicos persistentes. Fuera del ámbito académico, ha participado en actividades estudiantiles y deportivas: fue vicepresidenta de la asociación estudiantil Foráneos y anteriormente capitana del equipo de fútbol femenino de su preparatoria.",
   "portrait_alt_es": "Retrato de Andrea Corte Aréchiga.",
-  "display_name": "Andrea Corte"
+  "display_name": "Andrea Corte",
+  "portrait_crop": {
+    "left": 15.948,
+    "top": 2.774,
+    "width": 68.043,
+    "height": 88.666
+  }
 }

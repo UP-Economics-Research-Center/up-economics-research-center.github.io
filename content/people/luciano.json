@@ -3,7 +3,7 @@
   "slug": "luciano",
   "role": "Research professional",
   "bio": "Luciano’s research interests focus on poverty, economic development, and human capital, with particular attention to how education, health, and public policy can expand economic opportunities and reduce inequality. His current work examines the relationship between child labor and health outcomes in Mexico, exploring how hazardous working conditions affect children’s well-being. He has also participated in research projects analyzing the National Care System and its implications for poverty reduction. As a member of the Student Research Club (CIA UP), he actively engages in applied research and quantitative analysis aimed at informing evidence-based policymaking. Outside academia, he enjoys cooking.",
-  "portrait": "/design/assets/people/luciano.jpg",
+  "portrait": "/design/assets/people/luciano-original.jpeg",
   "portrait_alt": "Portrait of Luciano A. Quintana.",
   "research_areas": [
     "development-economics",
@@ -16,5 +16,11 @@
   "display_order": 120,
   "bio_es": "Los intereses de investigación de Luciano se centran en pobreza, desarrollo económico y capital humano, con especial atención a cómo la educación, la salud y las políticas públicas pueden ampliar las oportunidades económicas y reducir la desigualdad. Su trabajo actual examina la relación entre trabajo infantil y resultados de salud en México, y explora cómo las condiciones laborales peligrosas afectan el bienestar de los niños. También ha participado en proyectos sobre el Sistema Nacional de Cuidados y sus implicaciones para la reducción de la pobreza. Como integrante del Club de Investigación de Alumnos (CIA UP), participa activamente en investigación aplicada y análisis cuantitativo para informar políticas públicas basadas en evidencia. Fuera de la academia, disfruta cocinar.",
   "portrait_alt_es": "Retrato de Luciano A. Quintana.",
-  "display_name": "Luciano A. Quintana"
+  "display_name": "Luciano A. Quintana",
+  "portrait_crop": {
+    "left": 19.048,
+    "top": 12.926,
+    "width": 59.343,
+    "height": 54.234
+  }
 }

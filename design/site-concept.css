@@ -577,6 +577,8 @@ footer{padding-top:64px}
 .language-switch a[aria-current]{font-weight:800;border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid #8a1538;outline-offset:3px}
 .people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding:2.5rem 0}
 .person-visual .person-portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;max-width:none;filter:saturate(.65)}
+.portrait-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:var(--paper)}
+.person-visual .portrait-frame .person-portrait{position:absolute;left:var(--crop-left);top:var(--crop-top);width:var(--crop-width);height:var(--crop-height);aspect-ratio:auto;object-fit:fill;border-radius:0}
 .person-copy h3{font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.15;margin:0 0 1rem}.person-copy .person-bio{max-width:60ch;font-size:1.05rem;line-height:1.75}
 .person-visual .person-topics{margin-top:1rem}.person-topics ul{display:flex;flex-direction:column;gap:.35rem}.person-topics li{margin:0}
 .person-visual .person-topics ul{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,100px),1fr));gap:8px 12px}

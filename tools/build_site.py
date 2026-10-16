@@ -144,6 +144,16 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
         row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         require_text(path, row, "verified_on")
         row["portrait"] = local_asset(path, "portrait", row.get("portrait", ""), optional=True) if row.get("portrait") else ""
+        crop = row.get("portrait_crop")
+        if crop:
+            if not isinstance(crop, dict):
+                fail(path, "portrait_crop", "expected a crop rectangle in percentages")
+            for key in ("left", "top", "width", "height"):
+                value = crop.get(key)
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 100:
+                    fail(path, "portrait_crop", "use percentages between 0 and 100")
+            if crop["width"] <= 0 or crop["height"] <= 0 or crop["left"] + crop["width"] > 100.01 or crop["top"] + crop["height"] > 100.01:
+                fail(path, "portrait_crop", "the crop must fit inside the original photograph")
         row["canonical_url"] = validate_url(path, "canonical_url", row.get("canonical_url", ""), optional=True)
         row["personal_website"] = validate_url(path, "personal_website", row.get("personal_website", ""), optional=True)
         topics = row.get("research_areas", [])
@@ -290,6 +300,10 @@ def render_area(area: dict, index: int, *, home=False) -> str:
 
 def render_person(person: dict, areas: dict[str, dict]) -> str:
     portrait = f'<img class="person-portrait" src="{e(person["portrait"])}" alt="{e(person.get("portrait_alt") or person["name"])}" width="240" height="300" loading="lazy">' if person.get("portrait") else ""
+    if portrait and person.get("portrait_crop"):
+        crop = person["portrait_crop"]
+        style = f'--crop-width:{10000 / crop["width"]:.4f}%;--crop-height:{10000 / crop["height"]:.4f}%;--crop-left:{-100 * crop["left"] / crop["width"]:.4f}%;--crop-top:{-100 * crop["top"] / crop["height"]:.4f}%'
+        portrait = f'<div class="portrait-frame" style="{style}">{portrait}</div>'
     topics = [area for key, area in areas.items() if key in person.get("research_areas", [])]
     topic_html = ""
     if topics:

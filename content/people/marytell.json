@@ -12,8 +12,14 @@
   "display_order": 80,
   "role": "Research professional",
   "verified_on": "2026-10-15",
-  "portrait": "/design/assets/people/marytell.jpg",
+  "portrait": "/design/assets/people/marytell-original.jpeg",
   "bio_es": "Los intereses de investigación de Marytell se centran en desigualdad, movilidad social y el papel del origen familiar en las oportunidades económicas entre generaciones. Su trabajo busca comprender cómo las condiciones institucionales y socioeconómicas influyen en la movilidad intergeneracional y la igualdad. Ha contribuido a investigaciones sobre digitalización gubernamental y corrupción, y crecimiento económico en México. Es fundadora y exeditora de Merkatus, la primera revista de economía dirigida por estudiantes en la UP.",
   "portrait_alt_es": "Retrato de Marytell Arciniega Castellanos.",
-  "display_name": "Marytell Arciniega"
+  "display_name": "Marytell Arciniega",
+  "portrait_crop": {
+    "left": 24.687,
+    "top": 23.325,
+    "width": 50.474,
+    "height": 50.132
+  }
 }

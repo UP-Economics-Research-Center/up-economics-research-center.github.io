@@ -228,3 +228,10 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 - La ficha interna muestra un botón View article / Ver artículo con el URL canónico del editor o DOI, manteniendo la descarga PDF independiente cuando está disponible.
 - Inspección del artefacto: 20 publicaciones EN/ES con enlaces internos y 20 botones de artículo por idioma. Generación estática correcta y `git diff --check` limpio; recorrido en navegador desde el título de Human Capital hasta su ficha ES y comprobación de destinos iguales para imagen/título/detalles y botón DOI. No se ejecutaron tests.
 - El usuario aplaza explícitamente la revisión de las fotos originales de Drive; no bloquea el cierre de esta ronda. Cambios preparados en local, todavía sin publicar.
+
+### Revisión del 16 de octubre: originales de retratos de Drive
+
+- Tras compartir el acceso el usuario, la carpeta de originales quedó accesible. Revisados sus 19 archivos contra las fotografías actuales; las asociaciones se basan en nombres de archivo y correspondencia de las mismas fotografías y encuadres, sin sustituirlas por alternativas.
+- Incorporados 12 originales byte por byte, sin recomprimir ni retocar, para People en EN/ES. Sergio y Esteban conservan las copias existentes, que ya tienen la resolución compartida. Juan Álvaro conserva su retrato anterior aprobado. Las fotos independientes de la réplica de Human Capital no cambian.
+- El encuadre aprobado se reproduce con CSS y un campo CMS opcional `portrait_crop`, en porcentajes, validado para permanecer dentro de la imagen. Se conservan los archivos anteriores y se registran procedencia y SHA-256 de cada original en el registro interno de medios. El acceso compartido no se presenta como licencia abierta.
+- Generación estática correcta y configuración YAML inspeccionada sin claves duplicadas. Revisión visual de los retratos EN/ES en escritorio y celular de 390px, sin desbordamiento horizontal. No se ejecutaron tests. Preparado para actualizar PR #16; sin merge ni publicación.

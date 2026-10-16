@@ -5,7 +5,7 @@
   "role": "Research professional",
   "bio": "Isabel's research interests lie in applied empirical economics, with a particular focus on econometric methods and spatial econometrics. explores development-related questions, including health, poverty, and inequality, and in understanding how geographic and regional dynamics shape social and economic outcomes. Her work is motivated by the goal of producing rigorous evidence that can inform the design and evaluation of public policies aimed at reducing territorial and social disparities. She co-founded the Student Research Club (CIA UP) and served as author and Editor-in-Chief of its journal, promoting student research and scientific communication.",
   "bio_es": "Los intereses de investigación de Isabel se sitúan en la economía empírica aplicada, con especial atención a los métodos econométricos y la econometría espacial. Explora cuestiones relacionadas con el desarrollo, como la salud, la pobreza y la desigualdad, y cómo las dinámicas geográficas y regionales determinan los resultados sociales y económicos. Su trabajo busca producir evidencia rigurosa que informe el diseño y la evaluación de políticas públicas dirigidas a reducir las disparidades territoriales y sociales. Cofundó el Club de Investigación de Alumnos (CIA UP) y fue autora y editora en jefe de su revista, promoviendo la investigación estudiantil y la comunicación científica.",
-  "portrait": "/design/assets/people/isabel.jpg",
+  "portrait": "/design/assets/people/isabel-original.jpg",
   "portrait_alt": "Portrait of Isabel Ruiz.",
   "portrait_alt_es": "Retrato de Isabel Ruiz.",
   "research_areas": [
@@ -15,5 +15,11 @@
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
   "verified_on": "2026-10-16",
   "published": true,
-  "display_order": 100
+  "display_order": 100,
+  "portrait_crop": {
+    "left": 15.865,
+    "top": 17.357,
+    "width": 75.088,
+    "height": 75.589
+  }
 }

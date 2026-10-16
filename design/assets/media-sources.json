@@ -154,5 +154,133 @@
       "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uH3r2FfdIRDl73Osxm3gA8hizBFp7gA84e2vra2Fw9BYBzpA26YjTsDEchiXoyTu1DBhYV80VPVrJMDbH9NG5FW_Y8Ip23It1mH2vHhyoE60X6oGxfZ4DGHjZkUxkiPI13ImqeDcybdUvf578TU3evBR3IvHj_GbtWHyvX_ku7mX0Cg01VDJdrHuHaSbA_E43PqaHWk7VA19z14UoHgdZiFBgILBZhW3fJMA=w1280",
       "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
     }
-  ]
+  ],
+  "portraitOriginalsReview": {
+    "reviewedOn": "2026-10-16",
+    "folder": "https://drive.google.com/drive/folders/1_TtCFAUQ8hH2jII3ZHsFiIA0oQsMRbYq",
+    "authorization": "User supplied access for the requested review of original portrait quality. This does not assert an open license.",
+    "portraits": [
+      {
+        "person": "juan-alvaro",
+        "asset": "/design/assets/people/juan-alvaro-original.png",
+        "previousAsset": "/design/assets/people/juan-alvaro.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1XGuaEGviO01gJVMto0wVMxWKKxoh6B7P/view",
+        "originalFilename": "JA_pic.png",
+        "sha256": "9a4c69cf8e628155558ab5982747dfee8aa986966a179682337e6f24d84cb53d",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "sergio",
+        "asset": "design/assets/people/sergio-rodriguez-garcia.png",
+        "sourceFile": "https://drive.google.com/file/d/17rH6gMoGUfFSqM-_JkabTT9a3VzX2GFf/view",
+        "status": "Already uses the same original photograph at the shared resolution; retained."
+      },
+      {
+        "person": "arnulfo",
+        "asset": "/design/assets/people/arnulfo-original.jpg",
+        "previousAsset": "/design/assets/people/arnulfo.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1_0N6AYz7TpaAG1LdnR-J3_tQ15YpaIyK/view",
+        "originalFilename": "20231012_150034.jpg",
+        "sha256": "d64d75de0aaae622233cabab7ed2bd0b5d8cb5f173c7c44a9bfe2dc21af0532c",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "andrea",
+        "asset": "/design/assets/people/andrea-original.png",
+        "previousAsset": "/design/assets/people/andrea.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1rmEIhQjWgNkSuZ9ubYwT_JSXK4sNACDw/view",
+        "originalFilename": "Screenshot 2026-05-28 at 16.16.19.png",
+        "sha256": "dc254a94524e8ccf6b892df5ee81621b5fdc181883c133ad5ac3dc9be19d4183",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "isabel",
+        "asset": "/design/assets/people/isabel-original.jpg",
+        "previousAsset": "/design/assets/people/isabel.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1EeSJSeu4qqFGbQtcuEzG833K_0uIROfq/view",
+        "originalFilename": "Isabel.jpg",
+        "sha256": "17ae97fdc014d3637e9a39b217f7af214e7a23698f06752aeb4ff4b8841849e4",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "patricio",
+        "asset": "/design/assets/people/patricio-original.png",
+        "previousAsset": "/design/assets/people/patricio.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1-27htPxKz5Tf3cQwHH5S5WlhFk0Bito9/view",
+        "originalFilename": "Foto.png",
+        "sha256": "b2704cc9b23e0b47437609a6421012fbd721a658968a025d436563bb4b9dcef0",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "marytell",
+        "asset": "/design/assets/people/marytell-original.jpeg",
+        "previousAsset": "/design/assets/people/marytell.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1g42clSTIQpl3HbcOfbIUHMF1DZYAHthK/view",
+        "originalFilename": "Marytell.jpeg",
+        "sha256": "e7b28557256e143d897bd8eafa97f04e264a473931aa31748c6eb23ec3d93ab9",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "jose-miguel",
+        "asset": "/design/assets/people/jose-miguel-original.jpeg",
+        "previousAsset": "/design/assets/people/jose-miguel.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1PdOOsImBZ00JkX_rkXGaY9YQz_jHH8mO/view",
+        "originalFilename": "c69a1f44-0cc6-4621-b5a6-67e16021e78b.jpeg",
+        "sha256": "e877f25b5ec6d60598a02c7e29993f2b5be4210c9a2b9c0d1c1af4135e33712c",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "luciano",
+        "asset": "/design/assets/people/luciano-original.jpeg",
+        "previousAsset": "/design/assets/people/luciano.jpg",
+        "sourceFile": "https://drive.google.com/file/d/14SSXIoyFADUUd2U8IsZKaztq3ULq0FZr/view",
+        "originalFilename": "B41CBFB2-6D89-4F5D-B840-216863BCC9FF.jpeg",
+        "sha256": "e0dcc9e18019358c19dcbb46e4c34308976b9d525a394287aa72c16b94cf783f",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "esteban",
+        "asset": "/design/assets/uploads/unnamed-copy.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1Oo5hyk3juHg3Rrr0WMhnWllO_ysJGOK0/view",
+        "status": "Already uses the same original photograph at the shared resolution; retained."
+      },
+      {
+        "person": "akito",
+        "asset": "/design/assets/people/akito-original.png",
+        "previousAsset": "/design/assets/people/akito.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1Nsz0sSdvkHaZZLKeOwqcM4WT5pNuTrBQ/view",
+        "originalFilename": "_HRC1350_TIE.png",
+        "sha256": "e7271c60fd3e309974ba2d58a8d11935f8b025a9f113d38a1d202b97c4c9f10f",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "eugenio",
+        "asset": "/design/assets/people/eugenio-original.jpg",
+        "previousAsset": "/design/assets/people/eugenio.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1e_PPEJcK5oiNURrPpbI6PScnJ48WD8ls/view",
+        "originalFilename": "Foto.jpg",
+        "sha256": "f1e138cdc5209f65cdda44913807c49c17707a60620ca80e7f42537b4331fa1d",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "joshua",
+        "asset": "/design/assets/people/joshua-original.jpeg",
+        "previousAsset": "/design/assets/people/joshua.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1xY3B6Cql_eiy8n-P9GDaLdOt-txRLKeH/view",
+        "originalFilename": "image0.jpeg",
+        "sha256": "19f49d0e6811e33181db5c2f9bbac66863e0046af2c237204077352d8e8acae8",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "majo",
+        "asset": "/design/assets/people/majo-original.jpg",
+        "previousAsset": "/design/assets/people/majo.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1q2_U18OIJ_PmXFtY97SELdxeCcbAjDXW/view",
+        "originalFilename": "0194679 Favela Cantarero,Maria José.jpg",
+        "sha256": "0d3a376993483363aa6d66f8d513c64f60e665a4de4c933a0b7867c445ab75d5",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      }
+    ],
+    "unusedFiles": "Additional alternative portraits and publication media retained outside the site; not substituted automatically. Human Capital reference-page portraits retained for the approved comparison."
+  }
 }

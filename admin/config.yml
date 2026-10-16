@@ -352,6 +352,17 @@ collections:
     name: portrait
     widget: image
     required: false
+  - label: Portrait framing (percentages)
+    name: portrait_crop
+    widget: object
+    required: false
+    collapsed: true
+    hint: Keeps the original file intact. Left and top set the start of the crop; width and height set how much of the original is visible. Remove this group for automatic framing.
+    fields:
+    - {label: Left, name: left, widget: number, value_type: float, min: 0, max: 100, default: 0}
+    - {label: Top, name: top, widget: number, value_type: float, min: 0, max: 100, default: 0}
+    - {label: Width, name: width, widget: number, value_type: float, min: 0.001, max: 100, default: 100}
+    - {label: Height, name: height, widget: number, value_type: float, min: 0.001, max: 100, default: 100}
   - label: Portrait alternative text
     name: portrait_alt
     widget: string
