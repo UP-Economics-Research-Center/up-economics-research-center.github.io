@@ -176,3 +176,7 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 - Integrated current public main (6c24b84), preserving complete biographies and abstracts, the newer Esteban/Sergio portraits, publication author relationships and the already-published video/identity assets. Added full matching Spanish translations; retained this review’s area assignments, ordering, titles, images and home layout.
 - Retained approved edited Juan Álvaro portrait; excluded the unedited supplied source photo from Git and public build.
 - Fingerprinted public scripts as well as styles so browser caches cannot pair old scripts with the updated bilingual markup.
+
+### Larger home research scope
+
+- Increased the scope heading to a responsive 32–52px and the introductory and affiliation paragraphs to 20–24px in both languages. Preserved the existing section spacing and bold UP Economics name treatment.

@@ -568,7 +568,7 @@ footer{padding-top:64px}
 .up-emphasis{font-weight:850;color:var(--wine,#8a1538);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.13em}
 .intro-description p{font-size:clamp(1.3rem,2.2vw,2rem);line-height:1.35}
 .home-intro h1{font-size:clamp(2.5rem,5.5vw,5.6rem);max-width:13ch}
-.home-scope .prose{max-width:1000px}.home-scope p{max-width:80ch}.home-contact{scroll-margin-top:6rem}.home-contact #contact{scroll-margin-top:7rem}
+.home-scope .prose{max-width:1000px}.home-scope .eyebrow{font-size:14px;margin-bottom:14px}.home-scope h2{font-size:clamp(32px,3.6vw,52px);line-height:1.12;margin-bottom:24px}.home-scope p{font-size:clamp(20px,1.65vw,24px);line-height:1.65;max-width:66ch;margin-bottom:24px}.home-scope p:last-child{margin-bottom:0}.home-contact{scroll-margin-top:6rem}.home-contact #contact{scroll-margin-top:7rem}
 .home-scope{padding-bottom:clamp(28px,4vw,48px)}
 .home-scope + .home-section{padding-top:clamp(28px,4vw,48px)}
 .home-contact address{font-style:normal;line-height:1.7;margin-top:1.5rem}.home-contact .note{font-size:.85rem}
