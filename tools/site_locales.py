@@ -87,7 +87,7 @@ def emphasize_center_name(source):
     for index in range(0, len(blocks), 2):
         blocks[index] = re.sub(
             r'(?<=>)([^<>]+)(?=<)',
-            lambda match: match[1].replace('UP Economics Research Center', '<strong class="center-name-emphasis">UP Economics</strong> Research Center'),
+            lambda match: match[1].replace('UP Economics Research Center', '<strong class="center-name-emphasis">UP Economics Research Center</strong>').replace('Centro de Investigación Económica UP', '<strong class="center-name-emphasis">Centro de Investigación Económica UP</strong>'),
             blocks[index],
         )
     return ''.join(blocks)
@@ -153,10 +153,11 @@ def generate_languages(site: Path, data, settings, about):
     # Attribution is reachable from every page, including small research thumbnails.
     credits = json.loads((ROOT / 'design/assets/research/photo-sources.json').read_text())
     seen_images = {row.get('path') for row in credits}
-    for record in [*data['research_areas'], *data['publications'], *(p for a in data['research_areas'] for p in a['projects'])]:
+    reference_images = [record for area in data['research_areas'] if area.get('layout') == 'original-reference' for record in [area['banner'], *area['reference_team'], *area['publication_features']]]
+    for record in [*data['research_areas'], *data['publications'], *(p for a in data['research_areas'] for p in a['projects']), *reference_images]:
         if record.get('image') and record['image'] not in seen_images:
             seen_images.add(record['image'])
-            credits.append({'slug': record.get('name', record.get('title', '')), 'creator': record['image_credit'], 'license': '', 'source_url': record.get('image_source_url') or record.get('image_license_url') or record['image']})
+            credits.append({'slug': record.get('name', record.get('title', record.get('image_alt', ''))), 'creator': record['image_credit'], 'license': '', 'source_url': record.get('image_source_url') or record.get('image_license_url') or record['image']})
     items = ''.join('<article class="photo-source"><h2>' + html.escape(next((a['name'] for a in data['research_areas'] if a['slug'] == row.get('slug')), row.get('slug', ''))) + '</h2><p>' + html.escape(row.get('creator', '')) + ' · ' + html.escape(row.get('license', '')) + '</p><p><a href="' + html.escape(row['source_url'], quote=True) + '">Original photograph and license</a></p><p>Displayed with cropping, edge fading and color treatment.</p></article>' for row in credits if row.get('source_url'))
     credit_page = (site / 'research.html').read_text()
     credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Photo credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)

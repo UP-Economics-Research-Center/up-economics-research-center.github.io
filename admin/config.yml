@@ -43,6 +43,16 @@ collections:
       widget: boolean
       default: false
       required: false
+    - label: Show working papers publicly / Mostrar documentos de trabajo
+      name: show_working_papers
+      widget: boolean
+      default: false
+      hint: Turn off to hide this type everywhere on the public site without deleting its records.
+    - label: Show policy briefs publicly / Mostrar notas de política
+      name: show_policy_briefs
+      widget: boolean
+      default: false
+      hint: Turn off to hide this type everywhere on the public site without deleting its records.
     - label: Home-page heading
       name: hero_heading
       widget: string
@@ -123,7 +133,7 @@ collections:
       widget: string
       required: false
 - name: about_settings
-  label: Home scope and contact
+  label: Home scope, contact and seminar information
   description: Keep all public claims and contact details supported by a current source.
   files:
   - name: about
@@ -210,7 +220,58 @@ collections:
       name: seminar_description
       widget: text
       required: false
-      hint: This section remains hidden while Seminars is disabled.
+      hint: Public introduction on the independent Seminars page.
+    - label: Seminar information — Spanish
+      name: seminar_description_es
+      widget: text
+      required: false
+    - label: Usual seminar schedule — English
+      name: seminar_schedule
+      widget: text
+      required: false
+    - label: Usual seminar schedule — Spanish
+      name: seminar_schedule_es
+      widget: text
+      required: false
+    - label: Session confirmation note — English
+      name: seminar_schedule_note
+      widget: text
+      required: false
+    - label: Session confirmation note — Spanish
+      name: seminar_schedule_note_es
+      widget: text
+      required: false
+    - label: Proposal form note — English
+      name: seminar_form_note
+      widget: text
+      required: false
+    - label: Proposal form note — Spanish
+      name: seminar_form_note_es
+      widget: text
+      required: false
+    - label: Seminar proposal types
+      name: seminar_proposals
+      widget: list
+      required: false
+      fields:
+      - label: Type — English
+        name: label
+        widget: string
+      - label: Type — Spanish
+        name: label_es
+        widget: string
+      - label: Description — English
+        name: description
+        widget: text
+      - label: Description — Spanish
+        name: description_es
+        widget: text
+    - label: Seminar information last verified
+      name: seminar_verified_on
+      widget: datetime
+      date_format: YYYY-MM-DD
+      time_format: false
+      required: false
     - label: Seminar proposal form URL
       name: seminar_form_url
       widget: string
@@ -253,6 +314,11 @@ collections:
   - label: Name
     name: name
     widget: string
+  - label: Public display name / Nombre público
+    name: display_name
+    widget: string
+    required: false
+    hint: Keep the complete name above. Use the preferred public name here; do not change publication citations.
   - label: Display order
     name: display_order
     widget: number
@@ -391,6 +457,118 @@ collections:
     name: image_license_url
     widget: string
     required: false
+  - label: Area page design / Diseño de página
+    name: layout
+    widget: select
+    required: false
+    default: standard
+    options:
+    - label: Standard area design
+      value: standard
+    - label: Original photo-led reference
+      value: original-reference
+    hint: The original reference layout is currently used only for Human Capital. Other
+      areas retain the standard design.
+  - label: Original cover photograph
+    name: banner
+    widget: object
+    required: false
+    fields:
+    - label: Original photograph
+      name: image
+      widget: image
+    - label: Alternative text — English
+      name: image_alt
+      widget: string
+    - label: Alternative text — Spanish
+      name: image_alt_es
+      widget: string
+    - label: Photograph credit
+      name: image_credit
+      widget: string
+    - label: Photograph source URL
+      name: image_source_url
+      widget: string
+  - label: Original page team
+    name: reference_team
+    widget: list
+    required: false
+    hint: Only controls the team shown in the original layout; directory area assignments
+      stay independent.
+    fields:
+    - label: Researcher
+      name: person_id
+      widget: relation
+      collection: people
+      search_fields:
+      - name
+      value_field: slug
+      display_fields:
+      - name
+    - label: Original photograph
+      name: image
+      widget: image
+    - label: Alternative text — English
+      name: image_alt
+      widget: string
+    - label: Alternative text — Spanish
+      name: image_alt_es
+      widget: string
+    - label: Photograph credit
+      name: image_credit
+      widget: string
+    - label: Photograph source URL
+      name: image_source_url
+      widget: string
+  - label: Full publication features for original layout
+    name: publication_features
+    widget: list
+    required: false
+    fields:
+    - label: Publication
+      name: publication
+      widget: relation
+      collection: publications
+      search_fields:
+      - title
+      value_field: slug
+      display_fields:
+      - title
+    - label: Complete original description — English
+      name: description
+      widget: text
+    - label: Complete description — Spanish
+      name: description_es
+      widget: text
+    - label: Original photograph
+      name: image
+      widget: image
+    - label: Alternative text — English
+      name: image_alt
+      widget: string
+    - label: Alternative text — Spanish
+      name: image_alt_es
+      widget: string
+    - label: Photograph credit
+      name: image_credit
+      widget: string
+    - label: Photograph source URL
+      name: image_source_url
+      widget: string
+    - label: Related media links
+      name: media_links
+      widget: list
+      required: false
+      fields:
+      - label: Link label — English
+        name: label
+        widget: string
+      - label: Link label — Spanish
+        name: label_es
+        widget: string
+      - label: URL
+        name: url
+        widget: string
   - label: Area overview
     name: overview
     widget: text

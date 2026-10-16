@@ -97,6 +97,62 @@
       "status": "AI-assisted edit of supplied photograph, requested by the subject on 2026-10-15; used in local preview. Slightly more frontal face/gaze and vertical crop. Previous portrait retained.",
       "tool": "Built-in image_gen",
       "editPrompt": "Turn the head and gaze slightly toward the camera, preserve facial identity, hair, beard, natural skin texture, dark suit, white shirt, pink striped tie and wood background. Vertical 4:5 head and upper torso crop, exclude the other person and gesturing hand; subtly reduce yellow cast, no beautification or background replacement."
+    },
+    {
+      "asset": "assets/people/isabel.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72sq-ABnS_11O_ENtUZkl5RPC8tgeM9iYBx4qW0bL324HrCEJ--mbIHOzFw8z6QyupvYt2I7z8EdsvI0m3NmSE75l7eygLeOcPRrvyldvwG6mS3F43zecrU_aSOd2LnY0P2g4HnOwumJUcRF229b4KnJLNomicenQoV9MKzi6bTkcNf1vQjXNR7nPcmq6Lg4M1UsxgUIIajmuz3sqHNCNVKn4Q979KSjQuoNVKAg=w1280",
+      "status": "Downloaded unchanged from the center source page on 2026-10-16; full-resolution Drive originals remain pending."
+    },
+    {
+      "asset": "assets/people/patricio.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72slf5qODqcWjvaCR9SAL1yeDoPNWRCB7PfEN1kka0H8fMrZyKWGjtUEuvIMjzVxyWsbIeCSeQ3aLYTlJG_P3HAD7hV5jGSvV4aw-Lfifpd36km-SWi_toLMxBRldx01fbcsBxI5pR-sz2q_zzhe5H1Y8rOxbn2qSk0XE4mrbZFMYDvhOkyFXlyuAiVO7O__F13PQ9IPCFKADgXo6Hu6E8cjK7U0RGh3m9wJHRoR4DU=w1280",
+      "status": "Downloaded unchanged from the center source page on 2026-10-16; full-resolution Drive originals remain pending."
+    }
+  ],
+  "humanCapitalOriginal": [
+    {
+      "asset": "assets/research/human-capital-original/banner.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72skltbJm01OR1vTZA5ZO40acVTGs9mqXlcLynvuYGySTVeV61wMDjPOxrg9jAmolSUny1gONI-IPHPOyBOp8m5ytL_jHy79Em36LUpdxAoLrsAwu3ktYaEr1k9s1SxwvMOwrmZ3BGInPGKBHRcCblLVZnvdZPJJk1SpI-QM4yskj6_sUr3L3RuElVQV=w16383",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/akito.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72t3wKoUHO4i0xTyNIe3Iu95BNa7-f_gccYPq9td1grAejdYJDNBS3kb2TmYSM0H4LF6-j-D8edwmSE5FYNkZmOH-gh1AwKGcBIF9D4C5eJ_03u0dkoTM-UQyGMYF-zrExFDs7avzv7naL-8oXyOZiLnOhJOgI-ZEvWz1y8_jhOiTfmrGPkJGXxdzMXtWPSO3oCZYNSbYgVPNZvCRb1YZD2E1e22hmLFH9xQk5vL8ec=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/jose-miguel.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72ve2FoT1eHP-nliRu8jQRukescPsrHTC0LHnbfHy-8b1GGMEs3QuE7rK_h4oRg3Upc6tRNMfV51ll8HGx1tGiGKBdhngR_4HnxwDeOyPfwjsWF3KTTNNei4j39uK-mlryUk-3HzBowDNB1y6ytQouMsGbnUYJvmn68vBDGFSKeRoixi9HyMAN5G3P-tmyjmuQ9fWkoesytSnDgrSsgHVHE1PDYEwF6BMG1c_usx8hw=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/digital-learning.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72tVeoHke62An3EpSyTwPqL2g6y2B_jTDLNuRUAvwcLlv_signKXa-Ge8Rr09wSg3NNNcGZjdALxWFiSSdJKoU1s3ilSsLgKBz6PX599kbR48fri9RY1A4vscNeksCSmBtWbTxhZVMGwe8LhU81CiNWKSy61oNGqPCudMxm8m4do_tJYUNajYjQQkxdgwyEyt2PYsZRIlYz-UYUT0yXH9VfVMoT8RzWRf7kr0TGS4mg=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/schooling-timing.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72ulkWhK-Upu6qNXeS5_xVlTOvYLxx4De0CBv9n5QS44rytu41KayZuBVf4kbitKndds6bmeSAI2wj56GZjm4BvwFmd3tGUcKfxo0oJruVOO57eOsjdiIr0jpS97JSCt3NuXTqzwRG0z1RhdDvGeBf-BKoUv4IqX0O14tb-LcTPixfEGCPgPV_xyYfLpO4IoGe2PQiIk4sJdK90_cRozmOaKGGvXtN2BFvzCK9k9OVI=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/early-childhood-publication.png",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72u39Wx1t89TqB1s6bdPkJKTiLIwWRqWg2RfxHfW3ahD3sU8YKyM8zCBfVYZrOnHtsq74f9LkEyzlQ1tZyBDlx6WQiljhRujD6SIBJysSM6OaRwGzGz-PZBeCasEpadFvHBX-ihym0fzukRj2FfDI3YIKMleju4oQBKdbKBJy_vhjLyLex6jgFr3zaS8pMJgoTV1KJTXbR6VdWQAR-8Xiggs0aiv9-v-wDJ1NdUPPoU=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/school-closures-publication.png",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uH3r2FfdIRDl73Osxm3gA8hizBFp7gA84e2vra2Fw9BYBzpA26YjTsDEchiXoyTu1DBhYV80VPVrJMDbH9NG5FW_Y8Ip23It1mH2vHhyoE60X6oGxfZ4DGHjZkUxkiPI13ImqeDcybdUvf578TU3evBR3IvHj_GbtWHyvX_ku7mX0Cg01VDJdrHuHaSbA_E43PqaHWk7VA19z14UoHgdZiFBgILBZhW3fJMA=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
     }
   ]
 }

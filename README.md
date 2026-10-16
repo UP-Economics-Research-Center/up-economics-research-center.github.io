@@ -25,13 +25,13 @@ The CMS is at <https://up-economics-research-center.github.io/admin/>. GitHub si
 
 1. Open `/admin/` and choose **Login with GitHub**.
 2. Choose Researchers, Research Areas, Publications, Site Settings, or Home scope and contact.
-3. Edit the fields and use the preview pane to review the record. Research areas are selected from the existing area list. You do not need to edit HTML or CSS.
+3. Edit the fields and use the preview pane to review the record. For Researchers, keep the complete name in **Name** and enter the preferred abbreviated form in **Public display name / Nombre público**. If that field is empty, the complete name appears. Publication citations keep their own author names and citation order. Research areas are selected from the existing area list. You do not need to edit HTML or CSS.
 4. For a new record, set its “Publish this…” switch to true when it is ready. Save the record in Decap; the change commits directly to `main` and is deployed by GitHub Actions. The live site updates after the Pages workflow succeeds. Editors publish directly to `main`; no pull request is required.
 5. If a Pages deployment fails, check the workflow in the repository’s **Actions** tab and ask a repository maintainer for help.
 
-### About and seminar proposals
+### Seminar information and proposals
 
-Keep the Center description and seminar information in English. The Research Seminar block in About summarizes proposal types and links to the Google Form; that form is currently in Spanish, and the button labels this before editors publish it. Maintain its meeting schedule only while it remains verified against the internal seminar information source.
+The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the link says so in both languages. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. Add individual confirmed events in the **Seminars** collection; upcoming and past entries are separated automatically. No event dates or speakers are currently entered.
 
 ### Adding a publication
 
@@ -72,10 +72,24 @@ Preserve the existing HTML, shared styles, and local media unless the Center app
 
 English is the default. **EN / ES** switches between complete static pages and remembers the reader's explicit selection when browser storage is available. The same page, research-area query, publication filters and anchor are retained. Spanish routes live under `/es/`; no translation service or account is needed. Links still select a language when storage is unavailable.
 
-In the CMS, fill in the English fields and their **Spanish** companions before publishing. Paper titles, author names and journal names stay in their original language. Keep the complete approved area descriptions; the originals and their sources are archived under `docs/sources/`. The **Home scope and contact** collection controls the information moved from About to the home page. Contact details remain in the final home-page block and are linked from the footer; Contact is omitted from the desktop and mobile header. Publications precedes Seminars on the home page.
+In the CMS, fill in the English fields and their **Spanish** companions before publishing. Paper titles, author names and journal names stay in their original language. Keep the complete approved area descriptions; the originals and their sources are archived under `docs/sources/`. The **Home scope, contact and seminar information** collection controls the information moved from About to the home page. Contact details remain in the final home-page block and are linked from the footer; Contact is omitted from the desktop and mobile header. Seminars has an independent page linked from the header and footer.
 
-Research photos have source/license credits. Project and paper photos are optional and disappear when absent. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers remain in Publications; a separate series is deferred.
+Research photos have source/license credits. Project and paper photos are optional and disappear when absent. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers and policy briefs are temporarily hidden from public publications; a separate working-paper series is deferred.
 
 For local review, build with `python3 tools/build_site.py`, then serve `_site/` as described above. Inspect `/`, `/es/`, People, area pages and publication details. Project instructions prohibit running tests unless requested; this change uses the static build, syntax/path inspection and manual browser review.
 
-News and Seminars are currently hidden from the public navigation, home page, search, routes and JSON feeds in both languages. Their source pages and CMS records are retained. Use **Show News publicly** and **Show Seminars publicly** in Site settings to restore them when approved. The area-page paper section is titled Publications / Publicaciones.
+News remains hidden from public navigation, search, routes and feeds. Seminars is restored as an independent page in both languages, linked from the header and footer and included in search. The former home-page seminar block and unconfirmed separate student-series concept have been removed. Use **Show News publicly** and **Show Seminars publicly** in Site settings to control visibility. The area-page paper section is titled Publications / Publicaciones.
+
+The optional **Research scope** subtitle field may be left blank to omit that heading. The scope and affiliation paragraphs remain visible. Research areas follow **Display order** consistently across the home page, directory labels, and Research page; the Research grid adapts to three desktop, two tablet, and one mobile column.
+
+### Publication display and temporary visibility
+
+Keep author names in their original citation order in each publication record. Link each UP author with the **Researcher profile** relation (`person_id`). Public lists and detail pages group linked UP researchers first and introduce the remaining coauthors with **with** / **con**; the saved citation order is preserved. Publications appear from newest year to oldest.
+
+In **Site Settings**, **Show working papers publicly** and **Show policy briefs publicly** are currently off. These records stay editable in the CMS, but do not generate public lists, filters, search results, JSON entries or detail pages. Turn the switches back on to restore the approved records. The home-page working-paper link follows the working-paper switch.
+
+### Human Capital comparison page
+
+Human Capital uses **Area page design → Original photo-led reference**. Its **Original cover photograph**, **Original page team**, project photographs, and **Full publication features for original layout** reproduce the original page with locally saved media. Each publication feature links to an existing publication, keeps the complete original narrative in English and Spanish, and can include podcast/blog links. These narratives do not replace the journal abstracts on publication detail pages. The original page team only controls this comparison layout; directory area assignments stay independent. Other areas retain the standard design.
+
+Publication titles and optional publication images always open the internal detail page, in the current language. **Abstract and details / Resumen y detalles** opens the same page. The detail page provides a **View article / Ver artículo** button to the canonical publisher or DOI URL, plus a separate PDF download when supplied. This behavior also applies to the Human Capital comparison layout. Drive portrait-quality review is deferred at the user’s request.

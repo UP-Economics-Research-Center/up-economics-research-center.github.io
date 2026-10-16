@@ -180,3 +180,51 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 ### Larger home research scope
 
 - Increased the scope heading to a responsive 32–52px and the introductory and affiliation paragraphs to 20–24px in both languages. Preserved the existing section spacing and bold UP Economics name treatment.
+
+### Revisión del 16 de octubre: personas y Macro/Finanzas
+
+- Confirmado: restaurar el retrato previo de Juan Álvaro (`juan-alvaro.jpg`); conservar el retrato editado como archivo sin uso. Nombre público confirmado por el interesado: Juan Álvaro Díaz.
+- Confirmado: renombrar Macroeconomics a Macroeconomics and Finance / Macroeconomía y Finanzas; conservar el slug estable `macroeconomics` y las descripciones originales. Sergio y Patricio se incorporan a esta área. Esto sustituye la decisión anterior de dejar las áreas de Sergio pendientes.
+- Nombres públicos: primer nombre, inicial del segundo y primer apellido; Juan Álvaro se conserva por confirmación explícita. Añadido campo CMS `display_name` sin modificar nombres completos ni citas bibliográficas.
+- Incorporados Isabel y Patricio con biografías completas de la web original y traducciones EN/ES. Retratos descargados sin recomprimir de la página de origen. Isabel figura en Development por su agenda descrita en la fuente; Patricio en Macro/Finanzas por instrucción del usuario. Nombres confirmados posteriormente por el usuario: Isabel Ruiz y Patricio Lorenzana. Se muestran completos porque no tienen segundo nombre que abreviar.
+- Los enlaces de Drive a fotos originales y captura de Human Capital devolvieron 404 en el conector. No se ha afirmado que se verificó la calidad contra esos originales. El portal de seminarios redirige a inicio de sesión de Google; sigue pendiente consultar su contenido actual.
+- La unificación de destinos de enlaces de esta ronda se resolvió posteriormente, como se documenta al final. Los ajustes de esta sección están preparados localmente, sin publicar.
+
+### Revisión del 16 de octubre: inicio y cuadrícula de Research
+
+- Aplicado por petición explícita: lema completo y nombre completo del centro en negritas, en EN/ES, incluidos encabezados, texto del alcance y wordmarks. Se conserva el énfasis de UP dentro de UPward. Esta decisión sustituye el énfasis anterior limitado a UP Economics.
+- Retirado el subtítulo Empirical and applied economics / Economía empírica y aplicada. Se conservan íntegros los párrafos del alcance y afiliación. El campo CMS opcional de subtítulo queda vacío; el generador omite el h2 cuando está vacío.
+- Orden original restaurado en todos los listados: Education and Human Capital Investment; Digital and Business Economics; Political Economy; Macroeconomics and Finance; Development Economics; Health Economics; Agricultural Economics; Environmental / Climate Economics; Economic Demography. Se conserva el nuevo nombre de Macro/Finanzas aprobado el 16 de octubre.
+- Research usa tres columnas en escritorio, dos hasta 1000px y una hasta 600px. Se conservaron fotografías y enlaces completos de cada área. Retirada la introducción Browse the Center’s current research areas… solicitada.
+- Generación estática correcta; inspección visual del inicio y Research en EN/ES, con tres columnas a ancho de escritorio, dos a 800px y una a 390px. Corregido el espacio de la flecha para que la cuadrícula móvil no desborde. No se ejecutaron tests. Cambios locales, sin publicar.
+
+### Revisión del 16 de octubre: publicaciones
+
+- Aplicado por petición explícita: primero los investigadores UP vinculados por `person_id`, después el resto de autores precedidos por with / con. La agrupación se aplica al directorio, fichas y publicaciones de cada área; conserva los nombres bibliográficos y el orden relativo dentro de cada grupo. El arreglo fuente de autores mantiene su orden original. Añadida la relación verificada de Sergio a su artículo de Montepíos.
+- Orden descendente por año en listas y feeds; empates ordenados por título.
+- Working papers y policy briefs ocultos temporalmente mediante `show_working_papers` y `show_policy_briefs` en Site Settings, ambos en false. No se borran ni se cambia la aprobación de los registros. Se excluyen de listas, filtros, búsqueda, feeds y fichas públicas EN/ES; también se oculta el enlace del inicio a working papers. Esta decisión sustituye la presentación anterior de estos tipos dentro de publicaciones.
+- Generación correcta: 20 fichas públicas, 48 entradas de búsqueda, 14 personas. Inspección de sintaxis YAML y artefactos EN/ES; sin fichas ni entradas de búsqueda de los tipos ocultos. Inspección en navegador del orden 2026–2013 y de Human Capital con 2025 antes de 2021 y autoría localizada. No se ejecutaron tests. Cambios locales, sin publicar.
+
+### Revisión del 16 de octubre: réplica de Human Capital
+
+- A petición del usuario, solo Human Capital usa `layout: original-reference`, con portada panorámica original, equipo antes de proyectos, dos proyectos con fotografía grande y publicaciones con narraciones completas e imágenes de los artículos a la derecha. Se conserva la navegación del centro y EN/ES; las otras ocho áreas mantienen el diseño estándar.
+- Descargadas sin recomprimir siete imágenes desde la página original actual: portada, dos retratos, dos fotos de proyectos y dos capturas de publicaciones. Archivos locales en `design/assets/research/human-capital-original/`; fuentes en el registro interno de medios. No se afirma licencia abierta independiente para estos archivos. La captura de Drive sigue sin acceso; la réplica se verificó contra la web original en navegador.
+- Texto introductorio y proyectos completos, más los dos párrafos originales de cada publicación y enlaces originales de podcast/blog. Narrativas de publicación guardadas en `publication_features` para esta página; los abstracts bibliográficos existentes permanecen separados. Transcripción archivada en `docs/sources/human-capital-original-2026-10-16.json`.
+- Equipo de la réplica: Akito y José Miguel, con los retratos originales de esa página y nombres públicos aprobados. Esto no modifica las áreas del directorio ni elimina a Luciano del directorio.
+- Campos CMS nombrados para diseño, portada, equipo y publicaciones destacadas con texto EN/ES y enlaces. Se validan rutas, referencias a investigadores/publicaciones y traducciones antes de generar.
+- Generación estática correcta; inspección de YAML, feed EN/ES y rutas de imágenes. Inspección visual de portada, equipo, proyectos y publicaciones en escritorio, español y móvil de 390px, sin desbordamiento horizontal. Confirmadas ambas imágenes de artículos cargadas; Development conserva el diseño estándar. No se ejecutaron tests. Preparado localmente, sin publicar.
+
+### Revisión del 16 de octubre: página independiente de seminarios
+
+- Restaurada por petición del usuario la página Seminars / Seminarios, en navegación principal, menú móvil, pie, búsqueda, rutas y feed EN/ES. News continúa oculto. La información del seminario se mantiene en una página independiente; se retiró el bloque antiguo del inicio y la división conceptual no verificada en series general/estudiantil.
+- El portal de UP solicitado devolvió 404 en navegador con el acceso disponible. El formulario oficial de propuestas previamente enlazado sí fue accesible y verificado directamente: último viernes de cada mes, normalmente de 10:00 a 11:00, formato presencial y Zoom; presentaciones de trabajo en curso de 30–60 minutos, ideas tempranas, charlas externas y talleres (LaTeX, GitHub, prácticas de investigación, páginas académicas). Formulario en español, tiempo aproximado cinco minutos y contacto akamei@up.edu.mx. No se completó ni envió ninguna respuesta.
+- La página usa esa fuente verificable y traducciones fieles en EN/ES. No se añade CDUP como sede específica porque el formulario no la confirma. La descripción anterior, la referencia al portal y los datos verificados se conservan en `docs/sources/seminar-form-2026-10-16.json`. Verificar cualquier información adicional del portal cuando se disponga de acceso.
+- Campos CMS: introducción, horario habitual, nota de confirmación por sesión, tipos de propuestas repetibles, notas del formulario, enlace, fuente y fecha de verificación en Home scope, contact and seminar information. Eventos individuales siguen en Seminars. Sin ponentes, fechas o enlaces Zoom de muestra; calendario y archivo quedan vacíos hasta cargar registros confirmados.
+- Generación correcta (49 entradas de búsqueda, 20 fichas de publicación, 14 personas). Inspección de YAML, rutas, navegación y feeds EN/ES; revisión visual en inglés, español y móvil 390px sin desbordamiento. Formulario de propuesta accesible y enlace etiquetado en español en ambas versiones. No se ejecutaron tests. Cambios locales, sin publicar.
+
+### Revisión del 16 de octubre: destinos de publicaciones unificados
+
+- Confirmado y aplicado: título, imagen y Resumen y detalles de una publicación llevan a la misma ficha interna localizada. Se aplica al directorio y a todas las áreas, incluida la réplica de Human Capital. Esto sustituye el enlace directo al editor desde título e imagen aprobado en la revisión anterior.
+- La ficha interna muestra un botón View article / Ver artículo con el URL canónico del editor o DOI, manteniendo la descarga PDF independiente cuando está disponible.
+- Inspección del artefacto: 20 publicaciones EN/ES con enlaces internos y 20 botones de artículo por idioma. Generación estática correcta y `git diff --check` limpio; recorrido en navegador desde el título de Human Capital hasta su ficha ES y comprobación de destinos iguales para imagen/título/detalles y botón DOI. No se ejecutaron tests.
+- El usuario aplaza explícitamente la revisión de las fotos originales de Drive; no bloquea el cierre de esta ronda. Cambios preparados en local, todavía sin publicar.
