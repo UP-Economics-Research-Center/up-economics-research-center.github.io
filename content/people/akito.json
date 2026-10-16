@@ -3,7 +3,7 @@
   "slug": "akito",
   "role": "Lead researcher",
   "bio": "Akito’s research focuses on development economics, with particular interests in human capital investment, including health, sanitation, water, child, and education in low- and middle-income countries. His work combines rigorous empirical methods, including RCTs and large-scale administrative and survey data. He has worked with international organizations including UNICEF, the World Bank, and the Inter-American Development Bank, and served as a Postdoctoral Scholar at the Development Innovation Lab (DIL) at the University of Chicago. He serves as Secretary for Research in Economics.",
-  "portrait": "/design/assets/people/akito.jpg",
+  "portrait": "/design/assets/people/akito-original.png",
   "portrait_alt": "Portrait of Akito Kamei.",
   "research_areas": [
     "development-economics",
@@ -20,5 +20,12 @@
   "display_order": 1,
   "bio_es": "La investigación de Akito se centra en economía del desarrollo, con especial interés en la inversión en capital humano, incluidos la salud, el saneamiento, el agua, la infancia y la educación en países de ingresos bajos y medios. Su trabajo combina métodos empíricos rigurosos, incluidos ensayos controlados aleatorizados y datos administrativos y encuestas a gran escala. Ha trabajado con organismos internacionales como UNICEF, el Banco Mundial y el Banco Interamericano de Desarrollo, y fue investigador posdoctoral en el Development Innovation Lab (DIL) de la Universidad de Chicago. Se desempeña como Secretario de Investigación en Economía.",
   "portrait_alt_es": "Retrato de Akito Kamei.",
-  "personal_website": "https://sites.google.com/view/akitokamei/home"
+  "personal_website": "https://sites.google.com/view/akitokamei/home",
+  "display_name": "Akito Kamei",
+  "portrait_crop": {
+    "left": 31.073,
+    "top": 8.408,
+    "width": 51.745,
+    "height": 43.395
+  }
 }

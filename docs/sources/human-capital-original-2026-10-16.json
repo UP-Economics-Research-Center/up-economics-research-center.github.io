@@ -1,0 +1,70 @@
+{
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+  "captured_on": "2026-10-16",
+  "summary": "Education and human capital development are fundamental drivers of economic opportunity and long-term well-being, yet millions of children around the world continue to face barriers to quality learning. Learning poverty, limited access to educational resources, and unequal opportunities in early childhood and school-age education contribute to persistent inequalities in income and social mobility across generations.",
+  "overview": "This research agenda examines scalable interventions, institutional mechanisms, and public policy implications that can improve human capital accumulation. The research combines experimental and quasi-experimental methods with large-scale administrative and survey data to study how governments, schools, and households shape children’s developmental and educational trajectories across different stages of life.",
+  "projects": [
+    {
+      "title": "Scaling Digital Learning to Reduce Inequality: Evidence from a Randomized Trial in Mexico",
+      "summary": "As digital learning platforms expand rapidly across low- and middle-income countries, an important policy question is whether these technologies can improve learning outcomes at scale and reduce educational inequality. Using a teacher-level randomized controlled trial, this project evaluates Learning Passport, a digital learning platform developed by UNICEF and Microsoft and implemented in upper-secondary schools in Mexico.",
+      "researcher_note": "UP Researchers: Akito Kamei\n\nwith Janina Cuevas Zúñiga (UNICEF Mexico), Marta Carnelli (UNICEF, Office of Research), and Thomas Dreesen (UNICEF, Office of Research)\n\nPresentation at the Seminar on Development Economics at National Graduate Institute for Policy Studies (GRIPS) in 2026.",
+      "researchers": [],
+      "title_es": "Ampliar el aprendizaje digital para reducir la desigualdad: evidencia de un ensayo aleatorizado en México",
+      "summary_es": "Ante la rápida expansión de las plataformas de aprendizaje digital en países de ingresos bajos y medios, una pregunta importante de política pública es si estas tecnologías pueden mejorar los resultados del aprendizaje a gran escala y reducir la desigualdad educativa. Mediante un ensayo controlado aleatorizado a nivel docente, este proyecto evalúa Learning Passport, una plataforma de aprendizaje digital desarrollada por UNICEF y Microsoft e implementada en escuelas de educación media superior en México.",
+      "researcher_note_es": "Investigadores UP: Akito Kamei\n\ncon Janina Cuevas Zúñiga (UNICEF México), Marta Carnelli (Oficina de Investigación de UNICEF) y Thomas Dreesen (Oficina de Investigación de UNICEF).\n\nPresentación en el Seminario de Economía del Desarrollo del National Graduate Institute for Policy Studies (GRIPS) en 2026.",
+      "image": "/design/assets/research/human-capital-original/digital-learning.jpg",
+      "image_alt": "A person reading on a tablet.",
+      "image_alt_es": "Una persona leyendo en una tableta.",
+      "image_credit": "UP Economics Research Center · Original Human Capital page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital"
+    },
+    {
+      "title": "Human Capital in Mexico: Does Being Late Have a Cost? Starting Age, Schooling Delay, and Returns to Education",
+      "summary": "This study examines whether the timing of education—not only the total years completed—affects long-term labor market outcomes in Mexico. The project explores whether students who progress through school later than the normative age face disadvantages in earnings later in life, highlighting educational timing as an important dimension of inequality and human capital development.",
+      "researcher_note": "UP Researchers: José Miguel Montoya Morales",
+      "researchers": [],
+      "title_es": "Capital humano en México: ¿tiene un costo llegar tarde? Edad de inicio, rezago escolar y retornos a la educación",
+      "summary_es": "Este estudio examina si el momento en que se cursa la educación —y no solo el total de años completados— afecta los resultados laborales a largo plazo en México. El proyecto explora si los estudiantes que avanzan por la escuela después de la edad normativa enfrentan desventajas en sus ingresos posteriores, destacando el momento de la educación como una dimensión importante de la desigualdad y el desarrollo del capital humano.",
+      "researcher_note_es": "Investigadores UP: José Miguel Montoya Morales",
+      "image": "/design/assets/research/human-capital-original/schooling-timing.jpg",
+      "image_alt": "Students in a classroom.",
+      "image_alt_es": "Estudiantes en un salón de clases.",
+      "image_credit": "UP Economics Research Center · Original Human Capital page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital"
+    }
+  ],
+  "publication_features": [
+    {
+      "publication": "importance-quality-scaling-early-childhood-nicaragua",
+      "description": "Can large-scale parenting programs improve children’s development when implemented by governments at scale? This study evaluates a nationwide Home Visit Program in Nicaragua and finds that regular home visits improved early childhood development, increased preschool completion, and strengthened parenting practices related to cognitive stimulation. Children assigned to the program experienced gains of 0.11 standard deviations in development outcomes, with even larger effects among households that actively participated.\n\nBeyond measuring impacts, the study highlights the critical role of implementation quality. By experimentally comparing centralized monitoring with structured community-led monitoring, the research shows that community involvement significantly improved the quality of home visits and, in turn, child development outcomes. The findings provide important evidence that well-designed monitoring systems can help maintain quality when scaling up early childhood programs.",
+      "description_es": "¿Pueden los programas de crianza a gran escala mejorar el desarrollo infantil cuando los gobiernos los implementan a escala? Este estudio evalúa un Programa de Visitas Domiciliarias de alcance nacional en Nicaragua y encuentra que las visitas regulares mejoraron el desarrollo en la primera infancia, aumentaron la conclusión del preescolar y fortalecieron las prácticas de crianza relacionadas con la estimulación cognitiva. Los niños asignados al programa experimentaron mejoras de 0.11 desviaciones estándar en los resultados de desarrollo, con efectos aún mayores entre los hogares que participaron activamente.\n\nAdemás de medir los impactos, el estudio destaca el papel decisivo de la calidad de la implementación. Al comparar experimentalmente el monitoreo centralizado con un monitoreo comunitario estructurado, la investigación muestra que la participación comunitaria mejoró significativamente la calidad de las visitas domiciliarias y, a su vez, los resultados del desarrollo infantil. Los hallazgos aportan evidencia importante de que los sistemas de monitoreo bien diseñados pueden ayudar a mantener la calidad al ampliar los programas de desarrollo en la primera infancia.",
+      "image": "/design/assets/research/human-capital-original/early-childhood-publication.png",
+      "image_alt": "Screenshot of the journal article on the original Human Capital page.",
+      "image_alt_es": "Captura del artículo de revista en la página original de Capital Humano.",
+      "image_credit": "UP Economics Research Center · Original Human Capital page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "media_links": [
+        {
+          "label": "Podcast",
+          "label_es": "Podcast",
+          "url": "https://podcasts.apple.com/us/podcast/what-factors-contribute-to-high-quality-early-childhood/id1550737521?i=1000755184058&l=es-MX"
+        },
+        {
+          "label": "Blog: What factors contribute to high-quality early childhood services? · BOLD Science, 10 Mar 2026",
+          "label_es": "Blog: What factors contribute to high-quality early childhood services? · BOLD Science, 10 mar 2026",
+          "url": "https://share.google/NcuxVQNdPTWlQlAPn"
+        }
+      ]
+    },
+    {
+      "publication": "covid-school-closures-foundational-skills-country-responses",
+      "description": "School closures during the COVID-19 pandemic disrupted learning for millions of children around the world, raising concerns about long-term effects on foundational skills such as reading and numeracy. This study examines how interrupted schooling and school dropout are associated with children’s learning outcomes in low- and lower-middle-income countries. Using household survey data from thirteen countries, the research explores the relationship between school participation and foundational learning, while also documenting how governments responded through remote learning policies during the pandemic.\n\nThe study highlights important challenges in ensuring that all children continue learning during periods of educational disruption. In many countries, remote learning responses faced limitations in reaching vulnerable populations, particularly younger children and marginalized households. The findings underscore the importance of inclusive and effective education policies to prevent widening learning inequalities during crises.",
+      "description_es": "El cierre de escuelas durante la pandemia de COVID-19 interrumpió el aprendizaje de millones de niños en todo el mundo y generó preocupación por sus efectos a largo plazo en habilidades fundamentales como la lectura y la aritmética. Este estudio examina cómo la interrupción de la escolarización y el abandono escolar se relacionan con los resultados de aprendizaje de los niños en países de ingresos bajos y medios bajos. Utilizando datos de encuestas de hogares de trece países, la investigación explora la relación entre la participación escolar y los aprendizajes fundamentales, y documenta cómo respondieron los gobiernos mediante políticas de aprendizaje remoto durante la pandemia.\n\nEl estudio destaca desafíos importantes para garantizar que todos los niños sigan aprendiendo durante periodos de interrupción educativa. En muchos países, las respuestas de aprendizaje remoto enfrentaron limitaciones para llegar a las poblaciones vulnerables, especialmente a los niños más pequeños y a los hogares marginados. Los hallazgos subrayan la importancia de políticas educativas inclusivas y eficaces para evitar que se amplíen las desigualdades de aprendizaje durante las crisis.",
+      "image": "/design/assets/research/human-capital-original/school-closures-publication.png",
+      "image_alt": "Screenshot of the journal article on the original Human Capital page.",
+      "image_alt_es": "Captura del artículo de revista en la página original de Capital Humano.",
+      "image_credit": "UP Economics Research Center · Original Human Capital page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital"
+    }
+  ]
+}

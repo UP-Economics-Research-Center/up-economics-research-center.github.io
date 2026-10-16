@@ -1,0 +1,46 @@
+{
+  "previous_description": "The Research Seminar is a space to present work in progress, share early-stage ideas for feedback, invite an external speaker, or propose a research workshop. It normally meets on the last Friday of the month from 10:00 to 11:00 a.m. in a hybrid format at CDUP and on Zoom.",
+  "previous_source": "https://sites.google.com/up.edu.mx/up-econresearchcenter-portal/seminar",
+  "portal_status": "404 in browser on 2026-10-16",
+  "verified_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSeohtvdNLdCbWJMMD5Ud_3z9bhb7igiiX5ekSsgzykBk3U4qQ/viewform",
+  "verified_on": "2026-10-16",
+  "current_public_information": {
+    "seminar_description": "The UP Research Seminar welcomes presentations of work in progress, early-stage research ideas, talks by external researchers, and research workshops.",
+    "seminar_form_url": "https://docs.google.com/forms/d/e/1FAIpQLSeohtvdNLdCbWJMMD5Ud_3z9bhb7igiiX5ekSsgzykBk3U4qQ/viewform",
+    "seminar_source_url": "https://docs.google.com/forms/d/e/1FAIpQLSeohtvdNLdCbWJMMD5Ud_3z9bhb7igiiX5ekSsgzykBk3U4qQ/viewform",
+    "seminar_description_es": "El Seminario de Investigación de la UP recibe propuestas para presentar investigaciones en desarrollo, compartir ideas de investigación en etapas tempranas, invitar a investigadores externos y organizar talleres de investigación.",
+    "seminar_schedule": "The seminar normally takes place on the last Friday of each month, from 10:00 to 11:00 a.m., in a hybrid format with in-person participation and Zoom.",
+    "seminar_schedule_es": "El seminario normalmente se lleva a cabo el último viernes de cada mes, de 10:00 a 11:00, en formato híbrido, con participación presencial y por Zoom.",
+    "seminar_schedule_note": "Specific dates, speakers, and participation details will be confirmed for each session.",
+    "seminar_schedule_note_es": "Las fechas específicas, los ponentes y los detalles de participación se confirmarán para cada sesión.",
+    "seminar_form_note": "The proposal form is in Spanish and takes approximately five minutes to complete.",
+    "seminar_form_note_es": "El formulario de propuestas está en español y toma aproximadamente cinco minutos.",
+    "seminar_verified_on": "2026-10-16",
+    "seminar_proposals": [
+      {
+        "label": "Work in progress",
+        "label_es": "Investigación en desarrollo",
+        "description": "Present a research study or project in progress during a 30–60 minute session.",
+        "description_es": "Presenta una investigación o un proyecto en desarrollo durante una sesión de 30–60 minutos."
+      },
+      {
+        "label": "Early-stage research ideas",
+        "label_es": "Ideas de investigación en etapas tempranas",
+        "description": "Share an early-stage research idea and receive feedback from colleagues.",
+        "description_es": "Comparte una idea de investigación en una etapa temprana y recibe retroalimentación de colegas."
+      },
+      {
+        "label": "External researchers",
+        "label_es": "Investigadores externos",
+        "description": "Propose a talk by an external researcher.",
+        "description_es": "Propón una charla de un investigador externo."
+      },
+      {
+        "label": "Research workshops",
+        "label_es": "Talleres de investigación",
+        "description": "Request a workshop on topics such as LaTeX, GitHub, good research practices, or creating an academic website.",
+        "description_es": "Solicita un taller, por ejemplo, sobre LaTeX, GitHub, buenas prácticas de investigación o cómo crear una página web académica."
+      }
+    ]
+  }
+}

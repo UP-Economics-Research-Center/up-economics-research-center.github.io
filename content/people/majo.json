@@ -11,8 +11,15 @@
   "published": true,
   "role": "Lead researcher",
   "verified_on": "2026-10-15",
-  "portrait": "/design/assets/people/majo.jpg",
+  "portrait": "/design/assets/people/majo-original.jpg",
   "display_order": 4,
   "bio_es": "Sus intereses de investigación incluyen economía laboral, economía institucional y desarrollo urbano. Su experiencia en asuntos gubernamentales la ha acercado especialmente a las políticas públicas y sus implicaciones. Tiene experiencia con datos del mercado laboral de América Latina y su investigación de posgrado se ha centrado en la discapacidad como determinante de los resultados laborales, prestando atención a la heterogeneidad de las dotaciones educativas entre individuos. Más recientemente, trabaja en proyectos de planeación y desarrollo urbano.",
-  "portrait_alt_es": "Retrato de María Jose Favela Cantarero."
+  "portrait_alt_es": "Retrato de María Jose Favela Cantarero.",
+  "display_name": "María J. Favela",
+  "portrait_crop": {
+    "left": 28.933,
+    "top": 3.033,
+    "width": 52.1,
+    "height": 52.696
+  }
 }

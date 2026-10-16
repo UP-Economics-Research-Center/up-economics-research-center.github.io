@@ -3,7 +3,7 @@
   "slug": "arnulfo",
   "role": "Lead researcher",
   "bio": "Arnulfo’s research focuses on macroeconomics, monetary policy, and forecasting under uncertainty. He has applied advanced econometric methods to study public spending, inflation dynamics, and business cycles in Mexico. As Principal Economist at BBVA Mexico, he works on a wide range of topics including international trade, productivity growth, and energy transition. Arnulfo holds a Ph.D. in Economics from the University of Texas at Austin, previously worked at the Bank of Mexico, and has taught economics at CIDE and St. Edward’s University.",
-  "portrait": "/design/assets/people/arnulfo.jpg",
+  "portrait": "/design/assets/people/arnulfo-original.jpg",
   "portrait_alt": "Portrait of Arnulfo Rodríguez Hernández.",
   "research_areas": [
     "macroeconomics"
@@ -14,5 +14,12 @@
   "published": true,
   "display_order": 5,
   "bio_es": "La investigación de Arnulfo se centra en macroeconomía, política monetaria y pronósticos bajo incertidumbre. Ha aplicado métodos econométricos avanzados al estudio del gasto público, la dinámica de la inflación y los ciclos económicos en México. Como economista principal de BBVA México, trabaja en temas como comercio internacional, crecimiento de la productividad y transición energética. Es doctor en Economía por la Universidad de Texas en Austin, trabajó anteriormente en el Banco de México y ha impartido cursos de economía en el CIDE y en St. Edward’s University.",
-  "portrait_alt_es": "Retrato de Arnulfo Rodríguez Hernández."
+  "portrait_alt_es": "Retrato de Arnulfo Rodríguez Hernández.",
+  "display_name": "Arnulfo Rodríguez",
+  "portrait_crop": {
+    "left": 16.115,
+    "top": 21.326,
+    "width": 69.688,
+    "height": 66.632
+  }
 }

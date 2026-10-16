@@ -52,6 +52,20 @@
     document.title = `${area.name} | ${languageName()}`;
     document.getElementById('area-crumb').textContent = area.name;
     document.getElementById('area-kicker').textContent = t('Research area');
+    const referenceLayout = area.layout === 'original-reference';
+    if (referenceLayout) {
+      document.body.classList.add('source-area-page');
+      const banner = photo(area.banner, 'source-area-banner');
+      if (banner) {
+        banner.loading = 'eager';
+        document.querySelector('.area-heading').prepend(banner);
+      }
+      const teamHeading = document.getElementById('team');
+      teamHeading.querySelector('h2').textContent = t('Team');
+      document.getElementById('projects').querySelector('h2').textContent = t('Current Projects');
+      document.getElementById('outputs').querySelector('h2').textContent = t('Journal Publications');
+      team.parentElement.prepend(teamHeading, team);
+    }
     document.getElementById('area-summary').replaceChildren(
       ...[area.summary, area.overview].filter(Boolean).flatMap(text => text.split(/\n\s*\n/)).map(text => node('p', text))
     );
@@ -77,36 +91,58 @@
       const heading = node('h3', '', 'pub-title');
       heading.append(project.url ? link(project.url, project.title) : project.title);
       article.append(heading, ...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
-      if (project.researcher_note) article.append(node('p', project.researcher_note, 'pub-authors'));
+      if (project.researcher_note) article.append(...project.researcher_note.split(/\n\s*\n/).map(text => node('p', text, 'pub-authors')));
       if (img) article.append(credit(project));
       return article;
     }));
-    const members = people.filter(person => person.research_areas.includes(area.slug));
+    const members = referenceLayout ? (area.reference_team || []).map(item => {
+      const person = people.find(person => person.slug === item.person_id);
+      return person ? {...person, portrait: item.image || person.portrait} : null;
+    }).filter(Boolean) : people.filter(person => person.research_areas.includes(area.slug));
     if (!members.length) note(team, 'No published researcher profiles are linked to this area yet.');
     else team.replaceChildren(...members.map(person => {
       const anchor = link(`${prefix}/people.html#${encodeURIComponent(person.slug)}`, '', 'area-person');
       if (person.portrait) {
         const img = node('img'); img.src = person.portrait; img.alt = ''; img.width = 96; img.height = 120; img.loading = 'lazy'; anchor.append(img);
       }
-      const text = node('span'); text.append(node('strong', person.name), node('small', t('View profile →'))); anchor.append(text); return anchor;
+      const text = node('span'); text.append(node('strong', person.display_name || person.name), node('small', t('View profile →'))); anchor.append(text); return anchor;
     }));
-    const related = publications.filter(pub => pub.topics.includes(area.slug));
+    const related = publications.filter(pub => pub.topics.includes(area.slug)).sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     if (!related.length) note(outputs, 'No verified publications are linked to this area yet.');
     else outputs.replaceChildren(...related.map(pub => {
+      const feature = referenceLayout ? (area.publication_features || []).find(item => item.publication === pub.slug) : null;
       const article = node('article', '', 'publication paper-row');
-      const href = pub.canonical_url || pub.pdf || pub.pdf_url || `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
-      const img = photo(pub, 'paper-photo');
+      const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
+      const img = photo(feature || pub, 'paper-photo');
       if (img) {const anchor = link(href, '', 'paper-image');anchor.setAttribute('aria-label', pub.title);anchor.append(img);article.append(anchor);article.classList.add('has-image');}
       const text = node('div'); const heading = node('h3', '', 'pub-title');heading.append(link(href, pub.title));
       const authors = node('p', '', 'pub-authors');
-      pub.authors.forEach((author, index) => {
+      const up = pub.authors.filter(author => typeof author === 'object' && author.person_id);
+      const others = pub.authors.filter(author => !(typeof author === 'object' && author.person_id));
+      const appendNames = group => group.forEach((author, index) => {
         if (index) authors.append(', ');
         if (typeof author === 'object' && author.person_id) authors.append(link(`${prefix}/people.html#${encodeURIComponent(author.person_id)}`, author.name));
         else authors.append(typeof author === 'string' ? author : author.name);
       });
+      if (up.length) {
+        authors.append(t(up.length === 1 ? 'UP researcher:' : 'UP researchers:') + ' ');
+        appendNames(up);
+        if (others.length) authors.append(' ' + t('with') + ' ');
+      }
+      appendNames(others);
       const venue = pub.venue || t(pub.type);
-      text.append(heading, authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
-      if (img) text.append(credit(pub));
+      text.append(heading);
+      if (feature) {
+        article.classList.add('reference-paper');
+        text.append(...feature.description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
+      }
+      text.append(authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
+      if (feature?.media_links?.length) {
+        const media = node('div', '', 'reference-media-links');
+        feature.media_links.forEach(item => media.append(link(item.url, item.label)));
+        text.append(media);
+      }
+      if (img) text.append(credit(feature || pub));
       article.append(text, link(`${prefix}/publications/${encodeURIComponent(pub.slug)}/`, t('Abstract and details →'), 'text-link'));
       return article;
     }));

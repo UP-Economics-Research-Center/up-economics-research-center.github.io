@@ -3,7 +3,7 @@
   "slug": "eugenio",
   "role": "Lead researcher",
   "bio": "Eugenio's research spans digital economics and business economics, with a growing focus on the economic implications of artificial intelligence, FinTech, and technological change in Latin America. His empirical work includes field experiments using RCTs on ethics communication in organizations and gender inclusion in senior leadership, areas he developed during his tenure as Director of the Research Center on Women in Senior Management (CIMAD) at IPADE Business School.",
-  "portrait": "/design/assets/people/eugenio.jpg",
+  "portrait": "/design/assets/people/eugenio-original.jpg",
   "portrait_alt": "Portrait of Eugenio Gómez Alatorre.",
   "research_areas": [
     "digital-and-business-economics"
@@ -15,5 +15,12 @@
   "display_order": 3,
   "bio_es": "La investigación de Eugenio abarca economía digital y economía de los negocios, con creciente atención a las implicaciones económicas de la inteligencia artificial, las tecnologías financieras y el cambio tecnológico en América Latina. Su trabajo empírico incluye experimentos de campo con ensayos controlados aleatorizados sobre comunicación de la ética en las organizaciones e inclusión de género en la alta dirección, áreas que desarrolló durante su gestión como director del Centro de Investigación de la Mujer en la Alta Dirección (CIMAD) de IPADE Business School.",
   "portrait_alt_es": "Retrato de Eugenio Gómez Alatorre.",
-  "personal_website": "https://eugeniogomeza.github.io/eugeniogomez/"
+  "personal_website": "https://eugeniogomeza.github.io/eugeniogomez/",
+  "display_name": "Eugenio Gómez",
+  "portrait_crop": {
+    "left": 0.0,
+    "top": 0.882,
+    "width": 100.0,
+    "height": 96.326
+  }
 }

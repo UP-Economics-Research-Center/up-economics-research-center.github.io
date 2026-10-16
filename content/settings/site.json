@@ -20,6 +20,8 @@
   "campus_video_caption_es": "Reinventamos la Economía · Universidad Panamericana",
   "footer_note_es": "Vista previa de diseño · Contenido ilustrativo",
   "show_news": false,
-  "show_seminars": false,
-  "campus_video_poster_alt_es": "Miniatura oficial de Reinventamos la Economía, un video de la Universidad Panamericana."
+  "show_seminars": true,
+  "campus_video_poster_alt_es": "Miniatura oficial de Reinventamos la Economía, un video de la Universidad Panamericana.",
+  "show_working_papers": false,
+  "show_policy_briefs": false
 }

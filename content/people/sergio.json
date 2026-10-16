@@ -1,5 +1,7 @@
 {
-  "research_areas": [],
+  "research_areas": [
+    "macroeconomics"
+  ],
   "canonical_url": "",
   "portrait_alt": "Portrait of Sergio Rodríguez García.",
   "bio": "Sergio's research spans pension economics, financial economics, and economic history, with particular interests in the financial and actuarial sustainability of pension systems and the evolution of social protection institutions in Mexico. His current research examines the historical development and decline of early survivor pension institutions using historical, demographic, financial, and actuarial evidence. His broader research agenda also includes industrial organization and competition economics, particularly abuse of dominance and competition in digital markets. Sergio is a Ph.D. candidate in Economics at the University of Massachusetts Amherst.",
@@ -12,5 +14,6 @@
   "verified_on": "2026-10-15",
   "portrait": "design/assets/people/sergio-rodriguez-garcia.png",
   "bio_es": "La investigación de Sergio abarca economía de las pensiones, economía financiera e historia económica, con especial interés en la sostenibilidad financiera y actuarial de los sistemas de pensiones y la evolución de las instituciones de protección social en México. Su investigación actual examina el desarrollo histórico y el declive de las primeras instituciones de pensiones de supervivencia, utilizando evidencia histórica, demográfica, financiera y actuarial. Su agenda más amplia incluye organización industrial y economía de la competencia, en particular abuso de posición dominante y competencia en mercados digitales. Es candidato a doctor en Economía en la Universidad de Massachusetts Amherst.",
-  "portrait_alt_es": "Retrato de Sergio Rodríguez García."
+  "portrait_alt_es": "Retrato de Sergio Rodríguez García.",
+  "display_name": "Sergio Rodríguez"
 }

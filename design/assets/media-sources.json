@@ -97,6 +97,190 @@
       "status": "AI-assisted edit of supplied photograph, requested by the subject on 2026-10-15; used in local preview. Slightly more frontal face/gaze and vertical crop. Previous portrait retained.",
       "tool": "Built-in image_gen",
       "editPrompt": "Turn the head and gaze slightly toward the camera, preserve facial identity, hair, beard, natural skin texture, dark suit, white shirt, pink striped tie and wood background. Vertical 4:5 head and upper torso crop, exclude the other person and gesturing hand; subtly reduce yellow cast, no beautification or background replacement."
+    },
+    {
+      "asset": "assets/people/isabel.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72sq-ABnS_11O_ENtUZkl5RPC8tgeM9iYBx4qW0bL324HrCEJ--mbIHOzFw8z6QyupvYt2I7z8EdsvI0m3NmSE75l7eygLeOcPRrvyldvwG6mS3F43zecrU_aSOd2LnY0P2g4HnOwumJUcRF229b4KnJLNomicenQoV9MKzi6bTkcNf1vQjXNR7nPcmq6Lg4M1UsxgUIIajmuz3sqHNCNVKn4Q979KSjQuoNVKAg=w1280",
+      "status": "Downloaded unchanged from the center source page on 2026-10-16; full-resolution Drive originals remain pending."
+    },
+    {
+      "asset": "assets/people/patricio.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72slf5qODqcWjvaCR9SAL1yeDoPNWRCB7PfEN1kka0H8fMrZyKWGjtUEuvIMjzVxyWsbIeCSeQ3aLYTlJG_P3HAD7hV5jGSvV4aw-Lfifpd36km-SWi_toLMxBRldx01fbcsBxI5pR-sz2q_zzhe5H1Y8rOxbn2qSk0XE4mrbZFMYDvhOkyFXlyuAiVO7O__F13PQ9IPCFKADgXo6Hu6E8cjK7U0RGh3m9wJHRoR4DU=w1280",
+      "status": "Downloaded unchanged from the center source page on 2026-10-16; full-resolution Drive originals remain pending."
     }
-  ]
+  ],
+  "humanCapitalOriginal": [
+    {
+      "asset": "assets/research/human-capital-original/banner.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72skltbJm01OR1vTZA5ZO40acVTGs9mqXlcLynvuYGySTVeV61wMDjPOxrg9jAmolSUny1gONI-IPHPOyBOp8m5ytL_jHy79Em36LUpdxAoLrsAwu3ktYaEr1k9s1SxwvMOwrmZ3BGInPGKBHRcCblLVZnvdZPJJk1SpI-QM4yskj6_sUr3L3RuElVQV=w16383",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/akito.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72t3wKoUHO4i0xTyNIe3Iu95BNa7-f_gccYPq9td1grAejdYJDNBS3kb2TmYSM0H4LF6-j-D8edwmSE5FYNkZmOH-gh1AwKGcBIF9D4C5eJ_03u0dkoTM-UQyGMYF-zrExFDs7avzv7naL-8oXyOZiLnOhJOgI-ZEvWz1y8_jhOiTfmrGPkJGXxdzMXtWPSO3oCZYNSbYgVPNZvCRb1YZD2E1e22hmLFH9xQk5vL8ec=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/jose-miguel.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72ve2FoT1eHP-nliRu8jQRukescPsrHTC0LHnbfHy-8b1GGMEs3QuE7rK_h4oRg3Upc6tRNMfV51ll8HGx1tGiGKBdhngR_4HnxwDeOyPfwjsWF3KTTNNei4j39uK-mlryUk-3HzBowDNB1y6ytQouMsGbnUYJvmn68vBDGFSKeRoixi9HyMAN5G3P-tmyjmuQ9fWkoesytSnDgrSsgHVHE1PDYEwF6BMG1c_usx8hw=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/digital-learning.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72tVeoHke62An3EpSyTwPqL2g6y2B_jTDLNuRUAvwcLlv_signKXa-Ge8Rr09wSg3NNNcGZjdALxWFiSSdJKoU1s3ilSsLgKBz6PX599kbR48fri9RY1A4vscNeksCSmBtWbTxhZVMGwe8LhU81CiNWKSy61oNGqPCudMxm8m4do_tJYUNajYjQQkxdgwyEyt2PYsZRIlYz-UYUT0yXH9VfVMoT8RzWRf7kr0TGS4mg=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/schooling-timing.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72ulkWhK-Upu6qNXeS5_xVlTOvYLxx4De0CBv9n5QS44rytu41KayZuBVf4kbitKndds6bmeSAI2wj56GZjm4BvwFmd3tGUcKfxo0oJruVOO57eOsjdiIr0jpS97JSCt3NuXTqzwRG0z1RhdDvGeBf-BKoUv4IqX0O14tb-LcTPixfEGCPgPV_xyYfLpO4IoGe2PQiIk4sJdK90_cRozmOaKGGvXtN2BFvzCK9k9OVI=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/early-childhood-publication.png",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72u39Wx1t89TqB1s6bdPkJKTiLIwWRqWg2RfxHfW3ahD3sU8YKyM8zCBfVYZrOnHtsq74f9LkEyzlQ1tZyBDlx6WQiljhRujD6SIBJysSM6OaRwGzGz-PZBeCasEpadFvHBX-ihym0fzukRj2FfDI3YIKMleju4oQBKdbKBJy_vhjLyLex6jgFr3zaS8pMJgoTV1KJTXbR6VdWQAR-8Xiggs0aiv9-v-wDJ1NdUPPoU=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    },
+    {
+      "asset": "assets/research/human-capital-original/school-closures-publication.png",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uH3r2FfdIRDl73Osxm3gA8hizBFp7gA84e2vra2Fw9BYBzpA26YjTsDEchiXoyTu1DBhYV80VPVrJMDbH9NG5FW_Y8Ip23It1mH2vHhyoE60X6oGxfZ4DGHjZkUxkiPI13ImqeDcybdUvf578TU3evBR3IvHj_GbtWHyvX_ku7mX0Cg01VDJdrHuHaSbA_E43PqaHWk7VA19z14UoHgdZiFBgILBZhW3fJMA=w1280",
+      "status": "Downloaded unchanged from the original Human Capital page at the user’s request on 2026-10-16; no independent open license asserted."
+    }
+  ],
+  "portraitOriginalsReview": {
+    "reviewedOn": "2026-10-16",
+    "folder": "https://drive.google.com/drive/folders/1_TtCFAUQ8hH2jII3ZHsFiIA0oQsMRbYq",
+    "authorization": "User supplied access for the requested review of original portrait quality. This does not assert an open license.",
+    "portraits": [
+      {
+        "person": "juan-alvaro",
+        "asset": "/design/assets/people/juan-alvaro-original.png",
+        "previousAsset": "/design/assets/people/juan-alvaro.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1XGuaEGviO01gJVMto0wVMxWKKxoh6B7P/view",
+        "originalFilename": "JA_pic.png",
+        "sha256": "9a4c69cf8e628155558ab5982747dfee8aa986966a179682337e6f24d84cb53d",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "sergio",
+        "asset": "design/assets/people/sergio-rodriguez-garcia.png",
+        "sourceFile": "https://drive.google.com/file/d/17rH6gMoGUfFSqM-_JkabTT9a3VzX2GFf/view",
+        "status": "Already uses the same original photograph at the shared resolution; retained."
+      },
+      {
+        "person": "arnulfo",
+        "asset": "/design/assets/people/arnulfo-original.jpg",
+        "previousAsset": "/design/assets/people/arnulfo.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1_0N6AYz7TpaAG1LdnR-J3_tQ15YpaIyK/view",
+        "originalFilename": "20231012_150034.jpg",
+        "sha256": "d64d75de0aaae622233cabab7ed2bd0b5d8cb5f173c7c44a9bfe2dc21af0532c",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "andrea",
+        "asset": "/design/assets/people/andrea-original.png",
+        "previousAsset": "/design/assets/people/andrea.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1rmEIhQjWgNkSuZ9ubYwT_JSXK4sNACDw/view",
+        "originalFilename": "Screenshot 2026-05-28 at 16.16.19.png",
+        "sha256": "dc254a94524e8ccf6b892df5ee81621b5fdc181883c133ad5ac3dc9be19d4183",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "isabel",
+        "asset": "/design/assets/people/isabel-original.jpg",
+        "previousAsset": "/design/assets/people/isabel.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1EeSJSeu4qqFGbQtcuEzG833K_0uIROfq/view",
+        "originalFilename": "Isabel.jpg",
+        "sha256": "17ae97fdc014d3637e9a39b217f7af214e7a23698f06752aeb4ff4b8841849e4",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "patricio",
+        "asset": "/design/assets/people/patricio-original.png",
+        "previousAsset": "/design/assets/people/patricio.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1-27htPxKz5Tf3cQwHH5S5WlhFk0Bito9/view",
+        "originalFilename": "Foto.png",
+        "sha256": "b2704cc9b23e0b47437609a6421012fbd721a658968a025d436563bb4b9dcef0",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "marytell",
+        "asset": "/design/assets/people/marytell-original.jpeg",
+        "previousAsset": "/design/assets/people/marytell.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1g42clSTIQpl3HbcOfbIUHMF1DZYAHthK/view",
+        "originalFilename": "Marytell.jpeg",
+        "sha256": "e7b28557256e143d897bd8eafa97f04e264a473931aa31748c6eb23ec3d93ab9",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "jose-miguel",
+        "asset": "/design/assets/people/jose-miguel-original.jpeg",
+        "previousAsset": "/design/assets/people/jose-miguel.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1PdOOsImBZ00JkX_rkXGaY9YQz_jHH8mO/view",
+        "originalFilename": "c69a1f44-0cc6-4621-b5a6-67e16021e78b.jpeg",
+        "sha256": "e877f25b5ec6d60598a02c7e29993f2b5be4210c9a2b9c0d1c1af4135e33712c",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "luciano",
+        "asset": "/design/assets/people/luciano-original.jpeg",
+        "previousAsset": "/design/assets/people/luciano.jpg",
+        "sourceFile": "https://drive.google.com/file/d/14SSXIoyFADUUd2U8IsZKaztq3ULq0FZr/view",
+        "originalFilename": "B41CBFB2-6D89-4F5D-B840-216863BCC9FF.jpeg",
+        "sha256": "e0dcc9e18019358c19dcbb46e4c34308976b9d525a394287aa72c16b94cf783f",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "esteban",
+        "asset": "/design/assets/uploads/unnamed-copy.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1Oo5hyk3juHg3Rrr0WMhnWllO_ysJGOK0/view",
+        "status": "Already uses the same original photograph at the shared resolution; retained."
+      },
+      {
+        "person": "akito",
+        "asset": "/design/assets/people/akito-original.png",
+        "previousAsset": "/design/assets/people/akito.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1Nsz0sSdvkHaZZLKeOwqcM4WT5pNuTrBQ/view",
+        "originalFilename": "_HRC1350_TIE.png",
+        "sha256": "e7271c60fd3e309974ba2d58a8d11935f8b025a9f113d38a1d202b97c4c9f10f",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "eugenio",
+        "asset": "/design/assets/people/eugenio-original.jpg",
+        "previousAsset": "/design/assets/people/eugenio.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1e_PPEJcK5oiNURrPpbI6PScnJ48WD8ls/view",
+        "originalFilename": "Foto.jpg",
+        "sha256": "f1e138cdc5209f65cdda44913807c49c17707a60620ca80e7f42537b4331fa1d",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "joshua",
+        "asset": "/design/assets/people/joshua-original.jpeg",
+        "previousAsset": "/design/assets/people/joshua.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1xY3B6Cql_eiy8n-P9GDaLdOt-txRLKeH/view",
+        "originalFilename": "image0.jpeg",
+        "sha256": "19f49d0e6811e33181db5c2f9bbac66863e0046af2c237204077352d8e8acae8",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      },
+      {
+        "person": "majo",
+        "asset": "/design/assets/people/majo-original.jpg",
+        "previousAsset": "/design/assets/people/majo.jpg",
+        "sourceFile": "https://drive.google.com/file/d/1q2_U18OIJ_PmXFtY97SELdxeCcbAjDXW/view",
+        "originalFilename": "0194679 Favela Cantarero,Maria José.jpg",
+        "sha256": "0d3a376993483363aa6d66f8d513c64f60e665a4de4c933a0b7867c445ab75d5",
+        "status": "Original file copied byte-for-byte. Existing framing reproduced with CSS; no image recompression or retouching."
+      }
+    ],
+    "unusedFiles": "Additional alternative portraits and publication media retained outside the site; not substituted automatically. Human Capital reference-page portraits retained for the approved comparison."
+  }
 }

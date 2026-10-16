@@ -3,7 +3,7 @@
   "slug": "joshua",
   "role": "Research professional",
   "bio": "Joshua’s research interests lie in applied econometrics and quantitative data analysis, with a focus on understanding how economic incentives and risk shape individual and social outcomes. His current work uses municipal-level data from Mexico to examine socio-economic determinants of violence in Mexico. More broadly, he is interested in applying econometric and predictive methods to study risk and decision-making in complex systems. He has participated in the IMC Prosperity Algorithmic Trading Challenge, an international competition focused on algorithmic trading, statistical modeling, and market analysis. Beyond research, he has experience in corporate diagnostics and business analytics, applying quantitative methods to decision-making.",
-  "portrait": "/design/assets/people/joshua.jpg",
+  "portrait": "/design/assets/people/joshua-original.jpeg",
   "portrait_alt": "Portrait of Joshua M. Torres.",
   "research_areas": [
     "development-economics"
@@ -14,5 +14,12 @@
   "published": true,
   "display_order": 110,
   "bio_es": "Los intereses de investigación de Joshua se sitúan en la econometría aplicada y el análisis cuantitativo de datos, con atención a cómo los incentivos económicos y el riesgo determinan los resultados individuales y sociales. Su trabajo actual utiliza datos municipales de México para examinar los determinantes socioeconómicos de la violencia en el país. En términos más amplios, le interesa aplicar métodos econométricos y predictivos al estudio del riesgo y la toma de decisiones en sistemas complejos. Ha participado en el IMC Prosperity Algorithmic Trading Challenge, una competencia internacional de negociación algorítmica, modelación estadística y análisis de mercados. Además de la investigación, tiene experiencia en diagnóstico corporativo y analítica de negocios, aplicando métodos cuantitativos a la toma de decisiones.",
-  "portrait_alt_es": "Retrato de Joshua M. Torres."
+  "portrait_alt_es": "Retrato de Joshua M. Torres.",
+  "display_name": "Joshua M. Torres",
+  "portrait_crop": {
+    "left": 24.5,
+    "top": 0.824,
+    "width": 53.7,
+    "height": 51.266
+  }
 }

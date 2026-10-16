@@ -1,10 +1,12 @@
 {
-  "name": "Macroeconomics",
+  "name": "Macroeconomics and Finance",
   "slug": "macroeconomics",
   "summary": "Macroeconomics studies how economies grow, respond to crises, and create conditions for long-term prosperity. Government policies, financial systems, international trade, and political institutions all shape economic stability, productivity, and development opportunities. Understanding how economies react to shocks such as debt crises, inflation, or financial instability is important for designing policies that promote sustainable growth and protect household welfare.",
   "people": [
     "arnulfo",
-    "juan-alvaro"
+    "juan-alvaro",
+    "sergio",
+    "patricio"
   ],
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/macro-economy",
@@ -22,8 +24,8 @@
       "researcher_note_es": "Investigadores UP: Juan Alvaro D. Kedilhac y Arnulfo Rodríguez Hernández"
     }
   ],
-  "display_order": 5,
-  "name_es": "Macroeconomía",
+  "display_order": 4,
+  "name_es": "Macroeconomía y Finanzas",
   "summary_es": "La macroeconomía estudia cómo crecen las economías, responden a las crisis y generan condiciones para la prosperidad a largo plazo. Las políticas gubernamentales, los sistemas financieros, el comercio internacional y las instituciones políticas determinan la estabilidad económica, la productividad y las oportunidades de desarrollo. Comprender cómo reaccionan las economías a perturbaciones como las crisis de deuda, la inflación o la inestabilidad financiera es importante para diseñar políticas que promuevan el crecimiento sostenible y protejan el bienestar de los hogares.",
   "overview_es": "Esta agenda de investigación examina cómo las instituciones macroeconómicas, el riesgo soberano, la integración comercial y las políticas públicas influyen en el desarrollo económico y el crecimiento a largo plazo. Los proyectos actuales exploran temas como el incumplimiento soberano, las pérdidas de productividad durante las crisis financieras, los acuerdos comerciales, las instituciones monetarias y la relación más amplia entre estabilidad macroeconómica y desempeño económico.",
   "image": "/design/assets/research/euro-sculpture.jpg",

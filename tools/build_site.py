@@ -138,11 +138,22 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
     for row in data["people"]:
         path = row.pop("_path")
         require_text(path, row, "name")
+        row["display_name"] = optional_text(path, row, "display_name") or row["name"]
         require_text(path, row, "role")
         require_text(path, row, "bio")
         row["source_url"] = validate_url(path, "source_url", row.get("source_url", ""), optional=True)
         require_text(path, row, "verified_on")
         row["portrait"] = local_asset(path, "portrait", row.get("portrait", ""), optional=True) if row.get("portrait") else ""
+        crop = row.get("portrait_crop")
+        if crop:
+            if not isinstance(crop, dict):
+                fail(path, "portrait_crop", "expected a crop rectangle in percentages")
+            for key in ("left", "top", "width", "height"):
+                value = crop.get(key)
+                if isinstance(value, bool) or not isinstance(value, (int, float)) or not 0 <= value <= 100:
+                    fail(path, "portrait_crop", "use percentages between 0 and 100")
+            if crop["width"] <= 0 or crop["height"] <= 0 or crop["left"] + crop["width"] > 100.01 or crop["top"] + crop["height"] > 100.01:
+                fail(path, "portrait_crop", "the crop must fit inside the original photograph")
         row["canonical_url"] = validate_url(path, "canonical_url", row.get("canonical_url", ""), optional=True)
         row["personal_website"] = validate_url(path, "personal_website", row.get("personal_website", ""), optional=True)
         topics = row.get("research_areas", [])
@@ -289,6 +300,10 @@ def render_area(area: dict, index: int, *, home=False) -> str:
 
 def render_person(person: dict, areas: dict[str, dict]) -> str:
     portrait = f'<img class="person-portrait" src="{e(person["portrait"])}" alt="{e(person.get("portrait_alt") or person["name"])}" width="240" height="300" loading="lazy">' if person.get("portrait") else ""
+    if portrait and person.get("portrait_crop"):
+        crop = person["portrait_crop"]
+        style = f'--crop-width:{10000 / crop["width"]:.4f}%;--crop-height:{10000 / crop["height"]:.4f}%;--crop-left:{-100 * crop["left"] / crop["width"]:.4f}%;--crop-top:{-100 * crop["top"] / crop["height"]:.4f}%'
+        portrait = f'<div class="portrait-frame" style="{style}">{portrait}</div>'
     topics = [area for key, area in areas.items() if key in person.get("research_areas", [])]
     topic_html = ""
     if topics:
@@ -297,7 +312,7 @@ def render_person(person: dict, areas: dict[str, dict]) -> str:
     profile = external_anchor(person.get("personal_website", ""), "Personal website", "profile-link")
     if person.get("canonical_url") and person["canonical_url"] != person.get("personal_website"):
         profile += external_anchor(person["canonical_url"], "Research profile", "profile-link")
-    return f'<article class="person" id="{e(person["slug"])}"><div class="person-visual">{portrait}{topic_html}</div><div class="person-copy"><h3>{e(person["name"])}</h3><p class="person-bio">{e(person["bio"])}</p>{profile}</div></article>'
+    return f'<article class="person" id="{e(person["slug"])}"><div class="person-visual">{portrait}{topic_html}</div><div class="person-copy"><h3>{e(person["display_name"])}</h3><p class="person-bio">{e(person["bio"])}</p>{profile}</div></article>'
 
 
 def render_people(people: list[dict], areas: dict[str, dict]) -> str:
@@ -308,17 +323,27 @@ def render_people(people: list[dict], areas: dict[str, dict]) -> str:
 
 
 def render_authors(pub: dict) -> str:
-    return ", ".join(
-        f'<a href="/people.html#{quote(author["person_id"], safe="-")}">{e(author["name"])}</a>'
-        if isinstance(author, dict) and author.get("person_id")
-        else e(author if isinstance(author, str) else author["name"])
-        for author in pub["authors"]
-    )
+    up = [a for a in pub["authors"] if isinstance(a, dict) and a.get("person_id")]
+    others = [a for a in pub["authors"] if not (isinstance(a, dict) and a.get("person_id"))]
+    def names(authors):
+        return ", ".join(
+            f'<a href="/people.html#{quote(a["person_id"], safe="-")}">{e(a["name"])}</a>'
+            if isinstance(a, dict) and a.get("person_id")
+            else e(a if isinstance(a, str) else a["name"])
+            for a in authors
+        )
+    if not up:
+        return names(others)
+    label = "UP researcher:" if len(up) == 1 else "UP researchers:"
+    result = f'<span class="author-group-label">{label}</span> ' + names(up)
+    if others:
+        result += ' <span class="coauthor-prefix">with</span> ' + names(others)
+    return result
 
 
 def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
-    url = pub.get("canonical_url") or pub.get("pdf") or pub.get("pdf_url") or f'/publications/{quote(pub["slug"], safe="-")}/'
+    url = f'/publications/{quote(pub["slug"], safe="-")}/'
     photo = f'<a class="paper-image" href="{e(url)}" aria-label="{e(pub["title"])}">{image_html(pub, "paper-photo")}</a>' if pub.get("image") else ""
     venue = pub["venue"] or pub["type"]
     return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
@@ -345,10 +370,24 @@ def render_seminar(item: dict, archived=False) -> str:
     return f'<article class="event-line seminar-record" id="{e(item["slug"])}"><div class="event-date">{event_date}</div><div><h3>{e(item["title"])}</h3><p>{summary}</p></div><div>{links}</div></article>'
 
 
+def render_seminar_information(settings: dict) -> str:
+    return "".join(f'<p>{e(settings[field])}</p>' for field in ("seminar_description", "seminar_schedule", "seminar_schedule_note") if settings.get(field))
+
+
+def render_seminar_proposals(settings: dict) -> str:
+    items = "".join(f'<li><h3>{e(item["label"])}</h3><p>{e(item["description"])}</p></li>' for item in settings.get("seminar_proposals", []))
+    form = external_anchor(settings.get("seminar_form_url", ""), "Submit a proposal (form in Spanish)")
+    note = f'<p class="note">{e(settings["seminar_form_note"])}</p>' if settings.get("seminar_form_note") else ""
+    email = settings.get("contact_email", "")
+    contact = f'<p><span>Questions?</span> <a href="mailto:{e(email)}">{e(email)}</a></p>' if email else ""
+    return f'<ul class="seminar-proposal-types">{items}</ul><div class="seminar-proposal-action">{form}{note}{contact}</div>'
+
+
 def render_scope(settings: dict) -> str:
     if not settings.get("published"):
         return '<p class="note">About information is under review.</p>'
-    return f'<div class="eyebrow">Research scope</div><h2>{e(settings.get("research_scope", ""))}</h2><p>{e(settings.get("scope", ""))}</p><p>{e(settings.get("affiliation", ""))}</p>'
+    heading = f'<h2>{e(settings["research_scope"])}</h2>' if settings.get("research_scope") else ""
+    return f'<div class="eyebrow">Research scope</div>{heading}<p>{e(settings.get("scope", ""))}</p><p>{e(settings.get("affiliation", ""))}</p>'
 
 
 def render_about(settings: dict) -> str:
@@ -417,13 +456,26 @@ def build() -> None:
     if not YOUTUBE_ID_RE.fullmatch(video_id):
         fail(CONTENT / "settings/site.json", "campus_video_id", "must be a valid 11-character YouTube ID")
     if about_settings.get("published"):
-        for key in ("scope", "research_scope", "collaboration", "verified_on"):
+        for key in ("scope", "collaboration", "verified_on"):
             require_text(CONTENT / "settings/about.json", about_settings, key)
         about_settings["source_url"] = validate_url(CONTENT / "settings/about.json", "source_url", about_settings.get("source_url", ""), optional=True)
         contact_email = optional_text(CONTENT / "settings/about.json", about_settings, "contact_email")
         if contact_email and not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", contact_email):
             fail(CONTENT / "settings/about.json", "contact_email", "must be a valid public email address")
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
+    if site_settings.get("show_seminars", False):
+        path = CONTENT / "settings/about.json"
+        for field in ("seminar_description", "seminar_schedule", "seminar_schedule_note", "seminar_form_note"):
+            require_text(path, about_settings, field)
+            require_text(path, about_settings, field + "_es")
+        for field in ("seminar_form_url", "seminar_source_url"):
+            about_settings[field] = validate_url(path, field, about_settings.get(field, ""))
+        proposals = about_settings.get("seminar_proposals", [])
+        if not isinstance(proposals, list) or not all(isinstance(item, dict) for item in proposals):
+            fail(path, "seminar_proposals", "expected a list of proposal types")
+        for item in proposals:
+            for field in ("label", "label_es", "description", "description_es"):
+                require_text(path, item, field)
     data = validate_records(raw)
     for collection in ("research_areas", "people"):
         for row in data[collection]:
@@ -451,6 +503,44 @@ def build() -> None:
                         require_text(path, project, "image_alt_es")
                         require_text(path, project, "image_alt")
                         require_text(path, project, "image_credit")
+                layout = row.get("layout", "standard")
+                if layout not in {"standard", "original-reference"}:
+                    fail(path, "layout", "choose standard or original-reference")
+                if layout == "original-reference":
+                    banner = row.get("banner")
+                    team = row.get("reference_team", [])
+                    features = row.get("publication_features", [])
+                    if not isinstance(banner, dict) or not isinstance(team, list) or not isinstance(features, list):
+                        fail(path, "layout", "the original layout needs a banner, team list and publication features list")
+                    for member in team:
+                        if not isinstance(member, dict) or member.get("person_id") not in {person["slug"] for person in data["people"]}:
+                            fail(path, "reference_team", "choose a published researcher")
+                    for feature in features:
+                        if not isinstance(feature, dict) or feature.get("publication") not in {pub["slug"] for pub in data["publications"]}:
+                            fail(path, "publication_features", "choose an approved publication")
+                        require_text(path, feature, "description")
+                        require_text(path, feature, "description_es")
+                        links = feature.get("media_links", [])
+                        if not isinstance(links, list) or not all(isinstance(item, dict) for item in links):
+                            fail(path, "media_links", "expected a list of labeled links")
+                        for item in links:
+                            require_text(path, item, "label")
+                            require_text(path, item, "label_es")
+                            item["url"] = validate_url(path, "media_links.url", item.get("url", ""))
+                    for record in [banner, *team, *features]:
+                        record["image"] = local_asset(path, "reference image", record.get("image", ""))
+                        for field in ("image_alt", "image_alt_es", "image_credit"):
+                            require_text(path, record, field)
+                        record["image_source_url"] = validate_url(path, "image_source_url", record.get("image_source_url", ""))
+    # Visibility is editorial, separate from each record's approval status.
+    for flag in ("show_working_papers", "show_policy_briefs"):
+        if not isinstance(site_settings.get(flag, True), bool):
+            fail(CONTENT / "settings/site.json", flag, "must be true or false")
+    hidden_types = {kind for kind, flag in (("Working paper", "show_working_papers"), ("Policy brief", "show_policy_briefs")) if not site_settings.get(flag, True)}
+    data["publications"] = sorted(
+        (pub for pub in data["publications"] if pub["type"] not in hidden_types),
+        key=lambda pub: (-pub["year"], pub["title"].casefold()),
+    )
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
     area_names = {key: value["name"] for key, value in areas_by_id.items()}
 
@@ -502,7 +592,9 @@ def build() -> None:
             "design/people.html": {"people_directory": render_people(data["people"], areas_by_id)},
             "design/publications.html": {"publication_list": "".join(render_publication_card(pub, area_names) for pub in data["publications"]) or '<p class="empty-state">No verified publications have been added yet.</p>'},
             "design/news.html": {"news_list": "".join(render_news(item) for item in data["news"]) or '<p class="empty-state">No approved announcements have been added yet.</p>'},
-            "design/seminars.html": {"seminar_upcoming": "".join(render_seminar(item) for item in data["seminars"] if iso_day(item["date"]) >= date.today().isoformat()) or '<p class="note">Confirmed upcoming seminars will appear here.</p>',
+            "design/seminars.html": {"seminar_information": render_seminar_information(about_settings),
+                                      "seminar_proposals": render_seminar_proposals(about_settings),
+                                      "seminar_upcoming": "".join(render_seminar(item) for item in data["seminars"] if iso_day(item["date"]) >= date.today().isoformat()) or '<p class="note">Confirmed upcoming seminars will appear here.</p>',
                                       "seminar_archive": "".join(render_seminar(item, archived=True) for item in data["seminars"] if iso_day(item["date"]) < date.today().isoformat()) or '<p class="note">Confirmed past seminars will appear here.</p>'},
             "design/about.html": {"about_content": render_about(about_settings)},
         }
@@ -517,6 +609,8 @@ def build() -> None:
                     source = replace_slot(source, name, source.split(f"<!-- CMS_SLOT:{name}:START -->", 1)[1].split(f"<!-- CMS_SLOT:{name}:END -->", 1)[0], ROOT / relpath)
             source = minify_slots(source)
             if relpath in {"index.html", "design/homepage-concept.html"}:
+                if "Working paper" in hidden_types:
+                    source = re.sub(r'<a class="output-link" href="publications\.html\?type=Working%20paper">.*?</a>', '', source, flags=re.S)
                 source = re.sub(r'data-video-id="[^"]*"', f'data-video-id="{e(site_settings["campus_video_id"])}"', source, count=1)
                 source = re.sub(r'<img src="(?:design/)?assets/[^"]+" alt="[^"]*" width="\d+" height="\d+"', f'<img src="{e(site_settings["campus_video_poster"])}" alt="{e(site_settings["campus_video_poster_alt"])}" width="480" height="360"', source, count=1)
                 source = re.sub(r'href="https://www\.youtube\.com/watch\?v=[A-Za-z0-9_-]{11}"', f'href="https://www.youtube.com/watch?v={e(site_settings["campus_video_id"])}"', source, count=1)
@@ -588,7 +682,7 @@ def build() -> None:
 
         search = list(pages)
         for person in data["people"]:
-            search.append(page_entry(person["name"], person["bio"], " ".join(person.get("research_areas", [])), f'/people.html#{quote(person["slug"], safe="-")}', "People"))
+            search.append(page_entry(person["display_name"], person["bio"], person["name"] + " " + " ".join(person.get("research_areas", [])), f'/people.html#{quote(person["slug"], safe="-")}', "People"))
         for area in data["research_areas"]:
             search.append(page_entry(area["name"], area["summary"] + " " + area.get("overview", "") + " " + " ".join(p["title"] + " " + p["summary"] for p in area.get("projects", [])), area["slug"], f'/research-area.html?area={quote(area["slug"], safe="-")}', "Research area"))
         for pub in data["publications"]:
@@ -606,7 +700,7 @@ def build() -> None:
         for pub in data["publications"]:
             author_html = render_authors(pub)
             topic_html = "".join(f'<a class="tag" href="/research-area.html?area={quote(key, safe="-")}">{e(area_names[key])}</a>' for key in pub["topics"])
-            canonical_link = external_anchor(pub.get("canonical_url", ""), "View publisher page")
+            canonical_link = external_anchor(pub.get("canonical_url", ""), "View article", "button")
             pdf_url = pub.get("pdf") or pub.get("pdf_url")
             download_link = external_anchor(pdf_url, "Download paper (PDF)") if pdf_url else ""
             if not download_link:
@@ -648,6 +742,10 @@ def build() -> None:
             if not site_settings.get("show_news", False) and not site_settings.get("show_seminars", False):
                 source = source.replace("Find people, papers, research areas, seminars, and news.", "Find people, papers, and research areas.")
                 source = source.replace("Try education, working papers, or seminars", "Try education, development, or working papers")
+            elif not site_settings.get("show_news", False):
+                source = source.replace("Find people, papers, research areas, seminars, and news.", "Find people, papers, research areas, and seminars.")
+            if not site_settings.get("show_working_papers", True):
+                source = source.replace("Try education, working papers, or seminars", "Try education, publications, or seminars")
             page.write_text(source, encoding="utf-8")
         search = [row for row in search if not any(not site_settings.get("show_" + section, False) and re.search(r"/" + section + r"\.html(?:[?#]|$)", row["url"]) for section in ("news", "seminars"))]
         write_json(site / "search-index.json", search)
