@@ -746,6 +746,8 @@ def build() -> None:
                 source = source.replace("Find people, papers, research areas, seminars, and news.", "Find people, papers, research areas, and seminars.")
             if not site_settings.get("show_working_papers", True):
                 source = source.replace("Try education, working papers, or seminars", "Try education, publications, or seminars")
+                source = re.sub(r'<a class="output-link" href="[^"<>]*publications\.html\?type=Working%20paper">.*?</a>', "", source, flags=re.S)
+                source = source.replace("Explore academic publications and work in progress by the Center’s researchers.", "Explore academic publications by the Center’s researchers.")
             page.write_text(source, encoding="utf-8")
         search = [row for row in search if not any(not site_settings.get("show_" + section, False) and re.search(r"/" + section + r"\.html(?:[?#]|$)", row["url"]) for section in ("news", "seminars"))]
         write_json(site / "search-index.json", search)
