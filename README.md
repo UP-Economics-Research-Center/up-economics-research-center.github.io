@@ -139,7 +139,7 @@ La dirección visual y los pendientes documentales están en [las notas de la ve
 
 ### Policy Briefs and companion briefs
 
-Policy Briefs is an archive category. The two UNICEF briefs were removed from public display at the team’s request; they remain unpublished in the CMS. To add a brief beside an article, first create and approve a Publications record with **Type: Policy brief**, then select it under that article’s **Companion policy brief / Nota de política asociada**. The same brief stays in the archive, appears beside the article on desktop (below it on mobile), and is linked from Research. Leave the relation empty until the association is confirmed; do not infer a companion brief from a similar topic.
+Policy Briefs is an archive category and remains in the type filter even with zero records while its visibility switch is enabled. The two UNICEF briefs were removed from public display at the team’s request; they remain unpublished in the CMS. To add a brief beside an article, first create and approve a Publications record with **Type: Policy brief**, then select it under that article’s **Companion policy brief / Nota de política asociada**. The same brief stays in the archive, appears beside the article on desktop (below it on mobile), and is linked from Research. Leave the relation empty until the association is confirmed; do not infer a companion brief from a similar topic.
 
 ### Publication preview permissions
 

@@ -788,7 +788,11 @@ def build() -> None:
             if relpath == "design/publications.html":
                 years = sorted({str(pub["year"]) for pub in data["publications"]}, reverse=True)
                 topics = [area["slug"] for area in data["research_areas"] if any(area["slug"] in pub["topics"] for pub in data["publications"])]
-                types = sorted({pub["type"] for pub in data["publications"]})
+                types = {pub["type"] for pub in data["publications"]}
+                # Policy brief remains an editorial category even before its first public record.
+                if site_settings.get("show_policy_briefs", True):
+                    types.add("Policy brief")
+                types = sorted(types)
                 source = replace_select_options(source, "pub-topic", "All topics", [(key, area_names[key]) for key in topics])
                 source = replace_select_options(source, "pub-year", "All years", [(year, year) for year in years])
                 source = replace_select_options(source, "pub-type", "All types", [(kind, kind) for kind in types])

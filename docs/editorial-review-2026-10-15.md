@@ -436,3 +436,5 @@ Policy Briefs vuelve a ser una categoría visible del archivo: se muestran dos b
 
 ### Category correction after PR #28
 The team explicitly classifies both The Perfect Fit and VelaFi as articles. Set both to the existing Journal article category. Remove Conference paper and Case study from the CMS, validator and translations; this supersedes the categorization recorded above. Preserve publication titles, authors, venues and descriptions.
+
+Policy brief remains a valid visible archive category even with zero public records, explicitly confirmed after PR #29. Keep the filter option when Show policy briefs publicly is enabled; do not republish the UNICEF records.
