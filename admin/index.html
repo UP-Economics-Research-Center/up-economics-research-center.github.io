@@ -17,6 +17,8 @@
       .setup-note a { color: #17483b; }
       .workflow-note { max-width: 52rem; margin: 1rem auto; padding: 1rem 1.25rem; border-left: 4px solid #17483b; background: #eef5f1; }
       .workflow-note p { margin: .35rem 0 0; }
+      .workflow-note a { color: #17483b; font-weight: 650; }
+      .workflow-note details { margin-top: .6rem; }
     </style>
   </head>
   <body>
@@ -25,9 +27,12 @@
       <span>A repository owner must configure the GitHub OAuth App and Worker before editors can log in. Follow the owner setup in the project README.</span>
       <a href="https://github.com/UP-Economics-Research-Center/up-economics-research-center.github.io#owner-setup-github-sign-in">Open setup instructions</a>
     </aside>
-    <aside class="workflow-note" role="note" aria-label="How to publish content">
-      <strong>Publish directly to the live site</strong>
-      <p>Only invited GitHub repository collaborators with write access can edit. Saving a change in Decap commits it directly to the main branch. GitHub Pages then rebuilds the site automatically. Review your changes carefully before publishing; no pull request or second approval is required.</p>
+    <aside class="workflow-note" role="note" aria-label="Editorial review workflow">
+      <strong>Save a draft → Request review → Publish after approval</strong>
+      <p>Saving a draft does not update the public website. Complete the English and Spanish fields, then move the entry to <b>In review</b>. Another editor must review and approve the change in GitHub before publication. <b>Ready</b> in the editor is a workflow status; it does not replace that approval.</p>
+      <p>The <b>Include on website</b> switch controls whether the approved record appears publicly. Keep it on when updating an existing public record; turn it off only to hide the record after publication.</p>
+      <p><a href="./editor-guide.html" target="_blank" rel="noopener">Editor and reviewer guide / Guía de edición y aprobación ↗</a></p>
+      <details lang="es"><summary>Instrucciones en español</summary><p>Guarda un borrador, completa ambos idiomas y cambia el estado a <b>In review</b> para solicitar revisión. Otra persona debe aprobar el cambio en GitHub antes de publicarlo. El estado <b>Ready</b> no sustituye esa aprobación. <b>Mostrar en el sitio</b> controla la visibilidad del registro después de aprobar y publicar; al editar un registro público, conserva el interruptor activado.</p></details>
     </aside>
     <script src="./setup-status.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.15.1/dist/decap-cms.js"></script>

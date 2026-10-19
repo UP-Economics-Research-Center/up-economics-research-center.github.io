@@ -6,7 +6,7 @@ backend:
   base_url: https://up-economics-decap-auth.jadrk040507.workers.dev
   auth_endpoint: auth
   auth_scope: public_repo
-publish_mode: simple
+publish_mode: editorial_workflow
 locale: en
 media_folder: design/assets/uploads
 public_folder: /design/assets/uploads
@@ -25,11 +25,11 @@ collections:
     - label: Center name
       name: center_name
       widget: string
+      hint: Always use UP Economics Research Center, in both languages.
     - label: Center name — Spanish
       name: center_name_es
       widget: string
-      required: false
-      hint: Translate the complete English text faithfully before publishing.
+      hint: Keep UP Economics Research Center unchanged; do not translate the institution name.
     - label: University
       name: university
       widget: string
@@ -141,11 +141,11 @@ collections:
     file: content/settings/about.json
     format: json
     fields:
-    - label: Publish these details
+    - label: Include these details on website / Mostrar estos datos
       name: published
       widget: boolean
       default: false
-      hint: Turn this on only when the content is ready to appear on the public site.
+      hint: Controls visibility after approval and publication. This is not an approval switch; saving keeps the change in review.
     - label: Center scope
       name: scope
       widget: text
@@ -281,14 +281,6 @@ collections:
       name: seminar_source_url
       widget: string
       required: false
-    - label: Publish public Contact details
-      name: contact_published
-      widget: boolean
-      default: false
-    - label: Public institutional address
-      name: contact_address
-      widget: text
-      required: false
     - label: Contact reference URL
       name: contact_source_url
       widget: string
@@ -402,10 +394,11 @@ collections:
     widget: datetime
     date_format: YYYY-MM-DD
     time_format: false
-  - label: Publish this profile
+  - label: Include this profile on website / Mostrar este perfil
     name: published
     widget: boolean
     default: false
+    hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.
 - name: research_areas
   label: Research areas
   label_singular: Research area
@@ -472,14 +465,14 @@ collections:
     name: layout
     widget: select
     required: false
-    default: standard
+    default: original-reference
     options:
     - label: Standard area design
       value: standard
     - label: Original photo-led reference
       value: original-reference
-    hint: The original reference layout is currently used only for Human Capital. Other
-      areas retain the standard design.
+    hint: All areas use the photo-led design. Keep a local cover photograph;
+      projects show their photographs when provided.
   - label: Original cover photograph
     name: banner
     widget: object
@@ -504,8 +497,8 @@ collections:
     name: reference_team
     widget: list
     required: false
-    hint: Only controls the team shown in the original layout; directory area assignments
-      stay independent.
+    hint: Optional team override for this page. Leave empty to use the directory
+      research-area assignments. Changes here do not change directory labels.
     fields:
     - label: Researcher
       name: person_id
@@ -673,10 +666,11 @@ collections:
     widget: datetime
     date_format: YYYY-MM-DD
     time_format: false
-  - label: Publish this area
+  - label: Include this area on website / Mostrar esta área
     name: published
     widget: boolean
     default: false
+    hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.
 - name: publications
   label: Publications
   label_singular: Publication
@@ -715,11 +709,11 @@ collections:
       display_fields:
       - name
       value_field: slug
-  - label: Photograph
+  - label: Article first-page image / Primera página del artículo
     name: image
     widget: image
     required: false
-    hint: Optional. The public image block is hidden when empty.
+    hint: Upload the first PDF page with the journal heading visible, or an approved journal-page capture. The full image is displayed as a small thumbnail; leave empty when unavailable.
   - label: Photograph alternative text
     name: image_alt
     widget: string
@@ -764,9 +758,7 @@ collections:
     - Book chapter
     - Policy brief
     - Other
-  - label: Journal
-    series: null
-    or publisher: null
+  - label: Journal, series or publisher
     name: venue
     widget: string
     required: false
@@ -774,8 +766,7 @@ collections:
     name: doi
     widget: string
     required: false
-    hint: Enter the DOI only
-    such as 10.1234/example.: null
+    hint: Enter the DOI only, such as 10.1234/example.
   - label: Publisher or canonical page
     name: canonical_url
     widget: string
@@ -809,10 +800,11 @@ collections:
     widget: datetime
     date_format: YYYY-MM-DD
     time_format: false
-  - label: Publish this publication
+  - label: Include this publication on website / Mostrar esta publicación
     name: published
     widget: boolean
     default: false
+    hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.
 - name: news
   label: News
   label_singular: News item
@@ -881,10 +873,11 @@ collections:
     widget: datetime
     date_format: YYYY-MM-DD
     time_format: false
-  - label: Publish this item
+  - label: Include this item on website / Mostrar esta noticia
     name: published
     widget: boolean
     default: false
+    hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.
 - name: seminars
   label: Seminars
   label_singular: Seminar
@@ -956,7 +949,8 @@ collections:
     widget: datetime
     date_format: YYYY-MM-DD
     time_format: false
-  - label: Publish this event
+  - label: Include this event on website / Mostrar este evento
     name: published
     widget: boolean
     default: false
+    hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.

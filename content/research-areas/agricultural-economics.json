@@ -16,7 +16,12 @@
       "researchers": [],
       "title_es": "Tenencia de la tierra y conservación del suelo en Perú: evidencia mediante aprendizaje automático doble/desesgado",
       "summary_es": "Los agricultores suelen realizar inversiones a largo plazo en la conservación del suelo solo cuando se sienten seguros respecto de sus tierras y sus medios de vida futuros. Este proyecto examina si la propiedad de la tierra y los títulos formales alientan a los agricultores peruanos a adoptar prácticas de conservación que protejan la calidad del suelo y mejoren la sostenibilidad de la producción agrícola. Con datos del censo agropecuario nacional, la investigación estudia prácticas como los cultivos intercalados, el uso de fertilizantes orgánicos y la infraestructura tradicional de conservación, incluidos los andenes y las terrazas. El proyecto también explora cómo la geografía, las instituciones locales y las condiciones ambientales determinan las decisiones de conservación en distintas regiones del Perú.",
-      "researcher_note_es": "Investigadores UP: Esteban Colla‐De‐Robertis y Akito Kamei\ncon Sandro Navarro-Castañeda (Universidad de Piura)\n\nPresentación en Asociación Peruana de Economía (APE) en 2026."
+      "researcher_note_es": "Investigadores UP: Esteban Colla‐De‐Robertis y Akito Kamei\ncon Sandro Navarro-Castañeda (Universidad de Piura)\n\nPresentación en Asociación Peruana de Economía (APE) en 2026.",
+      "image": "/design/assets/research/original-pages/agricultural-economics-project-1.jpg",
+      "image_alt": "Seedlings growing in soil.",
+      "image_alt_es": "Plántulas creciendo en la tierra.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics"
     }
   ],
   "display_order": 7,
@@ -28,5 +33,46 @@
   "image_alt_es": "Campos de trigo dorado con árboles bajo un cielo abierto.",
   "image_credit": "Nupur Dasgupta · CC BY 2.0",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Golden_wheat_field.jpg",
-  "image_license_url": "https://creativecommons.org/licenses/by/2.0/"
+  "image_license_url": "https://creativecommons.org/licenses/by/2.0/",
+  "layout": "original-reference",
+  "reference_team": [],
+  "publication_features": [
+    {
+      "publication": "land-tenure-security-agrarian-investments-peruvian-highlands",
+      "description": "This study examines the relationship between land-tenure security and nine types of agricultural investment in Peru’s Highlands, using agricultural census data and a simultaneous-equations approach to account for the possibility that tenure security and investment affect one another. Tenure security is positively associated with five investment types, although the estimated effects are smaller than the institutional argument for titling might suggest. For two investments, the estimated relationship is negative, consistent with customary practices serving as effective forms of land management. The findings suggest that land-titling programs can support rural development, but are not sufficient on their own and should complement functioning local institutions. Education, training, and gender equality also matter for rural development.",
+      "description_es": "Este estudio examina la relación entre seguridad de la tenencia de la tierra y nueve tipos de inversión agrícola en la sierra peruana, utilizando datos del censo agropecuario y un modelo de ecuaciones simultáneas para considerar que la seguridad de la tenencia y la inversión pueden influirse mutuamente. La seguridad de la tenencia se asocia positivamente con cinco tipos de inversión, aunque los efectos estimados son menores de lo que podría sugerir el argumento institucional a favor de la titulación. Para dos inversiones, la relación estimada es negativa, lo que es compatible con que las prácticas consuetudinarias funcionen como formas eficaces de gestión de la tierra. Los resultados sugieren que los programas de titulación pueden apoyar el desarrollo rural, pero no bastan por sí solos y deben complementar a las instituciones locales que funcionan. La educación, la capacitación y la igualdad de género también son importantes para el desarrollo rural.",
+      "image": "/design/assets/research/original-pages/land-tenure-security-agrarian-investments-peruvian-highlands.png",
+      "image_alt": "Journal article screenshot: Land tenure security and agrarian investments in the Peruvian Highlands",
+      "image_alt_es": "Captura del artículo de revista: Land tenure security and agrarian investments in the Peruvian Highlands",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics"
+    },
+    {
+      "publication": "harvest-postharvest-loss-soybean-brazil",
+      "description": "Based on a survey of 243 soybean farmers in Paraná, Brazil, this study examines factors associated with self-reported harvest losses. It focuses on the principal–agent relationship between farmers and combine operators: operators may have incentives to finish jobs quickly, while slower operation and proper machine adjustment can reduce losses. Farmers identify operator training as an important factor. Reported harvest loss is 1.5 percentage points higher when a third party harvests the crop than when farmers harvest themselves. Higher farmer education is associated with lower loss, while larger planted areas are associated with greater loss. The findings indicate that the identity and incentives of the person harvesting matter and suggest that training, contracts, and other arrangements aligning operator and farmer incentives could help limit losses.",
+      "description_es": "A partir de una encuesta a 243 productores de soja de Paraná, Brasil, este estudio examina factores asociados con las pérdidas de cosecha declaradas por los agricultores. Se centra en la relación principal-agente entre agricultores y operadores de cosechadoras: estos pueden tener incentivos para terminar rápidamente, mientras que operar más despacio y ajustar adecuadamente la maquinaria puede reducir las pérdidas. Los agricultores identifican la capacitación del operador como un factor importante. La pérdida declarada es 1,5 puntos porcentuales mayor cuando cosecha un tercero que cuando lo hace el propio agricultor. Una mayor educación del productor se asocia con menores pérdidas, mientras que mayores superficies cultivadas se asocian con pérdidas superiores. Los resultados indican que importan la identidad y los incentivos de quien cosecha, y sugieren que la capacitación, los contratos y otros acuerdos que alineen los incentivos del operador y el agricultor podrían limitar las pérdidas.",
+      "image": "/design/assets/research/original-pages/harvest-postharvest-loss-soybean-brazil.png",
+      "image_alt": "Journal article screenshot: Factors associated with harvest and postharvest loss among soybean farmers in Western Paraná State, Brazil",
+      "image_alt_es": "Captura del artículo de revista: Factors associated with harvest and postharvest loss among soybean farmers in Western Paraná State, Brazil",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics"
+    },
+    {
+      "publication": "gender-education-farm-succession-western-parana",
+      "description": "Using survey interviews with 205 soybean farmers in Western Paraná, Brazil, this study investigates which household and farm characteristics are associated with plans to transfer a farm to the next generation. About 64% of respondents expected to pass on their business. Traditional gender norms shape those plans: households without sons were substantially less likely to expect succession, while larger farms were more likely to have a family successor. Farmers with college education were less likely to plan a transfer to their children, and participation in subsidized-credit programs aimed at smallholders was associated with a greater likelihood of succession. The findings suggest that credit programs and succession planning may help sustain family agriculture, while gendered expectations and declining fertility pose challenges.",
+      "description_es": "Mediante entrevistas a 205 productores de soja del oeste de Paraná, Brasil, este estudio investiga qué características de los hogares y las explotaciones se asocian con planes para transferir una finca a la siguiente generación. Aproximadamente el 64 % esperaba transmitir su negocio. Las normas tradicionales de género influyen en esos planes: los hogares sin hijos varones tenían una probabilidad sustancialmente menor de prever la sucesión, mientras que las explotaciones más grandes tenían mayor probabilidad de contar con un sucesor familiar. Los agricultores con educación universitaria eran menos propensos a planear la transferencia a sus hijos, y la participación en programas de crédito subsidiado para pequeños productores se asociaba con una mayor probabilidad de sucesión. Los resultados sugieren que los programas de crédito y la planeación sucesoria pueden ayudar a sostener la agricultura familiar, mientras que las expectativas de género y la disminución de la fecundidad plantean desafíos.",
+      "image": "/design/assets/research/original-pages/gender-education-farm-succession-western-parana.png",
+      "image_alt": "Journal article screenshot: Gender, education, and farm succession in Western Paraná State, Brazil",
+      "image_alt_es": "Captura del artículo de revista: Gender, education, and farm succession in Western Paraná State, Brazil",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics"
+    }
+  ],
+  "banner": {
+    "image": "/design/assets/research/original-pages/agricultural-economics-cover.jpg",
+    "image_alt": "Farm equipment in a cultivated field.",
+    "image_alt_es": "Maquinaria agrícola en un campo de cultivo.",
+    "image_credit": "UP Economics Research Center · Original research page",
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/agriculture-economics"
+  }
 }

@@ -16,7 +16,12 @@
       "researchers": [],
       "title_es": "Efectos de la calidad del aire y la temperatura en la demanda de bicicletas compartidas: evidencia de Washington, D. C.",
       "summary_es": "A medida que las ciudades promueven el transporte sostenible y la movilidad activa, comprender cómo las condiciones ambientales influyen en las decisiones de transporte adquiere cada vez más importancia. Este proyecto examina cómo la temperatura y la calidad del aire afectan la demanda de bicicletas compartidas en Washington, D. C., uno de los mayores sistemas urbanos de bicicletas compartidas en Estados Unidos. Con datos diarios de uso de bicicletas y condiciones ambientales, la investigación explora cómo el clima y la contaminación del aire determinan los patrones de uso a lo largo de las estaciones.",
-      "researcher_note_es": "Investigadores UP: Mauricio Patton Escamilla \nPatricio Antonio Lorenzana Márquez\nAkito Kamei"
+      "researcher_note_es": "Investigadores UP: Mauricio Patton Escamilla \nPatricio Antonio Lorenzana Márquez\nAkito Kamei",
+      "image": "/design/assets/research/original-pages/environmental-economics-project-1.jpg",
+      "image_alt": "Bicycles at a bike-sharing station.",
+      "image_alt_es": "Bicicletas en una estación de bicicletas compartidas.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
     },
     {
       "title": "Who Walks for Water? Water Consumption and Labor Supply Response to Rainfall Scarcity in Uganda",
@@ -26,17 +31,31 @@
       "title_es": "¿Quién camina por agua? Consumo de agua y respuesta de la oferta laboral a la escasez de lluvia en Uganda",
       "summary_es": "El cambio climático y la escasez de agua aumentan la carga de acceder a agua segura para millones de hogares en países de bajos ingresos. Este artículo examina cómo las sequías y la falta de lluvia afectan el acceso al agua y la vida cotidiana de las familias en Uganda. Con datos de hogares representativos a nivel nacional combinados con información satelital de lluvias, la investigación explora cómo los hogares responden a la escasez de agua mediante cambios en la recolección, el gasto y la asignación del trabajo. El proyecto destaca la carga desigual de la escasez de agua dentro de los hogares, particularmente para las mujeres y las niñas, que suelen dedicar más tiempo a buscar agua durante los periodos de sequía.",
       "researcher_note_es": "Investigadores UP: Akito Kamei",
-      "url": "https://drive.google.com/file/d/1c_dXSCm8J5LgGw68bA2sYMdq9wOaM6Cd/view?usp=sharing"
+      "url": "https://drive.google.com/file/d/1c_dXSCm8J5LgGw68bA2sYMdq9wOaM6Cd/view?usp=sharing",
+      "image": "/design/assets/research/original-pages/environmental-economics-project-2.jpg",
+      "image_alt": "Dry, cracked ground under a sunset.",
+      "image_alt_es": "Suelo seco y agrietado al atardecer.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
     }
   ],
   "display_order": 8,
   "name_es": "Economía Ambiental y del Clima",
   "summary_es": "La economía ambiental examina cómo las condiciones ambientales y las políticas públicas determinan el comportamiento humano, la actividad económica y la calidad de vida. Problemas como la contaminación del aire, la variabilidad climática y el transporte sostenible afectan cada vez más la salud pública, la vida urbana y la sostenibilidad ambiental a largo plazo.",
   "overview_es": "Esta agenda de investigación estudia cómo los factores ambientales influyen en las decisiones económicas y el comportamiento cotidiano, con énfasis en desafíos de política pública relacionados con la sostenibilidad y el desarrollo urbano. La investigación actual examina cómo la temperatura y la calidad del aire afectan las decisiones de transporte y el uso de sistemas de bicicletas compartidas en entornos urbanos.",
-  "image": "/design/assets/research/urban-traffic.jpg",
-  "image_alt": "Cars, public transport and pedestrians on Eje Central in Mexico City at night.",
-  "image_alt_es": "Coches, transporte público y peatones en Eje Central, Ciudad de México, de noche.",
-  "image_credit": "Sergio Estrada Flores · CC BY 4.0",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:Eje_Central_CDMX.jpg",
-  "image_license_url": "https://creativecommons.org/licenses/by/4.0/"
+  "image": "/design/assets/research/original-pages/environmental-economics-thumbnail.jpg",
+  "image_alt": "Industrial chimneys emitting smoke.",
+  "image_alt_es": "Chimeneas industriales emitiendo humo.",
+  "image_credit": "UP Economics Research Center · Original research page",
+  "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics",
+  "layout": "original-reference",
+  "reference_team": [],
+  "publication_features": [],
+  "banner": {
+    "image": "/design/assets/research/original-pages/environmental-economics-cover.jpg",
+    "image_alt": "A landscape contrasting green vegetation and a dry, dark landscape.",
+    "image_alt_es": "Un paisaje que contrasta vegetación verde con un entorno seco y oscuro.",
+    "image_credit": "UP Economics Research Center · Original research page",
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
+  }
 }

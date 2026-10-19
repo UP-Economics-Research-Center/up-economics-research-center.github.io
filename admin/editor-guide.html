@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Editing and approval guide | UP Economics Research Center</title>
+  <link rel="stylesheet" href="/design/site-concept.css">
+  <style>
+    main{max-width:850px;margin:40px auto;padding:0 24px 64px}h1{font-size:clamp(30px,5vw,44px);line-height:1.2}h2{font-size:26px;margin-top:36px}p,li{font-size:18px;line-height:1.65}li{margin-bottom:12px}a{text-decoration:underline;text-underline-offset:3px}.guide-note{padding:16px 20px;background:var(--paper);border-left:4px solid var(--wine)}.guide-nav{display:flex;flex-wrap:wrap;gap:20px;margin-bottom:32px}section{scroll-margin-top:24px}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="guide-nav" aria-label="Guide navigation"><a href="/admin/">Back to editor</a><a href="#english" lang="en">English</a><a href="#espanol" lang="es">Español</a></nav>
+  <h1>Editing and approval</h1>
+  <p>UP Economics Research Center</p>
+  <section id="english" aria-labelledby="english-heading">
+    <h2 id="english-heading">For editors</h2>
+    <ol>
+      <li>Sign in with your invited GitHub account. Open the collection and record you want to edit. The invitation must have been accepted.</li>
+      <li>Edit both English and Spanish fields. Keep <strong>UP Economics Research Center</strong> unchanged in both languages. Article titles, author names and journal names keep their original wording.</li>
+      <li>Review the content preview. Check names, affiliations, dates, links and images against their sources. A source URL and verification date help the reviewer. This preview shows content, not the complete website layout.</li>
+      <li>Choose <strong>Save</strong> to keep a draft. The public site stays unchanged. Move the entry to <strong>In review</strong> when ready for another person to check it.</li>
+      <li>If changes are requested, revise the same draft and save again. New edits need another review.</li>
+      <li>After another person approves the change in GitHub and the build check passes, publish it in the editor, or have a maintainer merge the approved change in GitHub. The public site updates after deployment succeeds.</li>
+    </ol>
+    <p class="guide-note"><strong>Visibility is separate from approval.</strong> “Include on website” means the record may appear after approval and publication. Keep it on while editing an existing public record. Turn it off only when you intend to hide that record in the next approved publication. Setting it on does not publish a draft; setting a draft to Ready does not replace a second person’s approval.</p>
+    <h2>For reviewers</h2>
+    <p>Open the proposed change in <a href="https://github.com/UP-Economics-Research-Center/up-economics-research-center.github.io/pulls" target="_blank" rel="noopener">GitHub’s review queue ↗</a>. Compare both languages, sources, author relationships, image credits and visibility settings. Approve the exact version you reviewed or request changes. You cannot approve your own change. The required build must pass before publication.</p>
+    <p>The review workflow saves a downloadable <strong>editorial-site-preview</strong> artifact in the proposed change’s build run. This contains the generated website files; it is not an automatically hosted preview link. A maintainer can open a local preview for visual review. No review build publishes to the live site.</p>
+    <h2>Images and current projects</h2>
+    <p>Use an article’s first PDF page or an approved journal-page capture as its small publication image. Upload the image, add alternative text in both languages, and record the credit and source. Current projects keep their saved order; optional images sit beside the text. Without a photo, a project uses the full row. Do not add a placeholder just to fill space.</p>
+    <h2>If publication fails</h2>
+    <p>A missing translation, broken reference or unavailable image may stop the build. Correct the draft and request review again. If approval is missing, ask another invited reviewer to review it. If the approved change is merged but deployment fails, contact a maintainer; saving another unrelated change is not the fix.</p>
+  </section>
+  <section id="espanol" lang="es" aria-labelledby="spanish-heading">
+    <h2 id="spanish-heading">Para editar</h2>
+    <ol>
+      <li>Inicia sesión con tu cuenta de GitHub invitada y abre el registro que quieres editar. Debes haber aceptado la invitación.</li>
+      <li>Completa los campos en inglés y español. Conserva <strong>UP Economics Research Center</strong> en ambos idiomas, sin traducir. Los títulos de artículos, nombres de autores y revistas se mantienen en su idioma original.</li>
+      <li>Revisa el contenido, las imágenes, los datos y sus fuentes en la vista previa. Esa vista muestra el contenido; el diseño completo se revisa en una vista previa del sitio.</li>
+      <li>Usa <strong>Save</strong> para guardar un borrador. El sitio público no cambia. Pasa el registro a <strong>In review</strong> cuando esté listo para que otra persona lo revise.</li>
+      <li>Si te piden cambios, edita el mismo borrador y guárdalo. Los cambios nuevos necesitan otra revisión.</li>
+      <li>Cuando otra persona apruebe el cambio en GitHub y pase la comprobación de generación, publícalo desde el editor o pide a un responsable que lo integre en GitHub. El sitio se actualiza cuando termina correctamente el despliegue.</li>
+    </ol>
+    <p class="guide-note"><strong>Visibilidad no significa aprobación.</strong> “Mostrar en el sitio” permite que el registro aparezca después de aprobar y publicar. Mantén el interruptor activado al editar un registro que ya es público. Desactívalo solo si quieres ocultarlo en la siguiente publicación aprobada. Activarlo no publica un borrador, y el estado Ready no sustituye la aprobación de otra persona.</p>
+    <h2>Para aprobar</h2>
+    <p>Abre el cambio propuesto en la <a href="https://github.com/UP-Economics-Research-Center/up-economics-research-center.github.io/pulls" target="_blank" rel="noopener">cola de revisiones de GitHub ↗</a>. Comprueba ambos idiomas, fuentes, autores, imágenes y visibilidad. Aprueba la versión exacta revisada o solicita correcciones. No puedes aprobar tu propio cambio. La generación del sitio debe pasar antes de publicar.</p>
+    <p>La comprobación de revisión guarda el sitio generado como archivo descargable <strong>editorial-site-preview</strong>; no es un enlace de vista previa alojada. Un responsable puede abrirlo localmente para revisar el diseño. La comprobación no publica el sitio.</p>
+    <h2>Imágenes y proyectos actuales</h2>
+    <p>Usa la primera página del PDF o una captura aprobada de la revista como miniatura. Agrega texto alternativo en ambos idiomas, crédito y fuente. Los proyectos conservan su orden; la imagen es opcional y, sin foto, el texto ocupa la fila completa.</p>
+    <h2>Si no se puede publicar</h2>
+    <p>Corrige traducciones faltantes, referencias o imágenes en el mismo borrador y solicita otra revisión. Si falta aprobación, pide a otra persona invitada que revise el cambio. Si el cambio aprobado ya fue integrado pero falla el despliegue, consulta a un responsable.</p>
+  </section>
+</main>
+</body>
+</html>

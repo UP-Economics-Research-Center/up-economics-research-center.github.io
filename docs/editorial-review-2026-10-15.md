@@ -242,3 +242,48 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 - Nuevo ajuste solicitado después del merge: las nueve áreas de Explore our work / Explora nuestro trabajo usan tres columnas en escritorio, dos hasta 1000px y una hasta 650px. Mantienen orden, títulos, tipografía y enlaces. Revisión local de tres columnas a ancho de escritorio, dos a 768px y una a 320px en EN/ES, sin títulos recortados ni desbordamiento horizontal. Los enlaces de móvil conservan alturas superiores a 44px.
 - Aplicado diagnóstico del acceso residual a Working papers en el inicio: el generador ocultaba registros y filtros, pero no retiraba la tarjeta de navegación del HTML base. Ahora también la omite cuando `show_working_papers` es false y ajusta la introducción EN/ES; el contenido fuente sigue disponible para reactivarlo.
 - El ajuste posterior se prepara en una rama nueva y no forma parte del PR #16 publicado. No se ejecutaron tests.
+
+### Revisión del 18 de octubre: nombre, acceso y áreas
+
+- La instrucción más reciente sustituye la traducción del nombre del centro: **UP Economics Research Center** en EN/ES, incluidos wordmarks, títulos, metadatos, búsqueda y textos públicos. Se conserva la afiliación confirmada con la School of Government and Economics de Universidad Panamericana; las notas históricas y transcripciones archivadas no se reescriben.
+- Los accesos de navegación del inicio usan el mismo botón que Explore research, conservando etiquetas descriptivas y destinos. En Seminarios, el botón del formulario está junto al encabezado Propose a session, antes de la lista de tipos de propuestas, con la nota de idioma/duración y akamei@up.edu.mx. Se conserva el URL oficial confirmado anteriormente.
+- People: Esteban deja Development; su artículo sobre tratados de libre comercio se clasifica en Political Economy. Sergio pasa de Macro/Finanzas a Political Economy por nueva instrucción explícita. Andrea queda solo en Health e Isabel pasa a Health. Luciano y Patricio conservan sus áreas actuales por confirmación del usuario en esta conversación: Luciano, Human Capital y Development; Patricio, Macro/Finanzas.
+- Marytell y Juan Álvaro ocupan las dos primeras posiciones de Research professionals; José Miguel queda después. Su promoción futura cuando salga al mercado es una indicación pendiente, no se activa automáticamente. El orden de Lead researchers se conserva.
+- Conservados los retratos originales incorporados el 16 de octubre, sin recomprimir ni retocar. Retirado el filtro CSS `saturate(.65)`, que hacía palidecer las fotos. No se sustituyeron por ninguno de los dos retratos ajenos a esta ronda que estaban sin seguimiento en Git.
+- Miniaturas de Human Capital, Digital, Health, Environmental y Demography copiadas de la página original actual de Akito. Digital usa la imagen original mientras no exista otra selección de Eugenio; no se contactó a terceros. Portadas, fotos disponibles de proyectos y capturas de artículos guardadas localmente sin recomprimir, con origen y SHA-256 en `design/assets/media-sources.json`. No se afirma licencia abierta independiente. Se omite una imagen azul vacía del primer proyecto de Health.
+- Aceptada la dirección visual de Human Capital y extendida a las nueve áreas: portada panorámica, introducción completa, equipo antes de proyectos, proyectos con fotografías disponibles y artículos con texto e imagen a la derecha cuando existe. Human Capital conserva su equipo y narrativas originales aprobados. En otras áreas, el equipo se obtiene de las etiquetas del directorio; las fichas de artículos usan los abstracts existentes, sin inventar narrativas. Los overrides de equipo y publicaciones siguen editables en CMS.
+- La captura de Drive solicitada sigue devolviendo 404 en el conector. La comparación visual se hizo con la web original accesible; no se afirma haber inspeccionado esa captura. Las URL temporales de imágenes de Google se actualizaron desde páginas sin caché antes de descargarlas.
+- Autores UP primero, salto de línea antes de with/con; la publicación de cloración ya contenía a Akito y los siete coautores indicados. Nombres de investigadores, revista y año en negro en los listados, áreas y fichas. Conservado el orden bibliográfico fuente.
+- Generación estática EN/ES correcta, sintaxis JS y YAML inspeccionada, sin rutas de medios faltantes. Revisión en navegador de Seminarios ES, área Ambiental ES, People EN y publicaciones del área Health EN; corregida la regla heredada de color gris en los párrafos de las áreas. No se ejecutaron tests. Cambios locales; sin commit, merge ni publicación en esta ronda.
+
+### Corrección de tachados — 18 de octubre
+
+- La captura aportada por el usuario aclara los tachados que no llegaron en el texto original. Esta corrección sustituye las indicaciones anteriores correspondientes.
+- Afiliación pública: School of Economics / Escuela de Economía, quitando Government and / Gobierno y.
+- Botón de seminarios: Submit a proposal / Envía una propuesta, quitando el inciso sobre idioma. Retiradas la nota de cinco minutos y la línea Questions? con correo del bloque de propuestas. El contacto general del inicio permanece; las fuentes y notas históricas se conservan.
+- Generación estática y revisión del HTML EN/ES; sin tests ni publicación.
+
+### Comprobación final de alcance
+
+- Detectada y corregida la diferencia entre el mock `design/homepage-concept.html` y el inicio canónico `index.html`: los accesos del inicio canónico también usan el estilo de botón de Explore research. Inspeccionadas ambas salidas EN/ES después de generar.
+
+### Miniaturas de revista y primera página — 18 de octubre
+
+- Por petición del usuario, las imágenes de publicaciones son discretas, completas y sin filtros de color: 150px en Publications, 200px a la derecha del texto en áreas, con límites menores en móvil. Eliminada la composición de imagen a casi media fila; sin imagen, la narración ocupa el ancho disponible. Conservados todos los textos y enlaces internos.
+- Generadas cinco imágenes de la primera página de PDF oficiales accesibles: cloración en Odisha (PLOS Water), respuestas al tratamiento de agua (PLOS One), conocimiento de pruebas de embarazo (PLOS Global Public Health), demanda de planificación familiar (Reproductive Health) y Montepíos (JMFS). Se inspeccionaron las páginas renderizadas y sus cabeceras. Solo se añaden PNG locales, no los PDF completos; fuentes, SHA-256 y método registrados en el registro privado de medios.
+- Los artículos restantes conservan las capturas de revista ya aprobadas donde existen; no se presentan como primeras páginas del PDF. Los editores que rechazaron acceso o no ofrecieron enlace PDF público no se sortearon. Las imágenes disponibles ahora también aparecen en el directorio de publicaciones.
+- Generación estática, inspección de rutas y revisión visual de Publications EN y Health EN. Tamaños medidos en navegador: 150px en listado y 200px en área; página completa con contain, colores originales y sin desbordamiento en el ancho revisado. Sin tests ni publicación.
+
+### Orden visual de Current Projects
+
+- A petición del usuario, sustituida la cuadrícula de dos tarjetas por una lista de filas. Se conserva el orden editorial y todo el texto; fotos a la derecha con límite de 240×190px y proporción completa, créditos debajo de cada imagen.
+- Proyectos sin imagen ocupan el ancho de la fila, sin placeholders ni huecos reservados. En móvil, texto seguido de imagen. El HTML agrupa texto y medios semánticamente con figure/figcaption; los enlaces de imagen mantienen etiqueta accesible.
+- Generación estática, sintaxis JS y diff inspeccionados; revisión visual de Health con un proyecto sin foto y dos con foto. Confirmadas columnas de ancho completo / texto + 240px y sin desbordamiento en el ancho revisado. Sin tests ni publicación.
+
+### Revisión de /admin/ y aprobación editorial
+
+- El usuario eligió exigir aprobación de otra persona antes de publicar y designó a Akito Kamei como revisor. Compartirá después su cuenta de GitHub; no se enviaron invitaciones ni se cambiaron permisos.
+- Inspección de GitHub: un único colaborador con escritura (`jadrk040507`), protección de administradores activa, sin revisiones ni checks obligatorios, sin force-push ni borrado de main. El modo vigente en la configuración de partida era publicación directa.
+- Preparado localmente `editorial_workflow`, guía EN/ES en /admin/, etiquetas que separan visibilidad de aprobación y previews de contenido con ambos idiomas, imágenes y proyectos. Corregidos campos YAML de revista y DOI mal separados; retirados del formulario el interruptor de contacto y dirección duplicada que el generador no utilizaba, conservando el campo de dirección postal efectivo y los registros fuente.
+- Nuevo workflow de revisión: genera y valida EN/ES en pull requests, guarda artefacto descargable, sin publicar. Las reglas de un revisor independiente y build obligatorio necesitan activarse junto al despliegue según `docs/cms-approval-setup.md`. Ready no equivale a una aprobación de GitHub.
+- Guías de README, contenido y OAuth reconciliadas. Generación estática correcta; YAML inspeccionado sin claves duplicadas y sintaxis JS correcta. Revisión en navegador de /admin/ en login y guía; no se inició sesión, guardó ni publicó contenido a través del CMS. No se ejecutaron tests. Activación remota y comprobación autenticada pendientes de la cuenta de Akito y autorización de despliegue.
