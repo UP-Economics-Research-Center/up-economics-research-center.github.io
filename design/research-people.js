@@ -33,6 +33,7 @@
       img.sizes = '(max-width:700px) calc(100vw - 40px), (max-width:1000px) 46vw, 640px';
     }
     img.loading = 'lazy';
+    if (record.image_fit === 'contain') img.dataset.imageFit = 'contain';
     return img;
   };
   const credit = () => {

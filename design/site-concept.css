@@ -815,7 +815,6 @@ main .page-hero h1{font-size:clamp(32px,4vw,52px);line-height:1.15}
 main .page-hero p{font-size:19px;line-height:1.6}
 .publication-detail-page .page-hero h1{font-size:clamp(28px,4vw,52px)}
 main .section-head h2,.source-area-page .split-label h2{font-size:30px;line-height:1.25}
-main a:not(.button):not(.tag):not(.research-row):not(.area-person):not(.paper-image):not(.topic-link):not(.output-link){text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 main a:focus-visible,.photo-credit a:focus-visible{outline:2px solid var(--wine);outline-offset:4px}
 .pub-authors a,.pub-authors strong,.area-person strong{color:#000;font-weight:700}
 .research-page .research-index{grid-auto-rows:1fr;gap:24px}
@@ -1123,3 +1122,31 @@ main>.page-hero,.source-area-page main>.feature-area,.home-hero{background:var(-
  .source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr)}
  .source-area-page .project-media{width:min(360px,100%)}
 }
+
+/* Content links are underlined; navigation and button-like controls are not. */
+header a,footer a,footer .footer-links a:hover,
+main .crumb a,main .side-index a,main .section-navigation-track a,
+main .seminar-tabs a,main .button,main .tag,main .person-topics a,
+main .topic-link,main .output-link{text-decoration:none}
+
+/* Paired editorial media follows the adjacent copy, rather than a fixed height.
+   Size containment lets the text set the grid row; document pages stay complete. */
+@media(min-width:701px){
+ html[data-presentation=gallery] .source-area-page .area-intro{align-items:stretch}
+ html[data-presentation=gallery] .source-area-page .area-presentation-image{aspect-ratio:auto;align-self:stretch;contain:size}
+ .source-area-page .project-card.has-image{align-items:stretch}
+ .source-area-page .project-media{contain:size;align-self:stretch;display:grid;grid-template-rows:minmax(0,1fr) auto}
+ .source-area-page .project-media>a{min-height:0;height:100%}
+ .source-area-page .project-photo{width:100%;height:100%;min-height:0;object-fit:cover}
+ .source-area-page .project-photo[data-image-fit=contain]{object-fit:contain;object-position:top center}
+ .paper-row .paper-image{contain:size;min-height:0;align-self:stretch}
+ .paper-row .paper-photo,.source-area-page .reference-paper .paper-photo{width:100%;height:100%;object-fit:contain;object-position:top right}
+ .area-main .publication.paper-row.has-image,.source-area-page .publication.reference-paper.has-image{grid-template-columns:minmax(0,1fr) minmax(300px,40%)}
+ .area-main .paper-row .paper-image{width:100%}
+}
+
+/* Explicit brand exception: the wordmark remains an underlined home link. */
+header a.brand,footer a.footer-brand{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+header .language-switch a,footer .legal-footer a{text-decoration:none}
+.search-result-list a{text-decoration:underline}

@@ -39,7 +39,8 @@
       "image_alt_es": "Nube de palabras sobre fintech e inclusión financiera.",
       "image_credit": "UP Economics Research Center · Original research page",
       "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
-      "image_credit_es": "UP Economics Research Center · Página original de investigación"
+      "image_credit_es": "UP Economics Research Center · Página original de investigación",
+      "image_fit": "contain"
     }
   ],
   "display_order": 2,
