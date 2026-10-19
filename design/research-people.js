@@ -43,9 +43,13 @@
   const researcherNote = text => {
     const paragraph = node('p', '', 'pub-authors');
     // Preserve the source names verbatim; only the explicit UP attribution is emphasized.
-    const match = text.match(/^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([^\n]+)/i);
-    if (match) paragraph.append(match[1], node('strong', match[2]), text.slice(match[0].length));
-    else paragraph.textContent = text;
+    const match = text.match(/^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([\s\S]*?)(?=\n[ \t]*(?:with|con)\b|$)/i);
+    if (match) {
+      const names = match[2].split(/\n/).map(name => name.trim()).filter(Boolean);
+      const conjunction = document.documentElement.lang === 'es' ? ' y ' : ' and ';
+      const group = names.length > 1 ? names.slice(0, -1).join(', ') + conjunction + names.at(-1) : names[0] || '';
+      paragraph.append(match[1], node('strong', group), text.slice(match[0].length));
+    } else paragraph.textContent = text;
     return paragraph;
   };
   try {

@@ -211,7 +211,7 @@ def generate_languages(site: Path, data, settings, about):
         }
     publications = {row['slug']: row for row in data['publications']}
     for pub in data['publications']:
-        kind = 'Article first page' if '/assets/publications/' in pub.get('image', '') else 'Journal-page capture'
+        kind = 'Book cover' if pub['type'] == 'Book' else 'Article first page' if '/assets/publications/' in pub.get('image', '') else 'Journal-page capture'
         credit(pub, pub['title'], kind, 'Displayed complete, without cropping or color filters.')
     for area in data['research_areas']:
         credit(area, area['name'], 'Research area image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])

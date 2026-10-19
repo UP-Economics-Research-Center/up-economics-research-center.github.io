@@ -39,3 +39,8 @@ No se ejecutó suite de tests, conforme a AGENTS.md. No hay certificación Light
 Capturas del resultado sin adornos: [escritorio](editorial-gallery-2026-10-19/research-en-1440.png) y [móvil](editorial-gallery-2026-10-19/research-en-390.png).
 
 La rama de integración recibió una revisión de código independiente sin bloqueos críticos ni importantes. Se corrigió el caso menor de múltiples párrafos legales: cada idioma se renderiza desde su registro, sin depender de emparejar nodos de texto. La inspección final de la rama cubrió 164 vistas de 41 rutas EN/ES a 390/1440px, sin desbordamiento documental ni imágenes rotas. Las comprobaciones del PR se verifican también para el último commit antes de fusionar.
+
+
+### Ampliación de miniaturas y archivo
+
+La revisión posterior incorporó la primera página publicada de *Land tenure security and agrarian investments in the Peruvian Highlands* desde Universidad de Alcalá y la portada oficial del libro de Eugenio y Jorge Pérez Colín. El total vigente es ocho primeras páginas y una portada; quedan doce registros sin imagen. [Fuentes de esta ampliación](publication-previews-2026-10-19.json). Publications conserva las 21 publicaciones públicas y Research enlaza al archivo completo. Se subraya todo texto enlazado y se agrupan correctamente los tres investigadores UP indicados por el usuario.
