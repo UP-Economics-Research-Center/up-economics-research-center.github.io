@@ -506,7 +506,7 @@ footer{padding-top:64px}
 .person-portrait,.portrait-pending{width:110px;height:138px;border-radius:6px;object-fit:cover;object-position:center 24%;background:var(--paper)}
 .portrait-pending{display:grid;place-items:center;color:var(--muted);font-size:27px;font-weight:600;border:1px solid var(--line)}
 .people-page .person h3{font-size:24px;line-height:1.3;margin-bottom:12px}
-.person .profile-link{font-size:16px;min-height:44px;display:inline-flex;align-items:center;color:var(--wine);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-top:8px}
+.person .profile-link{font-size:16px;min-height:44px;display:flex;width:fit-content;max-width:100%;align-items:center;color:var(--wine);font-weight:700;text-decoration:underline;text-underline-offset:4px;margin-top:8px}
 .people-source{font-size:15px;color:var(--muted);margin-top:34px}
 .people-source a{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:650px){
@@ -564,6 +564,7 @@ footer{padding-top:64px}
 .publication-detail-page .page-hero-grid{grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
 .publication-detail-page .page-hero h1{max-width:1100px;font-size:clamp(38px,4.2vw,60px);line-height:1.14;overflow-wrap:break-word}
 .publication-detail-page .page-hero-grid>p{font-size:18px}
+@media(max-width:700px){.publication-detail-page .page-hero h1{font-size:clamp(28px,5.5vw,38px);line-height:1.2}}
 
 /* Editorial review, October 2026: people, authentic photography and language controls. */
 .up-emphasis{font-weight:850;color:var(--wine,#8a1538);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.13em}
@@ -577,6 +578,7 @@ footer{padding-top:64px}
 .language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;min-height:44px;text-decoration:none;border-bottom:2px solid transparent}
 .language-switch a[aria-current]{font-weight:800;border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid #8a1538;outline-offset:3px}
 .people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:clamp(1.5rem,2.5vw,2rem);align-items:start;padding:2.5rem 0}
+@media(max-width:1100px){.people-list{grid-template-columns:minmax(0,1fr)}}
 .person-visual .person-portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;max-width:none;filter:none}
 .portrait-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:var(--paper)}
 .person-visual .portrait-frame .person-portrait{position:absolute;left:var(--crop-left);top:var(--crop-top);width:var(--crop-width);height:var(--crop-height);aspect-ratio:auto;object-fit:fill;border-radius:0}
@@ -603,7 +605,13 @@ footer{padding-top:64px}
 @media(max-width:650px){
  .nav{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;min-height:112px}
  .nav .brand.wordmark{max-width:none;min-width:0}.nav .wordmark-name{min-width:0}.nav .wordmark-first{font-size:16px;gap:5px}.nav .wordmark-second{font-size:15px}.nav .wordmark-university{font-size:10px}
- .nav .language-switch{margin:0;gap:0}.nav .language-switch a{min-width:27px}.nav .mobile-controls{margin:0;gap:6px}
+ .nav .language-switch{margin:0;gap:0}.nav .language-switch a{min-width:44px}.nav .mobile-controls{margin:0;gap:6px}
+}
+@media(max-width:420px){
+ .nav{grid-template-columns:minmax(0,1fr) auto;row-gap:4px}
+ .nav .brand.wordmark{grid-column:1;grid-row:1 / span 2}
+ .nav .language-switch{grid-column:2;grid-row:1;justify-self:end}
+ .nav .mobile-controls{grid-column:2;grid-row:2;justify-self:end}
 }
 
 /* Preview refinement: introductory copy and campus film share the desktop hero. */
@@ -693,6 +701,7 @@ footer{padding-top:64px}
 .research-index .research-row .arrow{align-self:center;font-size:22px;line-height:1;min-width:0}
 @media(max-width:1000px){.research-index{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.research-index{grid-template-columns:minmax(0,1fr);gap:0}.research-index .research-row{grid-template-columns:90px minmax(0,1fr) 28px;gap:16px;padding:20px 0;align-items:center}.research-index .research-row .research-art{grid-column:auto;width:90px;height:90px}.research-index .research-row strong{font-size:20px}}
+@media(max-width:420px){.research-index .research-row{grid-template-columns:64px minmax(0,1fr) 20px;gap:12px}.research-index .research-row .research-art{width:64px;height:64px}}
 
 /* Human Capital comparison: the original photo-led page, scoped to its selected layout. */
 .source-area-page .feature-area{padding:0 0 24px;background:#fff}

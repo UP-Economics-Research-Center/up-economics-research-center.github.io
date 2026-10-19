@@ -139,8 +139,10 @@
       const article = node('article', '', 'publication paper-row');
       const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
       const img = photo(feature || pub, 'paper-photo');
-      if (img) {const anchor = link(href, '', 'paper-image');anchor.setAttribute('aria-label', pub.title);anchor.append(img);article.append(anchor);article.classList.add('has-image');}
-      const text = node('div'); const heading = node('h3', '', 'pub-title');heading.append(link(href, pub.title));
+      const titleLanguage = pub.title_language === 'es' ? 'es' : 'en';
+      if (img) {const anchor = link(href, '', 'paper-image');anchor.lang = titleLanguage;anchor.translate = false;anchor.setAttribute('aria-label', pub.title);img.alt = '';anchor.append(img);article.append(anchor);article.classList.add('has-image');}
+      const text = node('div'); const heading = node('h3', '', 'pub-title');
+      const titleLink = link(href, pub.title);titleLink.lang = titleLanguage;titleLink.translate = false;heading.append(titleLink);
       const authors = node('p', '', 'pub-authors');
       const up = pub.authors.filter(author => typeof author === 'object' && author.person_id);
       const others = pub.authors.filter(author => !(typeof author === 'object' && author.person_id));

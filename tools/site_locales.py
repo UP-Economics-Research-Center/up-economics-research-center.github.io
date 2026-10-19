@@ -56,8 +56,17 @@ def localize_markup(source, pairs):
     # Translate text/accessible labels while leaving inline scripts and styles intact.
     blocks = re.split(r'(<script\b.*?</script>|<style\b.*?</style>)', source, flags=re.S | re.I)
     for index in range(0, len(blocks), 2):
-        value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), blocks[index])
+        # Original publication titles and their image-link names retain their language.
+        # Restore before normalizing links so their destinations still use Spanish routes.
+        original_titles = []
+        def preserve_title(match):
+            original_titles.append(match[0])
+            return f'__ORIGINAL_PUBLICATION_TITLE_{len(original_titles) - 1}__'
+        value = re.sub(r'<(a|h1)\b(?=[^>]*\blang="(?:en|es)")(?=[^>]*\btranslate="no")[^>]*>.*?</\1>', preserve_title, blocks[index], flags=re.S)
+        value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), value)
         value = re.sub(r'\b(alt|aria-label|placeholder|title)="([^"]*)"', lambda m: m[1] + '="' + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + '"', value)
+        for number, title_markup in enumerate(original_titles):
+            value = value.replace(f'__ORIGINAL_PUBLICATION_TITLE_{number}__', title_markup)
         value = re.sub(r'\bhref="([^"]*)"', lambda m: 'href="' + spanish_url(m[1]) + '"', value)
         blocks[index] = value
     return ''.join(blocks).replace('<html lang="en">', '<html lang="es">')
