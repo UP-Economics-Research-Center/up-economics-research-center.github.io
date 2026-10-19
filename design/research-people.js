@@ -55,12 +55,13 @@
     document.getElementById('area-crumb').textContent = area.name;
     document.getElementById('area-kicker').textContent = t('Research area');
     const referenceLayout = area.layout === 'original-reference';
+    let banner = null;
     if (referenceLayout) {
       document.body.classList.add('source-area-page');
-      const banner = photo(area.banner, 'source-area-banner');
+      banner = photo(area.image ? area : (area.banner || {}), 'source-area-banner');
       if (banner) {
         banner.loading = 'eager';
-        document.querySelector('.area-heading').prepend(banner);
+        banner.dataset.area = area.slug;
       }
       const teamHeading = document.getElementById('team');
       teamHeading.querySelector('h2').textContent = t('Team');
@@ -71,6 +72,7 @@
     document.getElementById('area-summary').replaceChildren(
       ...[area.summary, area.overview].filter(Boolean).flatMap(text => text.split(/\n\s*\n/)).map(text => node('p', text))
     );
+    if (banner) document.querySelector('.area-heading').append(banner);
     const hero = document.getElementById('area-image');
     if (hero && area.image) {
       hero.closest('.research-art').dataset.area = area.slug;
