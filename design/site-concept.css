@@ -1145,16 +1145,15 @@ main .topic-link,main .output-link{text-decoration:none}
  .area-main .paper-row .paper-image{width:100%}
 }
 
-/* Explicit brand exception: the wordmark remains an underlined home link. */
-header a.brand,footer a.footer-brand{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+/* The home-link wordmark follows the navigation's unadorned presentation. */
+header a.brand,footer a.footer-brand{text-decoration:none}
 
 header .language-switch a,footer .legal-footer a{text-decoration:none}
 .search-result-list a{text-decoration:underline}
 
 button,[role=button],a.button{text-decoration:none}
 
-/* Underline the actual wordmark text, including the flex item's first line. */
-.wordmark-text,.wordmark-second,.wordmark-university{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.wordmark-text,.wordmark-second,.wordmark-university{text-decoration:none}
 
 .project-description p:last-child{margin-bottom:0}
 @media(min-width:701px){
