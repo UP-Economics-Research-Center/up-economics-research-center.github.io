@@ -83,19 +83,30 @@
     if (!area.projects.length) note(host, 'No current projects are listed for this area.');
     else host.replaceChildren(...area.projects.map(project => {
       const article = node('article', '', 'publication project-card');
-      const img = photo(project, 'project-photo');
-      if (img) {
-        if (project.url) {const anchor = link(project.url, ''); anchor.append(img); article.append(anchor);}
-        else article.append(img);
-      }
+      const copy = node('div', '', 'project-copy');
       const heading = node('h3', '', 'pub-title');
       heading.append(project.url ? link(project.url, project.title) : project.title);
-      article.append(heading, ...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
-      if (project.researcher_note) article.append(...project.researcher_note.split(/\n\s*\n/).map(text => node('p', text, 'pub-authors')));
-      if (img) article.append(credit(project));
+      copy.append(heading, ...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
+      if (project.researcher_note) copy.append(...project.researcher_note.split(/\n\s*\n/).map(text => node('p', text, 'pub-authors')));
+      article.append(copy);
+      const img = photo(project, 'project-photo');
+      if (img) {
+        article.classList.add('has-image');
+        const media = node('figure', '', 'project-media');
+        if (project.url) {
+          const anchor = link(project.url, '');
+          anchor.setAttribute('aria-label', project.title);
+          anchor.append(img);
+          media.append(anchor);
+        } else media.append(img);
+        const caption = node('figcaption');
+        caption.append(credit(project));
+        media.append(caption);
+        article.append(media);
+      }
       return article;
     }));
-    const members = referenceLayout ? (area.reference_team || []).map(item => {
+    const members = referenceLayout && area.reference_team?.length ? (area.reference_team || []).map(item => {
       const person = people.find(person => person.slug === item.person_id);
       return person ? {...person, portrait: item.image || person.portrait} : null;
     }).filter(Boolean) : people.filter(person => person.research_areas.includes(area.slug));
@@ -111,6 +122,7 @@
     if (!related.length) note(outputs, 'No verified publications are linked to this area yet.');
     else outputs.replaceChildren(...related.map(pub => {
       const feature = referenceLayout ? (area.publication_features || []).find(item => item.publication === pub.slug) : null;
+      const description = referenceLayout ? (feature?.description || pub.abstract) : '';
       const article = node('article', '', 'publication paper-row');
       const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
       const img = photo(feature || pub, 'paper-photo');
@@ -127,14 +139,14 @@
       if (up.length) {
         authors.append(t(up.length === 1 ? 'UP researcher:' : 'UP researchers:') + ' ');
         appendNames(up);
-        if (others.length) authors.append(' ' + t('with') + ' ');
+        if (others.length) authors.append(node('br'), t('with') + ' ');
       }
       appendNames(others);
       const venue = pub.venue || t(pub.type);
       text.append(heading);
-      if (feature) {
+      if (description) {
         article.classList.add('reference-paper');
-        text.append(...feature.description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
+        text.append(...description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
       }
       text.append(authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
       if (feature?.media_links?.length) {
@@ -151,5 +163,5 @@
     note(team, 'The research directory is temporarily unavailable. Browse all research areas or try again later.');
     note(outputs, 'The publication directory is temporarily unavailable.');
   }
-  function languageName() {return prefix ? 'Centro de Investigación Económica UP' : 'UP Economics Research Center';}
+  function languageName() {return 'UP Economics Research Center';}
 })();

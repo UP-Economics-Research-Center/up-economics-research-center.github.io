@@ -20,5 +20,47 @@
   "image_alt_es": "Retrato de John Stuart Mill, hacia 1870.",
   "image_credit": "London Stereoscopic Company · Public domain",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg",
-  "image_license_url": ""
+  "image_license_url": "",
+  "layout": "original-reference",
+  "reference_team": [],
+  "publication_features": [
+    {
+      "publication": "decline-non-military-montepios-early-mexico",
+      "description": "This article investigates why non-military Montepíos, public pension institutions for civil servants in New Spain and early independent Mexico, declined after independence in 1821. It combines archival, demographic, historical, institutional, and actuarial evidence to assess explanations centered on the fiscal and political turmoil of the new state. The analysis instead emphasizes structural weaknesses in the funds’ design: they operated as defined-benefit, pay-as-you-go systems without mechanisms to balance contributions and payouts. Short contribution periods and long benefit-payment periods created chronic underfunding; gender and marriage patterns could further extend survivor benefits. The case shows how institutional design and demographic dynamics can undermine pension sustainability even beyond immediate political or fiscal shocks.",
+      "description_es": "Este artículo investiga por qué los Montepíos no militares, instituciones públicas de pensiones para funcionarios civiles en la Nueva España y el México independiente temprano, decayeron tras la independencia de 1821. Combina evidencia archivística, demográfica, histórica, institucional y actuarial para evaluar las explicaciones centradas en la inestabilidad fiscal y política del nuevo Estado. El análisis enfatiza, en cambio, debilidades estructurales en el diseño de los fondos: operaban como sistemas de reparto con beneficios definidos, sin mecanismos para equilibrar contribuciones y pagos. Los periodos cortos de contribución y prolongados de pago de beneficios generaban insuficiencia crónica de fondos; los patrones de género y matrimonio podían extender aún más las pensiones de supervivencia. El caso muestra cómo el diseño institucional y la dinámica demográfica pueden comprometer la sostenibilidad de las pensiones más allá de las crisis políticas o fiscales inmediatas.",
+      "image": "/design/assets/publications/decline-non-military-montepios-early-mexico-first-page.png",
+      "image_alt": "First page of the article in Journal of Management and Financial Sciences: The Decline of Non-Military Montepíos in Early Mexico: A Historical, Actuarial, and Financial Approach",
+      "image_alt_es": "Primera página del artículo en Journal of Management and Financial Sciences: The Decline of Non-Military Montepíos in Early Mexico: A Historical, Actuarial, and Financial Approach",
+      "image_credit": "Journal of Management and Financial Sciences · Article authors · First page",
+      "image_source_url": "https://econjournals.sgh.waw.pl/JMFS/article/download/5438/5358",
+      "image_credit_es": "Journal of Management and Financial Sciences · Autores del artículo · Primera página"
+    },
+    {
+      "publication": "fta-member-gdp-synthetic-control",
+      "description": "This study uses the synthetic control method to estimate how signing a free-trade agreement with the United States affects member countries’ GDP per capita. For each country, the method constructs a counterfactual estimate of income had the agreement not been signed and compares it with observed outcomes. The results are heterogeneous: agreements are associated with positive per-capita GDP effects in Chile and Jordan, while NAFTA is estimated to have harmed Mexico’s per-capita GDP; several other cases show no discernible significant effect. The analysis also finds that agreements appear less beneficial when a country depends more heavily on trade with the United States. The findings contribute to debates about trade as a development strategy and show that an agreement with a high-income technology-frontier economy does not by itself ensure economic growth.",
+      "description_es": "Este estudio utiliza el método de control sintético para estimar cómo la firma de un tratado de libre comercio con Estados Unidos afecta el PIB per cápita de los países miembros. Para cada país, construye una estimación contrafactual del ingreso si no se hubiera firmado el acuerdo y la compara con los resultados observados. Los efectos son heterogéneos: los acuerdos se asocian con efectos positivos sobre el PIB per cápita en Chile y Jordania, mientras que se estima que el TLCAN perjudicó el PIB per cápita de México; otros casos no muestran efectos significativos discernibles. El análisis también encuentra que los acuerdos parecen menos beneficiosos cuando un país depende más del comercio con Estados Unidos. Los resultados contribuyen al debate sobre el comercio como estrategia de desarrollo y muestran que un acuerdo con una economía de altos ingresos en la frontera tecnológica no garantiza por sí mismo el crecimiento económico.",
+      "image": "/design/assets/research/original-pages/fta-member-gdp-synthetic-control.png",
+      "image_alt": "Journal article screenshot: The effect of a free trade agreement with the United States on member countries’ per capita GDP: A synthetic control analysis",
+      "image_alt_es": "Captura del artículo de revista: The effect of a free trade agreement with the United States on member countries’ per capita GDP: A synthetic control analysis",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/political-economy"
+    },
+    {
+      "publication": "local-institutions-fast-food-peru",
+      "description": "This study asks how local institutions shape the establishment of fast-food outlets across urban districts in Peru, where many districts have no such outlets. The authors develop a market-entry framework in which the number of firms depends on local demand, available infrastructure, and the quality of municipal institutions. They construct institutional-quality measures from municipal administrative and organizational characteristics and estimate a zero-inflated count model that distinguishes whether outlets are present from how many operate when a market is served. Institutional quality is most clearly related to whether a district attracts outlets; urban-development management and information systems matter, while an investment-programming office is especially relevant to outlet counts. The results suggest that effective municipal administration can support infrastructure and reduce the costs of establishing businesses.",
+      "description_es": "Este estudio analiza cómo las instituciones locales influyen en el establecimiento de restaurantes de comida rápida en distritos urbanos del Perú, muchos de los cuales carecen de estos negocios. Los autores desarrollan un marco de entrada al mercado en el que el número de empresas depende de la demanda local, la infraestructura disponible y la calidad de las instituciones municipales. Construyen medidas de calidad institucional a partir de características administrativas y organizativas de los municipios y estiman un modelo de conteo con inflación de ceros que distingue entre la presencia de establecimientos y su número cuando el mercado está atendido. La calidad institucional se relaciona más claramente con que un distrito atraiga establecimientos; importan la gestión del desarrollo urbano y los sistemas de información, mientras que una oficina de programación de inversiones resulta especialmente relevante para su cantidad. Los resultados sugieren que una administración municipal eficaz puede apoyar la infraestructura y reducir los costos de establecer negocios.",
+      "image": "/design/assets/research/original-pages/local-institutions-fast-food-peru.png",
+      "image_alt": "Journal article screenshot: Local institutions in Peru and the presence and number of fast-food outlets",
+      "image_alt_es": "Captura del artículo de revista: Local institutions in Peru and the presence and number of fast-food outlets",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/political-economy"
+    }
+  ],
+  "banner": {
+    "image": "/design/assets/research/original-pages/political-economy-cover.jpg",
+    "image_alt": "A group of people gathered in a public indoor space.",
+    "image_alt_es": "Un grupo de personas reunidas en un espacio público interior.",
+    "image_credit": "UP Economics Research Center · Original research page",
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/political-economy"
+  }
 }

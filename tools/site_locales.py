@@ -44,7 +44,7 @@ def translate_text(text, pairs):
     # Titles, year labels and breadcrumbs combine short interface strings.
     if ' | UP Economics Research Center' in core:
         title = core.removesuffix(' | UP Economics Research Center')
-        return html.escape(pairs.get(title, title) + ' | Centro de Investigación Económica UP')
+        return html.escape(pairs.get(title, title) + ' | UP Economics Research Center')
     if core.startswith('/') and core[1:].strip() in pairs:
         return '/ ' + html.escape(pairs[core[1:].strip()])
     if core.startswith('Showing ') and core.endswith(' verified publications'):

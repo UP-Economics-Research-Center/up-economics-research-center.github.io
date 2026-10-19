@@ -26,12 +26,17 @@ The CMS is at <https://up-economics-research-center.github.io/admin/>. GitHub si
 1. Open `/admin/` and choose **Login with GitHub**.
 2. Choose Researchers, Research Areas, Publications, Site Settings, or Home scope and contact.
 3. Edit the fields and use the preview pane to review the record. For Researchers, keep the complete name in **Name** and enter the preferred abbreviated form in **Public display name / Nombre público**. If that field is empty, the complete name appears. Publication citations keep their own author names and citation order. Research areas are selected from the existing area list. You do not need to edit HTML or CSS.
-4. For a new record, set its “Publish this…” switch to true when it is ready. Save the record in Decap; the change commits directly to `main` and is deployed by GitHub Actions. The live site updates after the Pages workflow succeeds. Editors publish directly to `main`; no pull request is required.
-5. If a Pages deployment fails, check the workflow in the repository’s **Actions** tab and ask a repository maintainer for help.
+4. Save a **Draft**, then move it to **In review** when both languages, sources and media are ready. Saving a draft keeps the public site unchanged. The **Include on website / Mostrar en el sitio** switch controls visibility after publication; it does not approve or publish the draft. Keep it on when updating a public record.
+5. A different invited editor reviews and approves the change in GitHub. The **Build editorial changes** check must pass. If changes are requested, revise the same draft; new edits need another review. Decap's **Ready** status does not replace GitHub approval.
+6. Publish the approved entry, or have a maintainer merge its approved pull request. GitHub Pages updates the live site after deployment succeeds. If the build or deployment fails, ask a maintainer to inspect **Actions**.
+
+**Activation status:** this review workflow is prepared locally. The live site still has its previous direct-publish configuration until the reviewed release is deployed. A second reviewer and GitHub approval/build requirements must be configured as part of that release. Follow [the owner activation checklist](docs/cms-approval-setup.md). Do not claim approval is enforced based only on the CMS setting.
+
+The bilingual [editor and reviewer guide](admin/editor-guide.html) is linked from `/admin/`. Draft builds provide downloadable site files; there is no automatically hosted pull-request preview.
 
 ### Seminar information and proposals
 
-The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the link says so in both languages. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. Add individual confirmed events in the **Seminars** collection; upcoming and past entries are separated automatically. No event dates or speakers are currently entered.
+The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the button is labeled Submit a proposal / Envía una propuesta without the removed language qualifier. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. Add individual confirmed events in the **Seminars** collection; upcoming and past entries are separated automatically. No event dates or speakers are currently entered.
 
 ### Adding a publication
 
@@ -57,8 +62,8 @@ These one-time steps require an organization/repository maintainer and access to
 2. In `oauth-worker/wrangler.toml`, set `SITE_ORIGIN` to `https://up-economics-research-center.github.io`. Deploy the Worker from the `oauth-worker/` directory using Cloudflare Wrangler.
 3. Set the Worker secrets with Wrangler: `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, and a long random `STATE_SIGNING_SECRET`. Never commit these values or put the client secret in Decap configuration.
 4. In `admin/config.yml`, replace `backend.base_url` with the deployed Worker origin, for example `https://YOUR-WORKER.workers.dev` (without a trailing slash). Commit and merge this configuration change so GitHub Pages deploys it.
-5. Invite each editor to the public site repository with write access; they must accept the invitation. Keep force-push and branch-deletion protection, and disable required pull-request reviews on `main` so Decap can commit directly.
-6. Ask an invited editor to sign in at `/admin/`, make an approved small change, and confirm it appears after the Pages deployment succeeds.
+5. Designate at least two separate GitHub accounts for authoring and independent review. Invite the intended people with write access after owner authorization; they must accept. Preserve force-push, deletion and administrator protection. Follow the approval and required-build activation steps in [the release checklist](docs/cms-approval-setup.md).
+6. After deploying the review workflow, have an editor save an authorized correction as a draft. Verify it cannot publish before a second person approves and the build passes; publish only approved content. Do not publish demo content to check the workflow.
 
 If GitHub returns an access or organization-permission error, ask an organization owner to invite the editor or adjust repository access. Never share OAuth secrets or personal access tokens in commits or chat. To rotate credentials, update the Worker secret bindings and redeploy it; do not add credentials to this repository.
 
@@ -88,12 +93,20 @@ Keep author names in their original citation order in each publication record. L
 
 In **Site Settings**, **Show working papers publicly** and **Show policy briefs publicly** are currently off. These records stay editable in the CMS, but do not generate public lists, filters, search results, JSON entries or detail pages. Turn the switches back on to restore the approved records. The home-page working-paper link follows the working-paper switch.
 
-### Human Capital comparison page
+### Research area pages
 
-Human Capital uses **Area page design → Original photo-led reference**. Its **Original cover photograph**, **Original page team**, project photographs, and **Full publication features for original layout** reproduce the original page with locally saved media. Each publication feature links to an existing publication, keeps the complete original narrative in English and Spanish, and can include podcast/blog links. These narratives do not replace the journal abstracts on publication detail pages. The original page team only controls this comparison layout; directory area assignments stay independent. Other areas retain the standard design.
+All nine areas use **Area page design → Original photo-led reference**. Its **Original cover photograph**, **Original page team**, project photographs, and **Full publication features for original layout** reproduce the original page with locally saved media. Each publication feature links to an existing publication, keeps the complete original narrative in English and Spanish, and can include podcast/blog links. These narratives do not replace the journal abstracts on publication detail pages. Leave **Original page team** empty to show researchers assigned to that area in the directory. A nonempty list overrides the team on this page only; Human Capital keeps its approved original team. Without a custom publication feature, the page displays the existing journal abstract. Never invent a project photograph or publication narrative.
+
+Keep **UP Economics Research Center** unchanged in English and Spanish, including both name fields in Site Settings.
 
 Publication titles and optional publication images always open the internal detail page, in the current language. **Abstract and details / Resumen y detalles** opens the same page. The detail page provides a **View article / Ver artículo** button to the canonical publisher or DOI URL, plus a separate PDF download when supplied. This behavior also applies to the Human Capital comparison layout.
 
 The original portrait files shared through Drive were reviewed on October 16. Twelve People portraits now use those originals without recompression; Sergio and Esteban already used the shared resolution. Juan Álvaro retains the approved earlier portrait. The Human Capital comparison page retains its separately approved reference photographs. Source files and checksums are recorded internally in `design/assets/media-sources.json`.
 
 In **People**, upload the complete original under **Portrait**. **Portrait framing (percentages)** keeps the file intact and controls the visible rectangle: Left and Top locate its upper-left corner; Width and Height define its size within the original. Each value uses 0–100; Left + Width and Top + Height must not exceed 100. Remove this optional group for automatic framing. When replacing a photograph, reset its old framing and inspect the generated page before publishing. English and Spanish share the same photograph and framing.
+
+The **Submit a proposal / Envía una propuesta** button appears beside **Propose a session**. Edit its destination in **Home scope, contact and seminar information**. The form-language qualifier, completion-time note and seminar questions/email line were removed at editorial review; the general home-page contact remains available. Home navigation buttons share the **Explore research** appearance.
+
+Publication thumbnail images show the complete page without cropping or color filters. Upload an image of the article’s first PDF page when available, keeping the journal heading visible; the saved original journal-page captures can remain until a PDF is available. Use the publication **Image**, bilingual alternative text, credit and source fields. Thumbnails are 150px wide in Publications and 200px in area pages on desktop, with smaller mobile limits. Clicking the image opens the same internal detail page as the title.
+
+Current projects use one row per project in their saved editorial order. Desktop images sit to the right at up to 240px wide and 190px high, with the full image visible. A project without a photo uses the full row, with no reserved image space. On smaller screens, images stack beneath their project text. Add or remove the optional project image in the CMS; no manual layout adjustment is needed.

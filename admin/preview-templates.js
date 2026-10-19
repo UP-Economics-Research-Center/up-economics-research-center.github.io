@@ -9,33 +9,87 @@
   }
   function Preview(props, kind) {
     var entry = props.entry;
-    var title = field(entry, 'title') || field(entry, 'name') || field(entry, 'center_name') || 'Content preview';
+    var title = field(entry, 'title') || field(entry, 'display_name') || field(entry, 'name') || field(entry, 'center_name') || 'Content preview';
     var blocks = [];
     function line(label, value) {
       if (Array.isArray(value)) value = value.map(function (item) { return typeof item === 'string' ? item : (item.name || ''); }).filter(Boolean).join(', ');
-      if (value) blocks.push(h('p', { key: label }, h('strong', {}, label + ': '), String(value)));
+      if (value) blocks.push(h('p', { key: label, style: { whiteSpace: 'pre-line' } }, h('strong', {}, label + ': '), String(value)));
+    }
+    function bilingual(label, name) {
+      line(label + ' — English', field(entry, name));
+      line(label + ' — Español', field(entry, name + '_es'));
+      if (field(entry, name) && !field(entry, name + '_es')) line('Missing Spanish: ' + label, 'Complete the Spanish field before requesting approval.');
+    }
+    function image(label, source, alt) {
+      if (!source) return;
+      var asset = props.getAsset ? String(props.getAsset(source)) : source;
+      blocks.push(h('figure', { key: label, style: { margin: '1rem 0' } },
+        h('img', { src: asset, alt: alt || label, style: { display: 'block', maxWidth: '200px', maxHeight: '260px', width: 'auto', height: 'auto', objectFit: 'contain' } }),
+        h('figcaption', {}, label)));
     }
     if (kind === 'publications') {
-      line('Authors', field(entry, 'authors')); line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Venue', field(entry, 'venue')); line('Abstract', field(entry, 'abstract')); line('Topics', field(entry, 'topics')); line('DOI', field(entry, 'doi')); line('PDF', field(entry, 'pdf') || field(entry, 'pdf_url')); line('Reference URL (optional)', field(entry, 'source_url'));
+      line('Title (original language)', field(entry, 'title'));
+      line('Authors (citation order)', field(entry, 'authors'));
+      line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Journal / publisher', field(entry, 'venue'));
+      image('Article thumbnail', field(entry, 'image'), field(entry, 'image_alt'));
+      bilingual('Abstract', 'abstract'); line('Research areas', field(entry, 'topics'));
+      line('DOI', field(entry, 'doi')); line('Article URL', field(entry, 'canonical_url')); line('PDF', field(entry, 'pdf') || field(entry, 'pdf_url'));
     } else if (kind === 'people') {
-      line('Role', field(entry, 'role')); line('Biography', field(entry, 'bio')); line('Research areas', field(entry, 'research_areas')); line('Official profile', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
+      image('Portrait', field(entry, 'portrait'), field(entry, 'portrait_alt'));
+      line('Complete name', field(entry, 'name')); line('Public name', field(entry, 'display_name')); line('Role', field(entry, 'role')); line('Display order', field(entry, 'display_order'));
+      bilingual('Biography', 'bio'); line('Research areas', field(entry, 'research_areas'));
+      line('Personal website', field(entry, 'personal_website')); line('Official profile', field(entry, 'canonical_url'));
     } else if (kind === 'research_areas') {
-      line('Research focus', field(entry, 'summary')); line('Researchers', field(entry, 'people')); line('Official page', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
+      bilingual('Area name', 'name'); bilingual('Introduction', 'summary'); bilingual('Overview', 'overview');
+      image('Area thumbnail', field(entry, 'image'), field(entry, 'image_alt'));
+      var banner = field(entry, 'banner');
+      if (banner) image('Cover photograph', banner.image, banner.image_alt);
+      (field(entry, 'projects') || []).forEach(function (project, index) {
+        var label = 'Project ' + (index + 1);
+        line(label + ' — English', project.title); line(label + ' — Español', project.title_es);
+        line(label + ' description — English', project.summary); line(label + ' description — Español', project.summary_es);
+        line(label + ' researchers', project.researcher_note); line(label + ' investigadores', project.researcher_note_es);
+        image(label + ' image', project.image, project.image_alt);
+        if (!project.image) line(label + ' layout', 'Full-width text; no image space is reserved.');
+      });
+      (field(entry, 'publication_features') || []).forEach(function (item, index) {
+        var label = 'Featured publication ' + (index + 1);
+        line(label, item.publication); image(label + ' thumbnail', item.image, item.image_alt);
+        line(label + ' — English', item.description); line(label + ' — Español', item.description_es);
+      });
+      line('Team override', field(entry, 'reference_team').map ? field(entry, 'reference_team').map(function (item) { return item.person_id; }) : '');
+      line('Team selection', 'An empty team override uses the researcher directory’s area assignments.');
     } else if (kind === 'news') {
-      line('Date', field(entry, 'date')); line('Category', field(entry, 'category')); line('Summary', field(entry, 'summary')); line('Story', field(entry, 'body')); line('Canonical page', field(entry, 'canonical_url')); line('Reference URL (optional)', field(entry, 'source_url'));
+      bilingual('Title', 'title'); line('Date', field(entry, 'date')); line('Category', field(entry, 'category'));
+      bilingual('Summary', 'summary'); bilingual('Story', 'body');
     } else if (kind === 'seminars') {
-      line('Series', field(entry, 'series')); line('Speaker', field(entry, 'speaker')); line('Date and time', field(entry, 'date')); line('Time zone', field(entry, 'timezone')); line('Description', field(entry, 'description')); line('Location', field(entry, 'location')); line('Registration', field(entry, 'event_url')); line('Reference URL (optional)', field(entry, 'source_url'));
+      bilingual('Title', 'title'); line('Speaker', field(entry, 'speaker')); line('Date and time', field(entry, 'date')); line('Time zone', field(entry, 'timezone'));
+      bilingual('Description', 'description'); line('Location', field(entry, 'location')); line('Event URL', field(entry, 'event_url'));
     } else if (kind === 'about') {
-      line('Research scope', field(entry, 'research_scope')); line('About the Center', field(entry, 'scope')); line('Collaboration', field(entry, 'collaboration')); line('Public contact', field(entry, 'contact_email')); line('Reference URL (optional)', field(entry, 'source_url'));
+      bilingual('Center scope', 'scope'); bilingual('Scope heading', 'research_scope'); bilingual('Affiliation', 'affiliation'); bilingual('Collaboration', 'collaboration');
+      bilingual('Contact introduction', 'contact_intro'); line('Contact email', field(entry, 'contact_email')); line('Postal address', field(entry, 'address'));
+      bilingual('Seminar introduction', 'seminar_description'); bilingual('Seminar schedule', 'seminar_schedule'); bilingual('Session confirmation', 'seminar_schedule_note');
+      line('Proposal form URL', field(entry, 'seminar_form_url'));
+      (field(entry, 'seminar_proposals') || []).forEach(function (item, index) {
+        line('Proposal ' + (index + 1) + ' — English', item.label + ': ' + item.description);
+        line('Proposal ' + (index + 1) + ' — Español', item.label_es + ': ' + item.description_es);
+      });
+      bilingual('Editorial note (appears publicly)', 'editorial_note');
     } else {
-      line('University', field(entry, 'university')); line('Introduction', field(entry, 'hero_summary')); line('Campus video', field(entry, 'campus_video_caption'));
+      bilingual('Center name (do not translate)', 'center_name'); line('University', field(entry, 'university'));
+      bilingual('Home heading', 'hero_heading'); bilingual('Home introduction', 'hero_summary'); bilingual('Video caption', 'campus_video_caption');
+      line('News visible', String(field(entry, 'show_news'))); line('Seminars visible', String(field(entry, 'show_seminars')));
+      line('Working papers visible', String(field(entry, 'show_working_papers'))); line('Policy briefs visible', String(field(entry, 'show_policy_briefs')));
     }
+    line('Reference URL', field(entry, 'source_url'));
+    var visibility = kind === 'site' ? 'Site settings take effect after approval, publication and a successful deployment.' :
+      field(entry, 'published') ? 'Included on the website after approval and publication. Saving a draft does not change the live version.' :
+      'Excluded from the public website after publication. This visibility switch is separate from review approval.';
     return h('main', { className: 'wrap', style: { maxWidth: '52rem', margin: '2rem auto', padding: '1.5rem', background: '#fff' } },
-      h('div', { className: 'eyebrow' }, 'Content preview'),
-      h('h1', {}, title),
-      h('div', {}, blocks.length ? blocks : [h('p', { key: 'empty' }, 'Add details to see them in this preview.')]),
-      h('p', { className: 'note' }, field(entry, 'published') ? 'Marked for publication; it will appear after this change is saved and Pages finishes deploying.' : 'Draft only; this record will not appear on the public site.')
-    );
+      h('div', { className: 'eyebrow' }, 'Content review preview'), h('h1', {}, title),
+      h('p', { className: 'note' }, 'Review the text and images below. This is a content preview; the full page layout is available in the built site preview.'),
+      h('div', {}, blocks.length ? blocks : [h('p', { key: 'empty' }, 'Add details to see them here.')]),
+      h('p', { className: 'note' }, visibility));
   }
   ['site', 'about', 'people', 'research_areas', 'publications', 'news', 'seminars'].forEach(function (collection) {
     var template = createClass({ render: function () { return Preview(this.props, collection); } });

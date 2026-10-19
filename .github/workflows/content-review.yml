@@ -1,0 +1,29 @@
+name: Review editorial changes
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  editorial-build:
+    name: Build editorial changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out proposed changes
+        uses: actions/checkout@v4
+      - name: Validate records and build both languages
+        run: python3 tools/build_site.py
+      - name: Save reviewable site files
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-site-preview
+          path: _site/
+          retention-days: 7

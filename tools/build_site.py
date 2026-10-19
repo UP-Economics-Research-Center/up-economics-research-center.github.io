@@ -337,7 +337,7 @@ def render_authors(pub: dict) -> str:
     label = "UP researcher:" if len(up) == 1 else "UP researchers:"
     result = f'<span class="author-group-label">{label}</span> ' + names(up)
     if others:
-        result += ' <span class="coauthor-prefix">with</span> ' + names(others)
+        result += '<br><span class="coauthor-prefix">with</span> ' + names(others)
     return result
 
 
@@ -376,11 +376,9 @@ def render_seminar_information(settings: dict) -> str:
 
 def render_seminar_proposals(settings: dict) -> str:
     items = "".join(f'<li><h3>{e(item["label"])}</h3><p>{e(item["description"])}</p></li>' for item in settings.get("seminar_proposals", []))
-    form = external_anchor(settings.get("seminar_form_url", ""), "Submit a proposal (form in Spanish)")
+    form = external_anchor(settings.get("seminar_form_url", ""), "Submit a proposal", "button")
     note = f'<p class="note">{e(settings["seminar_form_note"])}</p>' if settings.get("seminar_form_note") else ""
-    email = settings.get("contact_email", "")
-    contact = f'<p><span>Questions?</span> <a href="mailto:{e(email)}">{e(email)}</a></p>' if email else ""
-    return f'<ul class="seminar-proposal-types">{items}</ul><div class="seminar-proposal-action">{form}{note}{contact}</div>'
+    return f'<div class="seminar-proposal-heading"><h2>Propose a session</h2>{form}</div><div class="seminar-proposal-action">{note}</div><ul class="seminar-proposal-types">{items}</ul>'
 
 
 def render_scope(settings: dict) -> str:
@@ -465,7 +463,7 @@ def build() -> None:
     raw = {key: load_records(folder) for key, folder in COLLECTIONS.items()}
     if site_settings.get("show_seminars", False):
         path = CONTENT / "settings/about.json"
-        for field in ("seminar_description", "seminar_schedule", "seminar_schedule_note", "seminar_form_note"):
+        for field in ("seminar_description", "seminar_schedule", "seminar_schedule_note"):
             require_text(path, about_settings, field)
             require_text(path, about_settings, field + "_es")
         for field in ("seminar_form_url", "seminar_source_url"):

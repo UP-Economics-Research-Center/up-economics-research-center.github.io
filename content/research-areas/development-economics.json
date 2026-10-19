@@ -22,7 +22,12 @@
       "researchers": [],
       "title_es": "Desigualdad y persistencia intergeneracional en México: una curva del Gran Gatsby subnacional con EMOVI 2023",
       "summary_es": "La desigualdad económica puede determinar las oportunidades entre generaciones e influir en la posibilidad de que los hijos alcancen mejores niveles de vida que sus padres. Este proyecto examina la relación entre desigualdad y movilidad social en distintas regiones y grupos demográficos de México con datos de la encuesta EMOVI 2023. La investigación explora la intensidad con la que el origen familiar influye en los resultados económicos y si una mayor desigualdad se asocia con una menor movilidad intergeneracional. El proyecto también estudia cómo varían estas relaciones entre zonas rurales y urbanas, géneros y grupos de edad, contribuyendo al debate sobre desigualdad, oportunidades y movilidad social en México.",
-      "researcher_note_es": "Investigadores UP: Marytell Arciniega Castellanos"
+      "researcher_note_es": "Investigadores UP: Marytell Arciniega Castellanos",
+      "image": "/design/assets/research/original-pages/development-economics-project-1.jpg",
+      "image_alt": "Illustration of social mobility.",
+      "image_alt_es": "Ilustración de movilidad social.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics"
     },
     {
       "title": "Inequality, Economic Conditions, and Crime Types: Evidence from Mexican Municipalities",
@@ -31,7 +36,12 @@
       "researchers": [],
       "title_es": "Desigualdad, condiciones económicas y tipos de delitos: evidencia de los municipios mexicanos",
       "summary_es": "El crimen y la violencia están estrechamente relacionados con las condiciones económicas y sociales, aunque distintos tipos de delitos pueden responder de manera diferente a la desigualdad, el desempleo y la actividad económica local. Este proyecto examina cómo las características municipales, como la desigualdad de ingresos, las condiciones del mercado laboral, el tamaño de la población y la salud mental, se asocian con los patrones delictivos en los municipios de México. Con datos municipales de todo el país, la investigación explora cómo los factores económicos y sociales se relacionan con distintas categorías de delitos, incluidos los delitos contra la propiedad, la violencia doméstica y el homicidio. El proyecto destaca cómo la desigualdad y las condiciones económicas determinan los resultados de seguridad pública y contribuye a comprender las dimensiones sociales y económicas del crimen en el desarrollo urbano y regional.",
-      "researcher_note_es": "Investigadores UP: Joshua M. Torres y Akito Kamei"
+      "researcher_note_es": "Investigadores UP: Joshua M. Torres y Akito Kamei",
+      "image": "/design/assets/research/original-pages/development-economics-project-2.jpg",
+      "image_alt": "A memorial in a public space.",
+      "image_alt_es": "Un memorial en un espacio público.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics"
     },
     {
       "title": "Child Labor, Workplace Risks, and Health Outcomes in Mexico",
@@ -40,7 +50,12 @@
       "researchers": [],
       "title_es": "Trabajo infantil, riesgos laborales y resultados de salud en México",
       "summary_es": "El trabajo infantil sigue siendo una preocupación importante en los países en desarrollo, pero no todas las formas de trabajo afectan a los niños de la misma manera. Este proyecto examina si los niños que trabajan en entornos peligrosos presentan peores resultados de salud que quienes realizan otros trabajos o no trabajan. Con datos de la Encuesta Nacional de Trabajo Infantil de México (ENTI 2022), el estudio explora cómo distintos riesgos laborales se asocian con una amplia variedad de síntomas de salud. La investigación contribuye a comprender mejor las consecuencias del trabajo infantil peligroso y aporta evidencia empírica relevante para los debates de política pública sobre la medición, regulación y prevención del trabajo infantil.",
-      "researcher_note_es": "Investigadores UP: Luciano A. Quintana, Enrique Minor, y Akito Kamei\n Con: Hyuk Harry Son (Northeastern University, USA)"
+      "researcher_note_es": "Investigadores UP: Luciano A. Quintana, Enrique Minor, y Akito Kamei\n Con: Hyuk Harry Son (Northeastern University, USA)",
+      "image": "/design/assets/research/original-pages/development-economics-project-3.jpg",
+      "image_alt": "A child working beside a vehicle.",
+      "image_alt_es": "Un niño trabajando junto a un vehículo.",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics"
     }
   ],
   "display_order": 5,
@@ -52,5 +67,26 @@
   "image_alt_es": "Barrio de Rocinha en las laderas de Río de Janeiro.",
   "image_credit": "chensiyuan · CC BY-SA 4.0",
   "image_source_url": "https://commons.wikimedia.org/wiki/File:Rocinha_rio_de_janeiro_panorama_2010.jpg",
-  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "layout": "original-reference",
+  "reference_team": [],
+  "publication_features": [
+    {
+      "publication": "parental-absence-hazardous-child-labour-nepal",
+      "description": "Using Nepal’s 2014 Multiple Indicator Cluster Survey, which includes information on children’s working conditions, this paper investigates household factors associated with hazardous child labour. The analysis focuses on children already engaged in work and asks which circumstances are linked to greater exposure to dangerous forms of labour. Children from poorer households face a higher risk of hazardous work. A father’s absence due to death and living without parental care are also associated with increased risk. The results provide evidence on how household circumstances and care arrangements relate to children’s working conditions, helping identify families who may need targeted protection. The study emphasizes that policies to eliminate hazardous child labour should account for poverty and the availability of parental care.",
+      "description_es": "Con la Encuesta de Indicadores Múltiples por Conglomerados de Nepal de 2014, que incluye información sobre las condiciones laborales de los niños, este artículo investiga factores del hogar asociados con el trabajo infantil peligroso. El análisis se centra en niños que ya trabajan y pregunta qué circunstancias se vinculan con una mayor exposición a formas peligrosas de trabajo. Los niños de hogares más pobres enfrentan un riesgo mayor. La ausencia del padre por fallecimiento y vivir sin cuidado parental también se asocian con un riesgo elevado. Los resultados aportan evidencia sobre la relación entre las circunstancias del hogar, los arreglos de cuidado y las condiciones laborales infantiles, ayudando a identificar familias que podrían requerir protección focalizada. El estudio destaca que las políticas para eliminar el trabajo infantil peligroso deben considerar la pobreza y la disponibilidad de cuidado parental.",
+      "image": "/design/assets/research/original-pages/parental-absence-hazardous-child-labour-nepal.png",
+      "image_alt": "Journal article screenshot: Parental Absence and Agency: The Household Characteristics of Hazardous Forms of Child Labour in Nepal",
+      "image_alt_es": "Captura del artículo de revista: Parental Absence and Agency: The Household Characteristics of Hazardous Forms of Child Labour in Nepal",
+      "image_credit": "UP Economics Research Center · Original research page",
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics"
+    }
+  ],
+  "banner": {
+    "image": "/design/assets/research/original-pages/development-economics-cover.jpg",
+    "image_alt": "People walking along a street with colorful buildings.",
+    "image_alt_es": "Personas caminando por una calle con edificios de colores.",
+    "image_credit": "UP Economics Research Center · Original research page",
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/development-economics"
+  }
 }
