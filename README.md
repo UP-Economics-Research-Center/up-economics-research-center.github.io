@@ -79,7 +79,7 @@ English is the default. **EN / ES** switches between complete static pages and r
 
 In the CMS, fill in the English fields and their **Spanish** companions before publishing. Paper titles, author names and journal names stay in their original language. Keep the complete approved area descriptions; the originals and their sources are archived under `docs/sources/`. The **Home scope, contact and seminar information** collection controls the information moved from About to the home page. Contact details remain in the final home-page block and are linked from the footer; Contact is omitted from the desktop and mobile header. Seminars has an independent page linked from the header and footer.
 
-Research photos have source/license credits. Project and paper photos are optional and disappear when absent. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers and policy briefs are temporarily hidden from public publications; a separate working-paper series is deferred.
+Research photos have source/license credits. Project photographs are optional; publications without an approved reusable first page display an original bibliographic reference. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers remain temporarily hidden; approved Policy briefs are visible in the publication archive. A separate working-paper series is deferred.
 
 For local review, build with `python3 tools/build_site.py`, then serve `_site/` as described above. Inspect `/`, `/es/`, People, area pages and publication details. Project instructions prohibit running tests unless requested; this change uses the static build, syntax/path inspection and manual browser review.
 
@@ -91,7 +91,7 @@ The optional **Research scope** subtitle field may be left blank to omit that he
 
 Keep author names in their original citation order in each publication record. Link each UP author with the **Researcher profile** relation (`person_id`). Public lists and detail pages group linked UP researchers first and introduce the remaining coauthors with **with** / **con**; the saved citation order is preserved. Publications appear from newest year to oldest.
 
-In **Site Settings**, **Show working papers publicly** and **Show policy briefs publicly** are currently off. These records stay editable in the CMS, but do not generate public lists, filters, search results, JSON entries or detail pages. Turn the switches back on to restore the approved records. The home-page working-paper link follows the working-paper switch.
+In **Site Settings**, **Show working papers publicly** is off and **Show policy briefs publicly** is on. A disabled type stays editable in the CMS but does not generate public lists, filters, search results, JSON entries or detail pages. Enable its switch to restore approved records. The home-page working-paper link follows the working-paper switch.
 
 ### Research area pages
 

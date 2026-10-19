@@ -717,9 +717,17 @@ def build() -> None:
         active_media.update(project.get("image") for area in data["research_areas"] for project in area["projects"])
         active_media.update(area.get("banner", {}).get("image") for area in data["research_areas"])
         active_media.update("/" + str(site_settings.get(key, "")).lstrip("/") for key in ("featured_image", "campus_video_poster"))
-        for pub in data["publications"]:
-            if pub.get("_withheld_image") and pub["_withheld_image"] not in active_media:
-                (site / pub["_withheld_image"].lstrip("/")).unlink(missing_ok=True)
+        # Include unpublished/hidden records: changing visibility must not expose a pending asset.
+        for _, pub in raw["publications"]:
+            image = pub.get("image", "")
+            if not isinstance(image, str) or pub.get("image_rights_status") in ("licensed", "permission-confirmed"):
+                continue
+            clean = image.strip().lstrip("/")
+            if not clean or urlparse(image).scheme or ".." in Path(clean).parts:
+                continue
+            asset = (site / clean).resolve()
+            if site.resolve() in asset.parents and "/" + clean not in active_media:
+                asset.unlink(missing_ok=True)
         shutil.copytree(ROOT / "admin", site / "admin")
         for icon in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
             shutil.copy2(ROOT / icon, site / icon)
