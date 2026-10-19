@@ -13,9 +13,5 @@
     container.replaceChildren(frame);
     if(focusPlayer)frame.focus();
   };
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    document.getElementById('play-campus-film')?.addEventListener('click',()=>playCampusVideo(true));
-  }else{
-    playCampusVideo();
-  }
+  document.getElementById('play-campus-film')?.addEventListener('click',()=>playCampusVideo(true));
 })();

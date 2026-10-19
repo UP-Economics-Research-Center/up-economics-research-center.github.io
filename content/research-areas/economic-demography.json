@@ -44,11 +44,11 @@
   "name_es": "Demografía Económica",
   "summary_es": "La economía demográfica examina cómo las decisiones familiares, la dinámica poblacional y las normas sociales determinan los resultados económicos y sociales entre generaciones. El comportamiento reproductivo, el matrimonio, la migración, las normas de género y la estructura de los hogares influyen en la educación, la salud, la participación laboral y el bienestar a largo plazo. Comprender cómo estos procesos demográficos interactúan con la desigualdad y las instituciones sociales es importante para diseñar políticas que mejoren el bienestar humano y reduzcan la vulnerabilidad.",
   "overview_es": "Esta agenda de investigación estudia cómo el comportamiento de los hogares, las preferencias de género y las transiciones demográficas afectan los resultados económicos y sociales en países de ingresos bajos y medios. Los proyectos actuales examinan temas como la preferencia por hijos varones, el comportamiento reproductivo, la salud de las mujeres, la violencia doméstica y las dinámicas intergeneracionales de los hogares, con énfasis en cómo las normas sociales y las presiones demográficas determinan el bienestar y la desigualdad.",
-  "image": "/design/assets/research/original-pages/economic-demography-thumbnail.jpg",
-  "image_alt": "Map labeled Most Populous Countries.",
-  "image_alt_es": "Mapa titulado Países más poblados.",
-  "image_credit": "UP Economics Research Center · Original research page",
-  "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
+  "image": "/design/assets/research/area-photography/economic-demography.webp",
+  "image_alt": "Pedestrians crossing a busy urban street.",
+  "image_alt_es": "Peatones cruzando una calle urbana concurrida.",
+  "image_credit": "Volkan Gunes · Pexels · Pexels License",
+  "image_source_url": "https://www.pexels.com/photo/view-of-a-crowded-street-crossing-in-the-city-26346325/",
   "layout": "original-reference",
   "reference_team": [],
   "publication_features": [
@@ -65,12 +65,16 @@
     }
   ],
   "banner": {
-    "image": "/design/assets/research/original-pages/economic-demography-cover.jpg",
-    "image_alt": "People arranged in the shape of a world map.",
-    "image_alt_es": "Personas formando un mapa del mundo.",
-    "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
-    "image_credit_es": "UP Economics Research Center · Página original de investigación"
+    "image": "/design/assets/research/area-photography/economic-demography.webp",
+    "image_alt": "Pedestrians crossing a busy urban street.",
+    "image_alt_es": "Peatones cruzando una calle urbana concurrida.",
+    "image_credit": "Volkan Gunes · Pexels · Pexels License",
+    "image_credit_es": "Volkan Gunes · Pexels · Licencia Pexels",
+    "image_source_url": "https://www.pexels.com/photo/view-of-a-crowded-street-crossing-in-the-city-26346325/",
+    "image_license": "Pexels License",
+    "image_license_url": "https://www.pexels.com/license/"
   },
-  "image_credit_es": "UP Economics Research Center · Página original de investigación"
+  "image_credit_es": "Volkan Gunes · Pexels · Licencia Pexels",
+  "image_license": "Pexels License",
+  "image_license_url": "https://www.pexels.com/license/"
 }

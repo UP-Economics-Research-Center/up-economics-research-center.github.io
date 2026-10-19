@@ -363,3 +363,16 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 
 - El usuario solicita mostrar completas las imágenes originales ampliadas. Esta corrección sustituye la franja de altura fija: las nueve áreas conservan la proporción original, sin recorte, deformación ni fondo lateral añadido. Imagen centrada, altura máxima de 560px y ancho limitado al espacio disponible; título encima y descripción completa debajo.
 - Generación estática correcta y diff inspeccionado. Revisión visual de Education y Agricultural en escritorio, y Macroeconomics a 320px: proporciones originales conservadas y sin desbordamiento horizontal. No se ejecutaron tests ni se modificaron archivos de imagen, contenido o configuración del CMS.
+
+
+## 2026-10-19 — Galería editorial y unificación del sitio
+
+El usuario eligió la galería A con imágenes que llenen el marco. Se sustituyen Health, Digital, Demography y Political Economy; esta última se entiende como filosofía de la economía y usa Adam Smith. Team debe usar siempre el retrato y encuadre de People. Menú principal centrado; navegación secundaria compartida y adaptación móvil.
+
+El usuario rechazó expresamente los nuevos adornos laterales de líneas y cuadrados y los cuadrados junto a encabezados. Se retiraron; no restaurarlos. Se mantienen fondos suaves y los marcos de imágenes previamente acordados. La consulta acotada de Taste advierte contra añadir ornamentos genéricos. No se afirma certificación de esa skill.
+
+Privacidad, términos, servicios externos y derechos permanecen señalados como borradores para revisión UP. Contacto del Centro confirmado por el usuario: akamei@up.edu.mx. Enlace al aviso oficial de privacidad de la UP; sin afirmación de aprobación jurídica.
+
+Hay siete primeras páginas auténticas. Se retiraron doce capturas web y faltan sus documentos auténticos, incluido VelaFi. El libro y Urban agglomerations ya carecían de vista previa: catorce registros en total permanecen sin miniatura. No inventar portadas ni sustituir silenciosamente versiones de revista por preprints.
+
+Véase [la nota de versión](editorial-gallery-release-2026-10-19.md) para fuentes, validación y pendientes. El usuario autorizó commit, push, PR y merge al terminar esta revisión.

@@ -35,4 +35,11 @@ def image_dimensions(path: str) -> tuple[int, int] | None:
                 height, width = struct.unpack('>HH', data[position + 3:position + 7])
                 return width, height
             position += length
+    if data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+        kind = data[12:16]
+        if kind == b'VP8 ' and data[23:26] == b'\x9d\x01\x2a':
+            width, height = struct.unpack('<HH', data[26:30])
+            return width & 0x3fff, height & 0x3fff
+        if kind == b'VP8X' and len(data) >= 30:
+            return int.from_bytes(data[24:27], 'little') + 1, int.from_bytes(data[27:30], 'little') + 1
     return None

@@ -15,12 +15,12 @@
   "name_es": "Economía Política",
   "summary_es": "Las instituciones políticas y económicas desempeñan un papel central en el desarrollo económico, las políticas públicas y los resultados sociales a largo plazo. Las decisiones relacionadas con la gobernanza, los derechos de propiedad, la integración comercial, la política monetaria y la regulación influyen en cómo las sociedades asignan recursos, responden a las crisis y generan oportunidades de crecimiento e innovación. Las diferencias en la calidad institucional y las estructuras de incentivos pueden producir grandes disparidades de productividad, desigualdad y estabilidad económica entre países y regiones.",
   "overview_es": "Esta agenda de investigación examina cómo las instituciones, las estructuras de gobernanza y los incentivos afectan el desarrollo económico y los resultados macroeconómicos. Los proyectos actuales exploran temas como los tratados de libre comercio, el incumplimiento de la deuda soberana, los comités de política monetaria, los sistemas de tenencia de la tierra, las redes de innovación, la gobernanza de los recursos naturales y el papel de las instituciones locales en el comportamiento económico y las trayectorias de desarrollo.",
-  "image": "/design/assets/research/john-stuart-mill.jpg",
-  "image_alt": "Portrait of John Stuart Mill, circa 1870.",
-  "image_alt_es": "Retrato de John Stuart Mill, hacia 1870.",
-  "image_credit": "London Stereoscopic Company · Public domain",
-  "image_source_url": "https://commons.wikimedia.org/wiki/File:John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg",
-  "image_license_url": "",
+  "image": "/design/assets/research/area-photography/political-economy.webp",
+  "image_alt": "Adam Smith, The Muir portrait, unknown artist, circa 1800.",
+  "image_alt_es": "Adam Smith, retrato Muir, artista desconocido, hacia 1800.",
+  "image_credit": "Unknown artist · The Muir portrait · National Galleries of Scotland · Public domain",
+  "image_source_url": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg",
+  "image_license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
   "layout": "original-reference",
   "reference_team": [],
   "publication_features": [
@@ -59,11 +59,15 @@
     }
   ],
   "banner": {
-    "image": "/design/assets/research/original-pages/political-economy-cover.jpg",
-    "image_alt": "A group of people gathered in a public indoor space.",
-    "image_alt_es": "Un grupo de personas reunidas en un espacio público interior.",
-    "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/political-economy",
-    "image_credit_es": "UP Economics Research Center · Página original de investigación"
-  }
+    "image": "/design/assets/research/area-photography/political-economy.webp",
+    "image_alt": "Adam Smith, The Muir portrait, unknown artist, circa 1800.",
+    "image_alt_es": "Adam Smith, retrato Muir, artista desconocido, hacia 1800.",
+    "image_credit": "Unknown artist · The Muir portrait · National Galleries of Scotland · Public domain",
+    "image_credit_es": "Artista desconocido · Retrato Muir · National Galleries of Scotland · Dominio público",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg",
+    "image_license": "Public domain",
+    "image_license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
+  },
+  "image_credit_es": "Artista desconocido · Retrato Muir · National Galleries of Scotland · Dominio público",
+  "image_license": "Public domain"
 }

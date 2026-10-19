@@ -8,7 +8,7 @@ import re
 import shutil
 import sys
 import tempfile
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import quote, urlparse
 from site_locales import generate_languages, LocaleError
@@ -25,6 +25,7 @@ COLLECTIONS = {
     "research_areas": "research-areas",
     "publications": "publications",
     "news": "news",
+    "media": "media",
     "seminars": "seminars",
 }
 
@@ -87,6 +88,19 @@ def validate_url(path: Path, key: str, value: str, *, optional=False) -> str:
     if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
         fail(path, key, "use a valid https URL")
     return value
+
+
+def validate_day(path, key, value):
+    if not value:
+        return
+    try:
+        if not isinstance(value, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+            raise ValueError()
+        parsed = date.fromisoformat(value)
+        if parsed > datetime.now(timezone.utc).date():
+            raise ValueError()
+    except ValueError:
+        fail(path, key, "use a real YYYY-MM-DD date, not in the future")
 
 
 def local_asset(path: Path, key: str, value: str, *, optional=False) -> str:
@@ -242,6 +256,9 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
             fail(path, "topics", "unknown or unpublished area ID(s): " + ", ".join(missing))
         row["topics"] = topics
         row["venue"] = optional_text(path, row, "venue")
+        validate_day(path, "publication_date", row.get("publication_date", ""))
+        row["publication_date_source_url"] = validate_url(path, "publication_date_source_url", row.get("publication_date_source_url", ""), optional=True)
+        row["isbn"] = optional_text(path, row, "isbn")
 
     for collection in ("news", "seminars"):
         for row in data[collection]:
@@ -264,6 +281,22 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
                 if row["series"] not in {"General Research Seminar", "Student Research Seminar", "Other"}:
                     fail(path, "series", "choose a supported seminar series")
 
+    for row in data["media"]:
+        path = row.pop("_path")
+        for key in ("title", "title_es", "summary", "summary_es", "type", "outlet", "verified_on"):
+            require_text(path, row, key)
+        if row["type"] not in {"Blog", "Podcast", "Article", "Interview", "Video", "Other"}:
+            fail(path, "type", "choose a supported media type")
+        for key in ("canonical_url", "source_url"):
+            row[key] = validate_url(path, key, row.get(key, ""))
+        validate_day(path, "date", row.get("date", ""))
+        authors = row.get("authors", [])
+        if not isinstance(authors, list) or not all(isinstance(name, str) and name.strip() for name in authors):
+            fail(path, "authors", "use a list of verified author names")
+        if row.get("person_id") and row["person_id"] not in people:
+            fail(path, "person_id", "choose a published researcher")
+        if row.get("publication_id") and row["publication_id"] not in {p["slug"] for p in data["publications"]}:
+            fail(path, "publication_id", "choose a published publication")
     return data
 
 
@@ -293,7 +326,13 @@ def image_html(record: dict, cls: str = "research-photo") -> str:
         return ""
     size = image_dimensions(str(ROOT / record["image"].lstrip("/")))
     dimensions = f' width="{size[0]}" height="{size[1]}"' if size else ""
-    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}"{dimensions} loading="lazy">'
+    responsive = ""
+    if "/area-photography/" in record["image"] and size:
+        source = Path(record["image"])
+        variants = [(source.with_name(source.stem + f"-{width}.webp").as_posix(), width) for width in (480, 960) if width < size[0]]
+        variants.append((record["image"], size[0]))
+        responsive = ' srcset="' + ', '.join(e(url) + ' ' + str(width) + 'w' for url, width in variants) + '" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1000px) 46vw, 640px"'
+    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}"{dimensions}{responsive} loading="lazy">'
 
 
 def render_area(area: dict, index: int, *, home=False) -> str:
@@ -301,7 +340,7 @@ def render_area(area: dict, index: int, *, home=False) -> str:
     if home:
         return f'<a class="topic-link" href="{e(href)}"><span>{e(area["name"])}</span><span aria-hidden="true">→</span></a>'
     visual = area if area.get("image") else (area.get("banner") or area)
-    art = f'<span class="research-art" data-area="{e(area["slug"])}"><span class="art-paper" aria-hidden="true"></span>{image_html(visual)}<span class="art-detail" aria-hidden="true"></span></span>'
+    art = f'<span class="research-art" data-area="{e(area["slug"])}">{image_html(visual)}</span>'
     return f'<a class="research-row" href="{e(href)}">{art}<strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
 
 
@@ -321,7 +360,7 @@ def render_person(person: dict, areas: dict[str, dict], publication_authors: set
         profile += external_anchor(person["canonical_url"], "Research profile", "profile-link")
     if person["slug"] in publication_authors:
         profile += f'<a class="profile-link" href="/publications.html?author={quote(person["slug"], safe="-")}">View publications</a>'
-    return f'<article class="person" id="{e(person["slug"])}"><div class="person-visual">{portrait}{topic_html}</div><div class="person-copy"><h3>{e(person["display_name"])}</h3><p class="person-bio">{e(person["bio"])}</p>{profile}</div></article>'
+    return f'<article class="person" id="{e(person["slug"])}"><h3 class="person-name">{e(person["display_name"])}</h3><div class="person-visual">{portrait}{topic_html}</div><div class="person-copy"><p class="person-bio">{e(person["bio"])}</p>{profile}</div></article>'
 
 
 def render_people(people: list[dict], areas: dict[str, dict], publications: list[dict]) -> str:
@@ -351,6 +390,20 @@ def render_authors(pub: dict) -> str:
     return result
 
 
+def recency_badge(pub):
+    if not pub.get("publication_date") or not pub.get("publication_date_source_url"):
+        return ""
+    return f'<span class="publication-new" data-publication-date="{e(pub["publication_date"])}" data-publication-date-source="{e(pub["publication_date_source_url"])}" hidden>New</span>'
+
+
+def render_media(item, people):
+    day = f'<time datetime="{e(item["date"])}">{e(item["date"])}</time>' if item.get("date") else ""
+    authors = f'<p>{e(", ".join(item.get("authors", [])))}</p>' if item.get("authors") else ""
+    related = f'<a href="/publications/{e(item["publication_id"])}/">Related publication</a>' if item.get("publication_id") else ""
+    person = f'<a href="/people.html#{e(item["person_id"])}">{e(people[item["person_id"]]["display_name"])}</a>' if item.get("person_id") else ""
+    return f'<article class="publication" id="{e(item["slug"])}"><p class="pub-venue">{e(item["outlet"])} · {e(item["type"])} {day}</p><h2 class="pub-title"><a href="{e(item["canonical_url"])}">{e(item["title"])}</a></h2>{authors}<p>{e(item["summary"])}</p><div class="reference-media-links">{person}{related}</div></article>'
+
+
 def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
     url = f'/publications/{quote(pub["slug"], safe="-")}/'
@@ -359,7 +412,7 @@ def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     photo = f'<a class="paper-image" href="{e(url)}" lang="{language}" translate="no" aria-label="{e(pub["title"])}">{image_html({**pub, "image_alt": ""}, "paper-photo")}</a>' if pub.get("image") else ""
     venue = pub["venue"] or pub["type"]
     return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-person-ids="{e(person_ids)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
-            f'{photo}<div><h2 class="pub-title"><a lang="{language}" translate="no" href="{e(url)}">{e(pub["title"])}</a></h2><p class="pub-authors" translate="no">{render_authors(pub)}</p>'
+            f'{photo}<div>{recency_badge(pub)}<h2 class="pub-title"><a lang="{language}" translate="no" href="{e(url)}">{e(pub["title"])}</a></h2><p class="pub-authors" translate="no">{render_authors(pub)}</p>'
             f'<div class="pub-venue"><span>{e(venue)}</span> · {pub["year"]}</div></div>'
             f'<div class="pub-actions"><a class="text-link" href="/publications/{quote(pub["slug"], safe="-")}/">Abstract and details →</a></div></article>')
 
@@ -383,7 +436,9 @@ def render_seminar(item: dict, archived=False) -> str:
 
 
 def render_seminar_information(settings: dict) -> str:
-    return "".join(f'<p>{e(settings[field])}</p>' for field in ("seminar_description", "seminar_schedule", "seminar_schedule_note") if settings.get(field))
+    description = f'<p>{e(settings["seminar_description"])}</p>' if settings.get("seminar_description") else ""
+    schedule = "".join(f'<p>{e(settings[field])}</p>' for field in ("seminar_schedule", "seminar_schedule_note") if settings.get(field))
+    return f'<div class="seminar-overview"><div>{description}</div><aside class="seminar-schedule"><h3>Format and schedule</h3>{schedule}</aside></div>'
 
 
 def render_seminar_proposals(settings: dict) -> str:
@@ -525,6 +580,8 @@ def build() -> None:
                     for member in team:
                         if not isinstance(member, dict) or member.get("person_id") not in {person["slug"] for person in data["people"]}:
                             fail(path, "reference_team", "choose a published researcher")
+                    # Legacy area photographs remain in source history; public team data is people IDs only.
+                    row["reference_team"] = [{"person_id": member["person_id"]} for member in team]
                     for feature in features:
                         if not isinstance(feature, dict) or feature.get("publication") not in {pub["slug"] for pub in data["publications"]}:
                             fail(path, "publication_features", "choose an approved publication")
@@ -537,11 +594,18 @@ def build() -> None:
                             require_text(path, item, "label")
                             require_text(path, item, "label_es")
                             item["url"] = validate_url(path, "media_links.url", item.get("url", ""))
-                    for record in [banner, *team, *features]:
+                    for record in [banner]:
                         record["image"] = local_asset(path, "reference image", record.get("image", ""))
                         for field in ("image_alt", "image_alt_es", "image_credit"):
                             require_text(path, record, field)
                         record["image_source_url"] = validate_url(path, "image_source_url", record.get("image_source_url", ""))
+    # Publication records own the verified first page; area descriptions cannot override it.
+    for area in data["research_areas"]:
+        for feature in area.get("publication_features", []):
+            for field in list(feature):
+                if field.startswith("image"):
+                    feature.pop(field)
+
     def add_image_dimensions(value):
         if isinstance(value, list):
             for item in value:
@@ -588,7 +652,7 @@ def build() -> None:
         public_files = (
             "about.html", "homepage-concept.html", "news.html", "people.html",
             "publications.html", "research-area.html", "research.html", "seminars.html",
-            "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
+            "media.html", "section-navigation.js", "site-motion.js", "publication-recency.js", "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
         )
         for relative in public_files:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
@@ -613,6 +677,7 @@ def build() -> None:
                             "home_scope": render_scope(about_settings),
                             "home_contact": render_about(about_settings)},
             "design/research.html": {"research_areas": "".join(render_area(a, i) for i, a in enumerate(data["research_areas"], 1)) or '<p class="note">Verified research areas will appear here.</p>'},
+            "design/media.html": {"media_list": "".join(render_media(item, {p["slug"]: p for p in data["people"]}) for item in data["media"])},
             "design/people.html": {"people_directory": render_people(data["people"], areas_by_id, data["publications"])},
             "design/publications.html": {"publication_list": "".join(render_publication_card(pub, area_names) for pub in data["publications"]) or '<p class="empty-state">No verified publications have been added yet.</p>'},
             "design/news.html": {"news_list": "".join(render_news(item) for item in data["news"]) or '<p class="empty-state">No approved announcements have been added yet.</p>'},
@@ -680,7 +745,7 @@ def build() -> None:
 
         # Publish visitor-facing section pages at the repository root. Keep
         # styles, scripts, and media in design/ as implementation assets.
-        route_pages = ("about", "news", "people", "publications", "research-area", "research", "seminars")
+        route_pages = ("about", "news", "people", "publications", "research-area", "research", "seminars", "media")
         for name in route_pages:
             source = (site / "design" / f"{name}.html").read_text(encoding="utf-8")
             source = source.replace('href="site-concept.css"', 'href="/design/site-concept.css"')
@@ -701,10 +766,13 @@ def build() -> None:
         publication_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["publications"]]
         news_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["news"]]
         seminar_feed = [{k: v for k, v in row.items() if not k.startswith("_")} for row in data["seminars"]]
-        for name, value in (("people.json", people_feed), ("research-areas.json", area_feed), ("publications.json", publication_feed), ("news.json", news_feed), ("seminars.json", seminar_feed)):
+        for name, value in (("media.json", data["media"]), ("people.json", people_feed), ("research-areas.json", area_feed), ("publications.json", publication_feed), ("news.json", news_feed), ("seminars.json", seminar_feed)):
             write_json(site / name, value)
 
         search = list(pages)
+        search.append(page_entry("Media", "Media", "BOLD blog podcast", "/media.html", "Media"))
+        for item in data["media"]:
+            search.append(page_entry(item["title"], item["summary"], item["outlet"] + " " + item["type"], '/media.html#' + item["slug"], "Media"))
         for person in data["people"]:
             search.append(page_entry(person["display_name"], person["bio"], person["name"] + " " + " ".join(person.get("research_areas", [])), f'/people.html#{quote(person["slug"], safe="-")}', "People"))
         for area in data["research_areas"]:
@@ -724,13 +792,14 @@ def build() -> None:
         for pub in data["publications"]:
             author_html = render_authors(pub)
             topic_html = "".join(f'<a class="tag" href="/research-area.html?area={quote(key, safe="-")}">{e(area_names[key])}</a>' for key in pub["topics"])
-            canonical_link = external_anchor(pub.get("canonical_url", ""), "View article", "button")
+            canonical_link = external_anchor(pub.get("canonical_url", ""), "View book" if pub["type"] == "Book" else "View article", "button")
             pdf_url = pub.get("pdf") or pub.get("pdf_url")
             download_link = external_anchor(pdf_url, "Download paper (PDF)") if pdf_url else ""
             if not download_link:
                 download_link = '<p class="note">A public full-text link has not been supplied.</p>'
             meta = " ".join([pub["type"], str(pub["year"]), pub["venue"], pub["abstract"]]).strip()[:250]
             replacements = {
+                "__NEW__": recency_badge(pub), "__ISBN__": f'<p>ISBN {e(pub["isbn"])}</p>' if pub.get("isbn") else "",
                 "__TITLE__": e(pub["title"]), "__TITLE_LANGUAGE__": pub["title_language"], "__YEAR__": str(pub["year"]), "__TYPE__": e(pub["type"]),
                 "__VENUE__": e(pub["venue"]), "__AUTHORS__": author_html, "__ABSTRACT__": e(pub["abstract"]),
                 "__TOPICS__": topic_html, "__CANONICAL_LINK__": canonical_link, "__DOWNLOAD_LINK__": download_link,

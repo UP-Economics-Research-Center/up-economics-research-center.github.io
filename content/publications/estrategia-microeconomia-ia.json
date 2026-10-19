@@ -1,0 +1,30 @@
+{
+  "slug": "estrategia-microeconomia-ia",
+  "title": "Estrategia, microeconomía e IA",
+  "title_es": "Estrategia, microeconomía e IA",
+  "title_language": "es",
+  "authors": [
+    {
+      "name": "Jorge Pérez Colín"
+    },
+    {
+      "name": "Eugenio Gómez Alatorre",
+      "person_id": "eugenio"
+    }
+  ],
+  "year": 2026,
+  "type": "Book",
+  "topics": [
+    "digital-and-business-economics"
+  ],
+  "canonical_url": "https://sistemasdedecision.com/",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+  "verified_on": "2026-10-19",
+  "venue": "Primera edición electrónica",
+  "isbn": "978-970-96202-5-2",
+  "published": true,
+  "abstract": "This book examines how microeconomic reasoning can guide organizational decisions carried out by algorithms and AI. It connects strategy, incentives, risk, traceability and accountability in the design of decision systems for pricing, resource allocation and competition.",
+  "abstract_es": "Este libro examina cómo el razonamiento microeconómico puede orientar las decisiones organizacionales realizadas por algoritmos e IA. Conecta estrategia, incentivos, riesgo, trazabilidad y rendición de cuentas en el diseño de sistemas de decisión para la fijación de precios, la asignación de recursos y la competencia.",
+  "publication_date": "2026-08-27",
+  "publication_date_source_url": "https://isbnmexico.indautor.cerlalc.org/catalogo.php?mode=detalle&nt=493577"
+}

@@ -27,9 +27,15 @@
         h('img', { src: asset, alt: alt || label, style: { display: 'block', maxWidth: '200px', maxHeight: '260px', width: 'auto', height: 'auto', objectFit: 'contain' } }),
         h('figcaption', {}, label)));
     }
-    if (kind === 'publications') {
+    if (kind === 'media') {
+      bilingual('Title', 'title'); bilingual('Summary', 'summary');
+      line('Type', field(entry, 'type')); line('Outlet', field(entry, 'outlet'));
+      line('Date (only if verified)', field(entry, 'date')); line('URL', field(entry, 'canonical_url'));
+      line('Researcher', field(entry, 'person_id')); line('Publication', field(entry, 'publication_id'));
+    } else if (kind === 'publications') {
       line('Title (original language)', field(entry, 'title'));
       line('Authors (citation order)', field(entry, 'authors'));
+      line('Exact publication date', field(entry, 'publication_date')); line('Date source', field(entry, 'publication_date_source_url')); line('ISBN', field(entry, 'isbn'));
       line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Journal / publisher', field(entry, 'venue'));
       image('Article thumbnail', field(entry, 'image'), field(entry, 'image_alt'));
       bilingual('Abstract', 'abstract'); line('Research areas', field(entry, 'topics'));
@@ -91,7 +97,7 @@
       h('div', {}, blocks.length ? blocks : [h('p', { key: 'empty' }, 'Add details to see them here.')]),
       h('p', { className: 'note' }, visibility));
   }
-  ['site', 'about', 'people', 'research_areas', 'publications', 'news', 'seminars'].forEach(function (collection) {
+  ['media', 'site', 'about', 'people', 'research_areas', 'publications', 'news', 'seminars'].forEach(function (collection) {
     var template = createClass({ render: function () { return Preview(this.props, collection); } });
     CMS.registerPreviewTemplate(collection, template);
   });
