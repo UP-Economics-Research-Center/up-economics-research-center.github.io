@@ -1162,7 +1162,7 @@ button,[role=button],a.button{text-decoration:none}
  .source-area-page .project-card.has-image .pub-title{grid-column:1;grid-row:1;margin:0}
  .source-area-page .project-card.has-image .project-description{grid-column:1;grid-row:2}
  .source-area-page .project-card.has-image .project-researchers{grid-column:1;grid-row:3}
- .source-area-page .project-card.has-image .project-media{grid-column:2;grid-row:2;display:block;position:relative}
+ .source-area-page .project-card.has-image .project-media{grid-column:2;grid-row:1 / span 2;display:block;position:relative}
  .source-area-page .project-card.has-image .project-photo{height:100%}
  .source-area-page .project-card.has-image .project-media figcaption{position:absolute;top:100%;left:0;right:0}
 }

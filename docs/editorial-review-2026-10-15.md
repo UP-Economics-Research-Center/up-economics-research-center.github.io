@@ -440,3 +440,5 @@ The team explicitly classifies both The Perfect Fit and VelaFi as articles. Set 
 Policy brief remains a valid visible archive category even with zero public records, explicitly confirmed after PR #29. Keep the filter option when Show policy briefs publicly is enabled; do not republish the UNICEF records.
 
 Publication archive thumbnails use uniform 150 × 210 px frames on desktop and 120 × 168 px on mobile, with complete pages contained without cropping. Their size must not depend on citation length. Research area previews retain the separately approved description-height layout.
+
+Latest project-photo correction: include both the project title and description in the desktop image height, from the title's top to the description's bottom. Continue to exclude researchers, collaborators and presentation notes. This supersedes the earlier description-only rule for project photographs; mobile remains stacked.

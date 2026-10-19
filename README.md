@@ -109,7 +109,7 @@ The **Submit a proposal / Envía una propuesta** button appears beside **Propose
 
 Publication previews always show complete document pages without cropping or color filters. Upload an authentic first PDF page with its source and credit; leave the image empty when the document is unavailable. Research and Publications share the same central image. On desktop, previews align with the adjacent text; on mobile they stack at their natural proportions.
 
-Current projects use one row per project in editorial order. Desktop project photographs align with and match the description only; the heading and researcher/presentation notes are excluded from that height. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
+Current projects use one row per project in editorial order. Desktop project photographs align with the title and span the combined title and description height; researcher/presentation notes are excluded. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
 
 Content links are underlined. Menus, language switches, breadcrumbs and button-like controls use their selection and focus styles instead.
 
@@ -145,4 +145,4 @@ Policy Briefs is an archive category and remains in the type filter even with ze
 
 Upload an authentic first-page image, then record **Image reuse status**, a public rights-evidence URL and the license name/link where applicable. Pending is the default: the image remains in source but is omitted from the generated site. Research and Publications omit the preview when no reusable image is available. Publisher webpage captures also require a rights basis; they are not an automatic workaround. Do not put private permission correspondence in public CMS fields.
 
-For project photos, **Photograph focus / Zona principal de la foto** selects top, center or bottom when the description-height frame crops the image. Use it to keep the important subject visible.
+For project photos, **Photograph focus / Zona principal de la foto** selects top, center or bottom when the title-and-description frame crops the image. Use it to keep the important subject visible.
