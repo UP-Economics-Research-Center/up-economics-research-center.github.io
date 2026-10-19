@@ -1115,3 +1115,11 @@ main>.page-hero,.source-area-page main>.feature-area,.home-hero{background:var(-
 .home-scope{background:#fff}
 .home-section.output-section{background:var(--editorial-ground)}
 .publication-detail-page main>.page-hero,main.legal-page>.page-hero{background:#fff}
+
+/* Project images are 1.5× the former 240px size; area covers keep their approved layout. */
+.source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr) 360px}
+.source-area-page .project-photo{max-width:360px;max-height:none}
+@media(max-width:700px){
+ .source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr)}
+ .source-area-page .project-media{width:min(360px,100%)}
+}
