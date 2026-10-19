@@ -178,15 +178,8 @@
       if (img) {
         preview.lang = titleLanguage; preview.translate = false; preview.setAttribute('aria-label', pub.title);
         img.alt = ''; preview.append(img);
-      } else {
-        preview.setAttribute('aria-label', t('Publication reference') + ': ' + pub.title);
-        const reference = node('span', '', 'publication-reference');
-        const venueText = node('strong', pub.venue || t(pub.type), 'reference-venue'); venueText.translate = false;
-        const referenceTitle = node('span', pub.title, 'reference-title'); referenceTitle.lang = titleLanguage; referenceTitle.translate = false;
-        reference.append(node('span', t('Publication reference'), 'reference-label'), venueText, referenceTitle, node('span', String(pub.year), 'reference-year'));
-        preview.append(reference);
+        article.append(preview); article.classList.add('has-image');
       }
-      article.append(preview); article.classList.add('has-image');
       const text = node('div', '', 'paper-copy'); const heading = node('h3', '', 'pub-title');
       const titleLink = link(href, pub.title);titleLink.lang = titleLanguage;titleLink.translate = false;heading.append(titleLink);
       const authors = node('p', '', 'pub-authors');

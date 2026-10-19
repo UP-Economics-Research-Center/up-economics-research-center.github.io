@@ -49,3 +49,7 @@ La revisión posterior incorporó la primera página publicada de *Land tenure s
 ### Revisión posterior: permisos y Policy Briefs
 
 El archivo actual contiene 23 registros, incluidos dos Policy Briefs UNICEF previamente aprobados. Tras revisar derechos se muestran siete primeras páginas con licencia explícita; los otros 16 registros utilizan fichas bibliográficas propias rotuladas, sin simular documentos editoriales. La portada del libro y la miniatura de Economic Theory quedan pendientes de permiso y no se copian al sitio generado. [Revisión de derechos](publication-rights-review-2026-10-19.md). Los artículos pueden seleccionar un registro publicado de tipo Policy brief para mostrarlo a su lado; no se ha inventado ninguna relación. Las fotos de proyectos se alinean exclusivamente con su descripción; las tres líneas de marca se subrayan directamente.
+
+
+### Latest corrections after PR #27
+The two UNICEF briefs are unpublished at the team’s request (21 public publications). Keep optional companion-brief support. Remove bibliographic preview panels entirely when no approved image is available; genuine document borders follow their own aspect ratio. Political Economy uses the existing public-domain John Stuart Mill portrait. Eugenio’s VelaFi case is Case study; The Perfect Fit is Conference paper, confirmed in IPADE’s research report. The wordmark is no longer underlined. These decisions supersede the earlier release descriptions above.

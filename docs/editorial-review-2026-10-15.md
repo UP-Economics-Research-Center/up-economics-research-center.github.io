@@ -423,3 +423,12 @@ El usuario reitera que UP Economics / Research Center / Universidad Panamericana
 La revisión de derechos conserva siete primeras páginas con licencia explícita y atribución. Economic Theory y la portada del libro quedan pendientes de permiso para su miniatura y se omiten del sitio generado; los registros se mantienen. Nicaragua y las demás publicaciones sin imagen autorizada muestran una ficha bibliográfica propia rotulada como tal, no una captura editorial ni una falsa primera página. Véase [la revisión con fuentes](publication-rights-review-2026-10-19.md). Las capturas web no se consideran automáticamente libres de derechos.
 
 Policy Briefs vuelve a ser una categoría visible del archivo: se muestran dos briefs UNICEF ya aprobados; los registros publicados=false mantienen su revisión pendiente. Un artículo puede seleccionar otro registro publicado de tipo Policy brief en el campo Companion policy brief. Eso genera un bloque al lado de su ficha y enlaces en archivo/Research. No se asigna ningún brief a un artículo por coincidencia temática: las relaciones se dejan vacías hasta confirmarlas.
+
+
+### Latest publication-image feedback — 19 October, after PR #27
+- Omit all placeholder bibliographic preview panels when no reusable image is available, in Research and Publications. Retain the publication text and links.
+- Genuine first-page previews retain their aspect ratio and the border follows the document width, not the full grid column; description-only height remains the desktop reference.
+- Restore the existing public-domain John Stuart Mill portrait for Political Economy, replacing Adam Smith in all area uses.
+
+- Remove both UNICEF Policy briefs from public routes, search, feeds and area lists (retain unpublished CMS records). Keep companion-brief support for future approved content.
+- Replace Eugenio’s Other labels: VelaFi → Case study; The Perfect Fit → Conference paper. IPADE’s 2020 research report lists The Perfect Fit under Proceedings (p.21); VelaFi is the teaching case already documented in its record. Add both named types to CMS and Spanish interface labels.

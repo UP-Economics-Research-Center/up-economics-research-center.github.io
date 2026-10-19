@@ -802,6 +802,8 @@ collections:
     - Book
     - Book chapter
     - Policy brief
+    - Conference paper
+    - Case study
     - Other
   - label: Journal, series or publisher
     name: venue

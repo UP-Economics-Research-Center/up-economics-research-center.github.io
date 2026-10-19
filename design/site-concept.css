@@ -1197,3 +1197,11 @@ button,[role=button],a.button{text-decoration:none}
  .source-area-page .reference-paper .paper-image{grid-row:2}
  .source-area-page .reference-paper>.text-link{grid-row:4}
 }
+
+/* Document borders follow the page itself, not the full media column. */
+@media(min-width:701px){
+ .paper-row .paper-image{position:relative}
+ .paper-row .paper-photo,.source-area-page .reference-paper .paper-photo{width:auto;height:100%;max-width:100%;margin-left:auto}
+ .source-area-page .reference-paper:not(.has-image) .paper-copy{display:block}
+ .source-area-page .reference-paper:not(.has-image)>.text-link{grid-row:2}
+}
