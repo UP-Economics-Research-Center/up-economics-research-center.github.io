@@ -1205,3 +1205,12 @@ button,[role=button],a.button{text-decoration:none}
  .source-area-page .reference-paper:not(.has-image) .paper-copy{display:block}
  .source-area-page .reference-paper:not(.has-image)>.text-link{grid-row:2}
 }
+
+/* Archive previews use a consistent size, independent of each citation's length. */
+.publication-list .publication.paper-row.has-image{grid-template-columns:150px minmax(0,1fr) auto}
+.publication-list .paper-image{contain:none;align-self:start;width:150px;height:210px}
+.publication-list .paper-photo{width:100%;height:100%;max-width:100%;max-height:none;margin:0;object-fit:contain;object-position:top center}
+@media(max-width:700px){
+ .publication-list .publication.paper-row.has-image{grid-template-columns:minmax(0,1fr)}
+ .publication-list .paper-image{width:120px;height:168px}
+}
