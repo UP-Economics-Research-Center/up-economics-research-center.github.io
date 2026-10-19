@@ -109,7 +109,7 @@ The **Submit a proposal / Envía una propuesta** button appears beside **Propose
 
 Publication previews always show complete document pages without cropping or color filters. Upload an authentic first PDF page with its source and credit; leave the image empty when the document is unavailable. Research and Publications share the same central image. On desktop, previews align with the adjacent text; on mobile they stack at their natural proportions.
 
-Current projects use one row per project in editorial order. Desktop photographs fill a frame approximately as tall as the adjacent text. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
+Current projects use one row per project in editorial order. Desktop project photographs align with and match the description only; the heading and researcher/presentation notes are excluded from that height. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
 
 Content links are underlined. Menus, language switches, breadcrumbs and button-like controls use their selection and focus styles instead.
 
@@ -135,3 +135,14 @@ Los avisos EN/ES se editan en **Legal notices / Avisos legales**. Los marcadores
 Las imágenes de publicaciones deben ser primeras páginas auténticas, con fuente y crédito. Déjalas vacías cuando falte el documento. Las áreas reutilizan la imagen de Publications; no permiten otra miniatura. No uses capturas de webs editoriales como sustitutos.
 
 La dirección visual y los pendientes documentales están en [las notas de la versión](docs/editorial-gallery-release-2026-10-19.md).
+
+
+### Policy Briefs and companion briefs
+
+Policy Briefs is an archive category. The two already-published UNICEF research briefs are visible; records still awaiting review remain unpublished. To add a brief beside an article, first create and approve a Publications record with **Type: Policy brief**, then select it under that article’s **Companion policy brief / Nota de política asociada**. The same brief stays in the archive, appears beside the article on desktop (below it on mobile), and is linked from Research. Leave the relation empty until the association is confirmed; do not infer a companion brief from a similar topic.
+
+### Publication preview permissions
+
+Upload an authentic first-page image, then record **Image reuse status**, a public rights-evidence URL and the license name/link where applicable. Pending is the default: the image remains in source but is omitted from the generated site. Instead, Research and Publications show a clearly labelled bibliographic reference using title, journal and year. That reference is a site component, not a screenshot or a facsimile of the paper. Publisher webpage captures also require a rights basis; they are not an automatic workaround. Do not put private permission correspondence in public CMS fields.
+
+For project photos, **Photograph focus / Zona principal de la foto** selects top, center or bottom when the description-height frame crops the image. Use it to keep the important subject visible.

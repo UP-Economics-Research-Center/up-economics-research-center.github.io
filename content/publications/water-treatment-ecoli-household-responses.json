@@ -26,9 +26,13 @@
   "image": "/design/assets/publications/water-treatment-ecoli-household-responses-first-page.png",
   "image_alt": "First page of the article in PLOS One: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks",
   "image_alt_es": "Primera página del artículo en PLOS One: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks",
-  "image_credit": "PLOS One · Article authors · First page",
+  "image_credit": "Akito Kamei, Bhowmik Sujey Soori · PLOS One · 2026 · First page rendered from the published PDF; content unchanged.",
   "image_source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0331258&type=printable",
-  "image_credit_es": "PLOS One · Autores del artículo · Primera página",
+  "image_credit_es": "Akito Kamei, Bhowmik Sujey Soori · PLOS One · 2026 · Primera página del PDF publicado; contenido sin cambios.",
   "publication_date": "2026-01-23",
-  "publication_date_source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331258"
+  "publication_date_source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331258",
+  "image_rights_status": "licensed",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "image_rights_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0331258"
 }

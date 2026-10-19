@@ -26,7 +26,8 @@
       "image_alt_es": "Una persona leyendo en una tableta.",
       "image_credit": "UP Economics Research Center · Original Human Capital page",
       "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
-      "image_credit_es": "UP Economics Research Center · Página original de Capital Humano"
+      "image_credit_es": "UP Economics Research Center · Página original de Capital Humano",
+      "image_focus": "bottom"
     },
     {
       "title": "Human Capital in Mexico: Does Being Late Have a Cost? Starting Age, Schooling Delay, and Returns to Education",
@@ -41,7 +42,8 @@
       "image_alt_es": "Estudiantes en un salón de clases.",
       "image_credit": "UP Economics Research Center · Original Human Capital page",
       "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
-      "image_credit_es": "UP Economics Research Center · Página original de Capital Humano"
+      "image_credit_es": "UP Economics Research Center · Página original de Capital Humano",
+      "image_focus": "top"
     }
   ],
   "display_order": 1,

@@ -23,5 +23,5 @@
   "show_seminars": true,
   "campus_video_poster_alt_es": "Miniatura oficial de Reinventamos la Economía, un video de la Universidad Panamericana.",
   "show_working_papers": false,
-  "show_policy_briefs": false
+  "show_policy_briefs": true
 }

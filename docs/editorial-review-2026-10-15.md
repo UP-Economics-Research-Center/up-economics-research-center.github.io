@@ -409,3 +409,17 @@ Excepción adicional confirmada por el usuario: la marca/logo tipográfico sí d
 Orden confirmado para menús de escritorio y móvil: Research → People → Seminars → Publications.
 
 El usuario reitera que los botones tampoco se subrayan: incluye botones nativos, controles con role=button y enlaces con apariencia de botón, también al pasar el cursor.
+
+
+## 2026-10-19 — Precisión del párrafo y marca
+
+El usuario precisa que las fotos de proyectos deben igualar únicamente la descripción, sin contar título, «UP Researchers», coautores o notas de presentación. Se separan esos bloques en la presentación: la fila de descripción define la altura de la imagen; el crédito queda debajo. Móvil sigue en secuencia con imagen de proporción natural. No se cambia la regla de retratos, galería o primeras páginas completas.
+
+El usuario reitera que UP Economics / Research Center / Universidad Panamericana deben estar subrayados. La primera línea usa flex y su texto pasa a un elemento propio para que el subrayado se pinte sobre el texto real; las tres líneas reciben la regla explícita. Menús y botones permanecen sin subrayado.
+
+
+## 2026-10-19 — Derechos de miniaturas y Policy Briefs
+
+La revisión de derechos conserva siete primeras páginas con licencia explícita y atribución. Economic Theory y la portada del libro quedan pendientes de permiso para su miniatura y se omiten del sitio generado; los registros se mantienen. Nicaragua y las demás publicaciones sin imagen autorizada muestran una ficha bibliográfica propia rotulada como tal, no una captura editorial ni una falsa primera página. Véase [la revisión con fuentes](publication-rights-review-2026-10-19.md). Las capturas web no se consideran automáticamente libres de derechos.
+
+Policy Briefs vuelve a ser una categoría visible del archivo: se muestran dos briefs UNICEF ya aprobados; los registros publicados=false mantienen su revisión pendiente. Un artículo puede seleccionar otro registro publicado de tipo Policy brief en el campo Companion policy brief. Eso genera un bloque al lado de su ficha y enlaces en archivo/Research. No se asigna ningún brief a un artículo por coincidencia temática: las relaciones se dejan vacías hasta confirmarlas.
