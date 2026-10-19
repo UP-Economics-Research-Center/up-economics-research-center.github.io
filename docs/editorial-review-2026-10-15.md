@@ -358,3 +358,8 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 
 - El usuario autoriza subir y publicar la versión corregida con las imágenes originales de Research ampliadas en las páginas individuales. Preparada en `codex/research-split-headers` para commit, push, PR y fusión a main tras el build de revisión.
 - Verificación final: generación de 49 registros de búsqueda, 20 fichas y 14 personas; sintaxis JS/Python/YAML y diff correctos. No se ejecutaron tests conforme a las instrucciones del proyecto. Los dos retratos ajenos a la ronda siguen sin seguimiento y quedan fuera de la publicación. Notas editoriales pendientes y configuración de aprobación del CMS conservadas.
+
+### Imágenes completas, sin franja panorámica
+
+- El usuario solicita mostrar completas las imágenes originales ampliadas. Esta corrección sustituye la franja de altura fija: las nueve áreas conservan la proporción original, sin recorte, deformación ni fondo lateral añadido. Imagen centrada, altura máxima de 560px y ancho limitado al espacio disponible; título encima y descripción completa debajo.
+- Generación estática correcta y diff inspeccionado. Revisión visual de Education y Agricultural en escritorio, y Macroeconomics a 320px: proporciones originales conservadas y sin desbordamiento horizontal. No se ejecutaron tests ni se modificaron archivos de imagen, contenido o configuración del CMS.
