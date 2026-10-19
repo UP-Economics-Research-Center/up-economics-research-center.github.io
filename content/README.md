@@ -14,7 +14,7 @@ The initial 11 public people profiles and nine areas were mapped from Akito Kame
 
 ## English and Spanish editorial workflow (October 2026)
 
-The English field and its companion **Spanish** field describe the same content. Complete both before publishing. Paper titles, author names and journal names keep their original spelling in both languages. The build stops when a published profile, research area, project or abstract is missing its required Spanish text. Interface translations are maintained in `settings/interface-es.json`.
+The English field and its companion **Spanish** field describe the same content. Complete both before publishing. Paper titles, author names and journal names keep their original spelling in both languages. Set **Original title language / Idioma original del título** to English (`en`) or Spanish (`es`) for each paper. This tells screen readers how to pronounce the original title; it does not translate or shorten it. Older records without this field use English, matching the existing titles. The build stops when a published profile, research area, project or abstract is missing its required Spanish text. Interface translations are maintained in `settings/interface-es.json`.
 
 The nine area descriptions and ongoing research were transcribed from Akito's linked pages on 2026-10-15. Keep that English wording intact unless an editorial update is approved; translate it faithfully into Spanish. Full source transcriptions are retained in `docs/sources/`. These source texts replace the earlier paraphrased area descriptions; publication abstracts remain separately maintained editorial summaries. The latest complete biographies and publication abstracts from the public main branch were retained during publication integration, with matching Spanish translations.
 
@@ -29,3 +29,5 @@ The supplied Drive file could not be read with the connected account (file not f
 Use **Display order** on researcher profiles to control their position within their group; lower numbers appear first. The first desktop row pairs Akito with Esteban, with Arnulfo later. Mobile keeps the same reading order in one column.
 
 Researchers can have a **Personal website URL** as well as an **Official profile URL**. Verified personal sites appear beneath the biography as Personal website / Sitio web personal. Leave the field empty when no verified website is known; the link is omitted.
+
+A researcher’s **View publications / Ver publicaciones** link appears automatically beneath the biography when a visible publication names that researcher in its **Center researcher** author field. Use that relationship field for each verified Center author; a matching written name alone does not create the link. The destination shows only publications linked to that researcher, and Clear filters returns to the full directory.

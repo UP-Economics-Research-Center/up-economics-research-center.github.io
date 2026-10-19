@@ -223,5 +223,21 @@
   "Questions?": "¿Tienes preguntas?",
   "View article ↗": "Ver artículo ↗",
   "Submit a proposal": "Envía una propuesta",
-  "Submit a proposal ↗": "Envía una propuesta ↗"
+  "Submit a proposal ↗": "Envía una propuesta ↗",
+  "Article first page": "Primera página del artículo",
+  "Journal-page capture": "Captura de la página de la revista",
+  "Research area image": "Imagen del área de investigación",
+  "Cover image": "Imagen de portada",
+  "Project image": "Imagen del proyecto",
+  "Portrait": "Retrato",
+  "Image source": "Fuente de la imagen",
+  "Displayed complete, without cropping or color filters.": "Se muestra completa, sin recortes ni filtros de color.",
+  "Framed and color-treated in the research index; the original file is unchanged.": "Se muestra con encuadre y tratamiento de color en el índice de investigación; el archivo original no se modifica.",
+  "Displayed as a cropped cover; the original file is unchanged.": "Se muestra como portada con recorte; el archivo original no se modifica.",
+  "Displayed with portrait framing; the original file is unchanged.": "Se muestra con encuadre de retrato; el archivo original no se modifica.",
+  "UP Economics Research Center · Original research page": "UP Economics Research Center · Página original de investigación",
+  "Image credits": "Créditos de imágenes",
+  "View publications": "Ver publicaciones",
+  "All publications": "Todas las publicaciones",
+  "Browse verified research by the Center’s researchers.": "Consulta la investigación verificada de los investigadores del Centro."
 }

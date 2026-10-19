@@ -686,6 +686,16 @@ collections:
   - label: Title
     name: title
     widget: string
+  - label: Original title language / Idioma original del título
+    name: title_language
+    widget: select
+    default: en
+    options:
+    - label: English / Inglés
+      value: en
+    - label: Spanish / Español
+      value: es
+    hint: Keep the complete original title in both site languages. Select the language in which the title was written; do not translate it.
   - label: Stable URL slug
     name: slug
     widget: string

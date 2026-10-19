@@ -56,8 +56,17 @@ def localize_markup(source, pairs):
     # Translate text/accessible labels while leaving inline scripts and styles intact.
     blocks = re.split(r'(<script\b.*?</script>|<style\b.*?</style>)', source, flags=re.S | re.I)
     for index in range(0, len(blocks), 2):
-        value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), blocks[index])
+        # Original publication titles and their image-link names retain their language.
+        # Restore before normalizing links so their destinations still use Spanish routes.
+        original_titles = []
+        def preserve_title(match):
+            original_titles.append(match[0])
+            return f'__ORIGINAL_PUBLICATION_TITLE_{len(original_titles) - 1}__'
+        value = re.sub(r'<(a|h1)\b(?=[^>]*\blang="(?:en|es)")(?=[^>]*\btranslate="no")[^>]*>.*?</\1>', preserve_title, blocks[index], flags=re.S)
+        value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), value)
         value = re.sub(r'\b(alt|aria-label|placeholder|title)="([^"]*)"', lambda m: m[1] + '="' + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + '"', value)
+        for number, title_markup in enumerate(original_titles):
+            value = value.replace(f'__ORIGINAL_PUBLICATION_TITLE_{number}__', title_markup)
         value = re.sub(r'\bhref="([^"]*)"', lambda m: 'href="' + spanish_url(m[1]) + '"', value)
         blocks[index] = value
     return ''.join(blocks).replace('<html lang="en">', '<html lang="es">')
@@ -150,24 +159,57 @@ def generate_languages(site: Path, data, settings, about):
             if row['url'].endswith('/publications/' + pub['slug'] + '/'):
                 row['name'], row['description'] = pub['title'], pub['abstract']
     (site / 'es/search-index.json').write_text(json.dumps(search, ensure_ascii=False) + '\n')
-    # Attribution is reachable from every page, including small research thumbnails.
-    credits = json.loads((ROOT / 'design/assets/research/photo-sources.json').read_text())
-    seen_images = {row.get('path') for row in credits}
-    reference_images = [record for area in data['research_areas'] if area.get('layout') == 'original-reference' for record in [area['banner'], *area['reference_team'], *area['publication_features']]]
-    for record in [*data['research_areas'], *data['publications'], *(p for a in data['research_areas'] for p in a['projects']), *reference_images]:
-        if record.get('image') and record['image'] not in seen_images:
-            seen_images.add(record['image'])
-            credits.append({'slug': record.get('name', record.get('title', record.get('image_alt', ''))), 'creator': record['image_credit'], 'license': '', 'source_url': record.get('image_source_url') or record.get('image_license_url') or record['image']})
-    items = ''.join('<article class="photo-source"><h2>' + html.escape(next((a['name'] for a in data['research_areas'] if a['slug'] == row.get('slug')), row.get('slug', ''))) + '</h2><p>' + html.escape(row.get('creator', '')) + ' · ' + html.escape(row.get('license', '')) + '</p><p><a href="' + html.escape(row['source_url'], quote=True) + '">Original photograph and license</a></p><p>Displayed with cropping, edge fading and color treatment.</p></article>' for row in credits if row.get('source_url'))
+    # Credit only media used in this build, and describe its actual display treatment.
+    catalog = {row['path']: row for row in json.loads((ROOT / 'design/assets/research/photo-sources.json').read_text())}
+    credits = {}
+    def credit(record, title, kind, treatment, title_es=None):
+        path = record.get('image')
+        if not path or path in credits:
+            return
+        source = catalog.get(path, {})
+        credits[path] = {
+            'title': title,
+            'title_es': title_es or title,
+            'creator': record.get('image_credit') or source.get('creator', ''),
+            'source': record.get('image_source_url') or source.get('source_url') or path,
+            'license': source.get('license', ''),
+            'license_url': record.get('image_license_url') or source.get('license_url', ''),
+            'kind': kind,
+            'treatment': treatment,
+        }
+    publications = {row['slug']: row for row in data['publications']}
+    for pub in data['publications']:
+        kind = 'Article first page' if '/assets/publications/' in pub.get('image', '') else 'Journal-page capture'
+        credit(pub, pub['title'], kind, 'Displayed complete, without cropping or color filters.')
+    for area in data['research_areas']:
+        credit(area, area['name'], 'Research area image', 'Framed and color-treated in the research index; the original file is unchanged.', area['name_es'])
+        if area.get('banner'):
+            credit(area['banner'], area['name'], 'Cover image', 'Displayed as a cropped cover; the original file is unchanged.', area['name_es'])
+        for project in area.get('projects', []):
+            credit(project, project['title'], 'Project image', 'Displayed complete, without cropping or color filters.', project['title_es'])
+        for member in area.get('reference_team', []):
+            person = next(row for row in data['people'] if row['slug'] == member['person_id'])
+            credit(member, person['display_name'], 'Portrait', 'Displayed with portrait framing; the original file is unchanged.')
+        for feature in area.get('publication_features', []):
+            if feature['publication'] in publications:
+                credit(feature, publications[feature['publication']]['title'], 'Journal-page capture', 'Displayed complete, without cropping or color filters.')
+    items = ''
+    for row in credits.values():
+        license_link = ''
+        if row['license_url']:
+            license_link = '<p><a href="' + html.escape(row['license_url'], quote=True) + '">' + html.escape(row['license'] or 'License') + '</a></p>'
+        items += ('<article class="photo-source"><div class="eyebrow">' + html.escape(row['kind']) + '</div><h2>' + html.escape(row['title']) + '</h2><p>' + html.escape(row['creator']) + '</p><p><a href="' + html.escape(row['source'], quote=True) + '">Image source</a></p>' + license_link + '<p>' + html.escape(row['treatment']) + '</p></article>')
     credit_page = (site / 'research.html').read_text()
-    credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Photo credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
-    credit_page = re.sub(r'<title>.*?</title>', '<title>Photo credits | UP Economics Research Center</title>', credit_page)
+    credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Image credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
+    credit_page = re.sub(r'<title>.*?</title>', '<title>Image credits | UP Economics Research Center</title>', credit_page)
     (site / 'photo-credits.html').write_text(credit_page)
     paths = [site / 'index.html' , *site.glob('*.html'), *site.glob('publications/*/index.html'), *site.glob('design/*.html')]
     for path in dict.fromkeys(paths):
         rel = path.relative_to(site).as_posix()
         english_url = '/' if rel == 'index.html' else '/' + rel.removesuffix('index.html') if rel.startswith('publications/') else '/' + rel
-        source = path.read_text().replace('</footer>', '<p class="wrap photo-credit"><a href="/photo-credits.html">Photo credits</a></p></footer>')
+        source = path.read_text().replace('</footer>', '<p class="wrap photo-credit"><a href="/photo-credits.html">Image credits</a></p></footer>')
+        footer = ('<div class="footer-bottom"><span>' + html.escape(settings['university']) + ' · ' + html.escape(settings['center_name']) + '</span><span>' + html.escape(settings.get('footer_note', '')) + '</span></div>')
+        source = re.sub(r'<div class="footer-bottom">.*?</div>', lambda match: footer, source, flags=re.S)
         source = re.sub(r'<a class="nav-cta"[^>]*>Contact</a>', '', source)
         source = re.sub(r'(src|href)="(?:/|design/)?(assets/[^"]+)"', r'\1="/design/\2"', source)
         source = re.sub(r'(src|href)="(?:design/)?(site-concept\.css|campus-video\.js|language\.js|mobile-navigation\.js|research-people\.js|publications\.js|news\.js)"', r'\1="/design/\2"', source)
@@ -178,6 +220,9 @@ def generate_languages(site: Path, data, settings, about):
         source = source.replace('href="/design/site-concept.css"', f'href="/design/site-concept.css?v={style_version}"')
         translated = source.replace('Generating empirical evidence to move society <span class="up-emphasis">UP</span>ward', html.escape(settings['hero_summary_es']))
         translated = translated.replace('<h2>Research<br><strong>seminars.</strong></h2>', '<h2>Seminarios<br><strong>de investigación.</strong></h2>')
+        if rel == 'photo-credits.html':
+            for row in credits.values():
+                translated = translated.replace('<h2>' + html.escape(row['title']) + '</h2>', '<h2>' + html.escape(row['title_es']) + '</h2>')
         translated = localize_markup(translated, pairs)
         if rel.startswith('publications/'):
             pub = next(row for row in data['publications'] if row['slug'] == path.parent.name)

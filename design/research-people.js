@@ -22,8 +22,10 @@
     const img = node('img', '', cls);
     img.src = record.image;
     img.alt = record.image_alt || '';
-    img.width = 160;
-    img.height = 110;
+    if (record.image_width && record.image_height) {
+      img.width = record.image_width;
+      img.height = record.image_height;
+    }
     img.loading = 'lazy';
     return img;
   };
@@ -108,13 +110,24 @@
     }));
     const members = referenceLayout && area.reference_team?.length ? (area.reference_team || []).map(item => {
       const person = people.find(person => person.slug === item.person_id);
-      return person ? {...person, portrait: item.image || person.portrait} : null;
+      return person ? {...person, portrait: item.image || person.portrait, portrait_crop: item.image && item.image !== person.portrait ? null : person.portrait_crop, reference_portrait: true} : null;
     }).filter(Boolean) : people.filter(person => person.research_areas.includes(area.slug));
     if (!members.length) note(team, 'No published researcher profiles are linked to this area yet.');
     else team.replaceChildren(...members.map(person => {
       const anchor = link(`${prefix}/people.html#${encodeURIComponent(person.slug)}`, '', 'area-person');
       if (person.portrait) {
-        const img = node('img'); img.src = person.portrait; img.alt = ''; img.width = 96; img.height = 120; img.loading = 'lazy'; anchor.append(img);
+        const frame = node('div', '', 'area-portrait' + (person.reference_portrait ? ' reference-portrait' : ''));
+        const img = node('img'); img.src = person.portrait; img.alt = ''; img.width = 240; img.height = 300; img.loading = 'lazy';
+        if (person.portrait_crop) {
+          const crop = person.portrait_crop;
+          frame.classList.add('portrait-frame');
+          frame.style.setProperty('--crop-width', `${10000 / crop.width}%`);
+          frame.style.setProperty('--crop-height', `${10000 / crop.height}%`);
+          frame.style.setProperty('--crop-left', `${-100 * crop.left / crop.width}%`);
+          frame.style.setProperty('--crop-top', `${-100 * crop.top / crop.height}%`);
+        }
+        frame.append(img);
+        anchor.append(frame);
       }
       const text = node('span'); text.append(node('strong', person.display_name || person.name), node('small', t('View profile →'))); anchor.append(text); return anchor;
     }));
@@ -126,8 +139,10 @@
       const article = node('article', '', 'publication paper-row');
       const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
       const img = photo(feature || pub, 'paper-photo');
-      if (img) {const anchor = link(href, '', 'paper-image');anchor.setAttribute('aria-label', pub.title);anchor.append(img);article.append(anchor);article.classList.add('has-image');}
-      const text = node('div'); const heading = node('h3', '', 'pub-title');heading.append(link(href, pub.title));
+      const titleLanguage = pub.title_language === 'es' ? 'es' : 'en';
+      if (img) {const anchor = link(href, '', 'paper-image');anchor.lang = titleLanguage;anchor.translate = false;anchor.setAttribute('aria-label', pub.title);img.alt = '';anchor.append(img);article.append(anchor);article.classList.add('has-image');}
+      const text = node('div'); const heading = node('h3', '', 'pub-title');
+      const titleLink = link(href, pub.title);titleLink.lang = titleLanguage;titleLink.translate = false;heading.append(titleLink);
       const authors = node('p', '', 'pub-authors');
       const up = pub.authors.filter(author => typeof author === 'object' && author.person_id);
       const others = pub.authors.filter(author => !(typeof author === 'object' && author.person_id));

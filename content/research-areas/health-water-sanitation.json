@@ -33,7 +33,8 @@
       "image_alt": "A speaker presenting a medical research slide.",
       "image_alt_es": "Un ponente presentando una diapositiva de investigación médica.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "title": "Intergenerational Transmission of Obesity in Mexico",
@@ -47,7 +48,8 @@
       "image_alt": "A person considering a table of vegetables.",
       "image_alt_es": "Una persona frente a una mesa con verduras.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "display_order": 6,
@@ -90,6 +92,8 @@
     "image_alt": "Satellite view of South Asia.",
     "image_alt_es": "Vista satelital del sur de Asia.",
     "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation"
-  }
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation",
+    "image_credit_es": "UP Economics Research Center · Página original de investigación"
+  },
+  "image_credit_es": "UP Economics Research Center · Página original de investigación"
 }
