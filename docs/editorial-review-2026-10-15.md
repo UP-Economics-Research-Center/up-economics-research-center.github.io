@@ -314,3 +314,47 @@ El encabezado Selected papers de cada área pasa a Publications / Publicaciones,
 - Fichas bibliográficas: ruta abreviada Publication / Publicación, título original completo con escala móvil de 28–38px, idioma original explícito en título y enlaces de imagen, y H2 en el listado (H3 dentro de las áreas). Campo CMS Original title language / Idioma original del título con opciones EN/ES, validación y valor EN para los registros anteriores. Las traducciones no reescriben los títulos originales.
 - Los perfiles con publicaciones verificadas enlazan a un archivo filtrado por su ID de autor, sin coincidencias aproximadas por nombre. Filtro activo visible, compatible con idioma/búsqueda/año/tipo; Limpiar filtros también retira al autor. Confirmado Akito: 11 resultados y 20 al limpiar, con el autor conservado al cambiar a EN.
 - Generación estática correcta: 49 entradas de búsqueda, 20 fichas y 14 personas. Sintaxis Python/JS/JSON/YAML y diff inspeccionados. Revisión independiente sin hallazgos importantes. Navegador: People ES a 768px, EN a 1024px y escritorio, Research ES y ficha larga ES a 320px sin desbordamiento horizontal. No se ejecutaron tests. El alta del revisor independiente del CMS sigue pendiente de la cuenta de Akito; no se modifican permisos ni reglas de aprobación.
+
+### Nueva composición de portadas de áreas — vista previa local
+
+- El usuario rechaza la portada fotográfica a todo el ancho y elige título a la izquierda, foto contenida a la derecha e introducción debajo. Esta decisión sustituye únicamente la composición anterior de portada de las nueve áreas; el resto del diseño aprobado se conserva.
+- Aplicación compartida en CSS: título oscuro alineado a la izquierda, imagen original completa con altura máxima de 280px, sin overlay ni texto encima de la foto. Ruta, título, introducción y contenido comparten los márgenes correspondientes a cada ancho. En móvil, orden título → foto → introducción, imagen de hasta 240px de alto.
+- Orden del DOM ajustado para que el título preceda a la foto. Conservados archivos originales, textos completos, equipo, proyectos, publicaciones, créditos y campos CMS.
+- Generación estática correcta y sintaxis JS/diff inspeccionados. Revisión visual de Health ES y Human Capital EN en escritorio, Digital ES a 768px y Human Capital ES a 320px; sin desbordamiento horizontal en las vistas revisadas. Sin tests, commit, push ni publicación. Rama local `codex/research-split-headers`; vista previa para revisión del usuario.
+
+### Refinamiento de la cabecera tras la auditoría visual
+
+- El usuario aprueba compactar y equilibrar la composición, con otra vista previa antes de publicar. La primera distribución dejaba en Health unos 259px entre la columna del título y la foto y desplazaba el título 110px hacia abajo por el centrado vertical.
+- Cabecera con columna de título ajustada al contenido (hasta 640px), marco de foto de hasta 320×200px, separación de 36px y alineación superior. Marco neutro y discreto con imagen completa, sin recorte ni modificación del original. Introducción a 24px del conjunto. En móvil, marco de 180px de alto y orden título → imagen → introducción.
+- Confirmados en navegador los 36px de separación y la misma coordenada superior para título/foto en Health ES y Human Capital EN de escritorio; Human Capital ES también revisado a 768px y 320px, sin desbordamiento horizontal. Generación correcta y revisión independiente de la cascada sin hallazgos importantes. Sin tests, commit, push ni publicación; se conserva la rama local y la vista previa pendiente.
+
+### Título independiente y fotografía junto a la introducción
+
+- El usuario considera que la foto sigue desconectada del título y aprueba otra composición: título en su propia fila, foto sin marco junto al primer párrafo de introducción; en móvil, título, introducción completa y después foto. Esta decisión sustituye las dos propuestas locales anteriores.
+- Imagen original trasladada al bloque de introducción. Grid de texto + 300px con separación de 32px; fotografía completa con altura máxima de 220px, sin fondo, padding ni marco. Los siguientes párrafos recuperan el ancho de lectura aprobado. Bajo 760px se conserva el orden del DOM: todos los párrafos y después la foto (hasta 200px de alto). Sin imagen, el texto ocupa el ancho disponible.
+- Generación estática, sintaxis JS y diff correctos. Revisión visual de Health y Human Capital ES en escritorio; Human Capital a 768px y Health a 320px sin desbordamiento horizontal. Confirmado que foto y primer párrafo comienzan a la misma altura en escritorio y la foto queda después de toda la introducción en móvil. Revisión independiente sin hallazgos importantes. Sin tests, commit, push ni publicación; nueva vista previa local para revisión.
+
+### Portada panorámica con texto separado — propuesta local vigente
+
+- Tras rechazar la composición lateral, el usuario confirma la opción de portada a todo el ancho del contenido: título sobre blanco, fotografía panorámica y después introducción. Esta es la propuesta vigente y sustituye las variantes locales anteriores; todavía debe revisarse visualmente antes de publicar.
+- Título, foto e introducción comparten márgenes; no hay texto superpuesto. Fotografía de 180–320px de alto en escritorio, 180–260px en móvil, con encuadre `cover` y originales sin modificar. Human Capital ajusta su punto focal vertical al 36% para conservar las cabezas en el encuadre panorámico. Esta variante muestra un recorte panorámico, no promete mostrar todos los bordes del original.
+- Generación estática, sintaxis JS y diff correctos. Revisadas en navegador Health, Human Capital, Political Economy y Economic Demography ES en escritorio, y Human Capital ES a 320px sin desbordamiento horizontal. Confirmada secuencia título → imagen → introducción. Revisión independiente de fuente sin hallazgos importantes. Sin tests, commit, push ni publicación.
+
+### Continuidad entre Research y las portadas individuales
+
+- El usuario aprueba usar la misma fotografía en Research y en la portada individual de cada área. El generador reutiliza `banner.image` para las tarjetas de las páginas photo-led; el archivo original no se duplica ni se retoca. Si no hay portada, tanto la tarjeta como la página individual usan la fotografía alternativa disponible.
+- Miniaturas rectangulares con colores originales y encuadre propio, conservando la cuadrícula y el orden aprobados. Las portadas mantienen su formato panorámico. Confirmadas las nueve coincidencias de archivo entre tarjetas y portadas; textos alternativos localizados a partir del registro de portada.
+- La descripción completa permanece debajo de la foto, alineada al título, con medida máxima de 78ch, párrafos separados y sin texto sobre la imagen. Después aparecen equipo, proyectos y publicaciones. Campos y ayudas del CMS y guía de contenido aclaran el origen único de la fotografía y la posición de Summary/Overview.
+- Generación estática, sintaxis JS, YAML y diff inspeccionados correctamente. Vista previa de la cuadrícula ES y descripción de Health ES; miniaturas de 170×125px en escritorio y 64px a 320px, sin desbordamiento horizontal en las vistas revisadas. Revisión independiente: aclarada la alternativa sin portada con comportamiento consistente. Sin tests, commit, push ni publicación.
+
+### Corrección de la dirección de reutilización de imágenes
+
+- El usuario aclara: deben conservarse las imágenes que ya estaban en la cuadrícula de Research y mostrarse esas mismas en grande dentro de cada área. Esta instrucción sustituye la elección de origen de la nota anterior.
+- Restauradas las imágenes y composición originales de las tarjetas, incluyendo Becker, John Stuart Mill, el euro, la ilustración de Health y el mapa demográfico. `image` es la fuente principal tanto en cuadrícula como en la página individual; `banner` conserva las portadas anteriores únicamente como alternativa si falta la principal. No se modifican registros ni archivos originales.
+- Se conserva título → imagen grande → descripción completa. Retratos, mapas e ilustraciones se muestran completos dentro de la franja de portada para evitar cortar rostros, símbolos o etiquetas; las fotografías de Development, Agricultural y Environmental mantienen encuadre panorámico. Etiquetas y ayudas del CMS y guía de contenido corregidas para señalar el campo principal.
+- Confirmadas por inspección las nueve rutas de imagen originales en EN/ES, generación estática, JS/YAML y diff correctos. Revisadas en navegador Human Capital y Health ES de escritorio, Political Economy durante el ajuste de recorte y Health ES a 320px sin desbordamiento. Revisión independiente sin hallazgos importantes. Sin tests, commit, push ni publicación; nueva vista previa local.
+
+### Autorización de publicación de esta versión
+
+- El usuario autoriza subir y publicar la versión corregida con las imágenes originales de Research ampliadas en las páginas individuales. Preparada en `codex/research-split-headers` para commit, push, PR y fusión a main tras el build de revisión.
+- Verificación final: generación de 49 registros de búsqueda, 20 fichas y 14 personas; sintaxis JS/Python/YAML y diff correctos. No se ejecutaron tests conforme a las instrucciones del proyecto. Los dos retratos ajenos a la ronda siguen sin seguimiento y quedan fuera de la publicación. Notas editoriales pendientes y configuración de aprobación del CMS conservadas.

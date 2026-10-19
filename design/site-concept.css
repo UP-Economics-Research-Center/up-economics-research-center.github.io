@@ -703,18 +703,17 @@ footer{padding-top:64px}
 @media(max-width:600px){.research-index{grid-template-columns:minmax(0,1fr);gap:0}.research-index .research-row{grid-template-columns:90px minmax(0,1fr) 28px;gap:16px;padding:20px 0;align-items:center}.research-index .research-row .research-art{grid-column:auto;width:90px;height:90px}.research-index .research-row strong{font-size:20px}}
 @media(max-width:420px){.research-index .research-row{grid-template-columns:64px minmax(0,1fr) 20px;gap:12px}.research-index .research-row .research-art{width:64px;height:64px}}
 
-/* Human Capital comparison: the original photo-led page, scoped to its selected layout. */
-.source-area-page .feature-area{padding:0 0 24px;background:#fff}
-.source-area-page .area-heading{position:relative;isolation:isolate;overflow:hidden;min-height:420px;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 24px 60px;color:white;background:#292c2d}
-.source-area-page .source-area-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 56%;z-index:-2}
-.source-area-page .area-heading::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.48);z-index:-1}
-.source-area-page .area-heading>h1{max-width:850px;margin:0;font-size:clamp(36px,4.5vw,60px);font-weight:650;line-height:1.18;color:white}
-.source-area-page .area-heading>h1::after{content:"";display:block;width:90px;height:6px;background:#c8aa64;margin:26px auto 0}
+/* Area title, full-width panoramic photograph, then the complete introduction. */
+.source-area-page .feature-area{padding:36px 0 24px;background:#fff}
+.source-area-page .area-heading{width:min(1140px,calc(100% - 96px));margin:0 auto;display:block;padding:0;color:var(--ink)}
+.source-area-page .source-area-banner{display:block;position:static;width:100%;max-width:none;height:clamp(180px,25vw,320px);object-fit:cover;object-position:center 56%;margin:24px 0 0;padding:0;background:none;border-radius:0}
+.source-area-page .source-area-banner:is([data-area="education-and-human-capital"],[data-area="digital-and-business-economics"],[data-area="political-economy"],[data-area="macroeconomics"],[data-area="health-water-sanitation"],[data-area="economic-demography"]){object-fit:contain;object-position:center;background:var(--paper)}
+.source-area-page .area-heading>h1{min-width:0;max-width:1000px;margin:0;font-size:clamp(32px,4vw,52px);font-weight:750;line-height:1.15;color:var(--ink);text-align:left;overflow-wrap:break-word}
 .source-area-page .area-heading>.eyebrow{display:none}
-.source-area-page .area-heading .crumb{position:absolute;top:24px;left:24px;right:24px;color:white;font-size:14px;margin:0}
-.source-area-page .area-heading .crumb a{color:white}
-.source-area-page .area-heading .crumb a:focus-visible{outline-color:white}
-.source-area-page .area-intro{display:block;max-width:1188px;padding:36px 24px 0;margin:auto}
+.source-area-page .area-heading .crumb{position:static;color:var(--muted);font-size:14px;margin:0 0 24px}
+.source-area-page .area-heading .crumb a{color:inherit}
+.source-area-page .area-intro{display:block;width:min(1140px,calc(100% - 96px));max-width:none;padding:24px 0 0;margin:auto}
+.source-area-page .area-description{display:block}
 .source-area-page .area-description p{max-width:none;font-size:17px;line-height:1.6}
 .source-area-page .feature-area-visual{display:none}
 .source-area-page .area-content{display:block;max-width:1140px}
@@ -751,7 +750,11 @@ footer{padding-top:64px}
 .source-area-page .reference-description{font-size:17px;line-height:1.6;max-width:none;margin-bottom:18px}
 .source-area-page .reference-media-links{display:grid;gap:12px;margin:20px 0}
 .source-area-page .reference-media-links a{text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
-@media(max-width:700px){.source-area-page .area-heading{min-height:340px;padding-top:100px}.source-area-page #project-list{grid-template-columns:minmax(0,1fr);gap:0}.source-area-page .project-card,.source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr);gap:20px}.source-area-page .project-media{width:240px}.source-area-page .project-photo{object-position:top left}.source-area-page .publication.reference-paper,.source-area-page .publication.reference-paper.has-image{grid-template-columns:minmax(0,1fr);gap:20px}.source-area-page .reference-paper>div,.source-area-page .reference-paper .paper-image,.source-area-page .reference-paper>.text-link{grid-column:1;grid-row:auto}.source-area-page .reference-paper>div{order:0}.source-area-page .reference-paper .paper-image{order:1}.source-area-page .reference-paper>.text-link{order:2}.source-area-page .area-team{gap:24px}.source-area-page .area-person{width:calc((100% - 24px)/2)}.source-area-page .area-person img{height:auto;aspect-ratio:1;object-fit:cover}}
+@media(max-width:1180px){.source-area-page .area-heading,.source-area-page .area-intro{width:calc(100% - 56px)}}
+@media(max-width:760px){.source-area-page .feature-area{padding-top:28px}.source-area-page .area-heading>h1{font-size:clamp(30px,6vw,40px)}.source-area-page .source-area-banner{height:clamp(180px,35vw,260px)}.source-area-page .area-intro{padding-top:24px}}
+@media(max-width:650px){.source-area-page .area-heading,.source-area-page .area-intro{width:calc(100% - 40px)}}
+@media(max-width:360px){.source-area-page .area-heading,.source-area-page .area-intro{width:calc(100% - 32px)}}
+@media(max-width:700px){.source-area-page #project-list{grid-template-columns:minmax(0,1fr);gap:0}.source-area-page .project-card,.source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr);gap:20px}.source-area-page .project-media{width:240px}.source-area-page .project-photo{object-position:top left}.source-area-page .publication.reference-paper,.source-area-page .publication.reference-paper.has-image{grid-template-columns:minmax(0,1fr);gap:20px}.source-area-page .reference-paper>div,.source-area-page .reference-paper .paper-image,.source-area-page .reference-paper>.text-link{grid-column:1;grid-row:auto}.source-area-page .reference-paper>div{order:0}.source-area-page .reference-paper .paper-image{order:1}.source-area-page .reference-paper>.text-link{order:2}.source-area-page .area-team{gap:24px}.source-area-page .area-person{width:calc((100% - 24px)/2)}.source-area-page .area-person img{height:auto;aspect-ratio:1;object-fit:cover}}
 
 .source-area-page .project-card .photo-credit,.source-area-page .reference-paper .photo-credit{font-size:12px;line-height:1.5}
 

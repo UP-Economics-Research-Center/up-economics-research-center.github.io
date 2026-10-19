@@ -431,16 +431,17 @@ collections:
   - label: Summary
     name: summary
     widget: text
+    hint: Opening description below the area cover. Keep the complete approved wording; the overview continues underneath.
   - label: Summary — Spanish
     name: summary_es
     widget: text
     required: false
     hint: Translate the complete English text faithfully before publishing.
-  - label: Photograph
+  - label: Research image and area cover / Imagen de Research y portada
     name: image
     widget: image
     required: false
-    hint: Optional. The public image block is hidden when empty.
+    hint: This is the primary image for both the Research card and the large individual area cover. Keep the approved original; the page uses the same file at a larger display size.
   - label: Photograph alternative text
     name: image_alt
     widget: string
@@ -473,10 +474,11 @@ collections:
       value: original-reference
     hint: All areas use the photo-led design. Keep a local cover photograph;
       projects show their photographs when provided.
-  - label: Original cover photograph
+  - label: Alternate cover / Portada alternativa
     name: banner
     widget: object
     required: false
+    hint: Used only when the primary Research image above is empty. Previous cover files are preserved here; they do not replace the approved Research image.
     fields:
     - label: Original photograph
       name: image

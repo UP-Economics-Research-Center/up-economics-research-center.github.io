@@ -300,7 +300,8 @@ def render_area(area: dict, index: int, *, home=False) -> str:
     href = f'/research-area.html?area={quote(area["slug"], safe="-")}'
     if home:
         return f'<a class="topic-link" href="{e(href)}"><span>{e(area["name"])}</span><span aria-hidden="true">→</span></a>'
-    art = f'<span class="research-art" data-area="{e(area["slug"])}"><span class="art-paper" aria-hidden="true"></span>{image_html(area)}<span class="art-detail" aria-hidden="true"></span></span>'
+    visual = area if area.get("image") else (area.get("banner") or area)
+    art = f'<span class="research-art" data-area="{e(area["slug"])}"><span class="art-paper" aria-hidden="true"></span>{image_html(visual)}<span class="art-detail" aria-hidden="true"></span></span>'
     return f'<a class="research-row" href="{e(href)}">{art}<strong>{e(area["name"])}</strong><span class="arrow" aria-hidden="true">→</span></a>'
 
 
