@@ -5,6 +5,7 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from urllib.parse import urlsplit
 
 class LocaleError(Exception):
     pass
@@ -44,7 +45,7 @@ def translate_text(text, pairs):
     # Titles, year labels and breadcrumbs combine short interface strings.
     if ' | UP Economics Research Center' in core:
         title = core.removesuffix(' | UP Economics Research Center')
-        return html.escape(pairs.get(title, title) + ' | UP Economics Research Center')
+        return html.escape(pairs.get(title, title) + ' | ' + pairs.get('UP Economics Research Center', 'UP Economics Research Center'))
     if core.startswith('/') and core[1:].strip() in pairs:
         return '/ ' + html.escape(pairs[core[1:].strip()])
     if core.startswith('Showing ') and core.endswith(' verified publications'):
@@ -104,9 +105,10 @@ def emphasize_center_name(source):
 
 def decorate(source, english_url, language):
     switch = language_switch(english_url, language)
-    # Put the switch beside mobile controls so it is available at every viewport.
-    source = source.replace('<div class="mobile-controls">', switch + '<div class="mobile-controls">', 1)
-    scripts = '<script src="/design/language-strings.js"></script><script src="/design/language.js"></script>'
+    # Keep language, search and menu in one predictable utility group.
+    source = source.replace('<div class="mobile-controls">', '<div class="nav-utilities">' + switch + '<div class="mobile-controls">', 1)
+    source = re.sub(r'(<div class="nav-tools">.*?</button>\s*</div>)', r'\1</div>', source, count=1, flags=re.S)
+    scripts = '<script>document.documentElement.dataset.presentation = "gallery";</script><script src="/design/section-navigation.js" defer></script><script src="/design/site-motion.js" defer></script><script src="/design/publication-recency.js" defer></script><script src="/design/language-strings.js"></script><script src="/design/language.js"></script>'
     source = source.replace('</head>', f'<link rel="alternate" hreflang="en" href="https://up-economics-research-center.github.io{english_url}"><link rel="alternate" hreflang="es" href="https://up-economics-research-center.github.io/es{english_url}">{scripts}</head>')
     if language == 'es':
         source = source.replace('https://up-economics-research-center.github.io/publications/', 'https://up-economics-research-center.github.io/es/publications/')
@@ -117,11 +119,41 @@ def decorate(source, english_url, language):
 def generate_languages(site: Path, data, settings, about):
     style_version = hashlib.sha256((site / 'design/site-concept.css').read_bytes()).hexdigest()[:12]
     ui = json.loads((ROOT / 'content/settings/interface-es.json').read_text())
+    legal = json.loads((ROOT / 'content/settings/legal.json').read_text())
+    def expand_legal(value):
+        if isinstance(value, str):
+            for field in ('contact_name', 'contact_email', 'official_privacy_url'):
+                value = value.replace('{{' + field + '}}', legal[field])
+            return value
+        if isinstance(value, list):
+            return [expand_legal(item) for item in value]
+        if isinstance(value, dict):
+            return {key: expand_legal(item) for key, item in value.items()}
+        return value
+    legal['pages'] = expand_legal(legal['pages'])
+    for page in legal['pages']:
+        if page['slug'] not in {'privacy', 'terms', 'cookies', 'rights'}:
+            raise LocaleError('Legal pages must use an existing legal route.')
+        for section in page['sections']:
+            for item in section.get('links', []):
+                url = item['url']
+                parsed = urlsplit(url)
+                valid = (url.startswith('/') and not url.startswith('//')) or (parsed.scheme == 'https' and bool(parsed.netloc)) or (parsed.scheme == 'mailto' and bool(parsed.path) and '@' in parsed.path)
+                if not valid or any(ord(char) < 32 for char in url):
+                    raise LocaleError('Legal links must use HTTPS, a local route, or an email address.')
+
+    if legal['review_status'] == 'approved' and not (legal.get('reviewed_by') and legal.get('reviewed_on')):
+        raise LocaleError('Legal approval needs a reviewer and review date.')
     pairs = dict(ui)
+    collect_pairs(legal, pairs)
+    for page in legal["pages"]:
+        pairs[page["title"]] = page["title_es"]
     for records in [*data.values(), settings, about]:
         collect_pairs(records, pairs)
+    for row in data['media']:
+        pairs[row['title']] = row['title_es']
     # Essential public fields must have actual translations before shipping a Spanish route.
-    requirements = {'people': ('bio',), 'research_areas': ('name', 'summary', 'overview'), 'publications': ('abstract',), 'news': ('title', 'summary', 'body'), 'seminars': ('title', 'description')}
+    requirements = {'people': ('bio',), 'research_areas': ('name', 'summary', 'overview'), 'publications': ('abstract',), 'news': ('title', 'summary', 'body'), 'seminars': ('title', 'description'), 'media': ('title', 'summary')}
     for collection, fields in requirements.items():
         for row in data[collection]:
             for field in fields:
@@ -138,7 +170,7 @@ def generate_languages(site: Path, data, settings, about):
                 raise LocaleError(f'{label}: missing {field}_es')
     visible_sections = {name: bool(settings.get('show_' + name, False)) for name in ('news', 'seminars')}
     (site / 'design/language-strings.js').write_text('window.UP_PUBLIC_SECTIONS = ' + json.dumps(visible_sections) + ';\nwindow.UP_TRANSLATIONS = ' + json.dumps(ui, ensure_ascii=False).replace('<', '\\u003c') + ';\n')
-    for name in ('people', 'research-areas', 'publications', 'news', 'seminars'):
+    for name in ('people', 'research-areas', 'publications', 'news', 'seminars', 'media'):
         file = site / (name + '.json')
         if not file.exists():
             continue
@@ -172,7 +204,7 @@ def generate_languages(site: Path, data, settings, about):
             'title_es': title_es or title,
             'creator': record.get('image_credit') or source.get('creator', ''),
             'source': record.get('image_source_url') or source.get('source_url') or path,
-            'license': source.get('license', ''),
+            'license': record.get('image_license') or source.get('license', ''),
             'license_url': record.get('image_license_url') or source.get('license_url', ''),
             'kind': kind,
             'treatment': treatment,
@@ -182,14 +214,11 @@ def generate_languages(site: Path, data, settings, about):
         kind = 'Article first page' if '/assets/publications/' in pub.get('image', '') else 'Journal-page capture'
         credit(pub, pub['title'], kind, 'Displayed complete, without cropping or color filters.')
     for area in data['research_areas']:
-        credit(area, area['name'], 'Research area image', 'Framed and color-treated in the research index; the original file is unchanged.', area['name_es'])
+        credit(area, area['name'], 'Research area image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])
         if area.get('banner'):
-            credit(area['banner'], area['name'], 'Cover image', 'Displayed as a cropped cover; the original file is unchanged.', area['name_es'])
+            credit(area['banner'], area['name'], 'Cover image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])
         for project in area.get('projects', []):
             credit(project, project['title'], 'Project image', 'Displayed complete, without cropping or color filters.', project['title_es'])
-        for member in area.get('reference_team', []):
-            person = next(row for row in data['people'] if row['slug'] == member['person_id'])
-            credit(member, person['display_name'], 'Portrait', 'Displayed with portrait framing; the original file is unchanged.')
         for feature in area.get('publication_features', []):
             if feature['publication'] in publications:
                 credit(feature, publications[feature['publication']]['title'], 'Journal-page capture', 'Displayed complete, without cropping or color filters.')
@@ -203,11 +232,29 @@ def generate_languages(site: Path, data, settings, about):
     credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Image credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
     credit_page = re.sub(r'<title>.*?</title>', '<title>Image credits | UP Economics Research Center</title>', credit_page)
     (site / 'photo-credits.html').write_text(credit_page)
+    # Legal copy stays visibly marked as draft until institutional review is recorded.
+    template = (site / 'research.html').read_text()
+    for page in legal['pages']:
+        body = ''
+        for section in page['sections']:
+            paragraphs = ''.join('<p>' + html.escape(text) + '</p>' for text in section['body'].split('\n\n') if text)
+            links = ''.join('<p><a href="' + html.escape(item['url'], quote=True) + '">' + html.escape(item['label']) + '</a></p>' for item in section.get('links', []))
+            body += '<section><h2>' + html.escape(section['heading']) + '</h2>' + paragraphs + links + '</section>'
+        draft = '<p class="legal-review-note">Draft for institutional review. Not yet approved by Universidad Panamericana.</p>' if legal['review_status'] != 'approved' else ''
+        main = '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="/">Home</a> / ' + html.escape(page['title']) + '</div><h1>' + html.escape(page['title']) + '</h1><p>' + html.escape(page['summary']) + '</p></div></section><div class="wrap legal-content">' + draft + body + '<p class="legal-version">Version: ' + html.escape(legal['version']) + '</p></div></main>'
+        markup = re.sub(r'<main.*?</main>', lambda m: main, template, flags=re.S)
+        markup = re.sub(r'<title>.*?</title>', '<title>' + html.escape(page['title']) + ' | UP Economics Research Center</title>', markup)
+        markup = markup.replace('class="active" aria-current="page"', 'class=""')
+        (site / (page['slug'] + '.html')).write_text(markup)
+    pairs['Draft for institutional review. Not yet approved by Universidad Panamericana.'] = 'Borrador para revisión institucional. Aún no aprobado por la Universidad Panamericana.'
+    pairs['Version: ' + legal['version']] = 'Versión: ' + legal['version']
+    for en, es in [('Privacy notice','Aviso de privacidad'),('Terms of use','Términos de uso'),('Storage and external services','Almacenamiento y servicios externos'),('Copyright and attribution','Derechos de autor y atribución'),('Legal information','Información legal')]:
+        pairs[en] = es
     paths = [site / 'index.html' , *site.glob('*.html'), *site.glob('publications/*/index.html'), *site.glob('design/*.html')]
     for path in dict.fromkeys(paths):
         rel = path.relative_to(site).as_posix()
         english_url = '/' if rel == 'index.html' else '/' + rel.removesuffix('index.html') if rel.startswith('publications/') else '/' + rel
-        source = path.read_text().replace('</footer>', '<p class="wrap photo-credit"><a href="/photo-credits.html">Image credits</a></p></footer>')
+        source = path.read_text().replace('<b>At the Center</b>', '<b>At the Center</b><a href="/media.html">Media</a>').replace('</footer>', '<nav class="wrap legal-footer" aria-label="Legal information"><a href="/privacy.html">Privacy notice</a><a href="/terms.html">Terms of use</a><a href="/cookies.html">Storage and external services</a><a href="/rights.html">Copyright and attribution</a><a href="/photo-credits.html">Image credits</a></nav></footer>')
         footer = ('<div class="footer-bottom"><span>' + html.escape(settings['university']) + ' · ' + html.escape(settings['center_name']) + '</span><span>' + html.escape(settings.get('footer_note', '')) + '</span></div>')
         source = re.sub(r'<div class="footer-bottom">.*?</div>', lambda match: footer, source, flags=re.S)
         source = re.sub(r'<a class="nav-cta"[^>]*>Contact</a>', '', source)

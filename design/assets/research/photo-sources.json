@@ -97,5 +97,37 @@
     "creator": "Gustavo Fring / Pexels",
     "description": "A grandmother, mother and child walking together outdoors.",
     "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained."
+  },
+  {
+    "path": "/design/assets/research/area-photography/health-water-sanitation.webp",
+    "creator": "Tima Miroshnichenko · Pexels · Pexels License",
+    "source_url": "https://www.pexels.com/photo/stethoscope-and-notebook-on-desk-5407238/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+  },
+  {
+    "path": "/design/assets/research/area-photography/economic-demography.webp",
+    "creator": "Volkan Gunes · Pexels · Pexels License",
+    "source_url": "https://www.pexels.com/photo/view-of-a-crowded-street-crossing-in-the-city-26346325/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+  },
+  {
+    "path": "/design/assets/research/area-photography/digital-and-business-economics.webp",
+    "creator": "Sergei Starostin · Pexels · Pexels License",
+    "source_url": "https://www.pexels.com/photo/black-computer-microchip-6636500/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+  },
+  {
+    "path": "/design/assets/research/area-photography/political-economy.webp",
+    "creator": "Unknown artist · The Muir portrait · National Galleries of Scotland · Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
   }
 ]

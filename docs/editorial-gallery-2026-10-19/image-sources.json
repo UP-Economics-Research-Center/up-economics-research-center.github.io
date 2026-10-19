@@ -1,0 +1,115 @@
+[
+  {
+    "area": "health-water-sanitation",
+    "image": "/design/assets/research/area-photography/health-water-sanitation.webp",
+    "image_alt": "Stethoscope, notebook and medicines on a desk.",
+    "image_alt_es": "Estetoscopio, cuaderno y medicamentos sobre un escritorio.",
+    "image_credit": "Tima Miroshnichenko · Pexels · Pexels License",
+    "image_credit_es": "Tima Miroshnichenko · Pexels · Licencia Pexels",
+    "image_source_url": "https://www.pexels.com/photo/stethoscope-and-notebook-on-desk-5407238/",
+    "license_url": "https://www.pexels.com/license/",
+    "retrieved_on": "2026-10-19",
+    "dimensions": [
+      1067,
+      1600
+    ],
+    "bytes": 91994,
+    "sha256": "ebbf88480a5abc9b9b28d12d3e274f8bc23ae6731420ea28f5d070c1e681de2d",
+    "note": "Illustrative stock photograph; not a photograph of the UP research team or study participants.",
+    "responsive_variants": [
+      {
+        "width": 480,
+        "bytes": 28392
+      },
+      {
+        "width": 960,
+        "bytes": 64146
+      }
+    ]
+  },
+  {
+    "area": "economic-demography",
+    "image": "/design/assets/research/area-photography/economic-demography.webp",
+    "image_alt": "Pedestrians crossing a busy urban street.",
+    "image_alt_es": "Peatones cruzando una calle urbana concurrida.",
+    "image_credit": "Volkan Gunes · Pexels · Pexels License",
+    "image_credit_es": "Volkan Gunes · Pexels · Licencia Pexels",
+    "image_source_url": "https://www.pexels.com/photo/view-of-a-crowded-street-crossing-in-the-city-26346325/",
+    "license_url": "https://www.pexels.com/license/",
+    "retrieved_on": "2026-10-19",
+    "dimensions": [
+      1067,
+      1600
+    ],
+    "bytes": 418762,
+    "sha256": "96a19b1026e249f23fdc1d1ea988b109be95334fb05438972abe3705fe7ad12c",
+    "note": "Illustrative stock photograph; not a photograph of the UP research team or study participants.",
+    "responsive_variants": [
+      {
+        "width": 480,
+        "bytes": 57614
+      },
+      {
+        "width": 960,
+        "bytes": 256148
+      }
+    ]
+  },
+  {
+    "area": "digital-and-business-economics",
+    "image": "/design/assets/research/area-photography/digital-and-business-economics.webp",
+    "image_alt": "Close-up of electronic circuits and components on a computer motherboard.",
+    "image_alt_es": "Detalle de circuitos y componentes electrónicos de una placa de computadora.",
+    "image_credit": "Sergei Starostin · Pexels · Pexels License",
+    "image_credit_es": "Sergei Starostin · Pexels · Licencia Pexels",
+    "image_source_url": "https://www.pexels.com/photo/black-computer-microchip-6636500/",
+    "license_url": "https://www.pexels.com/license/",
+    "retrieved_on": "2026-10-19",
+    "dimensions": [
+      1600,
+      1067
+    ],
+    "bytes": 174056,
+    "sha256": "515a08302247a43918fd00234336c1d94eb06dc863de9628c3dc02822c298be1",
+    "note": "Illustrative stock photograph; not a photograph of the UP research team or study participants.",
+    "responsive_variants": [
+      {
+        "width": 480,
+        "bytes": 29788
+      },
+      {
+        "width": 960,
+        "bytes": 73568
+      }
+    ]
+  },
+  {
+    "area": "political-economy",
+    "image": "/design/assets/research/area-photography/political-economy.webp",
+    "image_alt": "Adam Smith, The Muir portrait, unknown artist, circa 1800.",
+    "image_alt_es": "Adam Smith, retrato Muir, artista desconocido, hacia 1800.",
+    "image_credit": "Unknown artist · The Muir portrait · National Galleries of Scotland · Public domain",
+    "image_credit_es": "Artista desconocido · Retrato Muir · National Galleries of Scotland · Dominio público",
+    "image_source_url": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg",
+    "image_license": "Public domain",
+    "image_license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "retrieved_on": "2026-10-19",
+    "bytes": 106396,
+    "note": "Historical philosophical/economic portrait requested by the user. Replaces the institutional-building idea before adoption.",
+    "responsive_variants": [
+      {
+        "width": 480,
+        "bytes": 10202
+      },
+      {
+        "width": 960,
+        "bytes": 33452
+      }
+    ],
+    "dimensions": [
+      1313,
+      1600
+    ]
+  }
+]

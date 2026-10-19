@@ -26,15 +26,27 @@
       img.width = record.image_width;
       img.height = record.image_height;
     }
+    if (record.image.includes('/area-photography/') && record.image_width) {
+      const variants = [480,960].filter(width => width < record.image_width).map(width => `${record.image.replace('.webp', `-${width}.webp`)} ${width}w`);
+      variants.push(`${record.image} ${record.image_width}w`);
+      img.srcset = variants.join(', ');
+      img.sizes = '(max-width:700px) calc(100vw - 40px), (max-width:1000px) 46vw, 640px';
+    }
     img.loading = 'lazy';
     return img;
   };
-  const credit = record => {
+  const credit = () => {
     const caption = node('p', '', 'photo-credit');
-    if (record.image_source_url) caption.append(link(record.image_source_url, record.image_credit || 'Wikimedia Commons'));
-    else caption.textContent = record.image_credit || '';
-    if (record.image_license_url) caption.append(' · ', link(record.image_license_url, t('License')));
+    caption.append(link(`${prefix}/photo-credits.html`, t('Image credit')));
     return caption;
+  };
+  const researcherNote = text => {
+    const paragraph = node('p', '', 'pub-authors');
+    // Preserve the source names verbatim; only the explicit UP attribution is emphasized.
+    const match = text.match(/^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([^\n]+)/i);
+    if (match) paragraph.append(match[1], node('strong', match[2]), text.slice(match[0].length));
+    else paragraph.textContent = text;
+    return paragraph;
   };
   try {
     const responses = await Promise.all(['research-areas', 'people', 'publications'].map(name => fetch(`${prefix}/${name}.json`)));
@@ -72,7 +84,12 @@
     document.getElementById('area-summary').replaceChildren(
       ...[area.summary, area.overview].filter(Boolean).flatMap(text => text.split(/\n\s*\n/)).map(text => node('p', text))
     );
-    if (banner) document.querySelector('.area-heading').append(banner);
+    if (banner) {
+      const frame = node('figure', '', 'area-presentation-image motion-frame');
+      frame.dataset.area = area.slug;
+      frame.append(banner);
+      document.querySelector('.area-intro').prepend(frame);
+    }
     const hero = document.getElementById('area-image');
     if (hero && area.image) {
       hero.closest('.research-art').dataset.area = area.slug;
@@ -91,7 +108,7 @@
       const heading = node('h3', '', 'pub-title');
       heading.append(project.url ? link(project.url, project.title) : project.title);
       copy.append(heading, ...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
-      if (project.researcher_note) copy.append(...project.researcher_note.split(/\n\s*\n/).map(text => node('p', text, 'pub-authors')));
+      if (project.researcher_note) copy.append(...project.researcher_note.split(/\n\s*\n/).map(text => researcherNote(text)));
       article.append(copy);
       const img = photo(project, 'project-photo');
       if (img) {
@@ -112,7 +129,7 @@
     }));
     const members = referenceLayout && area.reference_team?.length ? (area.reference_team || []).map(item => {
       const person = people.find(person => person.slug === item.person_id);
-      return person ? {...person, portrait: item.image || person.portrait, portrait_crop: item.image && item.image !== person.portrait ? null : person.portrait_crop, reference_portrait: true} : null;
+      return person || null; // People is the single source for the portrait and its crop.
     }).filter(Boolean) : people.filter(person => person.research_areas.includes(area.slug));
     if (!members.length) note(team, 'No published researcher profiles are linked to this area yet.');
     else team.replaceChildren(...members.map(person => {
@@ -134,13 +151,14 @@
       const text = node('span'); text.append(node('strong', person.display_name || person.name), node('small', t('View profile →'))); anchor.append(text); return anchor;
     }));
     const related = publications.filter(pub => pub.topics.includes(area.slug)).sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+    if (related.some(pub => pub.type !== 'Journal article')) document.querySelector('#outputs h2').textContent = t('Publications');
     if (!related.length) note(outputs, 'No verified publications are linked to this area yet.');
     else outputs.replaceChildren(...related.map(pub => {
       const feature = referenceLayout ? (area.publication_features || []).find(item => item.publication === pub.slug) : null;
       const description = referenceLayout ? (feature?.description || pub.abstract) : '';
       const article = node('article', '', 'publication paper-row');
       const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
-      const img = photo(feature || pub, 'paper-photo');
+      const img = photo(pub, 'paper-photo'); // One verified document thumbnail, shared with Publications.
       const titleLanguage = pub.title_language === 'es' ? 'es' : 'en';
       if (img) {const anchor = link(href, '', 'paper-image');anchor.lang = titleLanguage;anchor.translate = false;anchor.setAttribute('aria-label', pub.title);img.alt = '';anchor.append(img);article.append(anchor);article.classList.add('has-image');}
       const text = node('div'); const heading = node('h3', '', 'pub-title');
@@ -161,6 +179,13 @@
       appendNames(others);
       const venue = pub.venue || t(pub.type);
       text.append(heading);
+      if (pub.publication_date && pub.publication_date_source_url) {
+        const badge = node('span', t('New'), 'publication-new');
+        badge.dataset.publicationDate = pub.publication_date;
+        badge.dataset.publicationDateSource = pub.publication_date_source_url;
+        badge.hidden = true;
+        text.prepend(badge);
+      }
       if (description) {
         article.classList.add('reference-paper');
         text.append(...description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
@@ -175,6 +200,7 @@
       article.append(text, link(`${prefix}/publications/${encodeURIComponent(pub.slug)}/`, t('Abstract and details →'), 'text-link'));
       return article;
     }));
+    window.PublicationRecency?.refresh(outputs);
   } catch {
     title.textContent = t('Research area');
     note(team, 'The research directory is temporarily unavailable. Browse all research areas or try again later.');

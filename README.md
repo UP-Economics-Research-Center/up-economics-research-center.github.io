@@ -95,13 +95,13 @@ In **Site Settings**, **Show working papers publicly** and **Show policy briefs 
 
 ### Research area pages
 
-All nine areas use **Area page design → Original photo-led reference**. Its **Original cover photograph**, **Original page team**, project photographs, and **Full publication features for original layout** reproduce the original page with locally saved media. Each publication feature links to an existing publication, keeps the complete original narrative in English and Spanish, and can include podcast/blog links. These narratives do not replace the journal abstracts on publication detail pages. Leave **Original page team** empty to show researchers assigned to that area in the directory. A nonempty list overrides the team on this page only; Human Capital keeps its approved original team. Without a custom publication feature, the page displays the existing journal abstract. Never invent a project photograph or publication narrative.
+All nine areas use **Area page design → Original photo-led reference**. Its area photograph, **Team selection**, project photographs, and **Full publication features for original layout** use locally saved media. Each publication feature links to an existing publication, keeps the complete original narrative in English and Spanish, and can include podcast/blog links. These narratives do not replace the journal abstracts on publication detail pages. Leave **Team selection** empty to show researchers assigned to that area. A nonempty list controls membership and order only; photos and crop always come from People. Without a custom publication feature, the page displays the existing journal abstract. Never invent a project photograph or publication narrative.
 
 Keep **UP Economics Research Center** unchanged in English and Spanish, including both name fields in Site Settings.
 
 Publication titles and optional publication images always open the internal detail page, in the current language. **Abstract and details / Resumen y detalles** opens the same page. The detail page provides a **View article / Ver artículo** button to the canonical publisher or DOI URL, plus a separate PDF download when supplied. This behavior also applies to the Human Capital comparison layout.
 
-The original portrait files shared through Drive were reviewed on October 16. Twelve People portraits now use those originals without recompression; Sergio and Esteban already used the shared resolution. Juan Álvaro retains the approved earlier portrait. The Human Capital comparison page retains its separately approved reference photographs. Source files and checksums are recorded internally in `design/assets/media-sources.json`.
+The original portrait files shared through Drive were reviewed on October 16. Twelve People portraits now use those originals without recompression; Sergio and Esteban already used the shared resolution. Juan Álvaro retains the approved earlier portrait. All area Team photographs and crops now come from People, including Human Capital. Source files and checksums are recorded internally in `design/assets/media-sources.json`.
 
 In **People**, upload the complete original under **Portrait**. **Portrait framing (percentages)** keeps the file intact and controls the visible rectangle: Left and Top locate its upper-left corner; Width and Height define its size within the original. Each value uses 0–100; Left + Width and Top + Height must not exceed 100. Remove this optional group for automatic framing. When replacing a photograph, reset its old framing and inspect the generated page before publishing. English and Spanish share the same photograph and framing.
 
@@ -112,3 +112,24 @@ Publication thumbnail images show the complete page without cropping or color fi
 Current projects use one row per project in their saved editorial order. Desktop images sit to the right at up to 240px wide and 190px high, with the full image visible. A project without a photo uses the full row, with no reserved image space. On smaller screens, images stack beneath their project text. Add or remove the optional project image in the CMS; no manual layout adjustment is needed.
 
 Area-team portraits reuse the saved directory framing; explicitly selected Human Capital reference portraits keep their approved square presentation. The build reads PNG/JPEG/GIF dimensions directly from local assets and includes them in HTML and JSON feeds, so image space is reserved in the correct proportion without additional dependencies. Long area descriptions, project summaries and article narratives share a 78ch reading limit. All page footers use the same configured editorial note; do not remove that note without approval. The Image credits page distinguishes article first pages, journal captures, covers, project images and portraits, and lists only images used in the public build.
+
+### Fechas de publicaciones y Medios
+
+En Publications, la fecha exacta de publicación y su URL de fuente primaria son opcionales. Escribe la fecha como `YYYY-MM-DD` y usa una fuente HTTPS que confirme ese día; no basta conocer el año o la fecha de revisión. El generador rechaza fechas imposibles o futuras. Solo con ambos campos se permite **New / Nueva** durante los primeros 90 días UTC (se retira al cumplir 90 días). El navegador actualiza la etiqueta aunque no se reconstruya el sitio; sin JavaScript queda oculta. No modifica el orden ni la visibilidad de publicaciones. ISBN es opcional para libros.
+
+Media / Medios permite añadir entradas repetibles con título y resumen EN/ES, tipo, medio, URL principal HTTPS, autores comprobados, fecha opcional y relaciones con investigador y publicación. Deja la fecha vacía si no está verificada. Añade la fuente de verificación y revisa ambos idiomas antes de activar la visibilidad y solicitar revisión editorial. El enlace está en el pie; los registros visibles se incluyen en búsqueda y en `media.json` EN/ES. Guardar en el CMS sigue el proceso de aprobación existente y no equivale a publicar remotamente.
+
+En la vista previa de octubre, la fecha del libro de Eugenio es 2026-08-27 según el registro primario ISBN; las fuentes y la limitación de acceso directo se documentan en `docs/editorial-gallery-release-2026-10-19.md`. La fecha del podcast sigue vacía. Las áreas con libros usan el encabezado general Publicaciones, para no presentarlos como artículos de revista.
+
+### Team photographs / Fotografías de Team
+
+People is the single source for each person’s photograph and framing. Edit the photo and crop there once; every research-area Team uses the same settings. Area Team selection controls membership and order only, with no separate photo upload. Older reference-photo metadata and files remain preserved but are no longer displayed. / Cambia la fotografía y el encuadre una sola vez en People: se aplican a todos los equipos. La selección del equipo solo cambia integrantes y orden.
+
+
+### Avisos legales y miniaturas
+
+Los avisos EN/ES se editan en **Legal notices / Avisos legales**. Los marcadores `{{contact_name}}`, `{{contact_email}}` y `{{official_privacy_url}}` usan los campos compartidos. Mantén `draft` hasta la revisión de la Universidad; el sitio muestra que son borradores. Para marcar aprobado, registra revisor y fecha. La aplicación del aviso oficial y las autorizaciones de medios requieren revisión institucional.
+
+Las imágenes de publicaciones deben ser primeras páginas auténticas, con fuente y crédito. Déjalas vacías cuando falte el documento. Las áreas reutilizan la imagen de Publications; no permiten otra miniatura. No uses capturas de webs editoriales como sustitutos.
+
+La dirección visual y los pendientes documentales están en [las notas de la versión](docs/editorial-gallery-release-2026-10-19.md).

@@ -495,12 +495,12 @@ collections:
     - label: Photograph source URL
       name: image_source_url
       widget: string
-  - label: Original page team
+  - label: Team selection / Selección del equipo
     name: reference_team
     widget: list
     required: false
-    hint: Optional team override for this page. Leave empty to use the directory
-      research-area assignments. Changes here do not change directory labels.
+    hint: Choose people and their order. Photos and framing always come from People.
+      Leave empty to use research-area assignments. Change a portrait only in People.
     fields:
     - label: Researcher
       name: person_id
@@ -511,21 +511,6 @@ collections:
       value_field: slug
       display_fields:
       - name
-    - label: Original photograph
-      name: image
-      widget: image
-    - label: Alternative text — English
-      name: image_alt
-      widget: string
-    - label: Alternative text — Spanish
-      name: image_alt_es
-      widget: string
-    - label: Photograph credit
-      name: image_credit
-      widget: string
-    - label: Photograph source URL
-      name: image_source_url
-      widget: string
   - label: Full publication features for original layout
     name: publication_features
     widget: list
@@ -546,21 +531,6 @@ collections:
     - label: Complete description — Spanish
       name: description_es
       widget: text
-    - label: Original photograph
-      name: image
-      widget: image
-    - label: Alternative text — English
-      name: image_alt
-      widget: string
-    - label: Alternative text — Spanish
-      name: image_alt_es
-      widget: string
-    - label: Photograph credit
-      name: image_credit
-      widget: string
-    - label: Photograph source URL
-      name: image_source_url
-      widget: string
     - label: Related media links
       name: media_links
       widget: list
@@ -760,6 +730,22 @@ collections:
     value_type: int
     min: 1900
     max: 2100
+  - label: Exact publication date / Fecha exacta de publicación
+    name: publication_date
+    widget: string
+    required: false
+    pattern: ['^\d{4}-\d{2}-\d{2}$', 'Use YYYY-MM-DD / Usa AAAA-MM-DD']
+    hint: Optional. Verify the exact date in a primary source; no future dates. New lasts 90 days only with its source URL.
+  - label: Date primary source / Fuente primaria de la fecha
+    name: publication_date_source_url
+    widget: string
+    required: false
+    pattern: ['^https://[^\s]+$', 'Use HTTPS']
+    hint: Without both date and source there is no New badge. Year and verification date do not count.
+  - label: ISBN
+    name: isbn
+    widget: string
+    required: false
   - label: Publication type
     name: type
     widget: select
@@ -966,3 +952,90 @@ collections:
     widget: boolean
     default: false
     hint: Turn on to include this record after review and publication. Off keeps it hidden. Saving a draft does not update the live site.
+
+- name: media
+  label: Media / Medios
+  label_singular: Media entry / Entrada de medios
+  folder: content/media
+  create: true
+  extension: json
+  format: json
+  identifier_field: title
+  slug: '{{fields.slug}}'
+  fields:
+  - {label: 'Title EN / Título EN', name: title, widget: string}
+  - {label: 'Title ES / Título ES', name: title_es, widget: string}
+  - {label: 'Stable slug / Identificador', name: slug, widget: string, pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase and hyphens']}
+  - {label: 'Summary EN / Resumen EN', name: summary, widget: text}
+  - {label: 'Summary ES / Resumen ES', name: summary_es, widget: text}
+  - {label: 'Type / Tipo', name: type, widget: select, options: [Blog, Podcast, Article, Interview, Video, Other]}
+  - {label: 'Outlet / Medio', name: outlet, widget: string}
+  - {label: 'Canonical URL / URL principal', name: canonical_url, widget: string, pattern: ['^https://[^\s]+$', 'Use HTTPS']}
+  - {label: 'Verified date / Fecha comprobada', name: date, widget: string, required: false, pattern: ['^\d{4}-\d{2}-\d{2}$', 'Use YYYY-MM-DD'], hint: 'Leave empty if unverified / Dejar vacío si no está comprobada'}
+  - label: Authors / Autores
+    name: authors
+    widget: list
+    required: false
+    field: {label: Name / Nombre, name: name, widget: string}
+  - label: Researcher / Investigador
+    name: person_id
+    widget: relation
+    required: false
+    collection: people
+    search_fields: [name]
+    display_fields: [name]
+    value_field: slug
+  - label: Publication / Publicación
+    name: publication_id
+    widget: relation
+    required: false
+    collection: publications
+    search_fields: [title]
+    display_fields: [title]
+    value_field: slug
+  - {label: 'Verification source / Fuente de verificación', name: source_url, widget: string, pattern: ['^https://[^\s]+$', 'Use HTTPS']}
+  - {label: 'Last verified / Última verificación', name: verified_on, widget: datetime, date_format: YYYY-MM-DD, time_format: false}
+  - {label: 'Include after approval / Mostrar después de aprobación', name: published, widget: boolean, default: false}
+
+- name: legal_settings
+  label: Legal notices / Avisos legales
+  description: Drafts for University review. Publication is not a compliance certification.
+  files:
+  - name: legal
+    label: Legal pages / Páginas legales
+    file: content/settings/legal.json
+    format: json
+    fields:
+    - {label: Review status / Estado de revisión, name: review_status, widget: select, options: [draft, approved], default: draft}
+    - {label: Version / Versión, name: version, widget: string}
+    - {label: Reviewed by / Revisado por, name: reviewed_by, widget: string, required: false}
+    - {label: Review date / Fecha de revisión, name: reviewed_on, widget: string, required: false}
+    - {label: Center contact / Contacto del Centro, name: contact_name, widget: string}
+    - {label: Contact email / Correo de contacto, name: contact_email, widget: string}
+    - {label: Official UP privacy notice / Aviso oficial UP, name: official_privacy_url, widget: string}
+    - {label: Internal review notes / Pendientes internos, name: editorial_note, widget: text}
+    - label: Legal pages / Páginas legales
+      name: pages
+      widget: list
+      fields:
+      - {label: Route / Ruta, name: slug, widget: select, options: [privacy, terms, cookies, rights]}
+      - {label: Title — English, name: title, widget: string}
+      - {label: Título — Español, name: title_es, widget: string}
+      - {label: Introduction — English, name: summary, widget: text}
+      - {label: Introducción — Español, name: summary_es, widget: text}
+      - label: Sections / Secciones
+        name: sections
+        widget: list
+        fields:
+        - {label: Heading — English, name: heading, widget: string}
+        - {label: Encabezado — Español, name: heading_es, widget: string}
+        - {label: Text — English, name: body, widget: text}
+        - {label: Texto — Español, name: body_es, widget: text}
+        - label: Links / Enlaces
+          name: links
+          widget: list
+          required: false
+          fields:
+          - {label: Label — English, name: label, widget: string}
+          - {label: Etiqueta — Español, name: label_es, widget: string}
+          - {label: URL, name: url, widget: string}
