@@ -432,3 +432,7 @@ Policy Briefs vuelve a ser una categoría visible del archivo: se muestran dos b
 
 - Remove both UNICEF Policy briefs from public routes, search, feeds and area lists (retain unpublished CMS records). Keep companion-brief support for future approved content.
 - Replace Eugenio’s Other labels: VelaFi → Case study; The Perfect Fit → Conference paper. IPADE’s 2020 research report lists The Perfect Fit under Proceedings (p.21); VelaFi is the teaching case already documented in its record. Add both named types to CMS and Spanish interface labels.
+
+
+### Category correction after PR #28
+The team explicitly classifies both The Perfect Fit and VelaFi as articles. Set both to the existing Journal article category. Remove Conference paper and Case study from the CMS, validator and translations; this supersedes the categorization recorded above. Preserve publication titles, authors, venues and descriptions.

@@ -212,7 +212,7 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
             fail(path, "people", "unknown or unpublished researcher ID(s): " + ", ".join(missing))
         row["people"] = members
 
-    types = {"Journal article", "Working paper", "Book", "Book chapter", "Policy brief", "Conference paper", "Case study", "Other"}
+    types = {"Journal article", "Working paper", "Book", "Book chapter", "Policy brief", "Other"}
     for row in data["publications"]:
         path = row.pop("_path")
         for key in ("title", "abstract", "type", "verified_on"):
