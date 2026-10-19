@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "land-tenure-security-agrarian-investments-peruvian-highlands",
+    "asset": "/design/assets/publications/land-tenure-security-agrarian-investments-peruvian-highlands-first-page.png",
+    "source_url": "https://ebuah.uah.es/dspace/bitstream/handle/10017/58830/land_burguillo_LUP_2021.pdf?sequence=3&isAllowed=y",
+    "verified_on": "2026-10-19",
+    "kind": "Published article, first page",
+    "license": "CC BY-NC-ND 4.0",
+    "sha256": "b3605b6d42a058d0fdde17ac97d66e4d9b982a7a03239901abd948092cf9648a"
+  },
+  {
+    "slug": "estrategia-microeconomia-ia",
+    "asset": "/design/assets/publications/estrategia-microeconomia-ia-cover.jpg",
+    "source_url": "https://sistemasdedecision.com/portada.jpg",
+    "verified_on": "2026-10-19",
+    "kind": "Official book cover",
+    "license": "Copyright retained by the rights holders; official cover used to identify the book.",
+    "sha256": "e2b344e4c311f267134157aca00b7eeacc9de7cceec09a9d56accb857acb92af"
+  }
+]

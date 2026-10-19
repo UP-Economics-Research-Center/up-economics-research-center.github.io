@@ -43,7 +43,7 @@
   const researcherNote = text => {
     const paragraph = node('p', '', 'pub-authors');
     // Preserve the source names verbatim; only the explicit UP attribution is emphasized.
-    const match = text.match(/^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([^\n]+)/i);
+    const match = text.match(/^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([\s\S]*?)(?=\n[ \t]*(?:with|con)\b|$)/i);
     if (match) paragraph.append(match[1], node('strong', match[2]), text.slice(match[0].length));
     else paragraph.textContent = text;
     return paragraph;

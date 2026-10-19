@@ -376,3 +376,12 @@ Privacidad, términos, servicios externos y derechos permanecen señalados como 
 Hay siete primeras páginas auténticas. Se retiraron doce capturas web y faltan sus documentos auténticos, incluido VelaFi. El libro y Urban agglomerations ya carecían de vista previa: catorce registros en total permanecen sin miniatura. No inventar portadas ni sustituir silenciosamente versiones de revista por preprints.
 
 Véase [la nota de versión](editorial-gallery-release-2026-10-19.md) para fuentes, validación y pendientes. El usuario autorizó commit, push, PR y merge al terminar esta revisión.
+
+
+## 2026-10-19 — Archivo de publicaciones, miniaturas y atribución UP
+
+- El usuario reiteró que Publications es el archivo completo del trabajo mostrado por áreas en Research y autorizó commit, push, PR y merge. Las 21 publicaciones públicas siguen en el archivo, tengan o no miniatura. Cada área ofrece un enlace visible al archivo completo.
+- Se añadieron dos imágenes reales al registro central: primera página de *Land tenure security and agrarian investments in the Peruvian Highlands* (versión publicada, repositorio Universidad de Alcalá, CC BY-NC-ND 4.0) y portada oficial de *Estrategia, microeconomía e IA*. Research, Publications y las fichas reutilizan exactamente esos archivos. Hay ocho primeras páginas y una portada; quedan doce registros sin miniatura. Se conservan referencias de fuentes y pendientes, sin inventar imágenes ni presentar informes bibliográficos como artículos.
+- El usuario confirmó que Eugenio Gómez, Esteban Colla y Marytell A. Castellanos pertenecen juntos a UP Researchers en el proyecto sobre digitalización y corrupción. Se mantiene el nombre aportado y se corrige el énfasis de grupos UP que ocupan varias líneas; el énfasis se detiene antes de «with/With:/con/Con:» para distinguir colaboradores externos. Las citas de artículos conservan la firma publicada y los vínculos a People.
+- Petición explícita: todo texto con hipervínculo debe estar subrayado, incluida navegación, idiomas, galerías y navegación de secciones. Se conserva el foco de teclado.
+- Persisten las revisiones institucionales de los avisos y permisos de medios heredados. La portada del libro se acredita como portada con derechos reservados, sin atribuirle una licencia libre.
