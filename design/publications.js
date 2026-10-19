@@ -10,7 +10,7 @@
  const records=[...list.querySelectorAll('.publication[data-title]')];
  const params=new URLSearchParams(location.search);
  const keys={q:search,topic:fields.topic,year:fields.year,type:fields.type};
- for(const [key,element] of Object.entries(keys)){const value=params.get(key);if(value&&[...element.options].some(option=>option.value===value))element.value=value;else if(key==='q'&&value)element.value=value;}
+ for(const [key,element] of Object.entries(keys)){const value=params.get(key);if(key==='q'){if(value)element.value=value;}else if(value&&[...element.options].some(option=>option.value===value))element.value=value;}
  function apply(updateUrl=true){
   const query=normalize(search.value.trim());let shown=0;
   for(const card of records){

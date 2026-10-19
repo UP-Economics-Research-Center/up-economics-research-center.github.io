@@ -12,6 +12,7 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlparse
 from site_locales import generate_languages, LocaleError
+from media_dimensions import image_dimensions
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "_site"
@@ -287,7 +288,9 @@ def external_anchor(url: str, text: str, cls="text-link") -> str:
 def image_html(record: dict, cls: str = "research-photo") -> str:
     if not record.get("image"):
         return ""
-    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}" width="960" height="640" loading="lazy">'
+    size = image_dimensions(str(ROOT / record["image"].lstrip("/")))
+    dimensions = f' width="{size[0]}" height="{size[1]}"' if size else ""
+    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}"{dimensions} loading="lazy">'
 
 
 def render_area(area: dict, index: int, *, home=False) -> str:
@@ -530,6 +533,20 @@ def build() -> None:
                         for field in ("image_alt", "image_alt_es", "image_credit"):
                             require_text(path, record, field)
                         record["image_source_url"] = validate_url(path, "image_source_url", record.get("image_source_url", ""))
+    def add_image_dimensions(value):
+        if isinstance(value, list):
+            for item in value:
+                add_image_dimensions(item)
+        elif isinstance(value, dict):
+            if value.get("image"):
+                size = image_dimensions(str(ROOT / value["image"].lstrip("/")))
+                if size:
+                    value["image_width"], value["image_height"] = size
+            for item in list(value.values()):
+                if isinstance(item, (dict, list)):
+                    add_image_dimensions(item)
+    add_image_dimensions(data)
+
     # Visibility is editorial, separate from each record's approval status.
     for flag in ("show_working_papers", "show_policy_briefs"):
         if not isinstance(site_settings.get(flag, True), bool):

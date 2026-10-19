@@ -576,7 +576,7 @@ footer{padding-top:64px}
 .language-switch{display:flex;align-items:center;gap:.35rem;font-size:.75rem;white-space:nowrap;margin-left:1rem}
 .language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;min-height:44px;text-decoration:none;border-bottom:2px solid transparent}
 .language-switch a[aria-current]{font-weight:800;border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid #8a1538;outline-offset:3px}
-.people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding:2.5rem 0}
+.people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:clamp(1.5rem,2.5vw,2rem);align-items:start;padding:2.5rem 0}
 .person-visual .person-portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;max-width:none;filter:none}
 .portrait-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;border-radius:6px;background:var(--paper)}
 .person-visual .portrait-frame .person-portrait{position:absolute;left:var(--crop-left);top:var(--crop-top);width:var(--crop-width);height:var(--crop-height);aspect-ratio:auto;object-fit:fill;border-radius:0}
@@ -704,6 +704,7 @@ footer{padding-top:64px}
 .source-area-page .area-heading>.eyebrow{display:none}
 .source-area-page .area-heading .crumb{position:absolute;top:24px;left:24px;right:24px;color:white;font-size:14px;margin:0}
 .source-area-page .area-heading .crumb a{color:white}
+.source-area-page .area-heading .crumb a:focus-visible{outline-color:white}
 .source-area-page .area-intro{display:block;max-width:1188px;padding:36px 24px 0;margin:auto}
 .source-area-page .area-description p{max-width:none;font-size:17px;line-height:1.6}
 .source-area-page .feature-area-visual{display:none}
@@ -721,6 +722,7 @@ footer{padding-top:64px}
 .source-area-page .area-person img{width:264px;height:264px;max-width:100%;object-fit:cover;border-radius:0}
 .source-area-page #project-list{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
 .source-area-page .project-card{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;padding:28px 0;border:0;border-bottom:1px solid var(--line);margin:0;min-width:0}
+.source-area-page #project-list .project-card:last-child{border-bottom:0}
 .source-area-page .project-card.has-image{grid-template-columns:minmax(0,1fr) 240px}
 .project-copy{min-width:0}
 .project-media{margin:0;min-width:0;max-width:100%}
@@ -758,8 +760,19 @@ footer{padding-top:64px}
 
 /* Editorial review: readable bibliographic details and prominent proposal access. */
 .pub-authors,.area-main .pub-authors,.area-main .pub-venue,.publication-detail .pub-authors,.pub-authors a,.pub-venue,.pub-year,.author-group-label,.area-person strong,.person h3{color:#000}
+.pub-authors a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.pub-authors a:hover{text-decoration-thickness:2px}
 .seminar-proposal-heading{display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
 .seminar-proposal-heading h2{margin:0}
 .seminar-proposal-heading .button{max-width:100%;text-align:center}
 
 @media(max-width:700px){.source-area-page .reference-paper .paper-image{width:150px;justify-self:start}.source-area-page .reference-paper .paper-photo{max-height:210px}}
+
+/* Shared reading measure and portrait framing across directory and area pages. */
+.source-area-page .area-description p,.source-area-page .project-card p,.source-area-page .reference-description{max-width:78ch}
+.area-person .area-portrait{position:relative;display:block;width:64px;aspect-ratio:4/5;flex-shrink:0;overflow:hidden;margin:0;border-radius:5px;background:var(--paper)}
+.area-person .area-portrait>img{display:block;width:100%;height:100%;object-fit:cover}
+.source-area-page .area-person .area-portrait{width:100%;border-radius:0}
+.source-area-page .area-person .area-portrait>img{border-radius:0}
+.area-person .area-portrait.portrait-frame>img{max-width:none;aspect-ratio:auto;position:absolute;left:var(--crop-left);top:var(--crop-top);width:var(--crop-width);height:var(--crop-height);object-fit:fill}
+.source-area-page .area-person .reference-portrait{aspect-ratio:1}

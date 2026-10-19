@@ -23,7 +23,8 @@
       "image_alt": "Digital display spelling Estonia.",
       "image_alt_es": "Pantalla digital con la palabra Estonia.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "title": "Bridging the Fintech Gap: Regulatory Frictions and Active Financial Inclusion in an Emerging Economy",
@@ -37,7 +38,8 @@
       "image_alt": "Word cloud of fintech and financial inclusion terms.",
       "image_alt_es": "Nube de palabras sobre fintech e inclusión financiera.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "display_order": 2,
@@ -60,7 +62,8 @@
       "image_alt": "Journal article screenshot: VelaFi: competing against giants in the stablecoin payments race",
       "image_alt_es": "Captura del artículo de revista: VelaFi: competing against giants in the stablecoin payments race",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "publication": "communicating-code-ethics-cluster-rct",
@@ -70,7 +73,8 @@
       "image_alt": "Journal article screenshot: How to effectively communicate your code of ethics: An empirical study using a cluster randomized control trial experiment",
       "image_alt_es": "Captura del artículo de revista: How to effectively communicate your code of ethics: An empirical study using a cluster randomized control trial experiment",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "publication": "perfect-fit-executive-talent-field-experiment-mexico",
@@ -80,7 +84,8 @@
       "image_alt": "Journal article screenshot: The Perfect Fit: How to Get the Best Talent in Executive Positions. A Field Experiment in Mexico Using Vignettes",
       "image_alt_es": "Captura del artículo de revista: The Perfect Fit: How to Get the Best Talent in Executive Positions. A Field Experiment in Mexico Using Vignettes",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "banner": {
@@ -88,6 +93,8 @@
     "image_alt": "A hand using a digital screen with a network pattern.",
     "image_alt_es": "Una mano usando una pantalla digital con un patrón de redes.",
     "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics"
-  }
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/digital-and-business-economics",
+    "image_credit_es": "UP Economics Research Center · Página original de investigación"
+  },
+  "image_credit_es": "UP Economics Research Center · Página original de investigación"
 }

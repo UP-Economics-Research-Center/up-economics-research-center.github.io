@@ -22,8 +22,10 @@
     const img = node('img', '', cls);
     img.src = record.image;
     img.alt = record.image_alt || '';
-    img.width = 160;
-    img.height = 110;
+    if (record.image_width && record.image_height) {
+      img.width = record.image_width;
+      img.height = record.image_height;
+    }
     img.loading = 'lazy';
     return img;
   };
@@ -108,13 +110,24 @@
     }));
     const members = referenceLayout && area.reference_team?.length ? (area.reference_team || []).map(item => {
       const person = people.find(person => person.slug === item.person_id);
-      return person ? {...person, portrait: item.image || person.portrait} : null;
+      return person ? {...person, portrait: item.image || person.portrait, portrait_crop: item.image && item.image !== person.portrait ? null : person.portrait_crop, reference_portrait: true} : null;
     }).filter(Boolean) : people.filter(person => person.research_areas.includes(area.slug));
     if (!members.length) note(team, 'No published researcher profiles are linked to this area yet.');
     else team.replaceChildren(...members.map(person => {
       const anchor = link(`${prefix}/people.html#${encodeURIComponent(person.slug)}`, '', 'area-person');
       if (person.portrait) {
-        const img = node('img'); img.src = person.portrait; img.alt = ''; img.width = 96; img.height = 120; img.loading = 'lazy'; anchor.append(img);
+        const frame = node('div', '', 'area-portrait' + (person.reference_portrait ? ' reference-portrait' : ''));
+        const img = node('img'); img.src = person.portrait; img.alt = ''; img.width = 240; img.height = 300; img.loading = 'lazy';
+        if (person.portrait_crop) {
+          const crop = person.portrait_crop;
+          frame.classList.add('portrait-frame');
+          frame.style.setProperty('--crop-width', `${10000 / crop.width}%`);
+          frame.style.setProperty('--crop-height', `${10000 / crop.height}%`);
+          frame.style.setProperty('--crop-left', `${-100 * crop.left / crop.width}%`);
+          frame.style.setProperty('--crop-top', `${-100 * crop.top / crop.height}%`);
+        }
+        frame.append(img);
+        anchor.append(frame);
       }
       const text = node('span'); text.append(node('strong', person.display_name || person.name), node('small', t('View profile →'))); anchor.append(text); return anchor;
     }));

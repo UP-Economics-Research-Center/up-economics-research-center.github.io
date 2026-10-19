@@ -21,7 +21,8 @@
       "image_alt": "Bicycles at a bike-sharing station.",
       "image_alt_es": "Bicicletas en una estación de bicicletas compartidas.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "title": "Who Walks for Water? Water Consumption and Labor Supply Response to Rainfall Scarcity in Uganda",
@@ -36,7 +37,8 @@
       "image_alt": "Dry, cracked ground under a sunset.",
       "image_alt_es": "Suelo seco y agrietado al atardecer.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "display_order": 8,
@@ -56,6 +58,8 @@
     "image_alt": "A landscape contrasting green vegetation and a dry, dark landscape.",
     "image_alt_es": "Un paisaje que contrasta vegetación verde con un entorno seco y oscuro.",
     "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics"
-  }
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/environmental-economics",
+    "image_credit_es": "UP Economics Research Center · Página original de investigación"
+  },
+  "image_credit_es": "UP Economics Research Center · Página original de investigación"
 }

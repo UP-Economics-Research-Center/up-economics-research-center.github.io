@@ -21,7 +21,8 @@
       "image_alt": "A woman holding a young child.",
       "image_alt_es": "Una mujer con un niño pequeño.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     },
     {
       "title": "Push and Pull Factors for (Early) Marriage, Bangladesh Integrated Household Survey Questionnaire (BIHS)",
@@ -35,7 +36,8 @@
       "image_alt": "Hands decorated for a wedding.",
       "image_alt_es": "Manos decoradas para una boda.",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "display_order": 9,
@@ -58,7 +60,8 @@
       "image_alt": "Journal article screenshot: Son Preference and Its Impact on Family Size and Domestic Violence Against Mothers in South Asia",
       "image_alt_es": "Captura del artículo de revista: Son Preference and Its Impact on Family Size and Domestic Violence Against Mothers in South Asia",
       "image_credit": "UP Economics Research Center · Original research page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics"
+      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
+      "image_credit_es": "UP Economics Research Center · Página original de investigación"
     }
   ],
   "banner": {
@@ -66,6 +69,8 @@
     "image_alt": "People arranged in the shape of a world map.",
     "image_alt_es": "Personas formando un mapa del mundo.",
     "image_credit": "UP Economics Research Center · Original research page",
-    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics"
-  }
+    "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/demographic-economics",
+    "image_credit_es": "UP Economics Research Center · Página original de investigación"
+  },
+  "image_credit_es": "UP Economics Research Center · Página original de investigación"
 }
