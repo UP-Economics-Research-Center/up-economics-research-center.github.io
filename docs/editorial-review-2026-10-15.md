@@ -438,3 +438,5 @@ Policy Briefs vuelve a ser una categoría visible del archivo: se muestran dos b
 The team explicitly classifies both The Perfect Fit and VelaFi as articles. Set both to the existing Journal article category. Remove Conference paper and Case study from the CMS, validator and translations; this supersedes the categorization recorded above. Preserve publication titles, authors, venues and descriptions.
 
 Policy brief remains a valid visible archive category even with zero public records, explicitly confirmed after PR #29. Keep the filter option when Show policy briefs publicly is enabled; do not republish the UNICEF records.
+
+Publication archive thumbnails use uniform 150 × 210 px frames on desktop and 120 × 168 px on mobile, with complete pages contained without cropping. Their size must not depend on citation length. Research area previews retain the separately approved description-height layout.
