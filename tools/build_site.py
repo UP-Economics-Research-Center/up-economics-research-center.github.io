@@ -212,7 +212,7 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
             fail(path, "people", "unknown or unpublished researcher ID(s): " + ", ".join(missing))
         row["people"] = members
 
-    types = {"Journal article", "Working paper", "Book", "Book chapter", "Policy brief", "Other"}
+    types = {"Journal article", "Working paper", "Book", "Book chapter", "Policy brief", "Conference paper", "Case study", "Other"}
     for row in data["publications"]:
         path = row.pop("_path")
         for key in ("title", "abstract", "type", "verified_on"):
@@ -410,14 +410,6 @@ def render_media(item, people):
     return f'<article class="publication" id="{e(item["slug"])}"><p class="pub-venue">{e(item["outlet"])} · {e(item["type"])} {day}</p><h2 class="pub-title"><a href="{e(item["canonical_url"])}">{e(item["title"])}</a></h2>{authors}<p>{e(item["summary"])}</p><div class="reference-media-links">{person}{related}</div></article>'
 
 
-def render_publication_reference(pub: dict) -> str:
-    language = pub["title_language"]
-    return (f'<span class="publication-reference"><span class="reference-label">Publication reference</span>'
-            f'<strong class="reference-venue" translate="no">{e(pub["venue"] or pub["type"])}</strong>'
-            f'<span class="reference-title" lang="{language}" translate="no">{e(pub["title"])}</span>'
-            f'<span class="reference-year">{pub["year"]}</span></span>')
-
-
 def render_policy_brief_panel(brief: dict | None) -> str:
     if not brief:
         return ""
@@ -435,8 +427,6 @@ def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     language = pub["title_language"]
     person_ids = " ".join(dict.fromkeys(author["person_id"] for author in pub["authors"] if isinstance(author, dict) and author.get("person_id")))
     photo = f'<a class="paper-image" href="{e(url)}" lang="{language}" translate="no" aria-label="{e(pub["title"])}">{image_html({**pub, "image_alt": ""}, "paper-photo")}</a>' if pub.get("image") else ""
-    if not photo:
-        photo = f'<a class="paper-image" href="{e(url)}">{render_publication_reference(pub)}</a>'
     brief_link = f'<a class="text-link" href="/publications/{e(pub["policy_brief"]["slug"])}/">Policy brief →</a>' if pub.get("policy_brief") else ""
     venue = pub["venue"] or pub["type"]
     return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-person-ids="{e(person_ids)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
