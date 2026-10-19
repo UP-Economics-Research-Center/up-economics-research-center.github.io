@@ -232,20 +232,32 @@ def generate_languages(site: Path, data, settings, about):
     credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Image credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
     credit_page = re.sub(r'<title>.*?</title>', '<title>Image credits | UP Economics Research Center</title>', credit_page)
     (site / 'photo-credits.html').write_text(credit_page)
-    # Legal copy stays visibly marked as draft until institutional review is recorded.
-    template = (site / 'research.html').read_text()
-    for page in legal['pages']:
+    # Render legal bodies from their actual language record, including any paragraph count.
+    def legal_main(page, language):
+        suffix = '_es' if language == 'es' else ''
+        home_label = 'Inicio' if language == 'es' else 'Home'
+        version_label = 'Versión' if language == 'es' else 'Version'
+        draft_label = 'Borrador para revisión institucional. Aún no aprobado por la Universidad Panamericana.' if language == 'es' else 'Draft for institutional review. Not yet approved by Universidad Panamericana.'
         body = ''
         for section in page['sections']:
-            paragraphs = ''.join('<p>' + html.escape(text) + '</p>' for text in section['body'].split('\n\n') if text)
-            links = ''.join('<p><a href="' + html.escape(item['url'], quote=True) + '">' + html.escape(item['label']) + '</a></p>' for item in section.get('links', []))
-            body += '<section><h2>' + html.escape(section['heading']) + '</h2>' + paragraphs + links + '</section>'
-        draft = '<p class="legal-review-note">Draft for institutional review. Not yet approved by Universidad Panamericana.</p>' if legal['review_status'] != 'approved' else ''
-        main = '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="/">Home</a> / ' + html.escape(page['title']) + '</div><h1>' + html.escape(page['title']) + '</h1><p>' + html.escape(page['summary']) + '</p></div></section><div class="wrap legal-content">' + draft + body + '<p class="legal-version">Version: ' + html.escape(legal['version']) + '</p></div></main>'
-        markup = re.sub(r'<main.*?</main>', lambda m: main, template, flags=re.S)
+            paragraphs = ''.join('<p>' + html.escape(text) + '</p>' for text in re.split(r'\n\s*\n', section['body' + suffix]) if text)
+            links = ''
+            for item in section.get('links', []):
+                url = spanish_url(item['url']) if language == 'es' else item['url']
+                links += '<p><a href="' + html.escape(url, quote=True) + '">' + html.escape(item['label' + suffix]) + '</a></p>'
+            body += '<section><h2>' + html.escape(section['heading' + suffix]) + '</h2>' + paragraphs + links + '</section>'
+        draft = '<p class="legal-review-note">' + draft_label + '</p>' if legal['review_status'] != 'approved' else ''
+        home_url = '/es/' if language == 'es' else '/'
+        title = html.escape(page['title' + suffix])
+        return '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="' + home_url + '">' + home_label + '</a> / ' + title + '</div><h1>' + title + '</h1><p>' + html.escape(page['summary' + suffix]) + '</p></div></section><div class="wrap legal-content">' + draft + body + '<p class="legal-version">' + version_label + ': ' + html.escape(legal['version']) + '</p></div></main>'
+
+    template = (site / 'research.html').read_text()
+    legal_routes = {page['slug'] + '.html': page for page in legal['pages']}
+    for route, page in legal_routes.items():
+        markup = re.sub(r'<main.*?</main>', lambda m: legal_main(page, 'en'), template, flags=re.S)
         markup = re.sub(r'<title>.*?</title>', '<title>' + html.escape(page['title']) + ' | UP Economics Research Center</title>', markup)
         markup = markup.replace('class="active" aria-current="page"', 'class=""')
-        (site / (page['slug'] + '.html')).write_text(markup)
+        (site / route).write_text(markup)
     pairs['Draft for institutional review. Not yet approved by Universidad Panamericana.'] = 'Borrador para revisión institucional. Aún no aprobado por la Universidad Panamericana.'
     pairs['Version: ' + legal['version']] = 'Versión: ' + legal['version']
     for en, es in [('Privacy notice','Aviso de privacidad'),('Terms of use','Términos de uso'),('Storage and external services','Almacenamiento y servicios externos'),('Copyright and attribution','Derechos de autor y atribución'),('Legal information','Información legal')]:
@@ -271,6 +283,8 @@ def generate_languages(site: Path, data, settings, about):
             for row in credits.values():
                 translated = translated.replace('<h2>' + html.escape(row['title']) + '</h2>', '<h2>' + html.escape(row['title_es']) + '</h2>')
         translated = localize_markup(translated, pairs)
+        if rel in legal_routes:
+            translated = re.sub(r'<main.*?</main>', lambda m: legal_main(legal_routes[rel], 'es'), translated, flags=re.S)
         if rel.startswith('publications/'):
             pub = next(row for row in data['publications'] if row['slug'] == path.parent.name)
             translated = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="' + html.escape(pub['abstract_es'][:250], quote=True) + '">', translated)
