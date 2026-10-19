@@ -404,7 +404,7 @@ El usuario aclara que el subrayado no aplica a menús y controles similares. Nav
 
 Luciano: retirar Health Economics y conservar Development Economics. Patricio: retirar Macroeconomics y conservar Environmental/Climate Economics. Marytell: añadir Digital and Business Economics, conservando Development Economics. People es la fuente de pertenencia de Team para estas áreas; las tres correcciones se reflejan en sus etiquetas y equipos EN/ES. Esta decisión sustituye la asignación inferida anteriormente.
 
-Excepción adicional confirmada por el usuario: la marca/logo tipográfico sí debe estar subrayada en encabezado y pie de página, aunque la navegación restante no lo esté.
+Actualización del usuario (19 de octubre, posterior al PR #26): la marca/logo tipográfico no debe estar subrayada en encabezado ni pie de página. Esta indicación sustituye la petición anterior de subrayar los tres renglones; los enlaces del contenido siguen subrayados.
 
 Orden confirmado para menús de escritorio y móvil: Research → People → Seminars → Publications.
 
