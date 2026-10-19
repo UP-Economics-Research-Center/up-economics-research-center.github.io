@@ -1,86 +1,114 @@
 [
   {
+    "slug": "estrategia-microeconomia-ia",
+    "title": "Estrategia, microeconomía e IA",
+    "type": "Book",
+    "canonical_url": "https://sistemasdedecision.com/",
+    "note": "Reproduction permission pending; source image retained but not deployed."
+  },
+  {
     "slug": "velafi-stablecoin-payments-case",
     "title": "VelaFi: competing against giants in the stablecoin payments race",
     "type": "Other",
     "canonical_url": "https://doi.org/10.1108/EEMCS-10-2025-0595",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "son-preference-family-size-domestic-violence-south-asia",
     "title": "Son Preference and Its Impact on Family Size and Domestic Violence Against Mothers in South Asia",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1080/00220388.2025.2493803",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "importance-quality-scaling-early-childhood-nicaragua",
     "title": "The Importance of Quality for Scaling Up Early Childhood Development Services: Experimental Evidence from Nicaragua",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1093/wber/lhaf036",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "communicating-code-ethics-cluster-rct",
     "title": "How to effectively communicate your code of ethics: An empirical study using a cluster randomized control trial experiment",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1111/basr.12255",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "urban-agglomerations-wage-self-employment-ethiopia",
     "title": "Urban Agglomerations and Wage and Self-employment Jobs in Ethiopia",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1080/00220388.2022.2043282",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "gender-education-farm-succession-western-parana",
     "title": "Gender, education, and farm succession in Western Paraná State, Brazil",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1016/j.landusepol.2021.105453",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "covid-school-closures-foundational-skills-country-responses",
     "title": "Potential effects of COVID-19 school closures on foundational skills and Country responses for mitigating learning loss",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1016/j.ijedudev.2021.102434",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "fta-member-gdp-synthetic-control",
     "title": "The effect of a free trade agreement with the United States on member countries’ per capita GDP: A synthetic control analysis",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1111/rsp3.12402",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
+  },
+  {
+    "slug": "parental-engagement-childrens-learning-covid19",
+    "title": "Parental Engagement in Children’s Learning: Insights for remote learning response during COVID-19",
+    "type": "Policy brief",
+    "canonical_url": "https://www.unicef.org/innocenti/documents/parental-engagement-childrens-learning",
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
+  },
+  {
+    "slug": "promising-practices-equitable-remote-learning-127-countries",
+    "title": "Promising Practices for Equitable Remote Learning: Emerging lessons from COVID-19 education responses in 127 countries",
+    "type": "Policy brief",
+    "canonical_url": "https://www.unicef.org/innocenti/documents/promising-practices-equitable-remote-learning",
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "perfect-fit-executive-talent-field-experiment-mexico",
     "title": "The Perfect Fit: How to Get the Best Talent in Executive Positions. A Field Experiment in Mexico Using Vignettes",
     "type": "Other",
     "canonical_url": "https://www.ipade.mx/wp-content/uploads/2022/11/IPADE-management-research-2020.pdf",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "parental-absence-hazardous-child-labour-nepal",
     "title": "Parental Absence and Agency: The Household Characteristics of Hazardous Forms of Child Labour in Nepal",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1002/jid.3371",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   },
   {
     "slug": "local-institutions-fast-food-peru",
     "title": "Local institutions in Peru and the presence and number of fast-food outlets",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1108/MRJIAM-06-2017-0755",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
+  },
+  {
+    "slug": "productivity-cost-sovereign-default-european-debt-crisis",
+    "title": "The productivity cost of sovereign default: evidence from the European debt crisis",
+    "type": "Journal article",
+    "canonical_url": "https://doi.org/10.1007/s00199-015-0939-y",
+    "note": "Reproduction permission pending; source image retained but not deployed."
   },
   {
     "slug": "monetary-policy-time-varying-uncertainty-aversion",
     "title": "Monetary Policy Under Time-Varying Uncertainty Aversion",
     "type": "Journal article",
     "canonical_url": "https://doi.org/10.1007/s10614-011-9303-x",
-    "note": "No verified first-page image available; document required."
+    "note": "No authorized first-page image currently available; show own bibliographic reference."
   }
 ]

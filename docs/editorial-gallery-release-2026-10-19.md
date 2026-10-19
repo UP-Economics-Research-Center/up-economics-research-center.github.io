@@ -44,3 +44,8 @@ La rama de integración recibió una revisión de código independiente sin bloq
 ### Ampliación de miniaturas y archivo
 
 La revisión posterior incorporó la primera página publicada de *Land tenure security and agrarian investments in the Peruvian Highlands* desde Universidad de Alcalá y la portada oficial del libro de Eugenio y Jorge Pérez Colín. El total vigente es ocho primeras páginas y una portada; quedan doce registros sin imagen. [Fuentes de esta ampliación](publication-previews-2026-10-19.json). Publications conserva las 21 publicaciones públicas y Research enlaza al archivo completo. Se subraya todo texto enlazado y se agrupan correctamente los tres investigadores UP indicados por el usuario.
+
+
+### Revisión posterior: permisos y Policy Briefs
+
+El archivo actual contiene 23 registros, incluidos dos Policy Briefs UNICEF previamente aprobados. Tras revisar derechos se muestran siete primeras páginas con licencia explícita; los otros 16 registros utilizan fichas bibliográficas propias rotuladas, sin simular documentos editoriales. La portada del libro y la miniatura de Economic Theory quedan pendientes de permiso y no se copian al sitio generado. [Revisión de derechos](publication-rights-review-2026-10-19.md). Los artículos pueden seleccionar un registro publicado de tipo Policy brief para mostrarlo a su lado; no se ha inventado ninguna relación. Las fotos de proyectos se alinean exclusivamente con su descripción; las tres líneas de marca se subrayan directamente.

@@ -34,6 +34,7 @@
     }
     img.loading = 'lazy';
     if (record.image_fit === 'contain') img.dataset.imageFit = 'contain';
+    if (['top', 'center', 'bottom'].includes(record.image_focus)) img.style.objectPosition = `center ${record.image_focus}`;
     return img;
   };
   const credit = () => {
@@ -114,8 +115,14 @@
       const copy = node('div', '', 'project-copy');
       const heading = node('h3', '', 'pub-title');
       heading.append(project.url ? link(project.url, project.title) : project.title);
-      copy.append(heading, ...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
-      if (project.researcher_note) copy.append(...project.researcher_note.split(/\n\s*\n/).map(text => researcherNote(text)));
+      const description = node('div', '', 'project-description');
+      description.append(...project.summary.split(/\n\s*\n/).map(text => node('p', text)));
+      copy.append(heading, description);
+      if (project.researcher_note) {
+        const notes = node('div', '', 'project-researchers');
+        notes.append(...project.researcher_note.split(/\n\s*\n/).map(text => researcherNote(text)));
+        copy.append(notes);
+      }
       article.append(copy);
       const img = photo(project, 'project-photo');
       if (img) {
@@ -167,8 +174,20 @@
       const href = `${prefix}/publications/${encodeURIComponent(pub.slug)}/`;
       const img = photo(pub, 'paper-photo'); // One verified document thumbnail, shared with Publications.
       const titleLanguage = pub.title_language === 'es' ? 'es' : 'en';
-      if (img) {const anchor = link(href, '', 'paper-image');anchor.lang = titleLanguage;anchor.translate = false;anchor.setAttribute('aria-label', pub.title);img.alt = '';anchor.append(img);article.append(anchor);article.classList.add('has-image');}
-      const text = node('div'); const heading = node('h3', '', 'pub-title');
+      const preview = link(href, '', 'paper-image');
+      if (img) {
+        preview.lang = titleLanguage; preview.translate = false; preview.setAttribute('aria-label', pub.title);
+        img.alt = ''; preview.append(img);
+      } else {
+        preview.setAttribute('aria-label', t('Publication reference') + ': ' + pub.title);
+        const reference = node('span', '', 'publication-reference');
+        const venueText = node('strong', pub.venue || t(pub.type), 'reference-venue'); venueText.translate = false;
+        const referenceTitle = node('span', pub.title, 'reference-title'); referenceTitle.lang = titleLanguage; referenceTitle.translate = false;
+        reference.append(node('span', t('Publication reference'), 'reference-label'), venueText, referenceTitle, node('span', String(pub.year), 'reference-year'));
+        preview.append(reference);
+      }
+      article.append(preview); article.classList.add('has-image');
+      const text = node('div', '', 'paper-copy'); const heading = node('h3', '', 'pub-title');
       const titleLink = link(href, pub.title);titleLink.lang = titleLanguage;titleLink.translate = false;heading.append(titleLink);
       const authors = node('p', '', 'pub-authors');
       const up = pub.authors.filter(author => typeof author === 'object' && author.person_id);
@@ -185,25 +204,31 @@
       }
       appendNames(others);
       const venue = pub.venue || t(pub.type);
-      text.append(heading);
+      const paperHeading = node('div', '', 'paper-heading');
+      paperHeading.append(heading); text.append(paperHeading);
       if (pub.publication_date && pub.publication_date_source_url) {
         const badge = node('span', t('New'), 'publication-new');
         badge.dataset.publicationDate = pub.publication_date;
         badge.dataset.publicationDateSource = pub.publication_date_source_url;
         badge.hidden = true;
-        text.prepend(badge);
+        paperHeading.prepend(badge);
       }
       if (description) {
         article.classList.add('reference-paper');
-        text.append(...description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
+        const paperDescription = node('div', '', 'paper-description');
+        paperDescription.append(...description.split(/\n\s*\n/).map(paragraph => node('p', paragraph, 'reference-description')));
+        text.append(paperDescription);
       }
-      text.append(authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
+      const details = node('div', '', 'paper-details');
+      details.append(authors, node('p', `${venue} · ${pub.year}`, 'pub-venue'));
       if (feature?.media_links?.length) {
         const media = node('div', '', 'reference-media-links');
         feature.media_links.forEach(item => media.append(link(item.url, item.label)));
-        text.append(media);
+        details.append(media);
       }
-      if (img) text.append(credit(feature || pub));
+      if (pub.policy_brief) details.append(link(`${prefix}/publications/${encodeURIComponent(pub.policy_brief.slug)}/`, t('Policy brief →'), 'text-link'));
+      if (img) details.append(credit(feature || pub));
+      text.append(details);
       article.append(text, link(`${prefix}/publications/${encodeURIComponent(pub.slug)}/`, t('Abstract and details →'), 'text-link'));
       return article;
     }));

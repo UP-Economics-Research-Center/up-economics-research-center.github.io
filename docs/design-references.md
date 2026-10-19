@@ -23,3 +23,7 @@ Por defecto, las imágenes junto a un bloque editorial deben aproximarse a la al
 El subrayado distingue enlaces del contenido (títulos, referencias, nombres enlazados y créditos). No se aplica a menús, idiomas, breadcrumbs, navegación secundaria o controles con apariencia de botón; conservan sus estados de foco y selección. Por petición expresa posterior, la marca del Centro sí se subraya, tanto en encabezado como en footer.
 
 Orden de navegación principal y móvil confirmado: Research → People → Seminars → Publications (y sus traducciones).
+
+Para imágenes de proyectos, «altura del texto» significa solo la descripción: excluir título, investigadores y notas de presentación. La imagen comienza junto al párrafo descriptivo y termina a su altura; el crédito queda debajo. Este detalle sustituye la interpretación anterior del bloque completo. Las tres líneas de marca deben tener subrayado propio, incluido el texto dentro de la primera línea flex.
+
+La alineación con la descripción también se aplica a la vista previa de publicaciones en las áreas de Research: título encima, autores/revista/enlaces debajo; el archivo compacto conserva su composición de referencia.

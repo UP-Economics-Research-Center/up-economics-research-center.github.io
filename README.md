@@ -79,7 +79,7 @@ English is the default. **EN / ES** switches between complete static pages and r
 
 In the CMS, fill in the English fields and their **Spanish** companions before publishing. Paper titles, author names and journal names stay in their original language. Keep the complete approved area descriptions; the originals and their sources are archived under `docs/sources/`. The **Home scope, contact and seminar information** collection controls the information moved from About to the home page. Contact details remain in the final home-page block and are linked from the footer; Contact is omitted from the desktop and mobile header. Seminars has an independent page linked from the header and footer.
 
-Research photos have source/license credits. Project and paper photos are optional and disappear when absent. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers and policy briefs are temporarily hidden from public publications; a separate working-paper series is deferred.
+Research photos have source/license credits. Project photographs are optional; publications without an approved reusable first page display an original bibliographic reference. Set an ongoing project's Article URL to make its title and photograph open the paper. The public `/photo-credits.html` page records the photo attributions, and `/es/photo-credits.html` provides the Spanish version. The supplied Drive image remains pending access; the code supports adding it later without changing the layout. Working papers remain temporarily hidden; approved Policy briefs are visible in the publication archive. A separate working-paper series is deferred.
 
 For local review, build with `python3 tools/build_site.py`, then serve `_site/` as described above. Inspect `/`, `/es/`, People, area pages and publication details. Project instructions prohibit running tests unless requested; this change uses the static build, syntax/path inspection and manual browser review.
 
@@ -91,7 +91,7 @@ The optional **Research scope** subtitle field may be left blank to omit that he
 
 Keep author names in their original citation order in each publication record. Link each UP author with the **Researcher profile** relation (`person_id`). Public lists and detail pages group linked UP researchers first and introduce the remaining coauthors with **with** / **con**; the saved citation order is preserved. Publications appear from newest year to oldest.
 
-In **Site Settings**, **Show working papers publicly** and **Show policy briefs publicly** are currently off. These records stay editable in the CMS, but do not generate public lists, filters, search results, JSON entries or detail pages. Turn the switches back on to restore the approved records. The home-page working-paper link follows the working-paper switch.
+In **Site Settings**, **Show working papers publicly** is off and **Show policy briefs publicly** is on. A disabled type stays editable in the CMS but does not generate public lists, filters, search results, JSON entries or detail pages. Enable its switch to restore approved records. The home-page working-paper link follows the working-paper switch.
 
 ### Research area pages
 
@@ -109,7 +109,7 @@ The **Submit a proposal / Envía una propuesta** button appears beside **Propose
 
 Publication previews always show complete document pages without cropping or color filters. Upload an authentic first PDF page with its source and credit; leave the image empty when the document is unavailable. Research and Publications share the same central image. On desktop, previews align with the adjacent text; on mobile they stack at their natural proportions.
 
-Current projects use one row per project in editorial order. Desktop photographs fill a frame approximately as tall as the adjacent text. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
+Current projects use one row per project in editorial order. Desktop project photographs align with and match the description only; the heading and researcher/presentation notes are excluded from that height. In the CMS, **Image display / Presentación de imagen** defaults to **Photograph — match text height**. Choose **Complete diagram / Gráfico completo** for a chart, word cloud or image containing text that must remain readable. This keeps the whole image visible. On mobile, images stack beneath their text at their natural proportions. A project without an image uses the full row. Gallery squares and uniform People/Team portraits retain their specific framing.
 
 Content links are underlined. Menus, language switches, breadcrumbs and button-like controls use their selection and focus styles instead.
 
@@ -135,3 +135,14 @@ Los avisos EN/ES se editan en **Legal notices / Avisos legales**. Los marcadores
 Las imágenes de publicaciones deben ser primeras páginas auténticas, con fuente y crédito. Déjalas vacías cuando falte el documento. Las áreas reutilizan la imagen de Publications; no permiten otra miniatura. No uses capturas de webs editoriales como sustitutos.
 
 La dirección visual y los pendientes documentales están en [las notas de la versión](docs/editorial-gallery-release-2026-10-19.md).
+
+
+### Policy Briefs and companion briefs
+
+Policy Briefs is an archive category. The two already-published UNICEF research briefs are visible; records still awaiting review remain unpublished. To add a brief beside an article, first create and approve a Publications record with **Type: Policy brief**, then select it under that article’s **Companion policy brief / Nota de política asociada**. The same brief stays in the archive, appears beside the article on desktop (below it on mobile), and is linked from Research. Leave the relation empty until the association is confirmed; do not infer a companion brief from a similar topic.
+
+### Publication preview permissions
+
+Upload an authentic first-page image, then record **Image reuse status**, a public rights-evidence URL and the license name/link where applicable. Pending is the default: the image remains in source but is omitted from the generated site. Instead, Research and Publications show a clearly labelled bibliographic reference using title, journal and year. That reference is a site component, not a screenshot or a facsimile of the paper. Publisher webpage captures also require a rights basis; they are not an automatic workaround. Do not put private permission correspondence in public CMS fields.
+
+For project photos, **Photograph focus / Zona principal de la foto** selects top, center or bottom when the description-height frame crops the image. Use it to keep the important subject visible.

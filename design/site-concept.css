@@ -1152,3 +1152,49 @@ header .language-switch a,footer .legal-footer a{text-decoration:none}
 .search-result-list a{text-decoration:underline}
 
 button,[role=button],a.button{text-decoration:none}
+
+/* Underline the actual wordmark text, including the flex item's first line. */
+.wordmark-text,.wordmark-second,.wordmark-university{text-decoration-line:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+
+.project-description p:last-child{margin-bottom:0}
+@media(min-width:701px){
+ .source-area-page .project-card.has-image{row-gap:18px}
+ .source-area-page .project-card.has-image .project-copy{display:contents}
+ .source-area-page .project-card.has-image .pub-title{grid-column:1;grid-row:1;margin:0}
+ .source-area-page .project-card.has-image .project-description{grid-column:1;grid-row:2}
+ .source-area-page .project-card.has-image .project-researchers{grid-column:1;grid-row:3}
+ .source-area-page .project-card.has-image .project-media{grid-column:2;grid-row:2;display:block;position:relative}
+ .source-area-page .project-card.has-image .project-photo{height:100%}
+ .source-area-page .project-card.has-image .project-media figcaption{position:absolute;top:100%;left:0;right:0}
+}
+@media(max-width:700px){
+ .project-description{margin-bottom:18px}
+}
+
+.publication-reference{display:flex;flex-direction:column;justify-content:center;gap:12px;width:100%;height:100%;min-height:0;padding:20px;border:1px solid var(--line);background:var(--paper);color:var(--ink);overflow:hidden}
+.publication-reference .reference-label{font-size:12px;line-height:1.4;color:var(--muted)}
+.publication-reference .reference-venue{font-size:20px;line-height:1.3;font-weight:700;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.publication-reference .reference-title{font-size:16px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.publication-reference .reference-year{font-size:14px;line-height:1.4}
+.publication-list .publication-reference{padding:12px;gap:6px}
+.publication-list .reference-title{display:none}
+.publication-list .reference-venue{font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.publication-detail-layout.has-policy-brief{max-width:1280px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,320px);gap:48px;align-items:start}
+.policy-brief-panel{padding:24px;background:var(--paper);border-top:2px solid var(--wine)}
+.policy-brief-panel h2{font-size:22px;line-height:1.35;margin:12px 0}
+.policy-brief-panel p{font-size:16px}
+.policy-brief-panel .text-link{display:block;margin:16px 0 0}
+@media(max-width:900px){.publication-detail-layout.has-policy-brief{grid-template-columns:minmax(0,1fr);gap:32px}.policy-brief-panel{max-width:760px}}
+@media(max-width:700px){.publication-reference{height:auto;min-height:200px}.publication-list .publication-reference{min-height:160px}}
+
+.paper-description .reference-description:last-child{margin-bottom:0}
+@media(min-width:701px){
+ .source-area-page .reference-paper.has-image{row-gap:18px}
+ .source-area-page .reference-paper .paper-copy{display:contents}
+ .source-area-page .reference-paper .paper-heading{grid-column:1;grid-row:1}
+ .source-area-page .reference-paper .paper-heading .pub-title{margin:0}
+ .source-area-page .reference-paper .paper-description{grid-column:1;grid-row:2}
+ .source-area-page .reference-paper .paper-details{grid-column:1;grid-row:3}
+ .source-area-page .reference-paper .paper-image{grid-row:2}
+ .source-area-page .reference-paper>.text-link{grid-row:4}
+}

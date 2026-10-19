@@ -197,6 +197,9 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
             project["image_fit"] = project.get("image_fit") or "cover"
             if project["image_fit"] not in ("cover", "contain"):
                 fail(path, "projects.image_fit", "choose cover for photographs or contain for complete diagrams")
+            project["image_focus"] = project.get("image_focus") or "center"
+            if project["image_focus"] not in ("top", "center", "bottom"):
+                fail(path, "projects.image_focus", "choose top, center or bottom")
             researchers = project.get("researchers", [])
             if not isinstance(researchers, list) or not all(isinstance(item, str) and item.strip() for item in researchers):
                 fail(path, "projects", "researchers must be a list of names")
@@ -407,17 +410,39 @@ def render_media(item, people):
     return f'<article class="publication" id="{e(item["slug"])}"><p class="pub-venue">{e(item["outlet"])} · {e(item["type"])} {day}</p><h2 class="pub-title"><a href="{e(item["canonical_url"])}">{e(item["title"])}</a></h2>{authors}<p>{e(item["summary"])}</p><div class="reference-media-links">{person}{related}</div></article>'
 
 
+def render_publication_reference(pub: dict) -> str:
+    language = pub["title_language"]
+    return (f'<span class="publication-reference"><span class="reference-label">Publication reference</span>'
+            f'<strong class="reference-venue" translate="no">{e(pub["venue"] or pub["type"])}</strong>'
+            f'<span class="reference-title" lang="{language}" translate="no">{e(pub["title"])}</span>'
+            f'<span class="reference-year">{pub["year"]}</span></span>')
+
+
+def render_policy_brief_panel(brief: dict | None) -> str:
+    if not brief:
+        return ""
+    url = '/publications/' + quote(brief["slug"], safe="-") + '/'
+    pdf = brief.get("pdf") or brief.get("pdf_url")
+    download = external_anchor(pdf, "Download policy brief (PDF)") if pdf else ""
+    return (f'<aside class="policy-brief-panel" aria-labelledby="policy-brief-heading"><p class="eyebrow">Policy brief</p>'
+            f'<h2 id="policy-brief-heading"><a href="{e(url)}" lang="{brief["title_language"]}" translate="no">{e(brief["title"])}</a></h2>'
+            f'<p>{brief["year"]}</p><a class="text-link" href="{e(url)}">Read policy brief →</a>{download}</aside>')
+
+
 def render_publication_card(pub: dict, area_names: dict[str, str]) -> str:
     authors = ", ".join(a if isinstance(a, str) else a["name"] for a in pub["authors"])
     url = f'/publications/{quote(pub["slug"], safe="-")}/'
     language = pub["title_language"]
     person_ids = " ".join(dict.fromkeys(author["person_id"] for author in pub["authors"] if isinstance(author, dict) and author.get("person_id")))
     photo = f'<a class="paper-image" href="{e(url)}" lang="{language}" translate="no" aria-label="{e(pub["title"])}">{image_html({**pub, "image_alt": ""}, "paper-photo")}</a>' if pub.get("image") else ""
+    if not photo:
+        photo = f'<a class="paper-image" href="{e(url)}">{render_publication_reference(pub)}</a>'
+    brief_link = f'<a class="text-link" href="/publications/{e(pub["policy_brief"]["slug"])}/">Policy brief →</a>' if pub.get("policy_brief") else ""
     venue = pub["venue"] or pub["type"]
     return (f'<article class="publication paper-row {"has-image" if photo else ""}" data-title="{e(pub["title"])}" data-authors="{e(authors)}" data-person-ids="{e(person_ids)}" data-year="{pub["year"]}" data-type="{e(pub["type"])}" data-topics="{e(" ".join(pub["topics"]))}">'
             f'{photo}<div>{recency_badge(pub)}<h2 class="pub-title"><a lang="{language}" translate="no" href="{e(url)}">{e(pub["title"])}</a></h2><p class="pub-authors" translate="no">{render_authors(pub)}</p>'
             f'<div class="pub-venue"><span>{e(venue)}</span> · {pub["year"]}</div></div>'
-            f'<div class="pub-actions"><a class="text-link" href="/publications/{quote(pub["slug"], safe="-")}/">Abstract and details →</a></div></article>')
+            f'<div class="pub-actions"><a class="text-link" href="/publications/{quote(pub["slug"], safe="-")}/">Abstract and details →</a>{brief_link}</div></article>')
 
 
 def render_news(item: dict) -> str:
@@ -561,6 +586,20 @@ def build() -> None:
                 require_text(path, row, "image_alt")
                 require_text(path, row, "image_alt_es")
                 require_text(path, row, "image_credit")
+            if collection == "publications":
+                status = row.get("image_rights_status") or "pending"
+                if status not in ("pending", "licensed", "permission-confirmed"):
+                    fail(path, "image_rights_status", "choose pending, licensed or permission-confirmed")
+                row["image_rights_status"] = status
+                row["image_rights_url"] = validate_url(path, "image_rights_url", row.get("image_rights_url", ""), optional=True)
+                if row["image"] and status != "pending":
+                    require_text(path, row, "image_rights_url")
+                    if status == "licensed":
+                        require_text(path, row, "image_license_url")
+                        require_text(path, row, "image_license")
+                elif row["image"]:
+                    row["_withheld_image"] = row["image"]
+                    row["image"] = ""
             if collection == "research_areas":
                 for project in row["projects"]:
                     project["image"] = local_asset(path, "projects.image", project.get("image", ""), optional=True)
@@ -627,11 +666,22 @@ def build() -> None:
     for flag in ("show_working_papers", "show_policy_briefs"):
         if not isinstance(site_settings.get(flag, True), bool):
             fail(CONTENT / "settings/site.json", flag, "must be true or false")
+    approved_publications = {pub["slug"]: pub for pub in data["publications"]}
     hidden_types = {kind for kind, flag in (("Working paper", "show_working_papers"), ("Policy brief", "show_policy_briefs")) if not site_settings.get(flag, True)}
     data["publications"] = sorted(
         (pub for pub in data["publications"] if pub["type"] not in hidden_types),
         key=lambda pub: (-pub["year"], pub["title"].casefold()),
     )
+    publication_index = {pub["slug"]: pub for pub in data["publications"]}
+    for pub in data["publications"]:
+        path = CONTENT / "publications" / (pub["slug"] + ".json")
+        brief_id = optional_text(path, pub, "policy_brief_id")
+        pub["policy_brief_id"] = brief_id
+        brief = approved_publications.get(brief_id) if brief_id else None
+        if brief_id and (not brief or brief["type"] != "Policy brief" or brief_id == pub["slug"]):
+            fail(path, "policy_brief_id", "choose another published Policy brief")
+        if brief and brief_id in publication_index:
+            pub["policy_brief"] = {key: brief.get(key, "") for key in ("slug", "title", "title_language", "year", "pdf", "pdf_url")}
     areas_by_id = {area["slug"]: area for area in data["research_areas"]}
     area_names = {key: value["name"] for key, value in areas_by_id.items()}
 
@@ -661,6 +711,23 @@ def build() -> None:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
         shutil.copytree(ROOT / "design" / "assets", public_design / "assets",
                          ignore=shutil.ignore_patterns("media-sources.json", "juan-alvaro-source-2022.jpg"))
+        # Retain source assets; omit withheld thumbnails unless another active record uses the file.
+        active_media = {row.get("image") for row in data["publications"] + data["research_areas"]}
+        active_media.update(person.get("portrait") for person in data["people"])
+        active_media.update(project.get("image") for area in data["research_areas"] for project in area["projects"])
+        active_media.update(area.get("banner", {}).get("image") for area in data["research_areas"])
+        active_media.update("/" + str(site_settings.get(key, "")).lstrip("/") for key in ("featured_image", "campus_video_poster"))
+        # Include unpublished/hidden records: changing visibility must not expose a pending asset.
+        for _, pub in raw["publications"]:
+            image = pub.get("image", "")
+            if not isinstance(image, str) or pub.get("image_rights_status") in ("licensed", "permission-confirmed"):
+                continue
+            clean = image.strip().lstrip("/")
+            if not clean or urlparse(image).scheme or ".." in Path(clean).parts:
+                continue
+            asset = (site / clean).resolve()
+            if site.resolve() in asset.parents and "/" + clean not in active_media:
+                asset.unlink(missing_ok=True)
         shutil.copytree(ROOT / "admin", site / "admin")
         for icon in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
             shutil.copy2(ROOT / icon, site / icon)
@@ -802,6 +869,8 @@ def build() -> None:
                 download_link = '<p class="note">A public full-text link has not been supplied.</p>'
             meta = " ".join([pub["type"], str(pub["year"]), pub["venue"], pub["abstract"]]).strip()[:250]
             replacements = {
+                "__POLICY_BRIEF_LAYOUT__": " has-policy-brief" if pub.get("policy_brief") else "",
+                "__POLICY_BRIEF__": render_policy_brief_panel(publication_index.get(pub.get("policy_brief_id", ""))),
                 "__NEW__": recency_badge(pub), "__ISBN__": f'<p>ISBN {e(pub["isbn"])}</p>' if pub.get("isbn") else "",
                 "__TITLE__": e(pub["title"]), "__TITLE_LANGUAGE__": pub["title_language"], "__YEAR__": str(pub["year"]), "__TYPE__": e(pub["type"]),
                 "__VENUE__": e(pub["venue"]), "__AUTHORS__": author_html, "__ABSTRACT__": e(pub["abstract"]),

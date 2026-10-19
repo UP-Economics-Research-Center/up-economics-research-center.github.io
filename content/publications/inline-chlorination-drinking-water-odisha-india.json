@@ -44,9 +44,13 @@
   "image": "/design/assets/publications/inline-chlorination-drinking-water-odisha-india-first-page.png",
   "image_alt": "First page of the article in PLOS Water: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial",
   "image_alt_es": "Primera página del artículo en PLOS Water: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial",
-  "image_credit": "PLOS Water · Article authors · First page",
+  "image_credit": "Jeremy Lowe, Vaishnavi Prathap, Akito Kamei, Sidhartha Giri, Krushna Chandra Sahoo, Michael Kremer, Elisa M. Maffioli, Amy J. Pickering · PLOS Water · 2026 · First page rendered from the published PDF; content unchanged.",
   "image_source_url": "https://journals.plos.org/water/article/file?id=10.1371/journal.pwat.0000440&type=printable",
-  "image_credit_es": "PLOS Water · Autores del artículo · Primera página",
+  "image_credit_es": "Jeremy Lowe, Vaishnavi Prathap, Akito Kamei, Sidhartha Giri, Krushna Chandra Sahoo, Michael Kremer, Elisa M. Maffioli, Amy J. Pickering · PLOS Water · 2026 · Primera página del PDF publicado; contenido sin cambios.",
   "publication_date": "2026-04-29",
-  "publication_date_source_url": "https://journals.plos.org/water/article?id=10.1371/journal.pwat.0000440"
+  "publication_date_source_url": "https://journals.plos.org/water/article?id=10.1371/journal.pwat.0000440",
+  "image_rights_status": "licensed",
+  "image_license": "CC BY 4.0",
+  "image_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "image_rights_url": "https://journals.plos.org/water/article?id=10.1371/journal.pwat.0000440"
 }

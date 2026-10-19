@@ -595,6 +595,15 @@ collections:
         value: cover
       - label: Complete diagram / Gráfico completo
         value: contain
+    - label: Photograph focus / Zona principal de la foto
+      name: image_focus
+      widget: select
+      required: false
+      default: center
+      options:
+      - {label: 'Top / Arriba', value: top}
+      - {label: 'Center / Centro', value: center}
+      - {label: 'Bottom / Abajo', value: bottom}
     - label: Photograph alternative text
       name: image_alt
       widget: string
@@ -702,11 +711,38 @@ collections:
       display_fields:
       - name
       value_field: slug
+  - label: Companion policy brief / Nota de política asociada
+    name: policy_brief_id
+    widget: relation
+    required: false
+    collection: publications
+    search_fields: [title]
+    display_fields: [title]
+    value_field: slug
+    hint: Choose a published record with type Policy brief; leave empty otherwise. / Elige una nota de política publicada; deja vacío si no existe.
+  - label: Image reuse status / Permiso para mostrar la imagen
+    name: image_rights_status
+    widget: select
+    required: false
+    default: pending
+    options:
+    - {label: 'Pending — show bibliographic reference / Pendiente — mostrar referencia', value: pending}
+    - {label: 'Reuse license verified / Licencia de reutilización verificada', value: licensed}
+    - {label: 'Permission confirmed / Permiso confirmado', value: permission-confirmed}
+  - label: Public rights evidence URL / Fuente pública del permiso
+    name: image_rights_url
+    widget: string
+    required: false
+    hint: Required to display the image; use an official article license or documented permission. Do not upload private permission correspondence here.
+  - label: Image license name / Nombre de la licencia
+    name: image_license
+    widget: string
+    required: false
   - label: Article first-page image / Primera página del artículo
     name: image
     widget: image
     required: false
-    hint: Upload the first PDF page with the journal heading visible, or an approved journal-page capture. The full image is displayed as a small thumbnail; leave empty when unavailable.
+    hint: Upload an authentic first page only when reuse is licensed or permission is confirmed. Pending images are not deployed; a clearly labelled bibliographic reference is displayed instead. A website screenshot is not automatically copyright-free.
   - label: Photograph alternative text
     name: image_alt
     widget: string

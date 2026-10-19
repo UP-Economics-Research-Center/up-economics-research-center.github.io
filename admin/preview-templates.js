@@ -37,7 +37,11 @@
       line('Authors (citation order)', field(entry, 'authors'));
       line('Exact publication date', field(entry, 'publication_date')); line('Date source', field(entry, 'publication_date_source_url')); line('ISBN', field(entry, 'isbn'));
       line('Year', field(entry, 'year')); line('Type', field(entry, 'type')); line('Journal / publisher', field(entry, 'venue'));
-      image('Article thumbnail', field(entry, 'image'), field(entry, 'image_alt'));
+      var rights = field(entry, 'image_rights_status') || 'pending';
+      line('Image reuse status', rights); line('Rights evidence', field(entry, 'image_rights_url'));
+      if (rights !== 'pending') image('Article thumbnail', field(entry, 'image'), field(entry, 'image_alt'));
+      else line('Publication preview', 'Bibliographic reference; image permission pending or image unavailable.');
+      line('Companion policy brief', field(entry, 'policy_brief_id'));
       bilingual('Abstract', 'abstract'); line('Research areas', field(entry, 'topics'));
       line('DOI', field(entry, 'doi')); line('Article URL', field(entry, 'canonical_url')); line('PDF', field(entry, 'pdf') || field(entry, 'pdf_url'));
     } else if (kind === 'people') {
@@ -57,6 +61,7 @@
         line(label + ' researchers', project.researcher_note); line(label + ' investigadores', project.researcher_note_es);
         image(label + ' image', project.image, project.image_alt);
         if (project.image) line(label + ' image display', project.image_fit === 'contain' ? 'Complete diagram / Gráfico completo' : 'Photograph — match text height / Fotografía — altura del texto');
+        if (project.image) line(label + ' photo focus', project.image_focus || 'center');
         if (!project.image) line(label + ' layout', 'Full-width text; no image space is reserved.');
       });
       (field(entry, 'publication_features') || []).forEach(function (item, index) {
