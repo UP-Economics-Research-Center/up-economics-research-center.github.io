@@ -407,3 +407,5 @@ Luciano: retirar Health Economics y conservar Development Economics. Patricio: r
 Excepción adicional confirmada por el usuario: la marca/logo tipográfico sí debe estar subrayada en encabezado y pie de página, aunque la navegación restante no lo esté.
 
 Orden confirmado para menús de escritorio y móvil: Research → People → Seminars → Publications.
+
+El usuario reitera que los botones tampoco se subrayan: incluye botones nativos, controles con role=button y enlaces con apariencia de botón, también al pasar el cursor.
