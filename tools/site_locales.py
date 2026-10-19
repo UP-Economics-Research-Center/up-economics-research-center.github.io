@@ -169,7 +169,13 @@ def generate_languages(site: Path, data, settings, about):
             if record.get(field) and not record.get(field + '_es'):
                 raise LocaleError(f'{label}: missing {field}_es')
     visible_sections = {name: bool(settings.get('show_' + name, False)) for name in ('news', 'seminars')}
-    (site / 'design/language-strings.js').write_text('window.UP_PUBLIC_SECTIONS = ' + json.dumps(visible_sections) + ';\nwindow.UP_TRANSLATIONS = ' + json.dumps(ui, ensure_ascii=False).replace('<', '\\u003c') + ';\n')
+    # The directory feeds must change URLs with their content, just like CSS and JS.
+    # Otherwise a newly deployed area page can display cached publication images/names.
+    directory_version = hashlib.sha256(b''.join(
+        (site / (name + '.json')).read_bytes()
+        for name in ('people', 'research-areas', 'publications')
+    )).hexdigest()[:12]
+    (site / 'design/language-strings.js').write_text('window.UP_DIRECTORY_VERSION = ' + json.dumps(directory_version) + ';\nwindow.UP_PUBLIC_SECTIONS = ' + json.dumps(visible_sections) + ';\nwindow.UP_TRANSLATIONS = ' + json.dumps(ui, ensure_ascii=False).replace('<', '\\u003c') + ';\n')
     for name in ('people', 'research-areas', 'publications', 'news', 'seminars', 'media'):
         file = site / (name + '.json')
         if not file.exists():

@@ -387,3 +387,8 @@ Véase [la nota de versión](editorial-gallery-release-2026-10-19.md) para fuent
 - Persisten las revisiones institucionales de los avisos y permisos de medios heredados. La portada del libro se acredita como portada con derechos reservados, sin atribuirle una licencia libre.
 
 La aclaración compartida después identifica las imágenes de proyectos (UNICEF/iPad) como las que deben ampliarse. Se corrige el tamaño de esas imágenes de 240 a 360px, sin recortar y limitado al espacio disponible en móvil. No se rediseña nuevamente la portada del área. Los grupos UP escritos con un nombre por línea se muestran juntos con comas y «and/y», manteniendo separados los colaboradores externos. Las etiquetas vigentes son Luciano: Development/Health; Patricio: Macroeconomics/Environmental. La captura afirma que siguen incorrectas, pero no aporta etiquetas sustitutas: no se asignan otras nuevas sin esa información.
+
+
+### Caché de datos tras el despliegue
+
+La comprobación pública del PR #23 reprodujo una mezcla de código nuevo con JSON antiguo: el libro aparecía sin la portada que sí estaba en Publications. Research ahora solicita people/research-areas/publications con una versión derivada de su contenido durante el build. El script de idioma que expone la versión también lleva hash en su URL. Cada edición de esos datos actualiza los tres enlaces de consulta, en EN/ES, sin pedir al visitante un hard refresh.

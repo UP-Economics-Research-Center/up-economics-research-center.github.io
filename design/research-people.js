@@ -53,7 +53,9 @@
     return paragraph;
   };
   try {
-    const responses = await Promise.all(['research-areas', 'people', 'publications'].map(name => fetch(`${prefix}/${name}.json`)));
+    const version = window.UP_DIRECTORY_VERSION;
+    const directoryQuery = version ? `?v=${encodeURIComponent(version)}` : '';
+    const responses = await Promise.all(['research-areas', 'people', 'publications'].map(name => fetch(`${prefix}/${name}.json${directoryQuery}`)));
     if (!responses.every(response => response.ok)) throw new Error('Directory unavailable');
     const [areas, people, publications] = await Promise.all(responses.map(response => response.json()));
     const index = areas.findIndex(area => area.slug === requested);
