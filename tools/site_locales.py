@@ -39,7 +39,7 @@ def translate_text(text, pairs):
     core = decoded.strip()
     if core in pairs:
         return decoded[:len(decoded)-len(decoded.lstrip())] + html.escape(pairs[core], quote=False) + decoded[len(decoded.rstrip()):]
-    for kind in ('Journal article', 'Working paper', 'Book', 'Book chapter', 'Policy brief', 'Other'):
+    for kind in ('Journal article', 'Working paper', 'Book', 'Book chapter', 'Policy brief', 'Conference paper', 'Case study', 'Other'):
         if core.startswith(kind + ' · '):
             return html.escape(pairs.get(kind, kind) + core[len(kind):])
     # Titles, year labels and breadcrumbs combine short interface strings.
