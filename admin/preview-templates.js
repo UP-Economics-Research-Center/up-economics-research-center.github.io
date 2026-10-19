@@ -56,6 +56,7 @@
         line(label + ' description — English', project.summary); line(label + ' description — Español', project.summary_es);
         line(label + ' researchers', project.researcher_note); line(label + ' investigadores', project.researcher_note_es);
         image(label + ' image', project.image, project.image_alt);
+        if (project.image) line(label + ' image display', project.image_fit === 'contain' ? 'Complete diagram / Gráfico completo' : 'Photograph — match text height / Fotografía — altura del texto');
         if (!project.image) line(label + ' layout', 'Full-width text; no image space is reserved.');
       });
       (field(entry, 'publication_features') || []).forEach(function (item, index) {

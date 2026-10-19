@@ -584,6 +584,17 @@ collections:
       name: image
       widget: image
       required: false
+    - label: Image display / Presentación de imagen
+      name: image_fit
+      widget: select
+      required: false
+      default: cover
+      hint: Use complete image for diagrams or text that must remain readable. / Usa imagen completa para gráficos o texto que deba ser legible.
+      options:
+      - label: Photograph — match text height / Fotografía — altura del texto
+        value: cover
+      - label: Complete diagram / Gráfico completo
+        value: contain
     - label: Photograph alternative text
       name: image_alt
       widget: string

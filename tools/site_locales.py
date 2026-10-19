@@ -224,7 +224,7 @@ def generate_languages(site: Path, data, settings, about):
         if area.get('banner'):
             credit(area['banner'], area['name'], 'Cover image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])
         for project in area.get('projects', []):
-            credit(project, project['title'], 'Project image', 'Displayed complete, without cropping or color filters.', project['title_es'])
+            credit(project, project['title'], 'Project image', 'Displayed complete, without cropping or color filters.' if project.get('image_fit') == 'contain' else 'Resized and cropped to match adjacent text; no color filters.', project['title_es'])
         for feature in area.get('publication_features', []):
             if feature['publication'] in publications:
                 credit(feature, publications[feature['publication']]['title'], 'Journal-page capture', 'Displayed complete, without cropping or color filters.')

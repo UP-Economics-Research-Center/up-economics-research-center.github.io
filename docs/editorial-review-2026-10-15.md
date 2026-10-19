@@ -392,3 +392,20 @@ La aclaración compartida después identifica las imágenes de proyectos (UNICEF
 ### Caché de datos tras el despliegue
 
 La comprobación pública del PR #23 reprodujo una mezcla de código nuevo con JSON antiguo: el libro aparecía sin la portada que sí estaba en Publications. Research ahora solicita people/research-areas/publications con una versión derivada de su contenido durante el build. El script de idioma que expone la versión también lleva hash en su URL. Cada edición de esos datos actualiza los tres enlaces de consulta, en EN/ES, sin pedir al visitante un hard refresh.
+
+
+## 2026-10-19 — Altura de imágenes y excepciones de navegación
+
+El usuario corrige la regla previa: las imágenes junto a texto deben tener aproximadamente su altura, salvo instrucciones distintas. El tamaño fijo de proyectos pasa a ser una referencia de ancho; el texto determina la altura del marco en escritorio. Fotografías de áreas y proyectos llenan el marco; páginas de papers/portadas y el gráfico informativo se conservan completos, sin deformación. En móvil mantienen proporción natural y se apilan. Galería cuadrada y retratos uniformes conservan sus reglas específicas.
+
+El usuario aclara que el subrayado no aplica a menús y controles similares. Navegación principal/móvil, idiomas, breadcrumbs, navegación de secciones, enlaces de navegación del footer y controles tipo botón quedan sin subrayado. Los enlaces dentro del contenido permanecen subrayados y el foco de teclado sigue visible.
+
+### Etiquetas confirmadas por el usuario
+
+Luciano: retirar Health Economics y conservar Development Economics. Patricio: retirar Macroeconomics y conservar Environmental/Climate Economics. Marytell: añadir Digital and Business Economics, conservando Development Economics. People es la fuente de pertenencia de Team para estas áreas; las tres correcciones se reflejan en sus etiquetas y equipos EN/ES. Esta decisión sustituye la asignación inferida anteriormente.
+
+Excepción adicional confirmada por el usuario: la marca/logo tipográfico sí debe estar subrayada en encabezado y pie de página, aunque la navegación restante no lo esté.
+
+Orden confirmado para menús de escritorio y móvil: Research → People → Seminars → Publications.
+
+El usuario reitera que los botones tampoco se subrayan: incluye botones nativos, controles con role=button y enlaces con apariencia de botón, también al pasar el cursor.

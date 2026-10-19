@@ -194,6 +194,9 @@ def validate_records(raw: dict[str, list[tuple[Path, dict]]]) -> dict[str, list[
             for key in ("title", "summary"):
                 if not isinstance(project.get(key), str) or not project[key].strip():
                     fail(path, "projects", f"each project needs a non-empty {key}")
+            project["image_fit"] = project.get("image_fit") or "cover"
+            if project["image_fit"] not in ("cover", "contain"):
+                fail(path, "projects.image_fit", "choose cover for photographs or contain for complete diagrams")
             researchers = project.get("researchers", [])
             if not isinstance(researchers, list) or not all(isinstance(item, str) and item.strip() for item in researchers):
                 fail(path, "projects", "researchers must be a list of names")
