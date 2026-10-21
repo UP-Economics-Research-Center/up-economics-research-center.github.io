@@ -13,6 +13,7 @@ from pathlib import Path
 from urllib.parse import quote, urlparse
 from site_locales import generate_languages, LocaleError
 from media_dimensions import image_dimensions
+from site_seo import apply_seo
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "_site"
@@ -695,7 +696,7 @@ def build() -> None:
         public_files = (
             "about.html", "homepage-concept.html", "news.html", "people.html",
             "publications.html", "research-area.html", "research.html", "seminars.html",
-            "media.html", "site-motion.js", "publication-recency.js", "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
+            "media.html", "privacy-preferences.js", "site-motion.js", "publication-recency.js", "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
         )
         for relative in public_files:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
@@ -909,6 +910,7 @@ def build() -> None:
         search = [row for row in search if not any(not site_settings.get("show_" + section, False) and re.search(r"/" + section + r"\.html(?:[?#]|$)", row["url"]) for section in ("news", "seminars"))]
         write_json(site / "search-index.json", search)
         generate_languages(site, public_data, site_settings, about_settings)
+        apply_seo(site, public_data, site_settings, image_html, render_authors, recency_badge)
 
         # Write metadata fields that remain public; source and validation-only values are not emitted as HTML.
         if OUT.exists():

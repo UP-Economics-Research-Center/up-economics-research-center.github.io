@@ -1232,3 +1232,19 @@ main .person-topics a:hover{text-decoration:none}
 @media(max-width:480px){
  .home-hero .intro-actions{grid-template-columns:minmax(0,1fr);gap:12px}
 }
+
+/* Optional analytics choices share the site's quiet, accessible controls. */
+.privacy-banner,.privacy-preferences{padding:24px;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:6px;box-shadow:0 8px 32px #24212618;font-size:16px;line-height:1.5}
+.privacy-banner{position:fixed;z-index:40;bottom:20px;left:20px;right:20px;max-width:760px;margin-inline:auto}
+.privacy-banner p{margin:0 0 16px}
+.privacy-preferences{width:min(600px,calc(100% - 40px));max-height:calc(100dvh - 40px);overflow:auto}
+.privacy-preferences::backdrop{background:#24212666}
+.privacy-preferences h2{font-size:28px;line-height:1.2;margin:0 0 16px}
+.privacy-preferences a{color:var(--wine);text-decoration:underline;text-underline-offset:3px}
+.privacy-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.privacy-actions button{font:inherit;min-height:44px;padding:10px 16px;border:1px solid var(--wine);border-radius:3px;background:#fff;color:var(--wine);cursor:pointer}
+.privacy-actions button:hover{background:var(--paper)}
+.privacy-actions button:focus-visible,.privacy-manage:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.privacy-actions button:disabled{opacity:.55;cursor:default}
+.privacy-manage{font:inherit;color:inherit;background:none;border:0;padding:0;min-height:44px;cursor:pointer;text-align:left}
+@media(max-width:480px){.privacy-banner{left:12px;right:12px;bottom:12px;padding:18px}.privacy-actions{display:grid;grid-template-columns:minmax(0,1fr)}.privacy-actions button{width:100%}}

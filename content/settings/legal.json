@@ -64,9 +64,27 @@
         {
           "heading": "Language preference and search",
           "heading_es": "Preferencia de idioma y búsqueda",
-          "body": "The public site stores the selected language in localStorage under the key up-language. You can remove this preference through your browser’s site-data controls. The search query is processed in the browser; this version has no site search analytics or advertising tracker configured.",
-          "body_es": "El sitio público guarda el idioma elegido en localStorage con la clave up-language. Puedes eliminar esta preferencia desde los controles de datos del sitio de tu navegador. La consulta de búsqueda se procesa en el navegador; esta versión no tiene configurada analítica de búsqueda ni rastreadores publicitarios.",
+          "body": "The public site stores the selected language in localStorage under the key up-language. Optional analytics choices are stored on this browser under up-analytics-consent-v1 for up to 180 days. You can change the analytics choice through Privacy preferences in the footer or remove these preferences through your browser’s site-data controls. Site search runs in the browser; no advertising tracker is configured.",
+          "body_es": "El sitio público guarda el idioma seleccionado en localStorage con la clave up-language. La elección sobre analítica opcional se guarda en este navegador con la clave up-analytics-consent-v1 durante un máximo de 180 días. Puedes cambiarla desde Preferencias de privacidad en el pie de página o eliminar estas preferencias desde los controles de datos del sitio en tu navegador. La búsqueda se realiza en el navegador; no hay rastreadores publicitarios configurados.",
           "links": []
+        },
+        {
+          "heading": "Optional audience and performance measurement",
+          "heading_es": "Medición opcional de visitas y rendimiento",
+          "body": "When enabled, Cloudflare Web Analytics measures visits and page performance only after you accept analytics. Rejecting leaves this provider unloaded. Cloudflare states that this service does not use cookies or localStorage for analytics and does not track individuals across websites. The browser sends measurement requests to Cloudflare after acceptance; the site stores your choice separately as described above. Global Privacy Control and Do Not Track signals prevent this analytics script from loading. Changing an accepted choice to rejection reloads the current page to stop its analytics code. This setup does not configure advertising, individual user profiles or custom click-event tracking.",
+          "body_es": "Cuando está habilitado, Cloudflare Web Analytics mide visitas y rendimiento de las páginas solo después de aceptar la analítica. Si la rechazas, este proveedor no se carga. Cloudflare declara que este servicio no utiliza cookies ni localStorage para la analítica y no rastrea a personas entre sitios web. Tras la aceptación, el navegador envía solicitudes de medición a Cloudflare; el sitio guarda tu elección por separado, como se explica arriba. Las señales Global Privacy Control y Do Not Track impiden cargar este script de analítica. Cambiar una aceptación por un rechazo recarga la página actual para detener su código de analítica. Esta configuración no incluye publicidad, perfiles individuales ni seguimiento personalizado de clics.",
+          "links": [
+            {
+              "label": "Cloudflare Web Analytics: data collection",
+              "label_es": "Cloudflare Web Analytics: recopilación de datos",
+              "url": "https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/"
+            },
+            {
+              "label": "Cloudflare privacy policy",
+              "label_es": "Política de privacidad de Cloudflare",
+              "url": "https://www.cloudflare.com/privacypolicy/"
+            }
+          ]
         },
         {
           "heading": "Video and linked services",

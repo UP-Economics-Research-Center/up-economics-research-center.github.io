@@ -1087,3 +1087,18 @@ collections:
           - {label: Etiqueta — Español, name: label_es, widget: string}
           - {label: URL, name: url, widget: string}
           - {label: English URL override / URL alternativa en inglés, name: url_en, widget: string, required: false, hint: Optional English version of this link. Leave blank to use the default URL.}
+
+- name: discovery_settings
+  label: Search and analytics / Búsqueda y analítica
+  description: Maintainer settings. Verification tokens are public site identifiers, never account passwords or API keys.
+  files:
+  - name: discovery
+    label: Search discovery and optional analytics
+    file: content/settings/discovery.json
+    format: json
+    fields:
+    - {label: Public site origin, name: site_url, widget: string, hint: HTTPS hostname only. Coordinate domain changes with the site maintainer.}
+    - {label: Default sharing image, name: share_image, widget: image, hint: Reuse an approved local public image.}
+    - {label: Google Search Console verification token, name: google_site_verification, widget: string, required: false, hint: Paste only the content value of Google's HTML meta tag. Publishing this verifies ownership for its associated account.}
+    - {label: Bing verification token, name: bing_site_verification, widget: string, required: false}
+    - {label: Cloudflare Web Analytics site token, name: cloudflare_analytics_token, widget: string, required: false, hint: Public 32-character beacon token only. Never enter an API key. Blank disables analytics and its preference controls. Analytics loads only after acceptance.}
