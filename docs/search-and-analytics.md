@@ -2,7 +2,7 @@
 
 ## Ownership and service boundaries
 
-Search Console and Cloudflare setup use the account explicitly selected by the user, `jadrk040507@gmail.com`. No other users are invited, no DNS is changed, and GitHub Pages remains the host. Name an institutional owner and backup before handover; these roles have not been assigned or enforced by this change.
+Search Console and Cloudflare setup use the owner account explicitly selected by the user during setup. Keep account identities in the institutional handover record. No other users are invited, no DNS is changed, and GitHub Pages remains the host. Name an institutional owner and backup before handover; these roles have not been assigned or enforced by this change.
 
 Cloudflare Web Analytics is for aggregate traffic and real-user page performance. It does not provide custom click/download event reports in this integration. The beacon loads only after acceptance on the configured production hostname. Declining, a Global Privacy Control signal or Do Not Track prevents the beacon from loading. The first-visit prompt and persistent footer control are bilingual and keyboard operable. Preferences use `up-analytics-consent-v1` localStorage for up to 180 days; language uses the separate existing `up-language` key. No account passwords or API secrets enter generated files.
 
@@ -52,3 +52,16 @@ Review owner access quarterly. Keep accounts individually owned, use MFA and the
 Release preparation, 21 October 2026: the static build, changed JavaScript syntax and whitespace checks passed. Artifact inspection covered 102 public HTML files, all schema JSON blocks and all root-relative href/src targets; no missing targets were found. The sitemap contains 82 unique URLs, all backed by generated pages, including 18 complete research-area pages. CMS YAML parses. Manual review covered EN/ES static research pages, a zero-project state, 320/390/1024/1440px layouts, legacy query redirect with language/hash preserved, and privacy preferences. The browser’s privacy signal disabled acceptance and kept the provider script absent; rejecting remained effective after reload. The normal acceptance/withdrawal path still requires a browser without a privacy signal for end-to-end provider verification. No tests were run, per project instructions.
 
 Cloudflare’s Web Analytics site was created for the exact hostname in the selected account. Google’s HTML-tag token was prepared with explicit owner authorization. Deployment, ownership verification and sitemap submission follow these local checks; consult the provider interfaces for their live status. Do not describe the site as indexed or visitor data as received until those are confirmed separately.
+
+
+## Production activation — 21 October 2026
+
+Code release `2c8855f` deployed successfully through GitHub Pages. The live static area page contains the expected canonical, Google verification metadata, complete projects and privacy controls. Google's HTML-tag ownership verification succeeded, and its live homepage check reported that the URL is available to Google and can be indexed.
+
+The sitemap submission was accepted. Its first fetch status was “Couldn't fetch / could not read”; Google had not confirmed discovery of its URLs at the time of this record. The live sitemap returns HTTP 200 with `application/xml`, parses as sitemap XML, contains all 82 URLs, and exactly matches the local build. No specific parser or HTTP failure was shown by Search Console. Keep this as an external processing/fetch item to recheck, not a claim that indexing has completed. Google's [Sitemaps report guidance](https://support.google.com/webmasters/answer/7451001) describes its retry behavior. Avoid repeated deletion/resubmission without a concrete error to fix.
+
+The user completed Google’s verification step, and Search Console then displayed “Indexing requested” for the homepage. A successful live check, sitemap submission and accepted indexing request are distinct from confirmed indexing. The sitemap fetch warning remained on the subsequent check.
+
+Cloudflare's exact-hostname Web Analytics record and public beacon token are configured. Production privacy controls honor this browser's privacy signal and leave the provider unloaded. Collection from a consenting browser without a privacy signal has not yet been observed in the dashboard. The provider can also be blocked by browsers/extensions; absence of a visit is not, alone, evidence that the site is broken.
+
+The official Cloudflare agent setup was also completed locally: 19 skills installed in the user's skill directory, its remote MCP server registered in Codex, and OAuth login reported success. Restart the agent to load the new MCP tools. Permission use is limited by the user's instruction to this site's Web Analytics setup; this is not a change to Cloudflare account roles or the host. No optional beta CLI was installed.
