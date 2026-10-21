@@ -4,6 +4,7 @@ import html
 import hashlib
 import json
 import re
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -66,6 +67,7 @@ def localize_markup(source, pairs):
         value = re.sub(r'<(a|h1)\b(?=[^>]*\blang="(?:en|es)")(?=[^>]*\btranslate="no")[^>]*>.*?</\1>', preserve_title, blocks[index], flags=re.S)
         value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), value)
         value = re.sub(r'\b(alt|aria-label|placeholder|title)="([^"]*)"', lambda m: m[1] + '="' + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + '"', value)
+        value = re.sub(r'(<meta name="description" content=")([^"]*)(">)', lambda m: m[1] + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + m[3], value)
         for number, title_markup in enumerate(original_titles):
             value = value.replace(f'__ORIGINAL_PUBLICATION_TITLE_{number}__', title_markup)
         value = re.sub(r'\bhref="([^"]*)"', lambda m: 'href="' + spanish_url(m[1]) + '"', value)
@@ -104,14 +106,22 @@ def emphasize_center_name(source):
 
 
 def decorate(source, english_url, language):
+    # Legacy design URLs share the public page's canonical identity.
+    canonical_path = english_url.removeprefix('/design') if english_url.startswith('/design/') else english_url
+    if canonical_path == '/homepage-concept.html':
+        canonical_path = '/'
+    canonical_url = 'https://up-economics-research-center.github.io' + ('/es' if language == 'es' else '') + canonical_path
+    source = re.sub(r'<link rel="canonical"[^>]*>', '', source)
+    # Area identity lives in ?area=; do not collapse distinct areas to one
+    # generic canonical URL before their directory content has loaded.
+    if canonical_path != '/research-area.html':
+        source = source.replace('</head>', '<link rel="canonical" href="' + canonical_url + '"></head>')
     switch = language_switch(english_url, language)
     # Keep language, search and menu in one predictable utility group.
     source = source.replace('<div class="mobile-controls">', '<div class="nav-utilities">' + switch + '<div class="mobile-controls">', 1)
     source = re.sub(r'(<div class="nav-tools">.*?</button>\s*</div>)', r'\1</div>', source, count=1, flags=re.S)
-    scripts = '<script>document.documentElement.dataset.presentation = "gallery";</script><script src="/design/section-navigation.js" defer></script><script src="/design/site-motion.js" defer></script><script src="/design/publication-recency.js" defer></script><script src="/design/language-strings.js"></script><script src="/design/language.js"></script>'
+    scripts = '<script>document.documentElement.dataset.presentation = "gallery";</script><script src="/design/site-motion.js" defer></script><script src="/design/publication-recency.js" defer></script><script src="/design/language-strings.js"></script><script src="/design/language.js"></script>'
     source = source.replace('</head>', f'<link rel="alternate" hreflang="en" href="https://up-economics-research-center.github.io{english_url}"><link rel="alternate" hreflang="es" href="https://up-economics-research-center.github.io/es{english_url}">{scripts}</head>')
-    if language == 'es':
-        source = source.replace('https://up-economics-research-center.github.io/publications/', 'https://up-economics-research-center.github.io/es/publications/')
     source = source.replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></head>')
     return emphasize_center_name(source)
 
@@ -136,15 +146,24 @@ def generate_languages(site: Path, data, settings, about):
             raise LocaleError('Legal pages must use an existing legal route.')
         for section in page['sections']:
             for item in section.get('links', []):
-                url = item['url']
-                parsed = urlsplit(url)
-                valid = (url.startswith('/') and not url.startswith('//')) or (parsed.scheme == 'https' and bool(parsed.netloc)) or (parsed.scheme == 'mailto' and bool(parsed.path) and '@' in parsed.path)
-                if not valid or any(ord(char) < 32 for char in url):
-                    raise LocaleError('Legal links must use HTTPS, a local route, or an email address.')
+                for url in (item['url'], item.get('url_en') or item['url']):
+                    parsed = urlsplit(url)
+                    valid = (url.startswith('/') and not url.startswith('//')) or (parsed.scheme == 'https' and bool(parsed.netloc)) or (parsed.scheme == 'mailto' and bool(parsed.path) and '@' in parsed.path)
+                    if not valid or any(ord(char) < 32 for char in url):
+                        raise LocaleError('Legal links must use HTTPS, a local route, or an email address.')
 
     if legal['review_status'] == 'approved' and not (legal.get('reviewed_by') and legal.get('reviewed_on')):
         raise LocaleError('Legal approval needs a reviewer and review date.')
     pairs = dict(ui)
+    # The title is editorial content, so translate the action rather than matching
+    # a single hard-coded title in the interface dictionary.
+    if settings.get('campus_video_title'):
+        pairs['Play ' + settings['campus_video_title']] = 'Reproducir ' + settings['campus_video_title']
+    months_es = ('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre')
+    for item in data['media']:
+        if item.get('date'):
+            day = date.fromisoformat(item['date'][:10])
+            pairs[day.strftime('%B %d, %Y')] = f'{day.day} de {months_es[day.month - 1]} de {day.year}'
     collect_pairs(legal, pairs)
     for page in legal["pages"]:
         pairs[page["title"]] = page["title_es"]
@@ -237,31 +256,32 @@ def generate_languages(site: Path, data, settings, about):
     credit_page = (site / 'research.html').read_text()
     credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Image credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
     credit_page = re.sub(r'<title>.*?</title>', '<title>Image credits | UP Economics Research Center</title>', credit_page)
+    credit_page = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Sources and credits for images used on the Center’s website.">', credit_page)
     (site / 'photo-credits.html').write_text(credit_page)
     # Render legal bodies from their actual language record, including any paragraph count.
     def legal_main(page, language):
         suffix = '_es' if language == 'es' else ''
         home_label = 'Inicio' if language == 'es' else 'Home'
         version_label = 'Versión' if language == 'es' else 'Version'
-        draft_label = 'Borrador para revisión institucional. Aún no aprobado por la Universidad Panamericana.' if language == 'es' else 'Draft for institutional review. Not yet approved by Universidad Panamericana.'
         body = ''
         for section in page['sections']:
             paragraphs = ''.join('<p>' + html.escape(text) + '</p>' for text in re.split(r'\n\s*\n', section['body' + suffix]) if text)
             links = ''
             for item in section.get('links', []):
-                url = spanish_url(item['url']) if language == 'es' else item['url']
+                url = spanish_url(item['url']) if language == 'es' else (item.get('url_en') or item['url'])
                 links += '<p><a href="' + html.escape(url, quote=True) + '">' + html.escape(item['label' + suffix]) + '</a></p>'
             body += '<section><h2>' + html.escape(section['heading' + suffix]) + '</h2>' + paragraphs + links + '</section>'
-        draft = '<p class="legal-review-note">' + draft_label + '</p>' if legal['review_status'] != 'approved' else ''
         home_url = '/es/' if language == 'es' else '/'
         title = html.escape(page['title' + suffix])
-        return '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="' + home_url + '">' + home_label + '</a> / ' + title + '</div><h1>' + title + '</h1><p>' + html.escape(page['summary' + suffix]) + '</p></div></section><div class="wrap legal-content">' + draft + body + '<p class="legal-version">' + version_label + ': ' + html.escape(legal['version']) + '</p></div></main>'
+        version = '' if page['slug'] in {'privacy', 'terms'} else '<p class="legal-version">' + version_label + ': ' + html.escape(legal['version']) + '</p>'
+        return '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="' + home_url + '">' + home_label + '</a> / ' + title + '</div><h1>' + title + '</h1><p>' + html.escape(page['summary' + suffix]) + '</p></div></section><div class="wrap legal-content">' + body + version + '</div></main>'
 
     template = (site / 'research.html').read_text()
     legal_routes = {page['slug'] + '.html': page for page in legal['pages']}
     for route, page in legal_routes.items():
         markup = re.sub(r'<main.*?</main>', lambda m: legal_main(page, 'en'), template, flags=re.S)
         markup = re.sub(r'<title>.*?</title>', '<title>' + html.escape(page['title']) + ' | UP Economics Research Center</title>', markup)
+        markup = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="' + html.escape(page['summary'], quote=True) + '">', markup)
         markup = markup.replace('class="active" aria-current="page"', 'class=""')
         (site / route).write_text(markup)
     pairs['Draft for institutional review. Not yet approved by Universidad Panamericana.'] = 'Borrador para revisión institucional. Aún no aprobado por la Universidad Panamericana.'

@@ -1,56 +1,31 @@
 {
   "review_status": "draft",
-  "version": "2026-10-19",
+  "version": "2026-10-21",
   "reviewed_by": "",
   "reviewed_on": "",
   "contact_name": "Akito Kamei",
   "contact_email": "akamei@up.edu.mx",
   "official_privacy_url": "https://www.up.edu.mx/aviso-de-privacidad/",
-  "editorial_note": "Draft only. Confirm applicable legal entity/notice, form controller and notice, media/portrait permissions, publication-preview rights, hosting and data practices with UP before approval. No legal compliance certification.",
+  "editorial_note": "Draft only. Confirm applicable legal entity/notice, form controller and notice, media/portrait permissions, publication-preview rights, hosting and data practices with UP before approval. No legal compliance certification. User requested removal of public draft/pending messages on 2026-10-21. Privacy and terms now reference the official UP publications; this is not a new recorded institutional approval. UP terms page includes DIBAM/Law 19.628 references: retain as a source inconsistency for UP, do not transplant into Center-specific terms. Previous authored drafts archived in docs/legal-drafts-before-official-links-2026-10-21.json.",
   "pages": [
     {
       "slug": "privacy",
       "title": "Privacy notice",
       "title_es": "Aviso de privacidad",
-      "summary": "Institutional privacy information and contact channels.",
-      "summary_es": "Información institucional de privacidad y medios de contacto.",
+      "summary": "Official Universidad Panamericana privacy notice.",
+      "summary_es": "Aviso oficial de privacidad de la Universidad Panamericana.",
       "sections": [
         {
-          "heading": "Institutional notice",
-          "heading_es": "Aviso institucional",
-          "body": "Consult Universidad Panamericana’s official privacy notice for its description of responsible entities, purposes, and procedures for exercising personal-data rights. The University must confirm the notice applicable to this Center before this draft is approved.",
-          "body_es": "Consulta el aviso oficial de privacidad de la Universidad Panamericana para conocer los responsables, finalidades y procedimientos para ejercer derechos sobre datos personales. La Universidad debe confirmar el aviso aplicable al Centro antes de aprobar este borrador.",
+          "heading": "Universidad Panamericana",
+          "heading_es": "Universidad Panamericana",
+          "body": "Read the privacy notice published on Universidad Panamericana’s institutional website. The link opens the University’s current publication.",
+          "body_es": "Consulta el aviso de privacidad publicado en el sitio institucional de la Universidad Panamericana. El enlace abre la publicación vigente de la Universidad.",
           "links": [
             {
               "label": "Official UP privacy notice",
               "label_es": "Aviso oficial de privacidad de la UP",
-              "url": "{{official_privacy_url}}"
-            }
-          ]
-        },
-        {
-          "heading": "Contact the Center",
-          "heading_es": "Contacto del Centro",
-          "body": "{{contact_name}} is the Center’s contact for questions, corrections, and routing privacy enquiries. Formal personal-data requests follow the University’s official procedure linked above. Please do not send identity documents or sensitive research data through an ordinary enquiry email.",
-          "body_es": "{{contact_name}} es el contacto del Centro para consultas, correcciones y canalización de asuntos de privacidad. Las solicitudes formales sobre datos personales siguen el procedimiento oficial de la Universidad enlazado arriba. Evita enviar identificaciones o datos sensibles de investigación mediante un correo de consulta.",
-          "links": [
-            {
-              "label": "Contact {{contact_name}}",
-              "label_es": "Contactar a {{contact_name}}",
-              "url": "mailto:{{contact_email}}"
-            }
-          ]
-        },
-        {
-          "heading": "Public website and external services",
-          "heading_es": "Sitio público y servicios externos",
-          "body": "The public site presents academic information and public professional profiles. Its search runs in your browser using a local index. Email links open your email application; seminar proposals open a separate Google Forms page. These services process the information you choose to send under their applicable notices. The seminar form’s institutional notice and ownership still need confirmation.",
-          "body_es": "El sitio público presenta información académica y perfiles profesionales públicos. La búsqueda funciona en tu navegador mediante un índice local. Los enlaces de correo abren tu aplicación de correo; las propuestas de seminarios abren una página independiente de Google Forms. Estos servicios tratan la información que decidas enviar conforme a sus avisos aplicables. Sigue pendiente confirmar la titularidad y el aviso institucional del formulario de seminarios.",
-          "links": [
-            {
-              "label": "Storage and external services",
-              "label_es": "Almacenamiento y servicios externos",
-              "url": "/cookies.html"
+              "url": "https://www.up.edu.mx/aviso-de-privacidad/",
+              "url_en": "https://www.up.edu.mx/en/aviso-de-privacidad/"
             }
           ]
         }
@@ -60,39 +35,20 @@
       "slug": "terms",
       "title": "Terms of use",
       "title_es": "Términos de uso",
-      "summary": "Conditions for consulting and reusing academic material.",
-      "summary_es": "Condiciones para consultar y reutilizar material académico.",
+      "summary": "Official Universidad Panamericana terms and conditions.",
+      "summary_es": "Términos y condiciones oficiales publicados por la Universidad Panamericana.",
       "sections": [
         {
-          "heading": "Academic purpose",
-          "heading_es": "Finalidad académica",
-          "body": "The UP Economics Research Center website shares research, publications, team information, and academic activities. Content is provided for general academic information. Findings and opinions belong to their authors and should be read with the methods, assumptions, and limitations of the original work.",
-          "body_es": "El sitio del UP Economics Research Center difunde investigación, publicaciones, información del equipo y actividades académicas. Su contenido tiene fines informativos y académicos generales. Los resultados y opiniones corresponden a sus autores y deben leerse junto con los métodos, supuestos y limitaciones del trabajo original.",
-          "links": []
-        },
-        {
-          "heading": "Reuse and citation",
-          "heading_es": "Reutilización y citas",
-          "body": "Cite the original authors and source when referring to research. An image or document appearing on this site does not grant a blanket licence to reproduce it. Consult the licence or permission attached to each work. The University’s names and marks must not be used to suggest endorsement without authorization. These terms do not restrict uses permitted by applicable law.",
-          "body_es": "Cita a los autores y la fuente original al referirte a una investigación. La aparición de una imagen o documento en este sitio no concede una licencia general para reproducirlo. Consulta la licencia o autorización de cada obra. Los nombres y signos de la Universidad no deben utilizarse para sugerir respaldo sin autorización. Estos términos no restringen usos permitidos por la legislación aplicable.",
+          "heading": "Universidad Panamericana",
+          "heading_es": "Universidad Panamericana",
+          "body": "Read the terms and conditions published on Universidad Panamericana’s institutional website. The link opens the University’s current publication.",
+          "body_es": "Consulta los términos y condiciones publicados en el sitio institucional de la Universidad Panamericana. El enlace abre la publicación vigente de la Universidad.",
           "links": [
             {
-              "label": "Copyright and image sources",
-              "label_es": "Derechos de autor y fuentes de imágenes",
-              "url": "/rights.html"
-            }
-          ]
-        },
-        {
-          "heading": "External links and corrections",
-          "heading_es": "Enlaces externos y correcciones",
-          "body": "Publisher sites, repositories, event forms, and media platforms have their own conditions and availability. Linking to them does not transfer their rights or imply endorsement. Report an inaccurate reference, broken link, or rights concern to the Center so it can be reviewed.",
-          "body_es": "Las editoriales, repositorios, formularios de eventos y plataformas de medios tienen sus propias condiciones y disponibilidad. Enlazarlos no transfiere sus derechos ni implica respaldo. Comunica al Centro cualquier referencia inexacta, enlace roto o inquietud sobre derechos para su revisión.",
-          "links": [
-            {
-              "label": "Contact {{contact_name}}",
-              "label_es": "Contactar a {{contact_name}}",
-              "url": "mailto:{{contact_email}}"
+              "label": "Official UP terms and conditions",
+              "label_es": "Términos y condiciones oficiales de la UP",
+              "url": "https://www.up.edu.mx/legales-terminos/",
+              "url_en": "https://www.up.edu.mx/en/legales-terminos/"
             }
           ]
         }
@@ -108,8 +64,8 @@
         {
           "heading": "Language preference and search",
           "heading_es": "Preferencia de idioma y búsqueda",
-          "body": "The public site stores the selected language in localStorage under the key up-language. You can remove this preference through your browser’s site-data controls. The search query is processed in the browser; this version has no site search analytics or advertising tracker configured. This description must be reviewed whenever those features change.",
-          "body_es": "El sitio público guarda el idioma elegido en localStorage con la clave up-language. Puedes eliminar esta preferencia desde los controles de datos del sitio de tu navegador. La consulta de búsqueda se procesa en el navegador; esta versión no tiene configurada analítica de búsqueda ni rastreadores publicitarios. Esta descripción debe revisarse cuando cambien esas funciones.",
+          "body": "The public site stores the selected language in localStorage under the key up-language. You can remove this preference through your browser’s site-data controls. The search query is processed in the browser; this version has no site search analytics or advertising tracker configured.",
+          "body_es": "El sitio público guarda el idioma elegido en localStorage con la clave up-language. Puedes eliminar esta preferencia desde los controles de datos del sitio de tu navegador. La consulta de búsqueda se procesa en el navegador; esta versión no tiene configurada analítica de búsqueda ni rastreadores publicitarios.",
           "links": []
         },
         {
@@ -128,8 +84,8 @@
         {
           "heading": "Hosting and editor access",
           "heading_es": "Alojamiento y acceso de editores",
-          "body": "The intended public host is GitHub Pages. Hosting providers may process technical request information, including IP addresses, under their policies. This public-site description does not cover the separate editor sign-in and GitHub authorization workflow.",
-          "body_es": "El alojamiento previsto del sitio público es GitHub Pages. Los proveedores de alojamiento pueden tratar información técnica de las solicitudes, incluidas direcciones IP, conforme a sus políticas. Esta descripción del sitio público no cubre el acceso independiente de editores ni la autorización con GitHub.",
+          "body": "The public site is hosted on GitHub Pages. Hosting providers may process technical request information, including IP addresses, under their policies. This public-site description does not cover the separate editor sign-in and GitHub authorization workflow.",
+          "body_es": "El sitio público está alojado en GitHub Pages. Los proveedores de alojamiento pueden tratar información técnica de las solicitudes, incluidas direcciones IP, conforme a sus políticas. Esta descripción del sitio público no cubre el acceso independiente de editores ni la autorización con GitHub.",
           "links": [
             {
               "label": "GitHub privacy statement",
@@ -150,8 +106,8 @@
         {
           "heading": "Rights belong to their holders",
           "heading_es": "Los derechos corresponden a sus titulares",
-          "body": "Research articles, book material, photographs, portraits, and institutional marks retain their respective rights. Some area images are available under a free-use licence and the historical Adam Smith portrait is identified as public domain by its source. This does not place every asset on this website in the public domain.",
-          "body_es": "Los artículos, materiales de libros, fotografías, retratos y signos institucionales conservan sus respectivos derechos. Algunas imágenes de áreas tienen una licencia de uso gratuito y la fuente identifica el retrato histórico de Adam Smith como dominio público. Esto no convierte todos los recursos del sitio en dominio público.",
+          "body": "Research articles, book material, photographs, portraits, and institutional marks retain their respective rights. Some area images are available under a free-use licence and the historical John Stuart Mill portrait is identified as public domain by its source. This does not place every asset on this website in the public domain.",
+          "body_es": "Los artículos, materiales de libros, fotografías, retratos y signos institucionales conservan sus respectivos derechos. Algunas imágenes de áreas tienen una licencia de uso gratuito y la fuente identifica el retrato histórico de John Stuart Mill como dominio público. Esto no convierte todos los recursos del sitio en dominio público.",
           "links": [
             {
               "label": "Image credits and sources",
@@ -163,8 +119,8 @@
         {
           "heading": "Document previews",
           "heading_es": "Vistas previas de documentos",
-          "body": "Where available, publication thumbnails reproduce the authentic first page of the document and link to its reference. Publisher website screenshots are not used as substitutes. Displaying a preview is not a grant of full-text access or permission to redistribute the work. Permissions for these previews and for existing portraits and legacy media remain subject to institutional review.",
-          "body_es": "Cuando están disponibles, las miniaturas de publicaciones reproducen la primera página auténtica del documento y enlazan su referencia. No se utilizan capturas de páginas web editoriales como sustituto. Mostrar una vista previa no concede acceso al texto completo ni permiso de redistribución. Las autorizaciones de estas vistas previas, los retratos y los medios existentes siguen sujetas a revisión institucional.",
+          "body": "Where available, publication thumbnails reproduce the authentic first page of the document and link to its reference. Publisher website screenshots are not used as substitutes. Displaying a preview is not a grant of full-text access or permission to redistribute the work.",
+          "body_es": "Cuando están disponibles, las miniaturas de publicaciones reproducen la primera página auténtica del documento y enlazan su referencia. No se utilizan capturas de páginas web editoriales como sustituto. Mostrar una vista previa no concede acceso al texto completo ni permiso de redistribución.",
           "links": []
         },
         {

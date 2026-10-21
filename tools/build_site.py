@@ -403,11 +403,11 @@ def recency_badge(pub):
 
 
 def render_media(item, people):
-    day = f'<time datetime="{e(item["date"])}">{e(item["date"])}</time>' if item.get("date") else ""
+    day = f' · <time datetime="{e(item["date"])}">{e(format_date(item["date"]))}</time>' if item.get("date") else ""
     authors = f'<p>{e(", ".join(item.get("authors", [])))}</p>' if item.get("authors") else ""
     related = f'<a href="/publications/{e(item["publication_id"])}/">Related publication</a>' if item.get("publication_id") else ""
     person = f'<a href="/people.html#{e(item["person_id"])}">{e(people[item["person_id"]]["display_name"])}</a>' if item.get("person_id") else ""
-    return f'<article class="publication" id="{e(item["slug"])}"><p class="pub-venue">{e(item["outlet"])} · {e(item["type"])} {day}</p><h2 class="pub-title"><a href="{e(item["canonical_url"])}">{e(item["title"])}</a></h2>{authors}<p>{e(item["summary"])}</p><div class="reference-media-links">{person}{related}</div></article>'
+    return f'<article class="publication" id="{e(item["slug"])}"><p class="pub-venue">{e(item["outlet"])} · {e(item["type"])}{day}</p><h2 class="pub-title"><a href="{e(item["canonical_url"])}">{e(item["title"])}</a></h2>{authors}<p>{e(item["summary"])}</p><div class="reference-media-links">{person}{related}</div></article>'
 
 
 def render_policy_brief_panel(brief: dict | None) -> str:
@@ -695,7 +695,7 @@ def build() -> None:
         public_files = (
             "about.html", "homepage-concept.html", "news.html", "people.html",
             "publications.html", "research-area.html", "research.html", "seminars.html",
-            "media.html", "section-navigation.js", "site-motion.js", "publication-recency.js", "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
+            "media.html", "site-motion.js", "publication-recency.js", "campus-video.js", "language.js", "mobile-navigation.js", "research-people.js", "publications.js", "news.js", "site-concept.css",
         )
         for relative in public_files:
             shutil.copy2(ROOT / "design" / relative, public_design / relative)
@@ -859,8 +859,6 @@ def build() -> None:
             canonical_link = external_anchor(pub.get("canonical_url", ""), "View book" if pub["type"] == "Book" else "View article", "button")
             pdf_url = pub.get("pdf") or pub.get("pdf_url")
             download_link = external_anchor(pdf_url, "Download paper (PDF)") if pdf_url else ""
-            if not download_link:
-                download_link = '<p class="note">A public full-text link has not been supplied.</p>'
             meta = " ".join([pub["type"], str(pub["year"]), pub["venue"], pub["abstract"]]).strip()[:250]
             replacements = {
                 "__POLICY_BRIEF_LAYOUT__": " has-policy-brief" if pub.get("policy_brief") else "",

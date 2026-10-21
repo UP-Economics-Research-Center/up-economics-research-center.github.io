@@ -145,8 +145,6 @@ h1,h2,h3{line-height:1.12;letter-spacing:-.045em}
 .area-main p{font-size:18px;color:var(--muted);max-width:750px}
 .split-label{margin:65px 0 25px}
 .split-label h2{font-size:36px;font-weight:500;margin:12px 0}
-.seminar-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 24px;border-bottom:1px solid var(--line);margin-bottom:32px}
-.seminar-tabs a{padding:15px 0;font-size:16px;color:var(--wine)}
 .seminar-feature{display:grid;grid-template-columns:1fr 160px;gap:70px;padding:20px 0 55px;align-items:center}
 .seminar-feature h2{font-size:42px;font-weight:500;margin:18px 0}
 .seminar-feature p{font-size:19px;color:var(--muted);max-width:760px}
@@ -209,7 +207,7 @@ footer{background:#F3EFED;border-top:1px solid var(--line);padding:60px 0 25px}
  .area-content{grid-template-columns:1fr;gap:30px}.side-index{position:static;display:flex;gap:22px}.side-index a{font-size:16px}
  .feature-area-copy{padding:35px 0 45px}.feature-area-copy h1{font-size:40px}.feature-area-copy p{font-size:18px}
  .seminar-feature{grid-template-columns:1fr;gap:15px}.seminar-feature h2{font-size:34px}.date-block{display:none}
- .event-line{grid-template-columns:1fr;gap:12px}.seminar-tabs{gap:20px}
+ .event-line{grid-template-columns:1fr;gap:12px}
  .about-layout{grid-template-columns:1fr;gap:35px}.about-layout h2{font-size:34px}
  .footer-top{display:block}.footer-links{margin-top:35px;gap:55px}.footer-bottom{display:block}.footer-bottom span{display:block;margin-bottom:12px}
 }
@@ -297,8 +295,6 @@ footer{background:#F3EFED;border-top:1px solid var(--line);padding:60px 0 25px}
  .pagination button{min-height:44px;min-width:44px}
  .archive-year summary{display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:48px;font-size:25px}
  .archive-year summary:after{float:none;flex-shrink:0}
- .seminar-tabs{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
- .seminar-tabs a{min-height:48px;padding:13px 0;border-top:1px solid var(--line)}
  .person{grid-template-columns:48px minmax(0,1fr);gap:16px}
  .initials{height:48px;width:48px}
  .person h3{font-size:22px}
@@ -399,7 +395,6 @@ footer{padding-top:64px}
 .skip-link{position:absolute;top:8px;left:16px;transform:translateY(-180%);z-index:100;background:white;color:var(--wine);padding:12px 20px;border:2px solid var(--wine);font-weight:700}
 .skip-link:focus{transform:none}
 .search-results small{font-size:16px}
-.seminar-tabs a{font-size:17px;font-weight:650;text-decoration:underline;text-underline-offset:5px}
 .seminar-feature{grid-template-columns:minmax(0,1fr)}
 .seminar-feature h2{font-weight:700}
 .date-block{display:none}
@@ -435,8 +430,6 @@ footer{padding-top:64px}
  .footer-bottom{font-size:15px}
  .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
  .filters>.filter-field:nth-child(-n+2),.filters>button{grid-column:1/-1}
- .seminar-tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
- .seminar-tabs a{min-height:52px;display:flex;align-items:center;font-size:16px;padding:14px 0;text-decoration:underline}
  .button,.text-link{font-size:17px}
  .home-photo .photo-caption{font-size:14px}
  .person p{font-size:17px}
@@ -504,8 +497,6 @@ footer{padding-top:64px}
 .film-play:hover strong{color:var(--wine)}
 .film-caption{display:flex;justify-content:space-between;gap:20px;font-size:14px;color:var(--muted);padding-top:14px}
 .film-caption a{text-decoration:underline;text-underline-offset:4px}
-.people-jump{display:flex;gap:24px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:22px}
-.people-jump a{font-weight:700;color:var(--wine);min-height:44px;display:inline-flex;align-items:center}
 .people-page .person{grid-template-columns:110px minmax(0,1fr);gap:24px;padding:32px 0;align-items:start}
 .person-portrait,.portrait-pending{width:110px;height:138px;border-radius:6px;object-fit:cover;object-position:center 24%;background:var(--paper)}
 .portrait-pending{display:grid;place-items:center;color:var(--muted);font-size:27px;font-weight:600;border:1px solid var(--line)}
@@ -873,7 +864,6 @@ main .page-hero + .section{padding-top:24px}
 .section-head{margin-bottom:28px}
 main .section-head h2,.source-area-page .split-label h2{font-size:30px;font-weight:600}
 .button{border-radius:3px}
-.people-jump{margin-top:0;padding-bottom:16px}
 .people-list .person{padding-top:32px}
 .media-list{max-width:1280px;margin-inline:auto}
 .media-list .publication{max-width:100%;padding:32px 0}
@@ -899,8 +889,6 @@ footer{padding-top:48px;padding-bottom:28px}
 /* Seminars: explain the series, show the agenda, then invite proposals. */
 .seminar-page>section,.seminar-agenda>section{scroll-margin-top:128px}
 .seminar-page>section{margin-top:48px}
-.seminar-tabs{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:12px 28px;border-bottom:0;padding:0;margin:0 0 32px}
-.seminar-tabs a{font-size:15px;font-weight:500;padding:4px 0;min-height:44px;border-bottom:0}
 .seminar-page .seminar-information{max-width:none;margin-top:0}
 .seminar-information>h2{font-size:32px;font-weight:600;margin-bottom:24px}
 .seminar-overview{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
@@ -923,9 +911,7 @@ footer{padding-top:48px;padding-bottom:28px}
 .seminar-proposal-types li{border-top:0;border-left:2px solid #d6c9ce;padding:0 0 0 20px}
 .seminar-proposal-types h3{font-size:21px;font-weight:600;margin-bottom:12px}
 .seminar-proposal-types p{font-size:17px;line-height:1.6}
-/* A shared motion vocabulary; content remains readable with or without JS. */
-[data-motion-ready]{transition:transform 480ms var(--motion-ease)}
-.motion-pending{transform:translateY(14px)}
+/* Shared hover feedback; scroll entrances are managed by site-motion.js. */
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
  .research-page .research-row:hover{transform:none;background:#f1ecee}
  .research-page .research-row:hover::after{transform:scaleX(1)}
@@ -951,7 +937,6 @@ footer{padding-top:48px;padding-bottom:28px}
  .research-page .research-index .research-art{width:80px;height:80px}
  .research-page .research-index .research-row strong{font-size:18px}
  .seminar-overview,.seminar-agenda{grid-template-columns:minmax(0,1fr);gap:24px}
- .seminar-tabs{gap:4px 20px;margin-bottom:24px}
  .seminar-information>h2{font-size:28px}
  .seminar-information p{font-size:18px}
  .seminar-agenda{margin-top:32px}
@@ -1006,15 +991,6 @@ html[data-presentation=wide] .research-page .research-index .research-row{grid-t
 html[data-presentation=wide] .research-page .research-index .research-art{width:160px;height:128px;background:var(--frame-matte);padding:8px;border:0}
 html[data-presentation=wide] .research-page .research-index .research-row strong{font-size:23px;line-height:1.35}
 html[data-presentation=wide] .research-page .research-row::after{display:none}
-/* A real section-navigation control, not a row of unrelated text links. */
-.section-navigation{position:sticky;top:var(--section-nav-top,115px);z-index:11;display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;margin:0 0 24px;padding:12px 0;border:0;background:#fff}
-.section-navigation-label{font-size:14px;color:var(--muted);font-weight:500;flex:none}
-.section-navigation-track{display:flex;gap:4px;flex-wrap:wrap;padding:5px;background:var(--paper);border-radius:7px}
-main .section-navigation-track a{display:flex;align-items:center;justify-content:center;padding:11px 20px;min-height:46px;color:var(--muted);font-size:15px;line-height:1.45;font-weight:550;border:0;border-radius:4px;text-decoration:underline;background:transparent;transition:background 180ms ease,color 180ms ease}
-main .section-navigation-track a[aria-current=location]{background:var(--wine);color:#fff}
-main .section-navigation-track a:hover:not([aria-current]){background:#eae4e6;color:var(--ink)}
-main .section-navigation-track a:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
-.section-navigation-mobile{display:none}
 .people-group,.seminar-page>section,.seminar-agenda>section{scroll-margin-top:128px}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
  .motion-frame:hover::before,.motion-frame:hover::after{width:64px;height:64px}
@@ -1038,10 +1014,6 @@ html[data-presentation=gallery] .research-page .research-row:focus-visible .rese
  html[data-presentation=wide] .research-page .research-index{grid-template-columns:minmax(0,1fr)}
  .source-area-page .area-intro{padding-top:24px}
  .source-area-page .area-description p{font-size:18px;line-height:1.65}
- .section-navigation{display:block;margin-bottom:28px}
- .section-navigation-label,.section-navigation-track{display:none}
- .section-navigation-mobile{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:550;color:var(--muted)}
- .section-navigation-mobile select{appearance:auto;width:100%;min-height:50px;padding:12px 14px;background:var(--paper);border:1px solid #d9cfd3;border-radius:4px;color:var(--ink);font:inherit;font-size:16px}
 }
 @media(max-width:550px){
  html[data-presentation=gallery] .research-page .research-index{grid-template-columns:minmax(0,1fr);gap:32px}
@@ -1125,8 +1097,7 @@ main>.page-hero,.source-area-page main>.feature-area,.home-hero{background:var(-
 
 /* Content links are underlined; navigation and button-like controls are not. */
 header a,footer a,footer .footer-links a:hover,
-main .crumb a,main .side-index a,main .section-navigation-track a,
-main .seminar-tabs a,main .button,main .tag,main .person-topics a,
+main .crumb a,main .side-index a,main .button,main .tag,main .person-topics a,
 main .topic-link,main .output-link{text-decoration:none}
 
 /* Paired editorial media follows the adjacent copy, rather than a fixed height.
@@ -1213,4 +1184,51 @@ button,[role=button],a.button{text-decoration:none}
 @media(max-width:700px){
  .publication-list .publication.paper-row.has-image{grid-template-columns:minmax(0,1fr)}
  .publication-list .paper-image{width:120px;height:168px}
+}
+
+/* Keep complete publication selections readable on narrow screens. */
+@media(max-width:600px){
+ .filters{grid-template-columns:minmax(0,1fr)}
+ .filters>.filter-field,.filters>button{grid-column:1/-1}
+}
+
+/* Restrained motion: brief entrances, quiet controls and readable fallbacks. */
+:root{--motion-fast:180ms;--motion-enter:440ms}
+/* Gallery cards and topic selectors are navigation. */
+main .research-index .research-row,
+main .research-index .research-row strong,
+main .research-index .research-row:hover strong,
+main .person-topics a:hover{text-decoration:none}
+@media(prefers-reduced-motion:no-preference){
+ .home-intro h1{animation:arrival var(--motion-enter) var(--motion-ease) both}
+ .intro-description{animation:arrival 480ms 70ms var(--motion-ease) both}
+ .home-video{animation:arrival 500ms 110ms var(--motion-ease) both}
+ .search-panel:not([hidden]),.mobile-menu[open] .mobile-menu-panel{animation:utility-enter var(--motion-fast) var(--motion-ease) both}
+ .button,.filters button,.search-panel button{transition:background-color var(--motion-fast) ease,transform var(--motion-fast) var(--motion-ease),box-shadow var(--motion-fast) ease}
+ .button:active,.filters button:active,.search-panel button:active{transform:translateY(1px)}
+ .film-play-icon{transition:transform 220ms var(--motion-ease),background-color var(--motion-fast) ease}
+ @keyframes utility-enter{from{opacity:.9;transform:translateY(-6px)}to{opacity:1;transform:none}}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .button:hover:not(:active){transform:translateY(-2px);box-shadow:0 4px 10px #2421260d}
+ html[data-presentation=gallery] .research-page .research-art .research-photo{transition:transform 360ms var(--motion-ease)}
+ html[data-presentation=gallery] .research-page .research-row:hover .research-photo{transform:scale(1.025)}
+ .film-play:hover .film-play-icon{transform:scale(1.06)}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-video,.search-panel,.mobile-menu-panel{animation:none!important;transform:none!important}
+ .research-photo,.film-play-icon{transition:none!important;transform:none!important}
+}
+
+/* Seminar content remains in the normal reading flow. */
+.seminar-content{min-width:0}
+.seminar-content>section{margin-top:48px;scroll-margin-top:128px}
+.seminar-content .seminar-agenda{grid-template-columns:minmax(0,1fr)}
+
+/* Keep translated home actions together when the viewport allows it. */
+.home-hero .intro-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.home-hero .intro-actions .button{width:auto;min-width:0;padding:14px 16px;gap:12px;font-size:16px;line-height:1.4;text-align:center}
+.home-hero .intro-actions .button span{flex-shrink:0}
+@media(max-width:480px){
+ .home-hero .intro-actions{grid-template-columns:minmax(0,1fr);gap:12px}
 }

@@ -26,7 +26,12 @@
    card.hidden=!match;if(match)shown++;
   }
   const initialEmpty=list.querySelector('.empty-state');
-  if(records.length&&shown===0){if(!initialEmpty){const empty=document.createElement('p');empty.className='empty-state';empty.dataset.filterEmpty='true';empty.textContent=t('No publications match these filters. Clear filters or try a broader search.');list.append(empty);}}
+  if(records.length&&shown===0){
+   let empty=initialEmpty;
+   if(!empty){empty=document.createElement('p');empty.className='empty-state';empty.dataset.filterEmpty='true';list.append(empty);}
+   const noPublishedBriefs=fields.type.value==='Policy brief'&&!records.some(card=>card.dataset.type==='Policy brief');
+   empty.textContent=t(noPublishedBriefs?'No policy briefs are published yet. Clear filters to browse all publications.':'No publications match these filters. Clear filters or try a broader search.');
+  }
   else list.querySelector('[data-filter-empty]')?.remove();
   count.textContent=records.length?(language==='es'?`Mostrando ${shown} publicaci${shown===1?"ón verificada":"ones verificadas"}`:`Showing ${shown} verified publication${shown===1?'':'s'}`):t('No verified publications have been added yet.');
   if(updateUrl){const next=new URL(location.href);for(const [key,element] of Object.entries(keys)){if(element.value)next.searchParams.set(key,element.value);else next.searchParams.delete(key);}if(author)next.searchParams.set('author',author);else next.searchParams.delete('author');history.replaceState({},'',next);window.dispatchEvent(new Event('up:urlchange'));}

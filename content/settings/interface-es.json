@@ -118,7 +118,6 @@
   "Abstract": "Resumen",
   "View publisher page ↗": "Ver página de la editorial ↗",
   "Download paper (PDF) ↗": "Descargar artículo (PDF) ↗",
-  "A public full-text link has not been supplied.": "No se ha proporcionado un enlace público al texto completo.",
   "No verified publications have been added yet.": "Todavía no se han añadido publicaciones verificadas.",
   "Upcoming talks": "Próximas charlas",
   "Upcoming talks →": "Próximas charlas →",
@@ -261,5 +260,14 @@
   "Read policy brief →": "Leer nota de política →",
   "Policy brief →": "Nota de política →",
   "Download policy brief (PDF)": "Descargar nota de política (PDF)",
-  "Download policy brief (PDF) ↗": "Descargar nota de política (PDF) ↗"
+  "Download policy brief (PDF) ↗": "Descargar nota de política (PDF) ↗",
+  "Research, people, publications and seminars at the UP Economics Research Center, Universidad Panamericana.": "Investigación, personas, publicaciones y seminarios del UP Economics Research Center de la Universidad Panamericana.",
+  "Explore the Center’s research areas, current projects, researchers and publications.": "Explora las áreas de investigación, proyectos actuales, investigadores y publicaciones del centro.",
+  "Meet the researchers and research professionals at the UP Economics Research Center.": "Conoce a los investigadores y profesionales de investigación del UP Economics Research Center.",
+  "Browse the complete publication archive of the Center’s researchers by topic, year and publication type.": "Explora el archivo completo de publicaciones de los investigadores del centro por tema, año y tipo de publicación.",
+  "Explore the Center’s research seminar, confirmed talks and ways to propose a session.": "Conoce el seminario de investigación del centro, las charlas confirmadas y cómo proponer una sesión.",
+  "Explore media contributions by the Center’s researchers and their related publications.": "Explora las contribuciones de los investigadores del centro en medios y sus publicaciones relacionadas.",
+  "Sources and credits for images used on the Center’s website.": "Fuentes y créditos de las imágenes utilizadas en el sitio web del centro.",
+  "No policy briefs are published yet. Clear filters to browse all publications.": "Todavía no se han publicado notas de política. Limpia los filtros para explorar todas las publicaciones.",
+  "Browse the Center’s published research.": "Explora las investigaciones publicadas del centro."
 }

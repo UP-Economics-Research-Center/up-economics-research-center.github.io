@@ -22,8 +22,8 @@
   },
   {
     "name": "Publications",
-    "description": "Browse verified articles, working papers, books, and briefs.",
-    "keywords": "publications papers journal article working paper books abstract authors pdf doi",
+    "description": "Browse the Center’s published research.",
+    "keywords": "publications research journal articles books abstract authors doi",
     "url": "/publications.html",
     "group": "Section"
   },

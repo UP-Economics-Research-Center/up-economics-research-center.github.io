@@ -130,7 +130,7 @@ People is the single source for each person’s photograph and framing. Edit the
 
 ### Avisos legales y miniaturas
 
-Los avisos EN/ES se editan en **Legal notices / Avisos legales**. Los marcadores `{{contact_name}}`, `{{contact_email}}` y `{{official_privacy_url}}` usan los campos compartidos. Mantén `draft` hasta la revisión de la Universidad; el sitio muestra que son borradores. Para marcar aprobado, registra revisor y fecha. La aplicación del aviso oficial y las autorizaciones de medios requieren revisión institucional.
+Los avisos EN/ES se editan en **Legal notices / Avisos legales**. Privacidad y Términos remiten a las publicaciones oficiales de UP; los textos anteriores se conservan en `docs/legal-drafts-before-official-links-2026-10-21.json`. Cada enlace puede tener una URL alternativa en inglés (`url_en`); si se deja vacía, se usa la URL principal. Los marcadores `{{contact_name}}`, `{{contact_email}}` y `{{official_privacy_url}}` usan los campos compartidos. El estado `draft` y las notas de revisión son internos: ya no generan un aviso público de espera. Mantén el registro de revisión sin inventar una aprobación; para marcar aprobado, registra revisor y fecha. La aplicación del aviso oficial y las autorizaciones de medios siguen documentadas en las notas internas.
 
 Las imágenes de publicaciones deben ser primeras páginas auténticas, con fuente y crédito. Déjalas vacías cuando falte el documento. Las áreas reutilizan la imagen de Publications; no permiten otra miniatura. No uses capturas de webs editoriales como sustitutos.
 

@@ -13,7 +13,7 @@
  const fallbackIndex=[
   {name:'Research',description:'Explore the Center’s research areas.',keywords:'research projects empirical applied economics',url:'/design/research.html',group:'Section'},
   {name:'People',description:'Faculty researchers and research professionals.',keywords:'people faculty researchers directory team staff',url:'/design/people.html',group:'Section'},
-  {name:'Publications',description:'Journal articles, working papers, books, and public-facing analysis.',keywords:'publications journal articles working papers books policy briefs archive',url:'/design/publications.html',group:'Section'},
+  {name:'Publications',description:'Browse the Center’s published research.',keywords:'publications research journal articles books archive',url:'/design/publications.html',group:'Section'},
   {name:'Seminars',description:'General and student research seminars.',keywords:'seminars talks events students calendar archive',url:'/design/seminars.html',group:'Section'},
   {name:'News',description:'Announcements and updates from the Center.',keywords:'news announcements updates archive',url:'/design/news.html',group:'Section'},
   {name:'About and contact',description:'The Center, collaborations, and contact information.',keywords:'about contact collaboration institutions email',url:'/design/about.html',group:'Section'}
