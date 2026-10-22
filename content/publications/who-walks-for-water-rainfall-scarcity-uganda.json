@@ -21,5 +21,16 @@
   "verified_on": "2026-09-24",
   "published": true,
   "pdf_url": "https://drive.google.com/uc?export=download&id=1c_dXSCm8J5LgGw68bA2sYMdq9wOaM6Cd",
-  "abstract_es": "Este estudio combina un panel de hogares representativo de Uganda con mediciones satelitales de precipitación para examinar cómo las sequías afectan el acceso al agua y el tiempo dedicado a recolectarla. La escasez de lluvia se asocia con menor uso de agua superficial y mayores distancias y tiempos de espera en las fuentes, mientras que los hogares no reducen sustancialmente su consumo. En cambio, los hogares afectados por sequía tienen mayor probabilidad de pagar cuotas de uso y dedicar tiempo adicional a buscar agua. El aumento del tiempo de recolección recae desproporcionadamente en mujeres y niñas, con consecuencias para su tiempo disponible y trabajo. Los resultados revelan un costo de los choques meteorológicos que suele pasarse por alto y muestran que la escasez de agua puede generar cargas desiguales dentro de los hogares."
+  "abstract_es": "Este estudio combina un panel de hogares representativo de Uganda con mediciones satelitales de precipitación para examinar cómo las sequías afectan el acceso al agua y el tiempo dedicado a recolectarla. La escasez de lluvia se asocia con menor uso de agua superficial y mayores distancias y tiempos de espera en las fuentes, mientras que los hogares no reducen sustancialmente su consumo. En cambio, los hogares afectados por sequía tienen mayor probabilidad de pagar cuotas de uso y dedicar tiempo adicional a buscar agua. El aumento del tiempo de recolección recae desproporcionadamente en mujeres y niñas, con consecuencias para su tiempo disponible y trabajo. Los resultados revelan un costo de los choques meteorológicos que suele pasarse por alto y muestran que la escasez de agua puede generar cargas desiguales dentro de los hogares.",
+  "image": "/design/assets/publications/thematic/water-collection.jpg",
+  "image_is_thematic": true,
+  "image_alt": "Illustrative photograph: Overhead view of people collecting river water with containers.",
+  "image_alt_es": "Fotografía ilustrativa: Vista desde arriba de personas recogiendo agua de un río con recipientes.",
+  "image_credit": "Najim Kurfi",
+  "image_credit_es": "Najim Kurfi",
+  "image_source_url": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/",
+  "image_license": "Pexels License",
+  "image_license_url": "https://www.pexels.com/license/",
+  "image_rights_status": "licensed",
+  "image_rights_url": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/"
 }

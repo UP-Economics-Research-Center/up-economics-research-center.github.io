@@ -19,7 +19,8 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
     "creator": "chensiyuan",
     "description": "Rocinha hillside neighborhood in Rio de Janeiro.",
-    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained."
+    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained.",
+    "description_es": "Barrio de Rocinha en Río de Janeiro."
   },
   {
     "slug": "digital-and-business-economics",
@@ -52,7 +53,8 @@
     "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
     "creator": "Grimes2",
     "description": "The blue euro sculpture with yellow stars in Frankfurt.",
-    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained."
+    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained.",
+    "description_es": "Escultura del euro en Fráncfort."
   },
   {
     "slug": "health-water-sanitation",
@@ -74,7 +76,8 @@
     "license_url": "https://creativecommons.org/licenses/by/2.0/",
     "creator": "Nupur Dasgupta",
     "description": "Golden wheat fields with trees under an open sky.",
-    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained."
+    "edits": "Displayed with CSS cropping, a subtle edge fade, gentle warm color treatment and decorative paper layers. Original source file retained.",
+    "description_es": "Campo de trigo bajo un cielo abierto."
   },
   {
     "slug": "environmental-economics",
@@ -112,7 +115,8 @@
     "source_url": "https://www.pexels.com/photo/view-of-a-crowded-street-crossing-in-the-city-26346325/",
     "license": "Pexels License",
     "license_url": "https://www.pexels.com/license/",
-    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters.",
+    "description_es": "Personas cruzando una calle de la ciudad."
   },
   {
     "path": "/design/assets/research/area-photography/digital-and-business-economics.webp",
@@ -120,7 +124,8 @@
     "source_url": "https://www.pexels.com/photo/black-computer-microchip-6636500/",
     "license": "Pexels License",
     "license_url": "https://www.pexels.com/license/",
-    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+    "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters.",
+    "description_es": "Microchip de computadora."
   },
   {
     "path": "/design/assets/research/area-photography/political-economy.webp",
@@ -129,5 +134,225 @@
     "license": "Public domain",
     "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
     "treatment": "Resized to WebP; CSS crop to fill the frame; no color filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/classroom.jpg",
+    "creator": "Tima Miroshnichenko",
+    "source_url": "https://www.pexels.com/photo/students-inside-a-classroom-5427654/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Children reading and writing in a classroom.",
+    "description_es": "Niños leyendo y escribiendo en un salón de clases.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/eyeglasses.jpg",
+    "creator": "Leeloo The First",
+    "source_url": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Eyeglasses and documents on a desk.",
+    "description_es": "Anteojos y documentos sobre un escritorio.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/meeting.jpg",
+    "creator": "Vlada Karpovich",
+    "source_url": "https://www.pexels.com/photo/business-partners-having-a-meeting-at-the-office-7433848/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Professionals discussing documents at a meeting.",
+    "description_es": "Profesionales revisando documentos en una reunión.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/water-pump.jpg",
+    "creator": "Benedict Buston",
+    "source_url": "https://www.pexels.com/photo/hands-washing-at-rural-water-pump-34339320/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Hands being washed at a rural water pump.",
+    "description_es": "Lavado de manos en una bomba de agua rural.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/restaurant.jpg",
+    "creator": "cottonbro studio",
+    "source_url": "https://www.pexels.com/photo/an-empty-restaurant-9316203/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Restaurant interior with tables and chairs.",
+    "description_es": "Interior de un restaurante con mesas y sillas.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/trade-port.jpg",
+    "creator": "Andrea Musto",
+    "source_url": "https://www.pexels.com/photo/a-port-with-shipping-containers-and-cranes-13025947/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Shipping containers and cranes at a port.",
+    "description_es": "Contenedores y grúas en un puerto.",
+    "edits": "Downloaded at 900px width; no additional edits. Displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/farm-succession.jpg",
+    "creator": "Matt Jerome Connor",
+    "source_url": "https://www.pexels.com/photo/farm-tractor-in-the-farm-land-14242147/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Tractor working a farm field.",
+    "description_es": "Tractor trabajando en un campo agrícola.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/european-debt.jpg",
+    "creator": "Willfried Wende",
+    "source_url": "https://www.pexels.com/photo/euro-banknotes-and-coins-on-a-table-30576160/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Euro banknotes and coins.",
+    "description_es": "Billetes y monedas de euro.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/family-demography.jpg",
+    "creator": "Puwadon Sang-ngern",
+    "source_url": "https://www.pexels.com/photo/wooden-family-dolls-on-cash-9666368/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Wooden family figures on banknotes.",
+    "description_es": "Figuras de madera de una familia sobre billetes.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/ai-business.jpg",
+    "creator": "Lukas Blazek",
+    "source_url": "https://www.pexels.com/photo/laptop-computer-showing-c-application-574069/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Programming on a laptop.",
+    "description_es": "Programación en una computadora portátil.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/monetary-policy.jpg",
+    "creator": "Kate Strilchuk",
+    "source_url": "https://www.pexels.com/photo/columns-in-a-bank-museum-of-england-19582434/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Architectural columns at the Bank of England.",
+    "description_es": "Columnas arquitectónicas del Banco de Inglaterra.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/nepal-households.jpg",
+    "creator": "Rashed Hossain",
+    "source_url": "https://www.pexels.com/photo/traditional-newari-architecture-in-kathmandu-nepal-36606900/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Traditional residential architecture in Kathmandu, Nepal.",
+    "description_es": "Arquitectura tradicional en Katmandú, Nepal.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/ethiopia-urban.jpg",
+    "creator": "Gift Habeshaw",
+    "source_url": "https://www.pexels.com/photo/addis-ababa-cityscape-featuring-iconic-buildings-36200693/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Cityscape of Addis Ababa, Ethiopia.",
+    "description_es": "Vista urbana de Adís Abeba, Etiopía.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/digital-payments.jpg",
+    "creator": "Mikhail Nilov",
+    "source_url": "https://www.pexels.com/photo/a-person-holding-a-payment-terminal-9304427/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Card payment at a digital payment terminal.",
+    "description_es": "Pago con tarjeta en una terminal electrónica.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/business-ethics.jpg",
+    "creator": "Kampus Production",
+    "source_url": "https://www.pexels.com/photo/a-person-signing-a-contract-8815849/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "A hand signing a business document.",
+    "description_es": "Una mano firmando un documento empresarial.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/school-closures.jpg",
+    "creator": "Pixabay",
+    "source_url": "https://www.pexels.com/photo/classroom-chair-and-desk-289740/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "An empty classroom with desks and chairs.",
+    "description_es": "Un salón de clases vacío con mesas y sillas.",
+    "edits": "Resized to 900px for local use; displayed complete."
+  },
+  {
+    "path": "/design/assets/publications/thematic/early-childhood-home.jpg",
+    "creator": "KATRIN BOLOVTSOVA",
+    "source_url": "https://www.pexels.com/photo/mother-and-child-playing-with-toys-4868392/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "A caregiver and young child playing with blocks at home.",
+    "description_es": "Una cuidadora y un niño pequeño jugando con bloques en casa.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/fast-food.jpg",
+    "creator": "Engin Akyurt",
+    "source_url": "https://www.pexels.com/photo/close-up-shot-of-burger-and-french-fries-on-a-tray-7479006/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Burger and fries served on a tray.",
+    "description_es": "Hamburguesa y papas fritas en una bandeja.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/executive-recruitment.jpg",
+    "creator": "Anna Shvets",
+    "source_url": "https://www.pexels.com/photo/woman-in-black-long-sleeve-shirt-sitting-having-interview-4226115/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "A job interview with a candidate résumé.",
+    "description_es": "Entrevista de trabajo con el currículum de una candidata.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/water-collection.jpg",
+    "creator": "Najim Kurfi",
+    "source_url": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "Overhead view of people collecting river water with containers.",
+    "description_es": "Vista desde arriba de personas recogiendo agua de un río con recipientes.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/digital-wallet.jpg",
+    "creator": "Tranmautritam",
+    "source_url": "https://www.pexels.com/photo/digital-wallet-app-on-smartphone-6406691/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "A smartphone displaying a digital wallet.",
+    "description_es": "Teléfono mostrando una billetera digital.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
+  },
+  {
+    "path": "/design/assets/publications/thematic/child-family-care.jpg",
+    "creator": "olia danilevich",
+    "source_url": "https://www.pexels.com/photo/close-up-of-a-child-s-drawing-of-a-family-on-paper-8524999/",
+    "license": "Pexels License",
+    "license_url": "https://www.pexels.com/license/",
+    "description": "A child’s drawing of a family beside coloured markers.",
+    "description_es": "Dibujo infantil de una familia junto a marcadores de colores.",
+    "edits": "Resized to 900px. Displayed in a 3:2 landscape crop without colour filters."
   }
 ]

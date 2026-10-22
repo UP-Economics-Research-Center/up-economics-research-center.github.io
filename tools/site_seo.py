@@ -26,8 +26,6 @@ def area_main(area, people, publications, language, image_html, render_authors, 
         return ui.get(text, text) if prefix else text
     def a(url, text, cls=''):
         return f'<a href="{e(url, quote=True)}" class="{cls}">{e(text)}</a>'
-    def credit():
-        return '<p class="photo-credit">' + a(prefix + '/photo-credits.html', t('Image credit')) + '</p>'
     def photo(record, cls):
         markup = image_html(record, cls)
         attrs = ''
@@ -43,7 +41,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
         if reference:
             visual = f'<figure class="area-presentation-image motion-frame" data-area="{e(area["slug"])}">' + photo(image, 'source-area-banner').replace('loading="lazy"', 'loading="eager"') + '</figure>'
         else:
-            visual = f'<figure class="feature-area-visual research-art" data-area="{e(area["slug"])}">' + photo(image, 'research-photo') + '<figcaption>' + credit() + '</figcaption></figure>'
+            visual = f'<figure class="feature-area-visual research-art" data-area="{e(area["slug"])}">' + photo(image, 'research-photo') + '</figure>'
     summary = '<div class="feature-area-copy"><div id="area-summary" class="area-description">' + paragraphs(area['summary']) + paragraphs(area.get('overview', '')) + '</div></div>'
     intro = visual + summary if reference else summary + visual
     hero = (f'<section class="feature-area" id="area-hero"><div class="area-heading"><div class="crumb" role="navigation" aria-label="{t("Breadcrumb")}">'
@@ -69,7 +67,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
             img = photo(project, 'project-photo')
             if project.get('url'):
                 img = f'<a href="{e(project["url"])}" aria-label="{e(project["title"])}">{img}</a>'
-            media = '<figure class="project-media">' + img + '<figcaption>' + credit() + '</figcaption></figure>'
+            media = '<figure class="project-media">' + img + '</figure>'
         projects += '<article class="publication project-card' + (' has-image' if media else '') + '"><div class="project-copy"><h3 class="pub-title">' + heading + '</h3><div class="project-description">' + paragraphs(project['summary']) + '</div><div class="project-researchers">' + notes + '</div></div>' + media + '</article>'
     if not projects:
         projects = '<p class="note">' + t('No current projects are listed for this area.') + '</p>'
@@ -109,7 +107,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
         body = '<div class="paper-heading">' + recency_badge(pub).replace('>New<', '>' + t('New') + '<') + '<h3 class="pub-title">' + title + '</h3></div>'
         if description:
             body += '<div class="paper-description">' + paragraphs(description, 'reference-description') + '</div>'
-        body += '<div class="paper-details"><p class="pub-authors">' + authors + '</p><p class="pub-venue">' + e(pub['venue'] or t(pub['type'])) + ' · ' + str(pub['year']) + '</p><div class="reference-media-links">' + media + '</div>' + brief + (credit() if img else '') + '</div>'
+        body += '<div class="paper-details"><p class="pub-authors">' + authors + '</p><p class="pub-venue">' + e(pub['venue'] or t(pub['type'])) + ' · ' + str(pub['year']) + '</p><div class="reference-media-links">' + media + '</div>' + brief + '</div>'
         papers += '<article class="publication paper-row' + (' has-image' if img else '') + (' reference-paper' if description else '') + '">' + preview + '<div class="paper-copy">' + body + '</div>' + a(href, t('Abstract and details →'), 'text-link') + '</article>'
     if not papers:
         papers = '<p class="note">' + t('No verified publications are linked to this area yet.') + '</p>'
@@ -118,7 +116,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
     team_block = block('team', 'Team' if reference else 'People behind this work', team, 'area-team')
     project_block = block('projects', 'Current Projects' if reference else 'Ongoing research', projects)
     outputs_heading = 'Journal Publications' if reference and not any(pub['type'] != 'Journal article' for pub in related) else 'Publications'
-    output_block = block('outputs', outputs_heading, '<p>' + a(prefix + '/publications.html', t('Browse the complete publication archive →'), 'text-link') + '</p>' + papers)
+    output_block = block('outputs', outputs_heading, papers)
     aside = '<aside class="side-index">' + ''.join(a('#' + key, t(label)) for key,label in [('projects','Projects'),('team','Researchers'),('outputs','Publications')]) + '</aside>'
     content = team_block + project_block + output_block if reference else project_block + team_block + output_block
     return '<main id="main-content" tabindex="-1">' + hero + '<section class="section"><div class="wrap area-content">' + aside + '<div class="area-main">' + content + '</div></div></section></main>'

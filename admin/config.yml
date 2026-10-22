@@ -738,11 +738,17 @@ collections:
     name: image_license
     widget: string
     required: false
-  - label: Article first-page image / Primera página del artículo
+  - label: Illustrative topic photograph / Fotografía temática ilustrativa
+    name: image_is_thematic
+    widget: boolean
+    required: false
+    default: false
+    hint: Enable for a freely licensed photograph illustrating the topic, rather than an article page or book cover.
+  - label: Publication image / Imagen de la publicación
     name: image
     widget: image
     required: false
-    hint: Upload an authentic first page only when reuse is licensed or permission is confirmed. Pending images are not deployed; a clearly labelled bibliographic reference is displayed instead. A website screenshot is not automatically copyright-free.
+    hint: Use an authentic first page or a relevant freely licensed topic photograph. Record the source, creator and license, and enable the illustrative photograph field when appropriate. Pending images are omitted.
   - label: Photograph alternative text
     name: image_alt
     widget: string
