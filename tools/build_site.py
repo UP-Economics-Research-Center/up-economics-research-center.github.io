@@ -331,6 +331,8 @@ def external_anchor(url: str, text: str, cls="text-link") -> str:
 def image_html(record: dict, cls: str = "research-photo") -> str:
     if not record.get("image"):
         return ""
+    if record.get("image_is_thematic"):
+        cls += " thematic-photo"
     size = image_dimensions(str(ROOT / record["image"].lstrip("/")))
     dimensions = f' width="{size[0]}" height="{size[1]}"' if size else ""
     responsive = ""
@@ -709,9 +711,13 @@ def build() -> None:
         active_media.update(area.get("banner", {}).get("image") for area in data["research_areas"])
         active_media.update("/" + str(site_settings.get(key, "")).lstrip("/") for key in ("featured_image", "campus_video_poster"))
         # Include unpublished/hidden records: changing visibility must not expose a pending asset.
+        pending_media = []
         for _, pub in raw["publications"]:
-            image = pub.get("image", "")
-            if not isinstance(image, str) or pub.get("image_rights_status") in ("licensed", "permission-confirmed"):
+            if pub.get("image_rights_status") not in ("licensed", "permission-confirmed"):
+                pending_media.append(pub.get("image", ""))
+            pending_media.append(pub.get("pending_document_image", {}).get("image", ""))
+        for image in pending_media:
+            if not isinstance(image, str):
                 continue
             clean = image.strip().lstrip("/")
             if not clean or urlparse(image).scheme or ".." in Path(clean).parts:

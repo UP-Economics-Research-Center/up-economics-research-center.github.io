@@ -34,5 +34,9 @@
   "image_credit_es": "Jorge Pérez Colín y Eugenio Gómez Alatorre · Sitio oficial del libro",
   "image_source_url": "https://sistemasdedecision.com/portada.jpg",
   "image_license": "Copyright retained by the rights holders; official cover used to identify the book.",
-  "image_rights_status": "pending"
+  "image_rights_status": "permission-confirmed",
+  "image_is_thematic": false,
+  "image_license_url": "",
+  "image_rights_url": "https://sistemasdedecision.com/",
+  "image_editorial_note": "Site editor explicitly requested the official book cover on 2026-10-22. Copyright remains with the rights holders; this is not a free-license claim."
 }

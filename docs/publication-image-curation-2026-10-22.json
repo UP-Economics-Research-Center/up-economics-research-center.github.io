@@ -1,0 +1,125 @@
+{
+  "direction": "Distinct documentary or subject photographs, natural colour, uniform 3:2 framing. Illustrative only. Authentic approved first/journal pages retain their presentation.",
+  "publications": [
+    {
+      "title": "How to effectively communicate your code of ethics: An empirical study using a cluster randomized control trial experiment",
+      "slug": "communicating-code-ethics-cluster-rct",
+      "image": "/design/assets/publications/thematic/business-ethics.jpg",
+      "rationale": "Written business commitments and institutional rules; document signing illustrates the code of ethics.",
+      "source": "https://www.pexels.com/photo/a-person-signing-a-contract-8815849/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Potential effects of COVID-19 school closures on foundational skills and Country responses for mitigating learning loss",
+      "slug": "covid-school-closures-foundational-skills-country-responses",
+      "image": "/design/assets/publications/thematic/school-closures.jpg",
+      "rationale": "Empty classroom illustrates the loss of in-person schooling.",
+      "source": "https://www.pexels.com/photo/classroom-chair-and-desk-289740/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "The effect of a free trade agreement with the United States on member countries’ per capita GDP: A synthetic control analysis",
+      "slug": "fta-member-gdp-synthetic-control",
+      "image": "/design/assets/publications/thematic/trade-port.jpg",
+      "rationale": "Shipping containers illustrate international trade and integration.",
+      "source": "https://www.pexels.com/photo/a-port-with-shipping-containers-and-cranes-13025947/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Gender, education, and farm succession in Western Paraná State, Brazil",
+      "slug": "gender-education-farm-succession-western-parana",
+      "image": "/design/assets/publications/thematic/farm-succession.jpg",
+      "rationale": "Working farm machinery illustrates the agricultural enterprise whose transfer to the next generation is studied.",
+      "source": "https://www.pexels.com/photo/farm-tractor-in-the-farm-land-14242147/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "The Importance of Quality for Scaling Up Early Childhood Development Services: Experimental Evidence from Nicaragua",
+      "slug": "importance-quality-scaling-early-childhood-nicaragua",
+      "image": "/design/assets/publications/thematic/early-childhood-home.jpg",
+      "rationale": "Home-based caregiver interaction and early childhood learning, matching the home-visit intervention.",
+      "source": "https://www.pexels.com/photo/mother-and-child-playing-with-toys-4868392/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "The Impact of Large-Scale Free Prescription Glasses Distribution on the Academic Achievement of Children",
+      "slug": "large-scale-free-prescription-glasses-academic-achievement",
+      "image": "/design/assets/publications/thematic/eyeglasses.jpg",
+      "rationale": "Eyeglasses alongside written materials connect vision correction and learning.",
+      "source": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Local institutions in Peru and the presence and number of fast-food outlets",
+      "slug": "local-institutions-fast-food-peru",
+      "image": "/design/assets/publications/thematic/fast-food.jpg",
+      "rationale": "Fast-food meal, replacing the unrelated bar interior without implying a specific study outlet.",
+      "source": "https://www.pexels.com/photo/close-up-shot-of-burger-and-french-fries-on-a-tray-7479006/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Monetary Policy Under Time-Varying Uncertainty Aversion",
+      "slug": "monetary-policy-time-varying-uncertainty-aversion",
+      "image": "/design/assets/publications/thematic/monetary-policy.jpg",
+      "rationale": "Bank of England architecture illustrates central-bank policy institutions.",
+      "source": "https://www.pexels.com/photo/columns-in-a-bank-museum-of-england-19582434/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Parental Absence and Agency: The Household Characteristics of Hazardous Forms of Child Labour in Nepal",
+      "slug": "parental-absence-hazardous-child-labour-nepal",
+      "image": "/design/assets/publications/thematic/child-family-care.jpg",
+      "rationale": "Family care and childhood, avoiding unrelated decorative architecture or identifying a child as a hazardous worker.",
+      "source": "https://www.pexels.com/photo/close-up-of-a-child-s-drawing-of-a-family-on-paper-8524999/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "The Perfect Fit: How to Get the Best Talent in Executive Positions. A Field Experiment in Mexico Using Vignettes",
+      "slug": "perfect-fit-executive-talent-field-experiment-mexico",
+      "image": "/design/assets/publications/thematic/executive-recruitment.jpg",
+      "rationale": "Candidate assessment and recruitment, rather than a general team meeting.",
+      "source": "https://www.pexels.com/photo/woman-in-black-long-sleeve-shirt-sitting-having-interview-4226115/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "The productivity cost of sovereign default: evidence from the European debt crisis",
+      "slug": "productivity-cost-sovereign-default-european-debt-crisis",
+      "image": "/design/assets/publications/thematic/european-debt.jpg",
+      "rationale": "Euro currency connects the European debt and financial-market setting.",
+      "source": "https://www.pexels.com/photo/euro-banknotes-and-coins-on-a-table-30576160/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Son Preference and Its Impact on Family Size and Domestic Violence Against Mothers in South Asia",
+      "slug": "son-preference-family-size-domestic-violence-south-asia",
+      "image": "/design/assets/publications/thematic/family-demography.jpg",
+      "rationale": "Symbolic family figures convey family composition without attributing violence to identifiable people.",
+      "source": "https://www.pexels.com/photo/wooden-family-dolls-on-cash-9666368/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Urban Agglomerations and Wage and Self-employment Jobs in Ethiopia",
+      "slug": "urban-agglomerations-wage-self-employment-ethiopia",
+      "image": "/design/assets/publications/thematic/ethiopia-urban.jpg",
+      "rationale": "Addis Ababa cityscape directly relates to Ethiopian urban agglomeration.",
+      "source": "https://www.pexels.com/photo/addis-ababa-cityscape-featuring-iconic-buildings-36200693/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "VelaFi: competing against giants in the stablecoin payments race",
+      "slug": "velafi-stablecoin-payments-case",
+      "image": "/design/assets/publications/thematic/digital-wallet.jpg",
+      "rationale": "Digital wallet and transfers, replacing a retail card terminal; not the VelaFi product.",
+      "source": "https://www.pexels.com/photo/digital-wallet-app-on-smartphone-6406691/",
+      "license": "Pexels License"
+    },
+    {
+      "title": "Who Walks for Water? Water Consumption and Labor Supply Response to Rainfall Scarcity in Uganda",
+      "slug": "who-walks-for-water-rainfall-scarcity-uganda",
+      "image": "/design/assets/publications/thematic/water-collection.jpg",
+      "rationale": "Water collection and household labour burden rather than hand washing; illustrative, not the Uganda study site.",
+      "source": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/",
+      "license": "Pexels License"
+    }
+  ]
+}

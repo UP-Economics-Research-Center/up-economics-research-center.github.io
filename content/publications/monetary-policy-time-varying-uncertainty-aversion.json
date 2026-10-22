@@ -22,5 +22,16 @@
   "source_url": "https://sites.google.com/view/akitokamei/macro-economy",
   "verified_on": "2026-09-24",
   "published": true,
-  "abstract_es": "Los autores desarrollan un marco de política óptima para un banco central con metas de inflación que enfrenta incertidumbre sobre su modelo y cuyo grado de desconfianza cambia conforme se transforma la estructura económica. Las rupturas estructurales y los choques de precios, producción o tipo de cambio real pueden alterar la incertidumbre percibida. El control robusto representa la aversión a la incertidumbre de las autoridades, mientras que una cadena de Markov captura sus cambios en el tiempo. El análisis encuentra que, en general, una respuesta más agresiva de la tasa de interés es óptima cuando las autoridades son más adversas a la incertidumbre o es más probable una mayor aversión futura. Una mayor aversión también reduce el bienestar de las autoridades. Los efectos de las probabilidades de transición de Markov sobre las pérdidas esperadas son ambiguos, lo que muestra que la aparición y persistencia de la incertidumbre pueden complicar las decisiones de política monetaria."
+  "abstract_es": "Los autores desarrollan un marco de política óptima para un banco central con metas de inflación que enfrenta incertidumbre sobre su modelo y cuyo grado de desconfianza cambia conforme se transforma la estructura económica. Las rupturas estructurales y los choques de precios, producción o tipo de cambio real pueden alterar la incertidumbre percibida. El control robusto representa la aversión a la incertidumbre de las autoridades, mientras que una cadena de Markov captura sus cambios en el tiempo. El análisis encuentra que, en general, una respuesta más agresiva de la tasa de interés es óptima cuando las autoridades son más adversas a la incertidumbre o es más probable una mayor aversión futura. Una mayor aversión también reduce el bienestar de las autoridades. Los efectos de las probabilidades de transición de Markov sobre las pérdidas esperadas son ambiguos, lo que muestra que la aparición y persistencia de la incertidumbre pueden complicar las decisiones de política monetaria.",
+  "image": "/design/assets/publications/thematic/monetary-policy.jpg",
+  "image_is_thematic": true,
+  "image_alt": "Illustrative photograph: Architectural columns at the Bank of England.",
+  "image_alt_es": "Fotografía ilustrativa: Columnas arquitectónicas del Banco de Inglaterra.",
+  "image_credit": "Kate Strilchuk",
+  "image_credit_es": "Kate Strilchuk",
+  "image_source_url": "https://www.pexels.com/photo/columns-in-a-bank-museum-of-england-19582434/",
+  "image_license": "Pexels License",
+  "image_license_url": "https://www.pexels.com/license/",
+  "image_rights_status": "licensed",
+  "image_rights_url": "https://www.pexels.com/photo/columns-in-a-bank-museum-of-england-19582434/"
 }

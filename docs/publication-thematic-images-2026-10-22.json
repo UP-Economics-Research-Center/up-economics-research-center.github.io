@@ -1,0 +1,102 @@
+{
+  "note": "User-requested illustrative topic photographs, not study locations, participants or article pages. Previous pending assets remain unapproved; prior fields preserved below.",
+  "changes": [
+    {
+      "slug": "gender-education-farm-succession-western-parana",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/golden-wheat.jpg"
+    },
+    {
+      "slug": "who-walks-for-water-rainfall-scarcity-uganda",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/water-pump.jpg"
+    },
+    {
+      "slug": "local-institutions-fast-food-peru",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/restaurant.jpg"
+    },
+    {
+      "slug": "large-scale-free-prescription-glasses-academic-achievement",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/eyeglasses.jpg"
+    },
+    {
+      "slug": "productivity-cost-sovereign-default-european-debt-crisis",
+      "previous_image_fields": {
+        "image": "/design/assets/publications/productivity-cost-sovereign-default-european-debt-crisis-first-page.png",
+        "image_alt": "First page of The productivity cost of sovereign default: evidence from the European debt crisis",
+        "image_alt_es": "Primera página de The productivity cost of sovereign default: evidence from the European debt crisis",
+        "image_credit": "Economic Theory · Article authors · First page",
+        "image_source_url": "https://cie.itam.mx/sites/default/files/u779/10.1007_s00199-015-0939-y.pdf",
+        "image_credit_es": "Economic Theory · Autores del artículo · Primera página",
+        "image_rights_status": "pending"
+      },
+      "selected_image": "/design/assets/research/euro-sculpture.jpg"
+    },
+    {
+      "slug": "son-preference-family-size-domestic-violence-south-asia",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/area-photography/economic-demography.webp"
+    },
+    {
+      "slug": "estrategia-microeconomia-ia",
+      "previous_image_fields": {
+        "image": "/design/assets/publications/estrategia-microeconomia-ia-cover.jpg",
+        "image_alt": "Official cover of Estrategia, microeconomía e IA, by Jorge Pérez Colín and Eugenio Gómez Alatorre.",
+        "image_alt_es": "Portada oficial de Estrategia, microeconomía e IA, de Jorge Pérez Colín y Eugenio Gómez Alatorre.",
+        "image_credit": "Jorge Pérez Colín and Eugenio Gómez Alatorre · Official book website",
+        "image_credit_es": "Jorge Pérez Colín y Eugenio Gómez Alatorre · Sitio oficial del libro",
+        "image_source_url": "https://sistemasdedecision.com/portada.jpg",
+        "image_license": "Copyright retained by the rights holders; official cover used to identify the book.",
+        "image_rights_status": "pending"
+      },
+      "selected_image": "/design/assets/research/area-photography/digital-and-business-economics.webp"
+    },
+    {
+      "slug": "monetary-policy-time-varying-uncertainty-aversion",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/euro-sculpture.jpg"
+    },
+    {
+      "slug": "parental-absence-hazardous-child-labour-nepal",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/rocinha-panorama.jpg"
+    },
+    {
+      "slug": "perfect-fit-executive-talent-field-experiment-mexico",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/meeting.jpg"
+    },
+    {
+      "slug": "urban-agglomerations-wage-self-employment-ethiopia",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/rocinha-panorama.jpg"
+    },
+    {
+      "slug": "velafi-stablecoin-payments-case",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/research/area-photography/digital-and-business-economics.webp"
+    },
+    {
+      "slug": "communicating-code-ethics-cluster-rct",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/meeting.jpg"
+    },
+    {
+      "slug": "covid-school-closures-foundational-skills-country-responses",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/classroom.jpg"
+    },
+    {
+      "slug": "importance-quality-scaling-early-childhood-nicaragua",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/classroom.jpg"
+    },
+    {
+      "slug": "fta-member-gdp-synthetic-control",
+      "previous_image_fields": {},
+      "selected_image": "/design/assets/publications/thematic/trade-port.jpg"
+    }
+  ]
+}

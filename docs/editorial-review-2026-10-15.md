@@ -442,3 +442,33 @@ Policy brief remains a valid visible archive category even with zero public reco
 Publication archive thumbnails use uniform 150 × 210 px frames on desktop and 120 × 168 px on mobile, with complete pages contained without cropping. Their size must not depend on citation length. Research area previews retain the separately approved description-height layout.
 
 Latest project-photo correction: include both the project title and description in the desktop image height, from the title's top to the description's bottom. Continue to exclude researchers, collaborators and presentation notes. This supersedes the earlier description-only rule for project photographs; mobile remains stacked.
+
+
+### Research page link cleanup — 22 October 2026
+Remove the “Browse the complete publication archive →” prompt from individual research areas in both languages. Remove repeated inline “Image credit” links from area images, project photos and publication rows. Keep the complete attribution page accessible through the existing footer link in English and Spanish; preserve all attribution records.
+
+
+### Larger research publication images — 22 October 2026
+The user requests publication previews on research pages about 1.5 times larger than the supplied screenshot. Use a 300px-wide preview, limited by available space, at its original aspect ratio. Let the row grow with the complete page rather than limiting the image to description height; this supersedes that earlier sizing rule for research publication previews. Publication archive frames and project photographs retain their separate sizing.
+
+
+### Thematic publication photos and smaller mobile gallery — 22 October 2026
+The user requests relevant free-to-use photographs whenever a publication lacks an approved document image. Six locally downloaded Pexels photos and existing licensed topic photos cover the 16 missing/pending images; approved first pages remain. Sources, creators and licenses are recorded in the CMS records and footer credit page. These are illustrative photographs, not study participants or locations. Two previous pending document images remain withheld, with metadata preserved in `pending_document_image` and the selection log. This supersedes the previous no-image direction for these records.
+
+The user also requests smaller Research card images on mobile: preserve the full card width with a shorter 3:2 image frame, capped at 240px high. Desktop cards retain their existing presentation. Local preview only, pending user review before production.
+
+
+### Distinct photos and compact citations — 22 October 2026
+The user rejects repeated photographs. Each of the 16 thematic publication images now has a distinct source image; none reuses the research-area cards. Ten replacements and their license sources are recorded in `publication-distinct-images-2026-10-22.json`. The same publication retains its own image wherever it appears.
+
+The user also requests removal of excess whitespace between descriptions, authors, journal details and the abstract link. Keep each citation in a normal text column, so the independent photo height cannot create a gap before the authors. This supersedes the description-only alignment for publication images: image and complete citation now start together on desktop. Mobile remains stacked. Local review only.
+
+
+### Subject-led photographic consistency — 22 October 2026
+The user asks for consistency and distinct photographs selected by topic and title wherever a document image is unavailable. All 16 selections reviewed against titles and abstracts; six weak matches replaced (early childhood home learning, fast food, executive recruitment, water collection, digital wallet, childhood/family care). Each has a recorded selection rationale and source in `publication-image-curation-2026-10-22.json`. Natural colours, discreet border, consistent horizontal 3:2 framing for thematic images across Research and archive. This replaces the natural/asymmetric aspect ratios for thematic images only. Approved article pages remain complete; spacing and footer-only credits retained. Local candidate, not published.
+
+
+### Official book cover restored — 22 October 2026
+The user explicitly requests the existing official cover of Estrategia, microeconomía e IA instead of a thematic photograph. Restore the locally stored cover, clear the thematic-photo flag, and preserve full cover proportions. Editorial display authorized by this request; copyright remains with its owners and no open license is claimed. Local preview only.
+
+Release review: place Abstract and details inside the citation column so tall document pages and the official book cover cannot push it below the media.

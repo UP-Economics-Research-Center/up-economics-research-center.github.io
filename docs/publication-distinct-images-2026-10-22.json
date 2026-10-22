@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "gender-education-farm-succession-western-parana",
+    "replaced_image": "/design/assets/research/golden-wheat.jpg",
+    "image": "/design/assets/publications/thematic/farm-succession.jpg",
+    "source": "https://www.pexels.com/photo/farm-tractor-in-the-farm-land-14242147/",
+    "creator": "Matt Jerome Connor"
+  },
+  {
+    "slug": "productivity-cost-sovereign-default-european-debt-crisis",
+    "replaced_image": "/design/assets/research/euro-sculpture.jpg",
+    "image": "/design/assets/publications/thematic/european-debt.jpg",
+    "source": "https://www.pexels.com/photo/euro-banknotes-and-coins-on-a-table-30576160/",
+    "creator": "Willfried Wende"
+  },
+  {
+    "slug": "son-preference-family-size-domestic-violence-south-asia",
+    "replaced_image": "/design/assets/research/area-photography/economic-demography.webp",
+    "image": "/design/assets/publications/thematic/family-demography.jpg",
+    "source": "https://www.pexels.com/photo/wooden-family-dolls-on-cash-9666368/",
+    "creator": "Puwadon Sang-ngern"
+  },
+  {
+    "slug": "estrategia-microeconomia-ia",
+    "replaced_image": "/design/assets/research/area-photography/digital-and-business-economics.webp",
+    "image": "/design/assets/publications/thematic/ai-business.jpg",
+    "source": "https://www.pexels.com/photo/laptop-computer-showing-c-application-574069/",
+    "creator": "Lukas Blazek"
+  },
+  {
+    "slug": "monetary-policy-time-varying-uncertainty-aversion",
+    "replaced_image": "/design/assets/research/euro-sculpture.jpg",
+    "image": "/design/assets/publications/thematic/monetary-policy.jpg",
+    "source": "https://www.pexels.com/photo/columns-in-a-bank-museum-of-england-19582434/",
+    "creator": "Kate Strilchuk"
+  },
+  {
+    "slug": "parental-absence-hazardous-child-labour-nepal",
+    "replaced_image": "/design/assets/research/rocinha-panorama.jpg",
+    "image": "/design/assets/publications/thematic/nepal-households.jpg",
+    "source": "https://www.pexels.com/photo/traditional-newari-architecture-in-kathmandu-nepal-36606900/",
+    "creator": "Rashed Hossain"
+  },
+  {
+    "slug": "urban-agglomerations-wage-self-employment-ethiopia",
+    "replaced_image": "/design/assets/research/rocinha-panorama.jpg",
+    "image": "/design/assets/publications/thematic/ethiopia-urban.jpg",
+    "source": "https://www.pexels.com/photo/addis-ababa-cityscape-featuring-iconic-buildings-36200693/",
+    "creator": "Gift Habeshaw"
+  },
+  {
+    "slug": "velafi-stablecoin-payments-case",
+    "replaced_image": "/design/assets/research/area-photography/digital-and-business-economics.webp",
+    "image": "/design/assets/publications/thematic/digital-payments.jpg",
+    "source": "https://www.pexels.com/photo/a-person-holding-a-payment-terminal-9304427/",
+    "creator": "Mikhail Nilov"
+  },
+  {
+    "slug": "communicating-code-ethics-cluster-rct",
+    "replaced_image": "/design/assets/publications/thematic/meeting.jpg",
+    "image": "/design/assets/publications/thematic/business-ethics.jpg",
+    "source": "https://www.pexels.com/photo/a-person-signing-a-contract-8815849/",
+    "creator": "Kampus Production"
+  },
+  {
+    "slug": "covid-school-closures-foundational-skills-country-responses",
+    "replaced_image": "/design/assets/publications/thematic/classroom.jpg",
+    "image": "/design/assets/publications/thematic/school-closures.jpg",
+    "source": "https://www.pexels.com/photo/classroom-chair-and-desk-289740/",
+    "creator": "Pixabay"
+  }
+]
