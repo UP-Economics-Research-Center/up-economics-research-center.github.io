@@ -108,7 +108,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
         if description:
             body += '<div class="paper-description">' + paragraphs(description, 'reference-description') + '</div>'
         body += '<div class="paper-details"><p class="pub-authors">' + authors + '</p><p class="pub-venue">' + e(pub['venue'] or t(pub['type'])) + ' · ' + str(pub['year']) + '</p><div class="reference-media-links">' + media + '</div>' + brief + '</div>'
-        papers += '<article class="publication paper-row' + (' has-image' if img else '') + (' reference-paper' if description else '') + '">' + preview + '<div class="paper-copy">' + body + '</div>' + a(href, t('Abstract and details →'), 'text-link') + '</article>'
+        papers += '<article class="publication paper-row' + (' has-image' if img else '') + (' reference-paper' if description else '') + '">' + preview + '<div class="paper-copy">' + body + a(href, t('Abstract and details →'), 'text-link') + '</div></article>'
     if not papers:
         papers = '<p class="note">' + t('No verified publications are linked to this area yet.') + '</p>'
     def block(key, heading, content, cls=''):

@@ -470,3 +470,5 @@ The user asks for consistency and distinct photographs selected by topic and tit
 
 ### Official book cover restored — 22 October 2026
 The user explicitly requests the existing official cover of Estrategia, microeconomía e IA instead of a thematic photograph. Restore the locally stored cover, clear the thematic-photo flag, and preserve full cover proportions. Editorial display authorized by this request; copyright remains with its owners and no open license is claimed. Local preview only.
+
+Release review: place Abstract and details inside the citation column so tall document pages and the official book cover cannot push it below the media.
