@@ -7,7 +7,7 @@
       "person_id": "sergio"
     }
   ],
-  "abstract": "This article investigates why non-military Montepíos, public pension institutions for civil servants in New Spain and early independent Mexico, declined after independence in 1821. It combines archival, demographic, historical, institutional, and actuarial evidence to assess explanations centered on the fiscal and political turmoil of the new state. The analysis instead emphasizes structural weaknesses in the funds’ design: they operated as defined-benefit, pay-as-you-go systems without mechanisms to balance contributions and payouts. Short contribution periods and long benefit-payment periods created chronic underfunding; gender and marriage patterns could further extend survivor benefits. The case shows how institutional design and demographic dynamics can undermine pension sustainability even beyond immediate political or fiscal shocks.",
+  "abstract": "Why did some of Mexico’s earliest public pension institutions fail? This article examines the decline of non-military Montepíos—pension-paying institutions for civil servants in New Spain and early independent Mexico—after 1821. Rather than viewing their collapse mainly as a consequence of the political and fiscal turmoil that followed independence, the article argues that weaknesses in the pension systems’ own design were central. These Montepíos operated largely on a pay-as-you-go basis, using current contributions to finance current benefits, but they lacked mechanisms to keep contributions and future obligations in balance. Drawing on archival records and demographic evidence, the article shows that contributors often paid into the system for relatively short periods while pensions, especially survivor pensions, could continue for many years. Gender and marriage patterns further extended these payment periods. The findings show that problems commonly associated with modern pension systems—underfunding, demographic pressure, and a mismatch between contributions and benefits—were already present in early welfare institutions in Spanish America.",
   "year": 2026,
   "type": "Journal article",
   "venue": "Journal of Management and Financial Sciences",
@@ -16,10 +16,10 @@
   "topics": [
     "political-economy"
   ],
-  "source_url": "https://sites.google.com/view/akitokamei/political-economy",
-  "verified_on": "2026-09-24",
+  "source_url": "https://econjournals.sgh.waw.pl/JMFS/article/view/5438",
+  "verified_on": "2026-10-21",
   "published": true,
-  "abstract_es": "Este artículo investiga por qué los Montepíos no militares, instituciones públicas de pensiones para funcionarios civiles en la Nueva España y el México independiente temprano, decayeron tras la independencia de 1821. Combina evidencia archivística, demográfica, histórica, institucional y actuarial para evaluar las explicaciones centradas en la inestabilidad fiscal y política del nuevo Estado. El análisis enfatiza, en cambio, debilidades estructurales en el diseño de los fondos: operaban como sistemas de reparto con beneficios definidos, sin mecanismos para equilibrar contribuciones y pagos. Los periodos cortos de contribución y prolongados de pago de beneficios generaban insuficiencia crónica de fondos; los patrones de género y matrimonio podían extender aún más las pensiones de supervivencia. El caso muestra cómo el diseño institucional y la dinámica demográfica pueden comprometer la sostenibilidad de las pensiones más allá de las crisis políticas o fiscales inmediatas.",
+  "abstract_es": "¿Por qué fracasaron algunas de las primeras instituciones públicas de pensiones de México? Este artículo examina el declive de los Montepíos no militares —instituciones que pagaban pensiones a los funcionarios civiles en la Nueva España y en los primeros años del México independiente— después de 1821. En lugar de interpretar su colapso principalmente como una consecuencia de la inestabilidad política y fiscal posterior a la independencia, el artículo sostiene que las debilidades en el propio diseño de los sistemas de pensiones fueron fundamentales. Estos Montepíos funcionaban en gran medida mediante un sistema de reparto, utilizando las contribuciones corrientes para financiar las prestaciones corrientes, pero carecían de mecanismos para mantener el equilibrio entre las contribuciones y las obligaciones futuras. A partir de registros de archivo y evidencia demográfica, el artículo muestra que los contribuyentes solían aportar al sistema durante periodos relativamente cortos, mientras que las pensiones, especialmente las de supervivencia, podían pagarse durante muchos años. Los patrones de género y matrimonio prolongaban aún más estos periodos de pago. Los hallazgos muestran que problemas comúnmente asociados con los sistemas modernos de pensiones —financiamiento insuficiente, presión demográfica y un desajuste entre contribuciones y prestaciones— ya estaban presentes en las primeras instituciones de protección social de Hispanoamérica.",
   "image": "/design/assets/publications/decline-non-military-montepios-early-mexico-first-page.png",
   "image_alt": "First page of the article in Journal of Management and Financial Sciences: The Decline of Non-Military Montepíos in Early Mexico: A Historical, Actuarial, and Financial Approach",
   "image_alt_es": "Primera página del artículo en Journal of Management and Financial Sciences: The Decline of Non-Military Montepíos in Early Mexico: A Historical, Actuarial, and Financial Approach",
@@ -31,5 +31,6 @@
   "image_rights_status": "licensed",
   "image_license": "CC BY 4.0",
   "image_license_url": "https://creativecommons.org/licenses/by/4.0/",
-  "image_rights_url": "https://econjournals.sgh.waw.pl/JMFS/article/view/5438"
+  "image_rights_url": "https://econjournals.sgh.waw.pl/JMFS/article/view/5438",
+  "title_language": "en"
 }
