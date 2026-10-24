@@ -7,7 +7,7 @@ import re
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree as ET
-from site_locales import spanish
+from site_locales import spanish, language_switch
 
 ROOT = Path(__file__).resolve().parents[1]
 e = html.escape
@@ -127,6 +127,52 @@ def clean_description(value):
     return value if len(value) <= 190 else value[:187].rsplit(' ', 1)[0] + '…'
 
 
+def build_not_found(site, base):
+    """GitHub Pages serves the root file at missing URLs, including nested ones."""
+    main = (ROOT / 'templates/not-found.html').read_text(encoding='utf-8')
+    for language, prefix in [('en', ''), ('es', '/es')]:
+        shell = (site / prefix.lstrip('/') / 'research.html').read_text(encoding='utf-8')
+        shell = shell.replace('<html ', '<html data-error-page="404" ', 1)
+        shell = re.sub(r'<main\b.*?</main>', lambda _: main, shell, flags=re.S)
+        title = 'Página no encontrada' if prefix else 'Page not found'
+        shell = re.sub(r'<title>.*?</title>', f'<title>404 · {title} | UP Economics Research Center</title>', shell)
+        shell = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="404 · {title}. Page not found / Página no encontrada.">', shell)
+        shell = re.sub(r'<div class="language-switch".*?</div>', lambda _: language_switch('/404.html', language), shell, flags=re.S)
+        shell = shell.replace('class="active" aria-current="page"', 'class=""')
+        # Absolute destinations and assets work from any missing nested URL.
+        shell = re.sub(r'(href|src)="(/[^"<>]*)"', lambda m: m[1] + '="' + base + m[2] + '"', shell)
+        (site / prefix.lstrip('/') / '404.html').write_text(shell, encoding='utf-8')
+
+
+def build_llms(site, base, routes):
+    """Index canonical public research pages; reuse visibility decisions from SEO."""
+    lines = ['# UP Economics Research Center', '',
+             '> Public economic research at Universidad Panamericana, in English and Spanish.', '',
+             'This optional index links to the public website. Publication titles retain their original language.',
+             'Editorial review notes on linked pages still apply. This file does not grant reuse rights.', '',
+             f'Sitemap: {base}/sitemap.xml', '']
+    for prefix, label in [('', 'English'), ('/es', 'Español')]:
+        localized = [route for route in sorted(set(routes)) if route.startswith('/es/') == bool(prefix)]
+        groups = [('Overview', lambda route: route in ('/', '/research.html', '/people.html', '/publications.html', '/seminars.html', '/news.html', '/media.html')),
+                  ('Research areas', lambda route: route.startswith('/research/')),
+                  ('Publications', lambda route: route.startswith('/publications/'))]
+        for group, include in groups:
+            selected = [route for route in localized if include(route.removeprefix(prefix) if prefix else route)]
+            if not selected:
+                continue
+            lines += [f'## {label} — {group}', '']
+            for route in selected:
+                path = site / route.lstrip('/')
+                if route.endswith('/'):
+                    path /= 'index.html'
+                markup = path.read_text(encoding='utf-8')
+                title = html.unescape(re.search(r'<title>(.*?)</title>', markup, re.S)[1]).split(' | ')[0]
+                title = re.sub(r'\s+', ' ', title).replace('[', r'\[').replace(']', r'\]')
+                lines.append(f'- [{title}]({base}{route})')
+            lines.append('')
+    (site / 'llms.txt').write_text('\n'.join(lines), encoding='utf-8')
+
+
 def apply_seo(site, data, settings, image_html, render_authors, recency_badge):
     config = json.loads((ROOT / 'content/settings/discovery.json').read_text())
     base = config['site_url'].rstrip('/')
@@ -142,6 +188,7 @@ def apply_seo(site, data, settings, image_html, render_authors, recency_badge):
     share = config['share_image']
     if not share.startswith('/design/assets/') or '..' in share or not (site / share.lstrip('/')).is_file():
         raise ValueError('Sharing image must be an existing local public asset.')
+    build_not_found(site, base)
     # Static area pages reuse the fully localized page shell and approved records.
     for language in ('en', 'es'):
         prefix = '/es' if language == 'es' else ''
@@ -180,12 +227,12 @@ def apply_seo(site, data, settings, image_html, render_authors, recency_badge):
         if public_english == '/homepage-concept.html':
             public_english = '/'
         canonical = base + prefix + public_english
-        excluded = '/design/' in route or public_english in ('/about.html', '/research-area.html')
+        excluded = '/design/' in route or public_english in ('/about.html', '/research-area.html', '/404.html')
         if not excluded:
             canonical_routes.append(route)
         markup = re.sub(r'<link\b(?=[^>]*rel="(?:canonical|alternate)")[^>]*>', '', markup)
         meta = f'<link rel="canonical" href="{canonical}">' + ''.join(f'<link rel="alternate" hreflang="{lang}" href="{base + pre + public_english}">' for lang,pre in [('en',''),('es','/es'),('x-default','')])
-        if public_english == '/research-area.html':
+        if public_english in ('/research-area.html', '/404.html'):
             meta = '<meta name="robots" content="noindex">'
         if public_english == '/':
             title = ('Investigación económica en México' if es else 'Economic research in Mexico') + ' | UP Economics Research Center'
@@ -262,3 +309,4 @@ def apply_seo(site, data, settings, image_html, render_authors, recency_badge):
             ET.SubElement(entry, '{' + xhtml + '}link', rel='alternate', hreflang=lang, href=base + pre + english)
     ET.ElementTree(root).write(site / 'sitemap.xml', encoding='utf-8', xml_declaration=True)
     (site / 'robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: ' + base + '/sitemap.xml\n')
+    build_llms(site, base, canonical_routes)

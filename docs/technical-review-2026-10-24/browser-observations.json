@@ -1,0 +1,273 @@
+[
+  {
+    "route": "/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 34,
+      "loadMs": 204,
+      "fcpMs": 216,
+      "externalJSBytes": 41495
+    }
+  },
+  {
+    "route": "/research.html",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 60,
+      "loadMs": 81,
+      "fcpMs": 68,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/research/development-economics/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 37,
+      "loadMs": 70,
+      "fcpMs": 48,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/seminars.html",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 45,
+      "loadMs": 48,
+      "fcpMs": 56,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/publications/communicating-code-ethics-cluster-rct/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 44,
+      "loadMs": 47,
+      "fcpMs": 48,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/es/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 43,
+      "loadMs": 58,
+      "fcpMs": 64,
+      "externalJSBytes": 41495
+    }
+  },
+  {
+    "route": "/es/research.html",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 32,
+      "loadMs": 62,
+      "fcpMs": 40,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/es/research/development-economics/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 43,
+      "loadMs": 78,
+      "fcpMs": 68,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/es/seminars.html",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 19,
+      "loadMs": 29,
+      "fcpMs": 52,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/es/publications/communicating-code-ethics-cluster-rct/",
+    "status": 200,
+    "errors": [],
+    "performance": {
+      "domMs": 39,
+      "loadMs": 41,
+      "fcpMs": 44,
+      "externalJSBytes": 40636
+    }
+  },
+  {
+    "route": "/missing-page",
+    "width": 1440,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/research/missing/deep/",
+    "width": 1440,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/es/404.html",
+    "width": 1440,
+    "status": 200,
+    "errors": [],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "es",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/missing-page",
+    "width": 390,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/research/missing/deep/",
+    "width": 390,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0,
+    "menuClosesWithEscape": true
+  },
+  {
+    "route": "/es/404.html",
+    "width": 390,
+    "status": 200,
+    "errors": [],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "es",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/missing-page",
+    "width": 320,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/research/missing/deep/",
+    "width": 320,
+    "status": 404,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "en",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "route": "/es/404.html",
+    "width": 320,
+    "status": 200,
+    "errors": [],
+    "firstFocus": "skip-link",
+    "skipFocus": "main-content",
+    "lang": "es",
+    "h1": 1,
+    "overflow": false,
+    "english": "Page not found.",
+    "spanish": "Página no encontrada.",
+    "robot": "noindex",
+    "brokenImages": 0
+  },
+  {
+    "languageSwitch": "ES from missing nested URL",
+    "url": "https://up-economics-research-center.github.io/es/404.html?lang=es",
+    "lang": "es"
+  },
+  {
+    "languageSwitch": "EN",
+    "url": "https://up-economics-research-center.github.io/404.html?lang=en",
+    "lang": "en"
+  },
+  {
+    "rememberedSpanish": "http://127.0.0.1:8794/es/404.html"
+  }
+]

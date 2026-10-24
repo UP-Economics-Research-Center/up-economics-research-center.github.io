@@ -19,6 +19,14 @@ python3 -m http.server --directory _site 8000
 
 Then open <http://localhost:8000/>. Do not edit generated `_site/` files; change the HTML/CSS or the records they are generated from.
 
+### Missing pages and the public research index
+
+The build creates `/404.html` and `/es/404.html` using the existing navigation, shared styles and editorial footer. Both show an English/Spanish recovery message and links to Home, Research and Publications. GitHub Pages uses the root `404.html` for missing addresses, including nested ones. These pages carry `noindex` and stay out of the sitemap. Edit the message in `templates/not-found.html`; no CMS setup is needed. Language selection from a missing address opens the corresponding fixed 404 page. Each English/Spanish recovery link explicitly selects and remembers its displayed language, even if the visitor previously saved the other language.
+
+The optional `/llms.txt` groups absolute English and Spanish links to public sections, research areas and publications. It updates automatically from the same generated public routes as the sitemap; unpublished or hidden records, old routes, administration and pending legal documents are omitted. It does not change crawler permissions, grant content reuse rights or guarantee inclusion in AI answers. Continue to use `robots.txt` and the sitemap normally.
+
+Python's basic local HTTP server above displays its own error response at missing URLs; it does not emulate GitHub Pages' custom 404 handling. You can inspect `/404.html` and `/es/404.html` directly. Confirm the missing-address HTTP status on GitHub Pages after an authorized deployment. Local verification and remaining hosting limits are recorded in [the technical review](docs/technical-review-2026-10-24/notes.md).
+
 ## Using Decap CMS
 
 The CMS is at <https://up-economics-research-center.github.io/admin/>. GitHub sign-in was verified in the published editor on 2026-10-15. Only GitHub accounts invited to this repository with write access can edit. The invite must be accepted first; sign-in alone does not grant access.

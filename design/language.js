@@ -10,7 +10,9 @@
     preferred = explicit || localStorage.getItem('up-language');
   } catch { preferred = explicit; }
   if ((preferred === 'en' || preferred === 'es') && preferred !== language) {
-    url.pathname = preferred === 'es' ? '/es' + url.pathname : url.pathname.replace(/^\/es(?=\/)/, '');
+    url.pathname = document.documentElement.dataset.errorPage === '404'
+      ? (preferred === 'es' ? '/es/404.html' : '/404.html')
+      : (preferred === 'es' ? '/es' + url.pathname : url.pathname.replace(/^\/es(?=\/)/, ''));
     location.replace(url.href);
   }
   window.SiteLanguage = {

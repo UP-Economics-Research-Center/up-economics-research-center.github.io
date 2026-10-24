@@ -1,0 +1,50 @@
+[
+  {
+    "selectedLanguage": "en",
+    "link": 0,
+    "url": "https://up-economics-research-center.github.io/?lang=en",
+    "documentLanguage": "en",
+    "savedLanguage": "en"
+  },
+  {
+    "selectedLanguage": "en",
+    "link": 1,
+    "url": "https://up-economics-research-center.github.io/research.html?lang=en",
+    "documentLanguage": "en",
+    "savedLanguage": "en"
+  },
+  {
+    "selectedLanguage": "en",
+    "link": 2,
+    "url": "https://up-economics-research-center.github.io/publications.html?lang=en",
+    "documentLanguage": "en",
+    "savedLanguage": "en"
+  },
+  {
+    "selectedLanguage": "es",
+    "link": 0,
+    "url": "https://up-economics-research-center.github.io/es/?lang=es",
+    "documentLanguage": "es",
+    "savedLanguage": "es"
+  },
+  {
+    "selectedLanguage": "es",
+    "link": 1,
+    "url": "https://up-economics-research-center.github.io/es/research.html?lang=es",
+    "documentLanguage": "es",
+    "savedLanguage": "es"
+  },
+  {
+    "selectedLanguage": "es",
+    "link": 2,
+    "url": "https://up-economics-research-center.github.io/es/publications.html?lang=es",
+    "documentLanguage": "es",
+    "savedLanguage": "es"
+  },
+  {
+    "javaScript": false,
+    "status": 404,
+    "recoveryLinks": 6,
+    "message": "404\n\nPage not found. The address may have changed, or the page may no longer be available.\n\nContinue to Home, Research or Publications.\n\nPágina no encontrada. Es posible que la dirección haya cambiado o que la página ya no esté disponible.\n\nContinúa a Inicio, Investigación o Publicaciones."
+  }
+]
