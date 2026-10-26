@@ -87,6 +87,11 @@ collections:
       widget: string
       required: false
       hint: Translate the complete English text faithfully before publishing.
+    - label: Faculty portal login URL
+      name: faculty_portal_url
+      widget: string
+      required: false
+      hint: Shown as a discreet footer link. Google controls access; leave empty to hide.
     - label: Footer note
       name: footer_note
       widget: string
@@ -331,6 +336,7 @@ collections:
     options:
     - Lead researcher
     - Research professional
+    - Research affiliate
     - Other
   - label: Biography
     name: bio

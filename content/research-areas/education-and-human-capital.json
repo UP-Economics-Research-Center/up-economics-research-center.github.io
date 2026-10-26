@@ -89,11 +89,11 @@
       "publication": "importance-quality-scaling-early-childhood-nicaragua",
       "description": "Can large-scale parenting programs improve children’s development when implemented by governments at scale? This study evaluates a nationwide Home Visit Program in Nicaragua and finds that regular home visits improved early childhood development, increased preschool completion, and strengthened parenting practices related to cognitive stimulation. Children assigned to the program experienced gains of 0.11 standard deviations in development outcomes, with even larger effects among households that actively participated.\n\nBeyond measuring impacts, the study highlights the critical role of implementation quality. By experimentally comparing centralized monitoring with structured community-led monitoring, the research shows that community involvement significantly improved the quality of home visits and, in turn, child development outcomes. The findings provide important evidence that well-designed monitoring systems can help maintain quality when scaling up early childhood programs.",
       "description_es": "¿Pueden los programas de crianza a gran escala mejorar el desarrollo infantil cuando los gobiernos los implementan a escala? Este estudio evalúa un Programa de Visitas Domiciliarias de alcance nacional en Nicaragua y encuentra que las visitas regulares mejoraron el desarrollo en la primera infancia, aumentaron la conclusión del preescolar y fortalecieron las prácticas de crianza relacionadas con la estimulación cognitiva. Los niños asignados al programa experimentaron mejoras de 0.11 desviaciones estándar en los resultados de desarrollo, con efectos aún mayores entre los hogares que participaron activamente.\n\nAdemás de medir los impactos, el estudio destaca el papel decisivo de la calidad de la implementación. Al comparar experimentalmente el monitoreo centralizado con un monitoreo comunitario estructurado, la investigación muestra que la participación comunitaria mejoró significativamente la calidad de las visitas domiciliarias y, a su vez, los resultados del desarrollo infantil. Los hallazgos aportan evidencia importante de que los sistemas de monitoreo bien diseñados pueden ayudar a mantener la calidad al ampliar los programas de desarrollo en la primera infancia.",
-      "image": "/design/assets/research/human-capital-original/early-childhood-publication.png",
-      "image_alt": "Screenshot of the journal article on the original Human Capital page.",
-      "image_alt_es": "Captura del artículo de revista en la página original de Capital Humano.",
-      "image_credit": "UP Economics Research Center · Original Human Capital page",
-      "image_source_url": "https://sites.google.com/view/akitokamei/up-economics-research/education-and-human-capital",
+      "image": "/design/assets/publications/early-childhood-nicaragua.jpg",
+      "image_alt": "A child learning with adults during a home visit in Nicaragua.",
+      "image_alt_es": "Una niña aprende con adultos durante una visita domiciliaria en Nicaragua.",
+      "image_credit": "Research team in Nicaragua · Photo provided to BOLD",
+      "image_source_url": "https://boldscience.org/what-factors-contribute-to-high-quality-early-childhood-services/",
       "media_links": [
         {
           "label": "Podcast",
@@ -106,7 +106,13 @@
           "url": "https://boldscience.org/what-factors-contribute-to-high-quality-early-childhood-services/"
         }
       ],
-      "image_credit_es": "UP Economics Research Center · Página original de Capital Humano"
+      "image_credit_es": "Equipo de investigación en Nicaragua · Fotografía proporcionada a BOLD",
+      "image_is_thematic": false,
+      "image_license": "Reproduction permission confirmed by the user, 23 October 2026",
+      "image_license_es": "Permiso de reproducción confirmado por el usuario, 23 de octubre de 2026",
+      "image_license_url": "",
+      "image_rights_status": "permission-confirmed",
+      "image_rights_url": "https://boldscience.org/what-factors-contribute-to-high-quality-early-childhood-services/"
     },
     {
       "publication": "covid-school-closures-foundational-skills-country-responses",

@@ -472,3 +472,14 @@ The user asks for consistency and distinct photographs selected by topic and tit
 The user explicitly requests the existing official cover of Estrategia, microeconomía e IA instead of a thematic photograph. Restore the locally stored cover, clear the thematic-photo flag, and preserve full cover proportions. Editorial display authorized by this request; copyright remains with its owners and no open license is claimed. Local preview only.
 
 Release review: place Abstract and details inside the citation column so tall document pages and the official book cover cannot push it below the media.
+
+### Pending 4 — local changes, 23 October 2026
+
+Authorized locally: Joy Dada under Research affiliates, with source portrait and personal site; glasses study first in Health, with source description and master’s student invitation; licensed illustrative water photograph for DDML (the current source image is a blue placeholder); Nicaragua study photograph from BOLD with user-confirmed copyright clearance; farm-succession article assigned only to Agriculture; discreet faculty-portal login in footer. Removed the home video notice “Playing the video connects to YouTube. About external services” as requested; preserved video interaction and legal pages. EN/ES updated. Existing review notes and prior assets retained. No remote publication.
+
+
+### Pending 4 production release — 26 October 2026
+
+The user explicitly authorizes pushing the prepared changes to production. Applied the seven Pending 4 changes to the current production baseline, preserving the bilingual 404 and public research index from PR #34. Corrected publication image credits so the Nicaragua study photograph is not described as an article first page.
+
+Journal covers remain pending: permission has not been confirmed and is not known to have been refused. Retain licensed photographs and accurate journal/publisher links while obtaining cover-specific permission. Local candidate inventory, editorial steps and an unsent request draft are in `docs/journal-cover-review-2026-10-26.md`. No journal covers or fabricated publisher artwork added.
