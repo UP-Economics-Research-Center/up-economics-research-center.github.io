@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Generate original citation cards from CMS records; Pillow is authoring-only.
+"""Generate original citation cards where approved article previews are absent.
+
+Pillow is authoring-only.
 
 No publisher cover, logo, article screenshot, or generated factual text is used.
 The static website build consumes the saved PNGs and does not import Pillow.
@@ -166,6 +168,9 @@ def main():
     for path in sorted((ROOT / "content/publications").glob("*.json")):
         pub = json.loads(path.read_text())
         if not pub.get("published") or pub["type"] != "Journal article":
+            continue
+        # Keep the approved CC-licensed first pages chosen by the editor.
+        if pub.get("image_rights_status") == "licensed" and pub.get("image", "").endswith("-first-page.png"):
             continue
         card, layout = create_card(pub)
         previous = manifest["publications"].get(pub["slug"], {}).get("previous_image", {k: v for k, v in pub.items() if k.startswith("image")})

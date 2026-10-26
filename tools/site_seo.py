@@ -94,10 +94,14 @@ def area_main(area, people, publications, language, image_html, render_authors, 
     for pub in related:
         feature = next((item for item in area.get('publication_features', []) if item['publication'] == pub['slug']), {}) if reference else {}
         description = feature.get('description') or pub['abstract'] if reference else ''
-        href = prefix + '/publications/' + pub['slug'] + '/'
-        title = f'<a href="{href}" lang="{pub["title_language"]}" translate="no">{e(pub["title"])}</a>'
+        href = pub.get('canonical_url') or pub.get('pdf_url') or pub.get('pdf') or ''
+        title = (f'<a href="{e(href, quote=True)}" lang="{pub["title_language"]}" translate="no">{e(pub["title"])}</a>'
+                 if href else f'<span lang="{pub["title_language"]}" translate="no">{e(pub["title"])}</span>')
         img = photo({**pub, 'image_alt': ''}, 'paper-photo')
-        preview = f'<a class="paper-image" href="{href}" aria-label="{e(pub["title"])}" lang="{pub["title_language"]}" translate="no">{img}</a>' if img else ''
+        preview = ''
+        if img:
+            preview = (f'<a class="paper-image" href="{e(href, quote=True)}" aria-label="{e(pub["title"])}" lang="{pub["title_language"]}" translate="no">{img}</a>'
+                       if href else '<div class="paper-image">' + img + '</div>')
         authors = render_authors(pub).replace('href="/people.html', f'href="{prefix}/people.html')
         if prefix:
             for en in ('UP researchers:', 'UP researcher:', 'with'):
@@ -108,7 +112,8 @@ def area_main(area, people, publications, language, image_html, render_authors, 
         if description:
             body += '<div class="paper-description">' + paragraphs(description, 'reference-description') + '</div>'
         body += '<div class="paper-details"><p class="pub-authors">' + authors + '</p><p class="pub-venue">' + e(pub['venue'] or t(pub['type'])) + ' · ' + str(pub['year']) + '</p><div class="reference-media-links">' + media + '</div>' + brief + '</div>'
-        papers += '<article class="publication paper-row' + (' has-image' if img else '') + (' reference-paper' if description else '') + '">' + preview + '<div class="paper-copy">' + body + a(href, t('Abstract and details →'), 'text-link') + '</div></article>'
+        action = a(href, t('Read paper ↗' if pub['type'] == 'Journal article' else 'View publication ↗'), 'text-link') if href else ''
+        papers += '<article class="publication paper-row' + (' has-image' if img else '') + (' reference-paper' if description else '') + '">' + preview + '<div class="paper-copy">' + body + action + '</div></article>'
     if not papers:
         papers = '<p class="note">' + t('No verified publications are linked to this area yet.') + '</p>'
     def block(key, heading, content, cls=''):
