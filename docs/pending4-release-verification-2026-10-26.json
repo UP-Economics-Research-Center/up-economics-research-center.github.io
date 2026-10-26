@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26",
+  "baseline": "982125d9b270daef4112959940cd09bfc3884048",
+  "build": "python3 tools/build_site.py: exit 0; 54 search records, 21 publications, 15 people",
+  "generated_output_inspection": [
+    "Seven Pending 4 changes present in English and Spanish",
+    "Glasses project precedes DDML",
+    "Master’s student invitation and Akito contact present",
+    "Farm succession present only in Agriculture",
+    "All rendered local image paths exist",
+    "Existing bilingual 404 output retained"
+  ],
+  "syntax": "Content JSON and modified Python AST parse; git diff --check clean",
+  "tests": "Not run, per AGENTS.md",
+  "browser": "Local Chrome preview denied by browser permission gate; no visual verification claimed",
+  "journal_covers": "No third-party covers introduced; 12 journal candidates documented; permission unconfirmed, not refused"
+}

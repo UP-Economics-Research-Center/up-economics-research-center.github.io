@@ -376,7 +376,8 @@ def render_people(people: list[dict], areas: dict[str, dict], publications: list
     publication_authors = {author["person_id"] for pub in publications for author in pub["authors"] if isinstance(author, dict) and author.get("person_id")}
     groups = [("lead-researchers", "Lead researchers", [p for p in people if p["role"] == "Lead researcher"]),
               ("research-professionals", "Research professionals", [p for p in people if p["role"] == "Research professional"]),
-              ("other-researchers", "Researchers", [p for p in people if p["role"] not in {"Lead researcher", "Research professional"}])]
+              ("research-affiliates", "Research affiliates", [p for p in people if p["role"] == "Research affiliate"]),
+              ("other-researchers", "Researchers", [p for p in people if p["role"] not in {"Lead researcher", "Research professional", "Research affiliate"}])]
     return "".join(f'<div class="people-group" id="{slug}"><h2>{title}</h2><div class="people-list">' + "".join(render_person(person, areas, publication_authors) for person in members) + '</div></div>' for slug, title, members in groups if members)
 
 
@@ -538,6 +539,7 @@ def build() -> None:
         fail(CONTENT / "settings/about.json", "published", "must be true or false")
     for key in ("center_name", "university", "campus_video_caption"):
         require_text(CONTENT / "settings/site.json", site_settings, key)
+    site_settings["faculty_portal_url"] = validate_url(CONTENT / "settings/site.json", "faculty_portal_url", site_settings.get("faculty_portal_url", ""), optional=True)
     video_id = require_text(CONTENT / "settings/site.json", site_settings, "campus_video_id")
     if not YOUTUBE_ID_RE.fullmatch(video_id):
         fail(CONTENT / "settings/site.json", "campus_video_id", "must be a valid 11-character YouTube ID")

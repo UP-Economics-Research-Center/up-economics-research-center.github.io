@@ -4,7 +4,8 @@
   "summary": "Health is a fundamental component of human well-being and economic development, yet millions of people around the world continue to face preventable health risks linked to poverty, inadequate infrastructure, and limited access to essential services. Unsafe water, inadequate sanitation, poor hygiene, and malnutrition remain major contributors to disease, mortality, and long-term deficits in human capital, particularly in low- and middle-income countries, while obesity and diet-related chronic diseases have become growing public health challenges in advanced economies.",
   "people": [
     "akito",
-    "andrea"
+    "andrea",
+    "joy-dada"
   ],
   "canonical_url": "",
   "source_url": "https://sites.google.com/view/akitokamei/up-economics-research/water-and-sanitation",
@@ -13,13 +14,47 @@
   "overview": "This research agenda in health economics examines how environmental conditions, household behavior, and public health interventions influence health outcomes and economic well-being. Current research is organized around two main strands: Water and Sanitation, which focuses on water treatment interventions and household responses to water quality risks, and Nutritional Health, which examines nutrition, food environments, and their implications for health, productivity, and human development.",
   "projects": [
     {
+      "title": "Glasses use among public primary school children in Mexico",
+      "title_es": "Uso de anteojos entre niños de escuelas primarias públicas en México",
+      "summary": "Many children have difficulty seeing clearly because they need prescription glasses. Yet we know relatively little about which children get glasses and continue wearing them, especially in low- and middle-income countries. This study examines glasses use among children who need them in Mexico’s public primary schools.",
+      "summary_es": "Muchos niños tienen dificultades para ver con claridad porque necesitan anteojos graduados. Sin embargo, sabemos relativamente poco sobre qué niños reciben anteojos y continúan usándolos, especialmente en países de ingresos bajos y medios. Este estudio examina el uso de anteojos entre los niños que los necesitan en las escuelas primarias públicas de México.",
+      "researcher_note": "UP Researchers: Akito Kamei, Joy Dada\nwith Pablo Peña (University of Chicago)\n\nMaster’s students interested in working on the glasses project are invited to contact Akito Kamei at akamei@up.edu.mx.",
+      "researcher_note_es": "Investigadores UP: Akito Kamei, Joy Dada\ncon Pablo Peña (Universidad de Chicago)\n\nSe invita a estudiantes de maestría interesados en colaborar en el proyecto de anteojos a contactar a Akito Kamei en akamei@up.edu.mx.",
+      "researchers": [
+        "akito",
+        "joy-dada"
+      ],
+      "image": "/design/assets/publications/thematic/eyeglasses.jpg",
+      "image_is_thematic": true,
+      "image_alt": "Illustrative photograph: Eyeglasses and documents on a desk.",
+      "image_alt_es": "Fotografía ilustrativa: Anteojos y documentos sobre un escritorio.",
+      "image_credit": "Leeloo The First",
+      "image_credit_es": "Leeloo The First",
+      "image_source_url": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/",
+      "image_license": "Pexels License",
+      "image_license_url": "https://www.pexels.com/license/",
+      "image_rights_status": "licensed",
+      "image_rights_url": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/"
+    },
+    {
       "title": "Water Treatment, E. coli in Drinking Water, and Diarrhea: Causal Inference Using Double/Debiased Machine Learning",
       "summary": "Household decisions to treat drinking water are influenced by a wide range of socioeconomic and environmental factors, making causal inference difficult in observational settings. This study applies Double/Debiased Machine Learning (DDML) to estimate the causal effects of household water treatment on E. coli contamination and child diarrhea across 25 countries in Sub-Saharan Africa, Latin America, and Asia.",
       "researcher_note": "UP Researchers: Juan Alvaro Diaz Raimond Kedilhac, Akito Kamei",
       "researchers": [],
       "title_es": "Tratamiento del agua, E. coli en agua potable y diarrea: inferencia causal mediante aprendizaje automático doble/desesgado",
       "summary_es": "Las decisiones de los hogares de tratar el agua potable están influidas por una amplia variedad de factores socioeconómicos y ambientales, lo que dificulta la inferencia causal en contextos observacionales. Este estudio aplica aprendizaje automático doble/desesgado (DDML) para estimar los efectos causales del tratamiento doméstico del agua sobre la contaminación por E. coli y la diarrea infantil en 25 países de África subsahariana, América Latina y Asia.",
-      "researcher_note_es": "Investigadores UP: Juan Alvaro Diaz Raimond Kedilhac, Akito Kamei"
+      "researcher_note_es": "Investigadores UP: Juan Alvaro Diaz Raimond Kedilhac, Akito Kamei",
+      "image": "/design/assets/publications/thematic/water-collection.jpg",
+      "image_is_thematic": true,
+      "image_alt": "Illustrative photograph: Overhead view of people collecting river water with containers.",
+      "image_alt_es": "Fotografía ilustrativa: Vista desde arriba de personas recogiendo agua de un río con recipientes.",
+      "image_credit": "Najim Kurfi",
+      "image_credit_es": "Najim Kurfi",
+      "image_source_url": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/",
+      "image_license": "Pexels License",
+      "image_license_url": "https://www.pexels.com/license/",
+      "image_rights_status": "licensed",
+      "image_rights_url": "https://www.pexels.com/photo/aerial-view-of-people-collecting-water-in-river-35691537/"
     },
     {
       "title": "Spatial Inequality in Access to Kidney Transplantation in Mexico",

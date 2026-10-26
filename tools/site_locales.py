@@ -236,7 +236,7 @@ def generate_languages(site: Path, data, settings, about):
         }
     publications = {row['slug']: row for row in data['publications']}
     for pub in data['publications']:
-        kind = 'Illustrative topic photograph' if pub.get('image_is_thematic') else 'Book cover' if pub['type'] == 'Book' else 'Article first page' if '/assets/publications/' in pub.get('image', '') else 'Journal-page capture'
+        kind = 'Illustrative topic photograph' if pub.get('image_is_thematic') else 'Book cover' if pub['type'] == 'Book' else 'Article first page' if pub.get('image', '').endswith('-first-page.png') else 'Publication image'
         credit(pub, pub['title'], kind, 'Illustrative photograph, not study participants or location. Cropped to a consistent 3:2 landscape frame; no color filters.' if pub.get('image_is_thematic') else 'Displayed complete, without cropping or color filters.')
     for area in data['research_areas']:
         credit(area, area['name'], 'Research area image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])
@@ -294,6 +294,8 @@ def generate_languages(site: Path, data, settings, about):
         english_url = '/' if rel == 'index.html' else '/' + rel.removesuffix('index.html') if rel.startswith('publications/') else '/' + rel
         source = path.read_text().replace('<b>At the Center</b>', '<b>At the Center</b><a href="/media.html">Media</a>').replace('</footer>', '<nav class="wrap legal-footer" aria-label="Legal information"><a href="/privacy.html">Privacy notice</a><a href="/terms.html">Terms of use</a><a href="/cookies.html">Storage and external services</a><a href="/rights.html">Copyright and attribution</a><a href="/photo-credits.html">Image credits</a></nav></footer>')
         footer = ('<div class="footer-bottom"><span>' + html.escape(settings['university']) + ' · ' + html.escape(settings['center_name']) + '</span><span>' + html.escape(settings.get('footer_note', '')) + '</span></div>')
+        if settings.get('faculty_portal_url'):
+            footer = footer.removesuffix('</div>') + '<a href="' + html.escape(settings['faculty_portal_url'], quote=True) + '" target="_blank" rel="noopener noreferrer">UP ERC Faculty Portal (Log in)</a></div>'
         source = re.sub(r'<div class="footer-bottom">.*?</div>', lambda match: footer, source, flags=re.S)
         source = re.sub(r'<a class="nav-cta"[^>]*>Contact</a>', '', source)
         source = re.sub(r'(src|href)="(?:/|design/)?(assets/[^"]+)"', r'\1="/design/\2"', source)

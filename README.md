@@ -166,3 +166,9 @@ Visitors can reject analytics or revisit **Privacy preferences / Preferencias de
 Local review (22 October): run `python3 tools/build_site.py`, then `python3 -m http.server 8790 --bind 127.0.0.1 --directory _site`. Open http://localhost:8790/. Research publication previews now use 300px width: documents keep their complete proportions and thematic photographs use a 3:2 landscape frame. Research gallery images on phones use a shorter 3:2 frame, capped at 240px tall.
 
 Thematic publication photographs use one consistent 3:2 landscape frame and natural colours in Research and the archive. Choose a distinct image that matches the title and abstract; preserve authentic approved document previews. The selection rationale for each of the 15 photographs is recorded in `docs/publication-image-curation-2026-10-22.json`. These photographs are illustrative and do not identify study participants or sites. Credits remain linked from the footer.
+
+### Research affiliates and faculty login
+
+In People, select **Research affiliate** to place a verified profile under Research affiliates. Edit the glasses project and its student invitation in Research areas → Health Economics → Ongoing research. The optional **Faculty portal login URL** in Site settings adds a discreet footer link; Google still controls who can sign in. Changes go live after the approved release is merged and GitHub Pages finishes deploying.
+
+Journal covers may replace illustrative photographs only when permission or an applicable reuse license is recorded for that cover. An article’s open-access license does not by itself establish the rights for the issue cover. Keep the licensed photograph and publisher link until then. The [cover review and request template](docs/journal-cover-review-2026-10-26.md) lists the remaining candidates.

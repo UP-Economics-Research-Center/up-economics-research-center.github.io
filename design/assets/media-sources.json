@@ -664,5 +664,28 @@
       "process": "PDF first page rendered unchanged with pdftoppm at 1000px; displayed whole with CSS contain.",
       "retrieved": "2026-10-18"
     }
-  ]
+  ],
+  "pending4_2026_10_23": {
+    "joy_portrait": {
+      "asset": "design/assets/people/joy-dada.jpg",
+      "sourcePage": "https://sites.google.com/view/akitokamei/up-economics-research",
+      "originalImage": "https://sites.google.com/sitesv-images-rt/AMxu72uFm95uIb-SbwW565csljD1iRZZ5XNrUnM7ccrvCI0DtXQdhuD4sd05sQZ_T0PMbju-EAdpuIbNdIJ8o8LKEkFcBi6l847Bb5vTrOp25q-f_vNkS3vdaWyfTKM22ua_Ig9Kcg4Eq72eNWQNuMVHdtF_lrVNDyb1Sz604JOViGMZVMolq8vsaakE_zTD=w1280"
+    },
+    "education_photo": {
+      "image": "/design/assets/publications/early-childhood-nicaragua.jpg",
+      "image_is_thematic": false,
+      "image_alt": "A child learning with adults during a home visit in Nicaragua.",
+      "image_alt_es": "Una niña aprende con adultos durante una visita domiciliaria en Nicaragua.",
+      "image_credit": "Research team in Nicaragua · Photo provided to BOLD",
+      "image_credit_es": "Equipo de investigación en Nicaragua · Fotografía proporcionada a BOLD",
+      "image_source_url": "https://boldscience.org/what-factors-contribute-to-high-quality-early-childhood-services/",
+      "image_license": "Reproduction permission confirmed by the user, 23 October 2026",
+      "image_license_es": "Permiso de reproducción confirmado por el usuario, 23 de octubre de 2026",
+      "image_license_url": "",
+      "image_rights_status": "permission-confirmed",
+      "image_rights_url": "https://boldscience.org/what-factors-contribute-to-high-quality-early-childhood-services/",
+      "permission_note": "User explicitly confirmed copyright clearance on 2026-10-23. Not claimed to be openly licensed."
+    },
+    "project_images": "Reused existing licensed Pexels eyeglasses and water-collection photographs; illustrative, not field photographs. Blank blue DDML source image not used."
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "Joy Dada",
+  "display_name": "Joy Dada",
+  "slug": "joy-dada",
+  "role": "Research affiliate",
+  "bio": "PhD student in Health Economics and Policy in the Department of Health Policy and Management at the Johns Hopkins Bloomberg School of Public Health. Her project with the Center examines glasses use among public primary school children in Mexico.",
+  "bio_es": "Estudiante de doctorado en Economía y Política de la Salud en el Departamento de Política y Gestión de la Salud de la Escuela de Salud Pública Bloomberg de la Universidad Johns Hopkins. Su proyecto con el Centro estudia el uso de anteojos entre niños de escuelas primarias públicas en México.",
+  "portrait": "/design/assets/people/joy-dada.jpg",
+  "portrait_alt": "Portrait of Joy Dada.",
+  "portrait_alt_es": "Retrato de Joy Dada.",
+  "research_areas": [
+    "health-water-sanitation"
+  ],
+  "personal_website": "https://jdada360.github.io/",
+  "canonical_url": "",
+  "source_url": "https://sites.google.com/view/akitokamei/up-economics-research",
+  "verified_on": "2026-10-23",
+  "published": true,
+  "display_order": 150
+}
