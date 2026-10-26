@@ -18,8 +18,8 @@
       "title_es": "Uso de anteojos entre niños de escuelas primarias públicas en México",
       "summary": "Many children have difficulty seeing clearly because they need prescription glasses. Yet we know relatively little about which children get glasses and continue wearing them, especially in low- and middle-income countries. This study examines glasses use among children who need them in Mexico’s public primary schools.",
       "summary_es": "Muchos niños tienen dificultades para ver con claridad porque necesitan anteojos graduados. Sin embargo, sabemos relativamente poco sobre qué niños reciben anteojos y continúan usándolos, especialmente en países de ingresos bajos y medios. Este estudio examina el uso de anteojos entre los niños que los necesitan en las escuelas primarias públicas de México.",
-      "researcher_note": "UP Researchers: Akito Kamei, Joy Dada\nwith Pablo Peña (University of Chicago)\n\nMaster’s students interested in working on the glasses project are invited to contact Akito Kamei at akamei@up.edu.mx.",
-      "researcher_note_es": "Investigadores UP: Akito Kamei, Joy Dada\ncon Pablo Peña (Universidad de Chicago)\n\nSe invita a estudiantes de maestría interesados en colaborar en el proyecto de anteojos a contactar a Akito Kamei en akamei@up.edu.mx.",
+      "researcher_note": "UP Researchers: Akito Kamei, Joy Dada\nwith Pablo Peña (University of Chicago)",
+      "researcher_note_es": "Investigadores UP: Akito Kamei, Joy Dada\ncon Pablo Peña (Universidad de Chicago)",
       "researchers": [
         "akito",
         "joy-dada"
@@ -97,29 +97,56 @@
   "image_credit": "Tima Miroshnichenko · Pexels · Pexels License",
   "image_source_url": "https://www.pexels.com/photo/stethoscope-and-notebook-on-desk-5407238/",
   "layout": "original-reference",
-  "reference_team": [],
+  "reference_team": [
+    {
+      "person_id": "akito"
+    },
+    {
+      "person_id": "juan-alvaro"
+    },
+    {
+      "person_id": "andrea"
+    },
+    {
+      "person_id": "isabel"
+    }
+  ],
   "publication_features": [
     {
       "publication": "inline-chlorination-drinking-water-odisha-india",
       "description": "This randomized implementation trial tests in-line chlorination in piped drinking-water systems across 20 rural villages in Odisha, India, over one year. The study assesses whether chlorine-tablet systems can be installed and operated, whether households continue to use treated piped water, and whether treatment reduces fecal contamination, including antibiotic-resistant bacteria. Chlorine was detected in about half of tap-water samples during the study and more often after the target dose was raised. The intervention reduced E. coli in household tap and stored water and reduced the time people spent treating water manually, a task usually performed by women. Despite some complaints about taste and odor, households continued to rely on piped water. The results show that water-quality gains are possible, while consistent dosing, monitoring, and attention to user preferences remain important implementation needs.",
       "description_es": "Este ensayo aleatorizado de implementación evalúa la cloración en línea de sistemas de agua potable entubada en 20 aldeas rurales de Odisha, India, durante un año. Analiza si los sistemas de tabletas de cloro pueden instalarse y operarse, si los hogares siguen utilizando el agua entubada tratada y si el tratamiento reduce la contaminación fecal, incluidas bacterias resistentes a antibióticos. Se detectó cloro en aproximadamente la mitad de las muestras de agua del grifo, con mayor frecuencia tras elevar la dosis objetivo. La intervención redujo E. coli en el agua del grifo y almacenada en los hogares, y disminuyó el tiempo dedicado al tratamiento manual del agua, tarea generalmente realizada por mujeres. Pese a algunas quejas sobre sabor y olor, los hogares siguieron recurriendo al agua entubada. Los resultados muestran que es posible mejorar la calidad del agua, aunque la dosificación constante, la supervisión y la atención a las preferencias de los usuarios siguen siendo necesidades importantes de implementación.",
-      "image": "/design/assets/publications/inline-chlorination-drinking-water-odisha-india-first-page.png",
-      "image_alt": "First page of the article in PLOS Water: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial",
-      "image_alt_es": "Primera página del artículo en PLOS Water: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial",
-      "image_credit": "PLOS Water · Article authors · First page",
-      "image_source_url": "https://journals.plos.org/water/article/file?id=10.1371/journal.pwat.0000440&type=printable",
-      "image_credit_es": "PLOS Water · Autores del artículo · Primera página"
+      "image": "/design/assets/publications/bibliographic-cards/inline-chlorination-drinking-water-odisha-india.png",
+      "image_alt": "Center-created bibliographic card: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial. PLOS Water, 2026.",
+      "image_alt_es": "Ficha bibliográfica creada por el Centro: In-line chlorination for drinking water in rural Odisha, India: A randomized controlled implementation trial. PLOS Water, 2026.",
+      "image_credit": "UP Economics Research Center · Original bibliographic design; not publisher artwork",
+      "image_source_url": "https://doi.org/10.1371/journal.pwat.0000440",
+      "image_credit_es": "Centro de Investigación Económica UP · Diseño bibliográfico propio; no es una portada editorial",
+      "image_is_thematic": false,
+      "image_is_bibliographic": true,
+      "image_license": "Original Center-created bibliographic card, requested by the user; journal cover rights remain unconfirmed",
+      "image_license_es": "Ficha bibliográfica propia del Centro solicitada por el usuario; los derechos de las portadas siguen sin confirmar",
+      "image_license_url": "",
+      "image_rights_status": "original",
+      "image_rights_url": ""
     },
     {
       "publication": "water-treatment-ecoli-household-responses",
       "description": "Using household-survey data across 25 low- and middle-income countries, this study examines how reported water-treatment practices relate to measured E. coli contamination in drinking-water sources and stored water. Many households are exposed to contaminated water, yet relatively few report treating it. Because contamination is invisible, households respond only modestly as measured contamination rises, with treatment increasing by a few percentage points rather than keeping pace with risk. The analysis also finds that reported treatment does not reliably mean stored water is free of E. coli. The study is observational and does not claim a causal treatment effect; it highlights the limits of relying on households to identify contamination and the need for stronger water-safety measures and monitoring.",
       "description_es": "Mediante encuestas de hogares de 25 países de ingresos bajos y medios, este estudio examina la relación entre las prácticas declaradas de tratamiento de agua y la contaminación medida por E. coli en fuentes de agua potable y agua almacenada. Muchos hogares están expuestos a agua contaminada, pero relativamente pocos declaran tratarla. Como la contaminación es invisible, los hogares responden de manera limitada cuando aumenta la contaminación medida: el tratamiento crece unos pocos puntos porcentuales sin seguir el ritmo del riesgo. El análisis también encuentra que declarar tratamiento no significa de manera confiable que el agua almacenada esté libre de E. coli. El estudio es observacional y no afirma un efecto causal del tratamiento; destaca las limitaciones de depender de que los hogares identifiquen la contaminación y la necesidad de medidas más sólidas de seguridad del agua y supervisión.",
-      "image": "/design/assets/publications/water-treatment-ecoli-household-responses-first-page.png",
-      "image_alt": "First page of the article in PLOS One: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks",
-      "image_alt_es": "Primera página del artículo en PLOS One: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks",
-      "image_credit": "PLOS One · Article authors · First page",
-      "image_source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0331258&type=printable",
-      "image_credit_es": "PLOS One · Autores del artículo · Primera página"
+      "image": "/design/assets/publications/bibliographic-cards/water-treatment-ecoli-household-responses.png",
+      "image_alt": "Center-created bibliographic card: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks. PLOS One, 2026.",
+      "image_alt_es": "Ficha bibliográfica creada por el Centro: Water treatment and E. coli in drinking water: Household responses to (invisible) water quality risks. PLOS One, 2026.",
+      "image_credit": "UP Economics Research Center · Original bibliographic design; not publisher artwork",
+      "image_source_url": "https://doi.org/10.1371/journal.pone.0331258",
+      "image_credit_es": "Centro de Investigación Económica UP · Diseño bibliográfico propio; no es una portada editorial",
+      "image_is_thematic": false,
+      "image_is_bibliographic": true,
+      "image_license": "Original Center-created bibliographic card, requested by the user; journal cover rights remain unconfirmed",
+      "image_license_es": "Ficha bibliográfica propia del Centro solicitada por el usuario; los derechos de las portadas siguen sin confirmar",
+      "image_license_url": "",
+      "image_rights_status": "original",
+      "image_rights_url": ""
     }
   ],
   "banner": {
