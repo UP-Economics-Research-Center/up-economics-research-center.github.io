@@ -172,3 +172,12 @@ Thematic publication photographs use one consistent 3:2 landscape frame and natu
 In People, select **Research affiliate** to place a verified profile under Research affiliates. Edit the glasses project and its student invitation in Research areas → Health Economics → Ongoing research. The optional **Faculty portal login URL** in Site settings adds a discreet footer link; Google still controls who can sign in. Changes go live after the approved release is merged and GitHub Pages finishes deploying.
 
 Journal covers may replace illustrative photographs only when permission or an applicable reuse license is recorded for that cover. An article’s open-access license does not by itself establish the rights for the issue cover. Keep the licensed photograph and publisher link until then. The [cover review and request template](docs/journal-cover-review-2026-10-26.md) lists the remaining candidates.
+
+
+### Temporary bibliographic cards — 26 October 2026
+
+At the user's request, journal entries now use original Center-created citation cards while official cover permissions are pending. The cards follow the supplied white/black/wine reference and identify the journal, title, complete author names, publisher, year, DOI when available, and a suggested citation. They are labeled as Center bibliographic cards and use no publisher cover artwork or logos. The existing conference contribution is labeled Proceedings. Book and working-paper images are preserved.
+
+Card images are generated from the CMS records with `python3 tools/generate_publication_cards.py --apply`, followed by `python3 tools/build_site.py`. Generation requires Pillow and the Liberation Serif / DejaVu Sans fonts in the author's environment; the production build needs neither Pillow nor system fonts. After changing citation metadata, regenerate before release. Use **Original Center design** and **Center bibliographic card** in the CMS for these cards. Third-party cover images still require a recorded license or permission; never mark them as original Center designs.
+
+The [asset register](docs/publication-card-assets-2026-10-26.json) preserves previous image fields and the exact card text/layout. All previous assets remain available. The approved release includes the cards and the Health invitation/team corrections. Official journal covers remain pending their own permission; the cards are original Center designs, not publisher covers. Release details: [production notes](docs/journal-card-production-2026-10-26.md).

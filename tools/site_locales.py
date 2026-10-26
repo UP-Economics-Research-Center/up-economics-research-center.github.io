@@ -236,7 +236,7 @@ def generate_languages(site: Path, data, settings, about):
         }
     publications = {row['slug']: row for row in data['publications']}
     for pub in data['publications']:
-        kind = 'Illustrative topic photograph' if pub.get('image_is_thematic') else 'Book cover' if pub['type'] == 'Book' else 'Article first page' if pub.get('image', '').endswith('-first-page.png') else 'Publication image'
+        kind = 'Center-created bibliographic card' if pub.get('image_is_bibliographic') else 'Illustrative topic photograph' if pub.get('image_is_thematic') else 'Book cover' if pub['type'] == 'Book' else 'Article first page' if pub.get('image', '').endswith('-first-page.png') else 'Publication image'
         credit(pub, pub['title'], kind, 'Illustrative photograph, not study participants or location. Cropped to a consistent 3:2 landscape frame; no color filters.' if pub.get('image_is_thematic') else 'Displayed complete, without cropping or color filters.')
     for area in data['research_areas']:
         credit(area, area['name'], 'Research area image', 'Resized and cropped to fill the display frame; original source linked. No color filters.', area['name_es'])

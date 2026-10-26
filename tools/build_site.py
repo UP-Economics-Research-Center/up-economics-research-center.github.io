@@ -583,12 +583,13 @@ def build() -> None:
                 require_text(path, row, "image_credit")
             if collection == "publications":
                 status = row.get("image_rights_status") or "pending"
-                if status not in ("pending", "licensed", "permission-confirmed"):
-                    fail(path, "image_rights_status", "choose pending, licensed or permission-confirmed")
+                if status not in ("pending", "licensed", "permission-confirmed", "original"):
+                    fail(path, "image_rights_status", "choose pending, licensed, permission-confirmed or original")
                 row["image_rights_status"] = status
                 row["image_rights_url"] = validate_url(path, "image_rights_url", row.get("image_rights_url", ""), optional=True)
                 if row["image"] and status != "pending":
-                    require_text(path, row, "image_rights_url")
+                    if status != "original":
+                        require_text(path, row, "image_rights_url")
                     if status == "licensed":
                         require_text(path, row, "image_license_url")
                         require_text(path, row, "image_license")
@@ -715,7 +716,7 @@ def build() -> None:
         # Include unpublished/hidden records: changing visibility must not expose a pending asset.
         pending_media = []
         for _, pub in raw["publications"]:
-            if pub.get("image_rights_status") not in ("licensed", "permission-confirmed"):
+            if pub.get("image_rights_status") not in ("licensed", "permission-confirmed", "original"):
                 pending_media.append(pub.get("image", ""))
             pending_media.append(pub.get("pending_document_image", {}).get("image", ""))
         for image in pending_media:

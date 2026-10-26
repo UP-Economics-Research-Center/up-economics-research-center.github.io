@@ -735,11 +735,12 @@ collections:
     - {label: 'Pending — show bibliographic reference / Pendiente — mostrar referencia', value: pending}
     - {label: 'Reuse license verified / Licencia de reutilización verificada', value: licensed}
     - {label: 'Permission confirmed / Permiso confirmado', value: permission-confirmed}
+    - {label: 'Original Center design / Diseño propio del Centro', value: original}
   - label: Public rights evidence URL / Fuente pública del permiso
     name: image_rights_url
     widget: string
     required: false
-    hint: Required to display the image; use an official article license or documented permission. Do not upload private permission correspondence here.
+    hint: Required for third-party images; use an official license or documented permission. Original Center designs do not require an external permission URL. Do not upload private correspondence here.
   - label: Image license name / Nombre de la licencia
     name: image_license
     widget: string
@@ -750,11 +751,17 @@ collections:
     required: false
     default: false
     hint: Enable for a freely licensed photograph illustrating the topic, rather than an article page or book cover.
+  - label: Center bibliographic card / Ficha bibliográfica del Centro
+    name: image_is_bibliographic
+    widget: boolean
+    required: false
+    default: false
+    hint: Original citation design, not a journal cover or article screenshot. Use Original Center design as the image reuse status.
   - label: Publication image / Imagen de la publicación
     name: image
     widget: image
     required: false
-    hint: Use an authentic first page or a relevant freely licensed topic photograph. Record the source, creator and license, and enable the illustrative photograph field when appropriate. Pending images are omitted.
+    hint: Use an original Center bibliographic card, an authorized journal cover, an authentic first page or a relevant freely licensed topic photograph. Record the source, creator and license, and enable the illustrative photograph field when appropriate. Pending images are omitted.
   - label: Photograph alternative text
     name: image_alt
     widget: string
