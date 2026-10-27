@@ -25,3 +25,10 @@ This repository contains the visual mock and assets for the UP Economics Researc
 ## Design references and editorial review
 - Consult `docs/design-references.md` for the design resources supplied by the team.
 - Consult `docs/editorial-review-2026-10-15.md` for the latest review decisions and unresolved questions. Preserve the distinction between agreed direction and pending details.
+
+## Latest approved editorial decisions — 26 October 2026
+- Land tenure security and agrarian investments in the Peruvian Highlands belongs only to Agricultural Economics. Do not restore its Political Economy topic.
+- The Health glasses project uses the supplied classroom/eyeglasses illustration, extended horizontally with AI at the user's express request. Retain the original and edited local files, disclose the extension in image credits, and use the existing project photo sizing (`image_fit: cover`). This is a specific authorization for this asset, not a general change to the image policy.
+- In project researcher notes, lines starting with `with` / `con` identify external collaborators; keep them separate from the UP names and never prepend `and` / `y` to those lines.
+- The home video uses the licensed international-trade port photograph as an illustrative thumbnail. Keep the video ID and include its photo attribution in the credit page.
+- Release details and validation: `docs/health-editorial-release-2026-10-26.md`. Preserve unrelated local documentation and correspondence artifacts.

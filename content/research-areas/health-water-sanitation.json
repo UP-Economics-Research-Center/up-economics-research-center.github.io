@@ -24,17 +24,18 @@
         "akito",
         "joy-dada"
       ],
-      "image": "/design/assets/publications/thematic/eyeglasses.jpg",
+      "image": "/design/assets/research/glasses-classroom-horizontal-2026-10-26.png",
       "image_is_thematic": true,
-      "image_alt": "Illustrative photograph: Eyeglasses and documents on a desk.",
-      "image_alt_es": "Fotografía ilustrativa: Anteojos y documentos sobre un escritorio.",
-      "image_credit": "Leeloo The First",
-      "image_credit_es": "Leeloo The First",
-      "image_source_url": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/",
-      "image_license": "Pexels License",
-      "image_license_url": "https://www.pexels.com/license/",
-      "image_rights_status": "licensed",
-      "image_rights_url": "https://www.pexels.com/photo/eyeglasses-and-documents-on-desk-8962523/"
+      "image_alt": "Illustration of eyeglasses in a classroom, with chalkboard diagrams visible through the lenses.",
+      "image_alt_es": "Ilustración de anteojos en un salón de clases, con diagramas del pizarrón visibles a través de los lentes.",
+      "image_credit": "Research team supplied image · AI-assisted horizontal extension",
+      "image_credit_es": "Imagen proporcionada por el equipo de investigación · Extensión horizontal con IA",
+      "image_source_url": "",
+      "image_license": "User-supplied illustration extended with AI at the user’s request on 2026-10-26; original creator and license not specified.",
+      "image_license_url": "",
+      "image_rights_status": "permission-confirmed",
+      "image_rights_url": "",
+      "image_fit": "cover"
     },
     {
       "title": "Water Treatment, E. coli in Drinking Water, and Diarrhea: Causal Inference Using Double/Debiased Machine Learning",

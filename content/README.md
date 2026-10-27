@@ -33,3 +33,9 @@ Use **Display order** on researcher profiles to control their position within th
 Researchers can have a **Personal website URL** as well as an **Official profile URL**. Verified personal sites appear beneath the biography as Personal website / Sitio web personal. Leave the field empty when no verified website is known; the link is omitted.
 
 A researcher’s **View publications / Ver publicaciones** link appears automatically beneath the biography when a visible publication names that researcher in its **Center researcher** author field. Use that relationship field for each verified Center author; a matching written name alone does not create the link. The destination shows only publications linked to that researcher, and Clear filters returns to the full directory.
+
+## Project collaborators and approved images — 26 October 2026
+
+In a project's Researcher note, list UP names after `UP Researchers:` / `Investigadores UP:`. Put external collaborators on the next line starting with `with` / `con`; the site keeps this line separate and does not add a conjunction before it. Keep both language fields complete.
+
+The Health glasses illustration has a specifically approved horizontal AI extension and uses `image_fit: cover` like the other project photographs. Preserve its source/extension credit and original local file. The land-tenure paper is assigned only to Agriculture. The home video poster is the licensed port photograph, with English/Spanish alternative text and a footer attribution; changing the poster does not change the video.

@@ -57,10 +57,14 @@ def area_main(area, people, publications, language, image_html, render_authors, 
             match = re.match(r'^((?:UP Researchers?:|Investigador(?:es)? UP:)\s*)([\s\S]*)$', text)
             value = e(text)
             if match:
-                names = [name.strip() for name in match[2].split('\n') if name.strip()]
+                # A collaborator line is separate from the UP researcher list.
+                groups = re.split(r'\n\s*(?=(?:with|con)\s)', match[2], maxsplit=1, flags=re.IGNORECASE)
+                names = [name.strip() for name in groups[0].split('\n') if name.strip()]
                 conjunction = ' y ' if prefix else ' and '
                 group = ', '.join(names[:-1]) + conjunction + names[-1] if len(names) > 1 else names[0] if names else ''
                 value = e(match[1]) + '<strong>' + e(group) + '</strong>'
+                if len(groups) > 1:
+                    value += '<br>' + e(groups[1].strip())
             notes += '<p class="pub-authors">' + value + '</p>'
         media = ''
         if project.get('image'):

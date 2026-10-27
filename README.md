@@ -169,7 +169,7 @@ Thematic publication photographs use one consistent 3:2 landscape frame and natu
 
 ### Research affiliates and faculty login
 
-In People, select **Research affiliate** to place a verified profile under Research affiliates. Edit the glasses project and its student invitation in Research areas → Health Economics → Ongoing research. The optional **Faculty portal login URL** in Site settings adds a discreet footer link; Google still controls who can sign in. Changes go live after the approved release is merged and GitHub Pages finishes deploying.
+In People, select **Research affiliate** to place a verified profile under Research affiliates. Edit the glasses project in Research areas → Health Economics → Ongoing research. The student invitation was removed at editorial review; do not restore it without approval. The optional **Faculty portal login URL** in Site settings adds a discreet footer link; Google still controls who can sign in. Changes go live after the approved release is merged and GitHub Pages finishes deploying.
 
 Journal covers may replace illustrative photographs only when permission or an applicable reuse license is recorded for that cover. An article’s open-access license does not by itself establish the rights for the issue cover. Keep the licensed photograph and publisher link until then. The [cover review and request template](docs/journal-cover-review-2026-10-26.md) lists the remaining candidates.
 
@@ -185,3 +185,9 @@ The [asset register](docs/publication-card-assets-2026-10-26.json) preserves pre
 The [open-article preview release](docs/open-article-previews-2026-10-26.md) records the five selected first pages and their publisher license sources. Article previews and official journal covers have separate rights decisions.
 
 Research-area publication titles, preview images and **Read paper / Leer artículo** links go directly to the record’s publisher/DOI destination, with a paper PDF as fallback. Maintain the destination in the publication’s canonical URL field. The Publications archive continues to open the internal abstract-and-details pages; those routes remain available for direct links and search. An area entry without a paper URL or PDF shows its citation without a misleading destination.
+
+### Health image, project collaborators and video thumbnail — 26 October 2026
+
+The glasses project uses the team-supplied illustration extended horizontally with AI at the user's request, displayed with the standard project-photo sizing. The original image is retained. Keep the extension credit and bilingual alternative text when replacing the image. Put external collaborators on a new line beginning **with** in English or **con** in Spanish; the site displays them separately from UP researchers. The land-tenure paper belongs only to Agriculture.
+
+The home video thumbnail uses the existing licensed port photograph to illustrate international trade. Edit **Campus video poster** and its bilingual alternative text in Site Settings; the video ID is independent. Sources and licenses appear on the footer's Image credits page. [Release decisions and validation](docs/health-editorial-release-2026-10-26.md).

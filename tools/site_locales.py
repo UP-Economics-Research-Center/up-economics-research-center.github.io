@@ -234,6 +234,11 @@ def generate_languages(site: Path, data, settings, about):
             'kind': kind,
             'treatment': treatment,
         }
+    video_settings = json.loads((ROOT / 'content/settings/site.json').read_text())
+    video_poster = video_settings.get('campus_video_poster', '')
+    if video_poster:
+        credit({'image': '/' + video_poster.lstrip('/')}, 'Home video thumbnail', 'Video thumbnail',
+               'Illustrative image, cropped to the video frame; the video itself is unchanged.', 'Miniatura del video de inicio')
     publications = {row['slug']: row for row in data['publications']}
     for pub in data['publications']:
         kind = 'Center-created bibliographic card' if pub.get('image_is_bibliographic') else 'Illustrative topic photograph' if pub.get('image_is_thematic') else 'Book cover' if pub['type'] == 'Book' else 'Article first page' if pub.get('image', '').endswith('-first-page.png') else 'Publication image'
