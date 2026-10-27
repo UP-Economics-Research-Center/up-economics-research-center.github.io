@@ -32,3 +32,18 @@ This repository contains the visual mock and assets for the UP Economics Researc
 - In project researcher notes, lines starting with `with` / `con` identify external collaborators; keep them separate from the UP names and never prepend `and` / `y` to those lines.
 - The home video uses the licensed international-trade port photograph as an illustrative thumbnail. Keep the video ID and include its photo attribution in the credit page.
 - Release details and validation: `docs/health-editorial-release-2026-10-26.md`. Preserve unrelated local documentation and correspondence artifacts.
+
+## Institutional typography — 26 October 2026
+- Use the supplied local Panamericana family for content headings, and Seravek for body copy, plain-text navigation identification and controls. See `design/assets/fonts/README.md` and the UP brand reference in `docs/design-references.md`.
+- Preserve the original TTF/OTF files, real weights and italics; Seravek Medium is weight 600. Do not restore Manrope or Ubuntu as the active site family.
+- The user explicitly confirmed Seravek web authorization. Retain that decision separately from the supplied desktop agreement; no open-license claim or authorization for other projects is implied.
+- Keep CSS as the source of truth, use local paths with `font-display: swap`, and verify heading wrapping/navigation in EN/ES on desktop and mobile after typography changes. No tests unless requested.
+
+## Current typography and Center identity — 26 October 2026
+- Use Regular for ordinary buttons, tags, filters, directory names and subheadings; meaningful semantic emphasis/selected states may use Medium/Semibold. Keep weight rules centralized. h1/h2 use Panamericana; h3–h6 and UI use Seravek. Do not restore blanket bold lists.
+- The user authorized publication of the final oak-free typographic logo. Use live Seravek Medium (600) in two lines: UP Economics 30px and Research Center 26px on desktop, with proportional mobile sizing. Different line sizes explicitly supersede earlier equal-size requirements.
+- Name is ink #242126; the smaller school affiliation is wine #7A1A37, without a decorative rule. Keep its bilingual CMS fields. No oak, boxes, detached monograms, or split Economics spelling in the signature. Do not restore earlier rejected drafts.
+- SVG/PNG exports and UP icons are in design/assets/brand/center/. Source HTML/shared CSS controls header/footer presentation. Preserve the original institutional files and old drafts as historical references.
+- Hero university eyebrow stays removed. Existing licensed photographs and the expressly approved glasses illustration remain.
+- Official current wine #7A1A37 and gold #B9975B. The reviewed manual does not define a web button/tag component library. The site’s title-case/Regular layout is an editorial adaptation.
+- Website publication approval does not certify a formal institutional logo. See docs/center-logo-proposal-2026-10-26.md and docs/brand-interface-review-2026-10-26.md. Preserve unrelated journal-cover review and correspondence artifacts.

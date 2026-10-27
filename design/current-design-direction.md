@@ -1,3 +1,7 @@
+> **Latest logo proposal — 2026-10-26:** User expressly requests an oak-free Center identity inspired by the supplied stacked-wordmark reference. Current local header/footer and icons use `design/assets/brand/center/`; the SVG and transparent PNG preserve the supplied fonts as outlines. See `docs/center-logo-proposal-2026-10-26.md`. Earlier institutional-oak/wordmark decisions below are historical. Not published.
+
+> **Typography update — 2026-10-26:** The user supplied the institutional Panamericana and Seravek families and confirmed Seravek web authorization. Panamericana now styles content headings; Seravek styles body copy, plain navigation identification and UI. The later brand review removes forced title/slogan bold, the decorative header square and invented E favicon; see `docs/brand-interface-review-2026-10-26.md`. Local original font files are organized in `design/assets/fonts/panamericana/` and `design/assets/fonts/seravek/`. This supersedes all Manrope/Ubuntu typography decisions below. Other historical descriptions remain subject to later editorial decisions in AGENTS and the current review notes.
+
 > **Current approved direction — 2026-09-25:** The public site is GitHub Pages at the organization root. Home features the new Universidad Panamericana film “Reinventamos la Economía” with muted autoplay, followed by a featured research item when an approved image is available. Research and People are the public focus; News and Seminars stay internal. Nine hand-drawn area sketches, the Manrope wordmark, shared responsive styles, and the wine-square `E` favicon are current. Individual publication detail pages stay available from research areas/search. Earlier mock descriptions below are historical notes where they differ from this direction.
 
 # Current visual direction
@@ -56,3 +60,6 @@ Home now uses a click-to-play existing UP campus film instead of generated photo
 ## Completed people imagery and topic links
 
 All twelve portraits are now present. Mini biographies accompany the profiles, with research-area links and reciprocal team links on all nine area views. Maria Jose Favela’s related topics are distinguished from documented team membership.
+
+## Current identity release — 26 October 2026
+The user authorized production publication of the final two-line Seravek Medium wordmark: UP Economics30px / Research Center26px desktop, ink, school in wine beneath without a rule. Proportional mobile scaling. This supersedes earlier serif, horizontal, boxed, oak-based and equal-size proposals. See ../docs/center-logo-proposal-2026-10-26.md.

@@ -191,3 +191,19 @@ Research-area publication titles, preview images and **Read paper / Leer artícu
 The glasses project uses the team-supplied illustration extended horizontally with AI at the user's request, displayed with the standard project-photo sizing. The original image is retained. Keep the extension credit and bilingual alternative text when replacing the image. Put external collaborators on a new line beginning **with** in English or **con** in Spanish; the site displays them separately from UP researchers. The land-tenure paper belongs only to Agriculture.
 
 The home video thumbnail uses the existing licensed port photograph to illustrate international trade. Edit **Campus video poster** and its bilingual alternative text in Site Settings; the video ID is independent. Sources and licenses appear on the footer's Image credits page. [Release decisions and validation](docs/health-editorial-release-2026-10-26.md).
+
+### Institutional typography — 26 October 2026
+
+The supplied fonts live under `design/assets/fonts/panamericana/` and `design/assets/fonts/seravek/`. Panamericana supplies content headings; Seravek supplies reading text, plain navigation identification and controls, following the [UP institutional brand reference](https://www.up.edu.mx/marca-institucional/marca/). Both languages and CMS previews use the shared CSS. Original font files and italic/weight variants are retained; matching WOFF2 derivatives are used for the web. Font loading uses local URLs and swap fallbacks, with no external font provider or new build dependency.
+
+The user confirmed institutional web authorization for Seravek. Preserve its supplied desktop agreement and the separate authorization note; do not call the fonts open source. [Font inventory and maintenance notes](design/assets/fonts/README.md). This replaces earlier Manrope/Ubuntu typography decisions; their files remain as historical assets. Existing article images and bibliographic cards retain their approved designs.
+
+The [brand and interface review](docs/brand-interface-review-2026-10-26.md) removes inherited forced bold from ordinary controls, tags, filters and directory names. Main headings use Panamericana Regular; body and interface text use Seravek Regular, with real Medium/Semibold for meaningful emphasis and selected states. The wine color is #7A1A37. These are documented web adaptations, not a claim that the manual specifies a web component library.
+
+### Center identity — current release
+
+The user authorized publishing the final oak-free typographic identity on 26 October 2026. Header and footer use live Seravek Medium text in two lines: **UP Economics** at 30px and **Research Center** at 26px on desktop, with nearly equal optical widths and proportional mobile scaling. The name is charcoal; the smaller wine school line has no decorative rule. This replaces all earlier logo explorations. The duplicate university eyebrow has been removed from the hero.
+
+Edit **Signature affiliation** and its Spanish companion in Site Settings to change School of Economics / Escuela de Economía. The exact Center name is maintained in the shared source HTML and publication template. Matching outlined SVG/transparent PNG exports and UP icons live in `design/assets/brand/center/`; regenerate exports with `tools/generate_center_identity.py` using Pillow and FontTools in the authoring environment. The public build has no new dependencies. [Identity decisions and release notes](docs/center-logo-proposal-2026-10-26.md).
+
+User approval to publish this website identity is recorded separately from any formal institutional identity certification. Historical institutional originals and rejected iterations are retained as reference assets.

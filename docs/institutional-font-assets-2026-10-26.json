@@ -1,0 +1,212 @@
+{
+  "brand_reference": "https://www.up.edu.mx/marca-institucional/marca/",
+  "usage_reference": "https://www.up.edu.mx/marca-institucional/faqs/",
+  "web_authorization": "User explicitly confirmed institutional web authorization for Seravek in chat on 2026-10-26. Supplied desktop agreement is retained as provenance, not treated as the web-use grant.",
+  "files": [
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Bold.ttf",
+      "sha256": "1e1f5414c5bb3598949ea57b09403de844d26d7c3cadb2044ef5131366d40a8b",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-Bold.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-BoldItalic.ttf",
+      "sha256": "993022fd5a438fb762c0306e55b7cd659c07a6c6b6c5d16574c3249ba2d9f7d7",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-BoldItalic.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Italic.ttf",
+      "sha256": "66c76acc39595a057d980fdace62fba5702d021e1ef07d58b16e090148fd9b7c",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-Italic.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Light.ttf",
+      "sha256": "6b0b437e4757d7cab1ffcd91a5a4f51aa90f7177b4e7406bbd5e81a61c30bd86",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-Light.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-LightItalic.ttf",
+      "sha256": "24007ce8020ba4a7bde96304a0c30e433a4ac1a66af259916588498f5188d8db",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-LightItalic.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Regular.ttf",
+      "sha256": "0b124e69382b2e46099690d09c441699ca74002b5d458bea8e4e53a297ad1056",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-Regular.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-SemiBold.ttf",
+      "sha256": "8e577de7e8dc0f6bdc96bd026d1ec13bedfede449e86c8dff0751a9647c44623",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-SemiBold.ttf"
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-SemiboldItalic.ttf",
+      "sha256": "96a7c10266afd241a9ecddca0d8390f8b1d6682f85e6abf94be5daf11d815037",
+      "original_upload": "font/Panamericana OpenType-TT/Panamericana-SemiboldItalic.ttf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Bold.otf",
+      "sha256": "8a96d3f0261d7b0bb967f9135dd3ef118d78bd081091003cf24da6af30e23934",
+      "original_upload": "font/Seravek/Seravek-Bold.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-BoldItalic.otf",
+      "sha256": "3df2aa7257b2c6a5999875a62a61ab25f0af440e07d76b891da5035016e2f7d0",
+      "original_upload": "font/Seravek/Seravek-BoldItalic.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-ExtraLight.otf",
+      "sha256": "6d4dadda95e4aaa3bff79ba2f6424f84920db81f48992d059ad242e14452567b",
+      "original_upload": "font/Seravek/Seravek-ExtraLight.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-ExtraLightItalic.otf",
+      "sha256": "f7c8273b83a851e575b24778490869cc6f5591bbc68e8b75de16f725f851476b",
+      "original_upload": "font/Seravek/Seravek-ExtraLightItalic.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Light.otf",
+      "sha256": "298aea18177c5155bcfb0acf8f24be54e3fd49043c880151a1b72dc1cc174585",
+      "original_upload": "font/Seravek/Seravek-Light.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-LightItalic.otf",
+      "sha256": "45eda104f42d7cdc27d92feb2544851ceb7cd954b914e2d315ff1770cf01273a",
+      "original_upload": "font/Seravek/Seravek-LightItalic.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Medium.otf",
+      "sha256": "615156b0cd1329b0df95ed00b867965697f872b797bfd3161ba4be2d526a83a9",
+      "original_upload": "font/Seravek/Seravek-Medium.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-MediumItalic.otf",
+      "sha256": "7d16fd321721ae32ad1f536563acd62c95d748ede68c14d71b823dcff4c98f13",
+      "original_upload": "font/Seravek/Seravek-MediumItalic.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Regular.otf",
+      "sha256": "cab7d7e1714da37bd47894db6c276a611523b9e141888d451831418f83ba72f2",
+      "original_upload": "font/Seravek/Seravek-Regular.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-RegularItalic.otf",
+      "sha256": "59d3b15cf9b81406840acd359f1b8a357210b7eefebf339e7a4eb1b326a9b48d",
+      "original_upload": "font/Seravek/Seravek-RegularItalic.otf"
+    },
+    {
+      "path": "design/assets/fonts/seravek/_Process_Desktop_License_Agreement.txt",
+      "sha256": "26698875b1ccfb851db452dd0c19d44c26e378026f5299ae36330b603b7fce15",
+      "original_upload": "font/Seravek/_Process_Desktop_License_Agreement.txt"
+    }
+  ],
+  "web_files": [
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Bold.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-Bold.ttf",
+      "sha256": "c4c9c1f6938eef08b35e9acfc887638870a7d95f7a6abffda00a4f147bf8db9c",
+      "weight": 700
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-BoldItalic.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-BoldItalic.ttf",
+      "sha256": "06326ef0eec8783d6183cdf954bddcd1328894ff36639000f7b958cc0df60913",
+      "weight": 700
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Italic.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-Italic.ttf",
+      "sha256": "e7fd1d9a28ee7f17b78da329bee84d2354fe756023b40d019b2f6ee28601f02b",
+      "weight": 400
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Light.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-Light.ttf",
+      "sha256": "fc2a687c1af75375885a322f60288431cac03c137556eb85df9a4675d2ba6e7a",
+      "weight": 300
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-LightItalic.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-LightItalic.ttf",
+      "sha256": "87a779c64ad91d713b7a26849bbfdf7d578d0621e9ced41a5fe8f8db5693aa22",
+      "weight": 300
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-Regular.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-Regular.ttf",
+      "sha256": "86d90af5c59da90da732ff9c624320a06b350d0a3d0e507e211ae6bdba124c78",
+      "weight": 400
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-SemiBold.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-SemiBold.ttf",
+      "sha256": "15874efdd7d28d5b1e2b4f1c46818a85df5cf5c9a1e838674a27bd700c09e95e",
+      "weight": 600
+    },
+    {
+      "path": "design/assets/fonts/panamericana/Panamericana-SemiboldItalic.woff2",
+      "source": "design/assets/fonts/panamericana/Panamericana-SemiboldItalic.ttf",
+      "sha256": "35e38ce109852024fe43324de21bc1750f2052043192724467fda3700be11dab",
+      "weight": 600
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Bold.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-Bold.otf",
+      "sha256": "13c8950613d0e7f6c1534c3ab70f13e749d6b753edfdccf831579d7a07f397bb",
+      "weight": 700
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-BoldItalic.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-BoldItalic.otf",
+      "sha256": "c9e2f493d802265b9759d36a2436d2a95e667e9fb5d51407188e0eb708bfd389",
+      "weight": 700
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-ExtraLight.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-ExtraLight.otf",
+      "sha256": "9093f0b5efacdbef9b6b771010cdd2064448b79c8fe7501235ad3d5447554d60",
+      "weight": 200
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-ExtraLightItalic.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-ExtraLightItalic.otf",
+      "sha256": "84fcc9b35ebddc3b2d4e9c477ca0b329d46ef03c44d4767b1ae7b1ee023e7199",
+      "weight": 200
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Light.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-Light.otf",
+      "sha256": "77054fe2bc6332c61895defa5c67288c866bbe014d21183529f0caa471098e1e",
+      "weight": 300
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-LightItalic.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-LightItalic.otf",
+      "sha256": "c8b1876be28c67f372841cfb8a4f33524105f70b23ee92376f83f0f6e4e305a4",
+      "weight": 300
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Medium.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-Medium.otf",
+      "sha256": "5d1462e014ebc439efb672103317901d23112c58f69b6314fd8ea978a357624f",
+      "weight": 600
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-MediumItalic.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-MediumItalic.otf",
+      "sha256": "9f0fb7a774c0bda0089df6fbbf6e63bfa32cef99f79ec3e13420b55de13d6453",
+      "weight": 600
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-Regular.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-Regular.otf",
+      "sha256": "9dd5173724324e1746950fa2e844f894b067f7d03b8970be6a62a9e1ed29d73d",
+      "weight": 400
+    },
+    {
+      "path": "design/assets/fonts/seravek/Seravek-RegularItalic.woff2",
+      "source": "design/assets/fonts/seravek/Seravek-RegularItalic.otf",
+      "sha256": "96719afdea7accb62d0c5172e5cc4fa4ebe934f008c3b04c599cdf41f3e892f6",
+      "weight": 400
+    }
+  ]
+}
