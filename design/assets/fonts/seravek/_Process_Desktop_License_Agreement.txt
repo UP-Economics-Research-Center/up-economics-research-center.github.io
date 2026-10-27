@@ -1,0 +1,104 @@
+-----------------------------------
+PROCESS TYPE FOUNDRY, LLC
+DESKTOP LICENSE AGREEMENT
+-----------------------------------
+
+This license agreement is a legal contract between you and the Process Type Foundry, LLC (“Process”). When you purchase a font, you are purchasing a license — the right to use a font under conditions defined in the license agreement. It is important to read and understand this agreement because it details your rights, the acceptable uses of our fonts, and the rights Process reserves.
+
+By downloading or using Process fonts, you confirm that you understand and agree to the terms of this license agreement, and that you have the authority to enter into this agreement and bind the licensee identified in the sales receipt. Upon payment in full, Process grants to you a worldwide, perpetual, non-exclusive, non-transferable, revocable, limited license to use our fonts under the following terms and conditions.
+
+
+-----------------------------------
+1. Acceptable Uses
+----------------------------------- 
+The following are allowed by this agreement; you may:
+
+1a.	Use the fonts for commercial or personal purposes.
+
+1b.	Install and use the fonts on the number of computers identified on your sales receipt. All computers that can access and/or use the fonts must be licensed. Concurrent use of the fonts is permitted when a font server or a cloud-type server controls and limits use of the fonts to the number of computers permitted by your license. If the fonts are accessible to more computers than your license permits, concurrent use above the licensed computers is not allowed.
+
+1c.	Install and use the fonts on one secondary computing device, like a laptop or tablet, per licensed computer identified in section 1b. The person using the secondary device must be the same person using a licensed computer. 
+
+1d.	Create images, whether rasterized or vector, using text set in the fonts for the purposes of viewing and printing the images on surfaces such as, but not limited to, computer screens, television screens, books, posters, mailers, flyers, t-shirts, and other types of printed material or merchandise. The images must be a fixed size. Restrictions stated in other parts of this agreement still apply.
+
+1e.	Embed the fonts into digital documents provided i) the font is subset, ii) the document text can be viewed and printed but not edited, and iii) reasonable measures are taken to ensure the embedded fonts cannot be extracted.
+
+1f.	Include a limited amount of rasterized or vector text and artwork in software or hardware applications provided the text or artwork does not result in all or substantially all of the characters comprising the font being shown in the digital documents. Examples of acceptable use include, but are not limited to, a logo or the text of static menu options set in the fonts.
+
+1g.	Make modifications to the outlines of the fonts, for example in Illustrator, so long as the modified outlines are not turned into a font of any kind or format.
+
+1h.	Provide a copy of the fonts to a commercial printer or service bureau to reproduce a particular document.
+
+1i.	Make a reasonable number of backup copies of the fonts. Copies must contain the same documentation, copyright, trademark, and other proprietary notices that appear on, in or with the fonts. 
+
+-----------------------------------
+2. Restrictions on Use
+-----------------------------------
+This agreement expressly prohibits the following; you may not:
+
+2a.	Embed, link, or otherwise include the fonts in hardware or software. Examples include, but are not limited to: games, mobile apps, desktop apps, ePubs or eBooks, server-side applications, and OEM products or software. Rasterized images of limited text created using the font are permitted as explained in section 1f.
+
+2b.	Use the fonts with the CSS rule @font-face (web fonts) or other forms of font linking, regardless of format. A separate license is available from Process for this purpose.
+
+2c.	Modify the font with font creation or font manipulation software of any kind in an attempt to create a usable, derivative, or substitute version of the font. Under no circumstances may you modify, adapt, translate, reverse engineer, decompile, disassemble, alter, or otherwise attempt to discover the source code of the font software or the designs embodied therein. You may not commission or authorize any third party to undertake modifications to the fonts.
+
+2d.	Store or use the fonts in a way that makes them accessible to the public or non-licensed third parties. This includes, but is not limited to, distribution of the fonts through file sharing services and online version control repositories accessible by the public.
+
+2e.	Use the fonts in the creation of alphabet products. Examples include, but are not limited to: digital stickers, house numbers, embroidery products, stamp sets, rub-on letters, and adhesive alphabet letters.
+
+2f.	Share the fonts with independent contractors, freelance employees, or affiliates. This license is for individual users or organizations purchasing for authorized employees only.
+
+If you wish to use the fonts in a manner not permitted by this license, you must secure i) a separate license from Process, ii) written permission from Process, or iii) a license extension by contacting Process directly, at Process’s sole discretion.
+
+-----------------------------------
+3. Rights Reserved 
+-----------------------------------
+3a. You expressly acknowledge that the font software, the designs embodied therein, the trade names and the associated trademarks and copyrights are each the exclusive property of Process. All rights not expressly granted under this agreement are reserved to Process.
+
+3b. You agree that the fonts and the design of the fonts embodied therein are owned by Process and the fonts’ structure, organization and code are the valuable trade secrets of Process. You acknowledge that the fonts are, among other means, protected under United States trademark and copyright law, by the trademark and copyright and design laws of other nations, and by international treaties. 
+
+-----------------------------------
+4. Warranties and Limitations 
+-----------------------------------
+4a. Except where expressly disclaimed, Process represents and warrants that the fonts will perform substantially in accordance with the representations made herein. To make a warranty claim, you must notify Process together with a copy of your sales receipt. If the font does not perform substantially in accordance with the representations, Process will work to fix the issue and offer replacement font files. If Process is unable to fix the issue, the entire and exclusive liability and remedy shall be limited to a refund of the license fee you paid for the fonts. Process and its suppliers do not and cannot warrant the performance or results you may obtain by using the font software. 
+
+4b. PROCESS EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS AND IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. PROCESS DOES NOT WARRANT THAT THE OPERATION OF THE FONTS WILL BE UNIMPEDED, UNINTERRUPTED OR ERROR-FREE, OR THAT THE FONTS ARE WITHOUT DEFECTS. WITHOUT LIMITING THE FOREGOING UNDER NO CIRCUMSTANCES SHALL PROCESS BE LIABLE TO YOU OR ANY OTHER PARTY, WHETHER IN CONTRACT OR TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, FOR ANY SPECIAL, CONSEQUENTIAL, OR INCIDENTAL DAMAGES, INCLUDING LOST PROFITS, LOST SAVING, LOSS OF DATA, SLOWING OF TRANSMISSION SPEEDS, SAVINGS OR BUSINESS INTERRUPTION AS A RESULT OF THE USE OF OR THE INABILITY TO USE THE FONTS EVEN IF NOTIFIED IN ADVANCE OF SUCH POSSIBILITY. 
+
+4c. Some jurisdictions do not allow the exclusion or limitation of incidental, consequential or special damages, or implied warranties. Any implied warranty or other right created by law is only effective for a ninety (90) day warranty period. There are no warranties or conditions of any kind after the ninety (90) day warranty period. To the extent permissible by law, you agree that all implied warranties are not to be effective for more than thirty (30) days. The terms and conditions of this agreement are contractual in nature. 
+
+-----------------------------------
+5. Termination
+-----------------------------------
+Any breach of the terms of this Agreement by you shall be cause for immediate termination by Process without the obligation of notice or opportunity to cure. Process shall be entitled to seek any and all remedies under law or equity, including injunctive relief without the obligation of security or bond. You agree to immediately destroy the font software and certify that no copy remains in your possession or control. No fees will be refundable upon termination.
+
+-----------------------------------
+6. Choice of Law 
+-----------------------------------
+You expressly agree that this agreement shall be governed by the laws of the State of Minnesota, USA, as they apply to contracts wholly performed therein and without respect to its conflict of laws provisions or the conflict of laws provisions of any other jurisdiction. You expressly submit to the jurisdiction of the state and United States federal courts in the forum selected by Process for the purposes of resolving any dispute arising under this agreement and you expressly waive all defenses arising out of the selection of the jurisdiction and forum and agree to service of process by certified mail, return receipt requested. You hereby expressly agree that the application of the United Nations Convention of Contracts for the International Sale of Goods is expressly excluded. This agreement may only be modified in writing, signed by an authorized officer of Process.
+
+-----------------------------------
+7. No Other agreements
+-----------------------------------
+This agreement represents the complete and exclusive agreement between you and Process and it supersedes any proposal or prior agreement, oral or written, and any other communications relating to the subject matter of this agreement. No variation of the terms of this agreement or any different terms will be enforceable against Process in the absence of an express written amendment or consent, including a written express waiver of the affected terms of this agreement. If any provision of this agreement is declared by a court of competent jurisdiction to be invalid, void or unenforceable, the remaining provisions of this agreement shall continue in full force and effect, and the invalid provision shall be replaced by Process with a provision that effects the intent of the invalid provision.
+
+-----------------------------------
+8. Miscellaneous
+-----------------------------------
+This agreement may be amended by the written agreement of the parties. Process expressly reserves the right to amend or modify future versions of this agreement at any time and without prior notification. The numberings of the various sections are for convenience only and shall not affect or control the interpretation and enforcement of this agreement. 
+
+-----------------------------------
+9. Definitions
+-----------------------------------
+9a. In this Agreement, “font”, “fonts” or “font software” have identical meanings and are defined as the designs of the fonts and the software identified on your sales receipt that produces a typeface design(s) together with any other artworks that may be associated with the font. 
+
+9b. “You” and “your” are defined as and refer to a customer who has purchased a license to use the fonts. Distributors, resellers, sub-licensees, original equipment manufacturers ("OEM"), or other buyers purchasing in a wholesale capacity are not covered by this agreement. Process products may not be distributed and/or sold to third parties without prior written consent from Process. 
+
+-----------------------------------
+10. Thank You 
+-----------------------------------
+Eric and Nicole thank you for reading this far and taking the time to understand this license agreement! Your support makes this foundry possible.  
+
+
+(c) 2018 Process Type Foundry
+https://processtypefoundry.com
+info@processtype.com   

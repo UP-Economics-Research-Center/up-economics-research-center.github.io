@@ -33,6 +33,14 @@ collections:
     - label: University
       name: university
       widget: string
+    - label: Signature affiliation
+      name: signature_affiliation
+      widget: string
+      hint: Approved school or department beneath the Center name in the header and footer.
+    - label: Signature affiliation — Spanish
+      name: signature_affiliation_es
+      widget: string
+      hint: Dependencia institucional debajo del nombre del Centro; mantener el nombre oficial.
     - label: Show News publicly
       name: show_news
       widget: boolean

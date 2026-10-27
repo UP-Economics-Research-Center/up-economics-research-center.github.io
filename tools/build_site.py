@@ -729,8 +729,6 @@ def build() -> None:
             if site.resolve() in asset.parents and "/" + clean not in active_media:
                 asset.unlink(missing_ok=True)
         shutil.copytree(ROOT / "admin", site / "admin")
-        for icon in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):
-            shutil.copy2(ROOT / icon, site / icon)
 
         # Static pages are the canonical templates; each record collection replaces only its marked content slot.
         replacements = {

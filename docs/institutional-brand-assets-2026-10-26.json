@@ -1,0 +1,59 @@
+[
+  {
+    "path": "/design/assets/brand/up/favicon-192.png",
+    "source_url": "https://www.up.edu.mx/wp-content/uploads/2024/03/cropped-favicon-192x192.png",
+    "sha256": "b08e8302e0134987cd8695c7ee326a3d8bd176e8dbf52f2f0ff73d9c60547e49",
+    "treatment": "Original institutional site favicon copied without alteration; no new Center symbol created.",
+    "display_status": "Retained source; superseded by user-requested oak-free Center logo."
+  },
+  {
+    "path": "/design/assets/brand/up/favicon-180.png",
+    "source_url": "https://www.up.edu.mx/wp-content/uploads/2024/03/cropped-favicon-180x180.png",
+    "sha256": "8976062ede1090d46a648c88ce9515b5e0ea48c9e4a149d37e04aa08127e7295",
+    "treatment": "Original institutional site favicon copied without alteration; no new Center symbol created.",
+    "display_status": "Retained source; superseded by user-requested oak-free Center logo."
+  },
+  {
+    "path": "/design/assets/brand/up/universidad-panamericana-horizontal.png",
+    "source_url": "https://www.up.edu.mx/wp-content/uploads/2022/03/logo-UP.png",
+    "sha256": "014cbd6e8126ce4987b6d3dc6249c033881c37af76885769c35ef841f331598c",
+    "treatment": "Unaltered original horizontal identity asset used by the institutional site header; displayed proportionally with whitespace. Center name and school are separate live-text descriptors in a local proposal.",
+    "display_status": "Retained source; superseded by user-requested oak-free Center logo."
+  },
+  {
+    "path": "/design/assets/brand/center/apple-touch-icon.png",
+    "sha256": "0f208502b35826301f19a7d19913441c827086509e82ca5cedeb54432e29b424",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  },
+  {
+    "path": "/design/assets/brand/center/favicon.svg",
+    "sha256": "b28fee801627c0b7e70247861f8e7ad2000709dc10a71fe57475d956be31667b",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  },
+  {
+    "path": "/design/assets/brand/center/up-economics-research-center-editorial.png",
+    "sha256": "cbbc35f2c01a0e57134883c17d22e5a76368fcc9c94478937fb9a18004f9ed31",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  },
+  {
+    "path": "/design/assets/brand/center/up-economics-research-center-editorial.svg",
+    "sha256": "18d1ff224eefc207cccf0280c8c7a7e80b0d7a5a3a527332b485633cb7923484",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  },
+  {
+    "path": "/design/assets/brand/center/up-economics-research-center.png",
+    "sha256": "cbbc35f2c01a0e57134883c17d22e5a76368fcc9c94478937fb9a18004f9ed31",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  },
+  {
+    "path": "/design/assets/brand/center/up-economics-research-center.svg",
+    "sha256": "18d1ff224eefc207cccf0280c8c7a7e80b0d7a5a3a527332b485633cb7923484",
+    "source": "Two-line Seravek Medium identity, 30px / 26px for matched optical widths. User authorized unequal line sizes. Local draft.",
+    "display_status": "Final website identity; user authorized production publication on 2026-10-26. No formal institutional certification claimed."
+  }
+]
