@@ -483,3 +483,17 @@ Authorized locally: Joy Dada under Research affiliates, with source portrait and
 The user explicitly authorizes pushing the prepared changes to production. Applied the seven Pending 4 changes to the current production baseline, preserving the bilingual 404 and public research index from PR #34. Corrected publication image credits so the Nicaragua study photograph is not described as an article first page.
 
 Journal covers remain pending: permission has not been confirmed and is not known to have been refused. Retain licensed photographs and accurate journal/publisher links while obtaining cover-specific permission. Local candidate inventory, editorial steps and an unsent request draft are in `docs/journal-cover-review-2026-10-26.md`. No journal covers or fabricated publisher artwork added.
+
+
+### Identidad temporal enviada por Comunicación Institucional — 28 octubre 2026
+
+El usuario solicita recuperar los adjuntos del correo de Lizeth y usar la versión roja; autoriza push a producción. Se sustituye la propuesta tipográfica propia por el PNG original en encabezado y pie de todas las rutas EN/ES. Solo se recibió el nombre en inglés: no se inventa una variante gráfica en español. Se conserva la afiliación bilingüe existente. La versión blanca se guarda para referencia, sin activarla. Se retiran los enlaces a los iconos de la propuesta anterior.
+
+Lizeth autoriza el uso temporal de estos archivos con tipografía institucional hasta la presentación y aprobación del Consejo en diciembre; la arquitectura definitiva queda pendiente. Esta indicación sustituye la propuesta propia del 26 de octubre. Procedencia y hashes en `institutional-wordmark-2026-10-28.json`. Los originales no se alteran: CSS excluye únicamente el margen transparente del lienzo al mostrarlos.
+
+Verificación previa a publicación: generación estática correcta (54 registros de búsqueda, 21 fichas, 15 personas); inspección de la sustitución en encabezado/pie de 82 rutas EN/ES, rutas de imagen y diff correctos. Capturas de escritorio ES y móvil EN en `docs/institutional-wordmark-2026-10-28/`. Sin tests, conforme a AGENTS.md.
+
+
+### Búsqueda: subrayar solo el título — 28 octubre 2026
+
+El usuario señala en una captura que los accesos Research, People y Publications subrayan también sus descripciones y flechas. La regla `.search-result-list a` aplicaba subrayado al enlace completo. Se traslada el subrayado al título `strong`; descripción y flecha quedan sin subrayado, conservando toda la fila como enlace, así como foco y hover existentes. Corrección compartida para resultados y sugerencias EN/ES. Se incluye en la publicación solicitada.

@@ -122,7 +122,6 @@ def decorate(source, english_url, language):
     source = re.sub(r'(<div class="nav-tools">.*?</button>\s*</div>)', r'\1</div>', source, count=1, flags=re.S)
     scripts = '<script>document.documentElement.dataset.presentation = "gallery";</script><script src="/design/site-motion.js" defer></script><script src="/design/publication-recency.js" defer></script><script src="/design/language-strings.js"></script><script src="/design/language.js"></script>'
     source = source.replace('</head>', f'<link rel="alternate" hreflang="en" href="https://up-economics-research-center.github.io{english_url}"><link rel="alternate" hreflang="es" href="https://up-economics-research-center.github.io/es{english_url}">{scripts}</head>')
-    source = source.replace('</head>', '<link rel="icon" type="image/svg+xml" href="/design/assets/brand/center/favicon.svg"><link rel="apple-touch-icon" href="/design/assets/brand/center/apple-touch-icon.png"></head>')
     return emphasize_center_name(source)
 
 

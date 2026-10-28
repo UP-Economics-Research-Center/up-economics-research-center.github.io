@@ -1,0 +1,20 @@
+{
+  "received_on": "2026-10-28",
+  "sender": "Lizeth Isamar Pinales Blanco, Institutional Communications",
+  "email_subject": "Re: Página web: Economics Research Center",
+  "email_url": "https://mail.google.com/mail/u/?authuser=0251520%40up.edu.mx#all/1a183c0912ae76c1",
+  "status": "Temporary institutional typography supplied for use pending Council approval and later institutional architecture. Not a final approved logo.",
+  "display": "Original red artwork in header/footer in EN and ES; only English artwork was supplied. Transparent canvas framed by CSS, with original pixels and proportions preserved. White artwork retained unused.",
+  "files": [
+    {
+      "path": "design/assets/brand/center/institutional-center-red-original.png",
+      "sha256": "596b45371a36960f71fdc42533fcdd793a42672a18d6416468f4786b9e6073b8",
+      "bytes": 25570
+    },
+    {
+      "path": "design/assets/brand/center/institutional-center-white-original.png",
+      "sha256": "598bc866dcd803e26367624a3b0fa92d18749db208056103207676679ba9c4a3",
+      "bytes": 24259
+    }
+  ]
+}
