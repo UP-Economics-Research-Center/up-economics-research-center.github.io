@@ -1,6 +1,6 @@
 
 :root {
- --wine:#7A1A37; --red-dark:#5C1429; --gold:#B9975B; --ink:#242126;
+ --wine:#8D1838; --red-dark:#71132D; --gold:#B9975B; --ink:#242126;
  --sand:#EEE7DC; --paper:#F7F5F2; --white:#fff; --muted:#69636A; --line:#E2DDDE;
  --blue:var(--wine); --sans:"Seravek","Helvetica Neue",Arial,sans-serif; --serif:"Panamericana",Georgia,serif;
 }
@@ -346,7 +346,7 @@ footer{background:#F3EFED;border-top:1px solid var(--line);padding:60px 0 25px}
 @font-face{font-family:"Seravek";src:url("assets/fonts/seravek/Seravek-RegularItalic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
 @font-face{font-family:"Seravek";src:url("assets/fonts/seravek/Seravek-MediumItalic.woff2") format("woff2");font-weight:600;font-style:italic;font-display:swap}
 @font-face{font-family:"Seravek";src:url("assets/fonts/seravek/Seravek-BoldItalic.woff2") format("woff2");font-weight:700;font-style:italic;font-display:swap}
-:root{--sans:"Seravek","Helvetica Neue",Arial,sans-serif;--serif:"Panamericana",Georgia,serif;--control-border:#84777D;--focus:#63112C}
+:root{--sans:"Seravek","Helvetica Neue",Arial,sans-serif;--serif:"Panamericana",Georgia,serif;--control-border:#84777D;--focus:var(--wine)}
 h1,h2,h3{letter-spacing:-.035em;text-wrap:balance}
 p{ text-wrap:pretty}
 .nav{min-height:112px;gap:24px}
@@ -569,7 +569,7 @@ footer{padding-top:64px}
 @media(max-width:700px){.publication-detail-page .page-hero h1{font-size:clamp(28px,5.5vw,38px);line-height:1.2}}
 
 /* Editorial review, October 2026: people, authentic photography and language controls. */
-.up-emphasis{color:var(--wine,#8a1538);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.13em}
+.up-emphasis{color:var(--wine);text-decoration:underline;text-decoration-thickness:.07em;text-underline-offset:.13em}
 .intro-description p{font-size:clamp(1.3rem,2.2vw,2rem);line-height:1.35}
 .home-intro h1{font-size:clamp(2.5rem,5.5vw,5.6rem);max-width:13ch}
 .home-scope .prose{max-width:1000px}.home-scope .eyebrow{font-size:14px;margin-bottom:14px}.home-scope h2{font-size:clamp(32px,3.6vw,52px);line-height:1.12;margin-bottom:24px}.home-scope p{font-size:clamp(20px,1.65vw,24px);line-height:1.65;max-width:66ch;margin-bottom:24px}.home-scope p:last-child{margin-bottom:0}.home-contact{scroll-margin-top:6rem}.home-contact #contact{scroll-margin-top:7rem}
@@ -578,7 +578,7 @@ footer{padding-top:64px}
 .home-contact address{font-style:normal;line-height:1.7;margin-top:1.5rem}.home-contact .note{font-size:.85rem}
 .language-switch{display:flex;align-items:center;gap:.35rem;font-size:.75rem;white-space:nowrap;margin-left:1rem}
 .language-switch a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;min-height:44px;text-decoration:underline;border-bottom:2px solid transparent}
-.language-switch a[aria-current]{border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid #8a1538;outline-offset:3px}
+.language-switch a[aria-current]{border-bottom-color:currentColor}.language-switch a:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
 .people-list .person{display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);grid-template-rows:auto 1fr;gap:16px clamp(1.5rem,2.5vw,2rem);align-items:start;padding:2.5rem 0}
 .person>.person-name{grid-column:2;grid-row:1;font-size:clamp(24px,2.2vw,32px);line-height:1.2;margin:0;color:var(--ink)}
 .person>.person-visual{grid-column:1;grid-row:1/span 2}
@@ -958,7 +958,7 @@ main h1,main h2,main h3{text-wrap:balance}
 .people-group{margin-top:40px}.people-group>h2{margin-bottom:24px}
 
 /* Presentation exploration: two local directions, shared content and navigation. */
-:root{--frame-ink:#8a1538;--frame-matte:#f3f0ed}
+:root{--frame-ink:var(--wine);--frame-matte:#f3f0ed}
 .motion-frame{position:relative;isolation:isolate;min-width:0}
 .motion-frame::before,.motion-frame::after{content:"";position:absolute;z-index:1;pointer-events:none;width:32px;height:32px;border-color:var(--frame-ink);border-style:solid;transition:width 320ms var(--motion-ease),height 320ms var(--motion-ease),inset 320ms var(--motion-ease)}
 .motion-frame::before{left:0;top:0;border-width:2px 0 0 2px}
@@ -1305,23 +1305,12 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
 .pub-authors strong,.pub-authors a,.center-name-emphasis,.up-emphasis,
 .language-switch a[aria-current],.pagination button.active{font-weight:var(--type-emphasis)}
 
-/* Selected identity: two lines of matched optical width in Seravek Medium. */
+/* Shared containers for the original institutional image signature. */
 .brand.institutional-signature,.footer-brand.institutional-signature{
  display:flex;flex-direction:column;align-items:flex-start;max-width:370px;
  padding:15px 0;text-align:left;gap:0;
 }
 .institutional-signature .center-mark{display:block;max-width:100%}
-.institutional-signature .center-wordmark{
- display:block;font:600 30px/1.05 var(--sans);letter-spacing:-.025em;white-space:normal;font-kerning:normal;
-}
-.institutional-signature .center-name-primary,.institutional-signature .center-name-secondary{display:block;color:var(--ink);font-weight:600}
-.institutional-signature .center-name-secondary{
- font-size:.866667em;line-height:1.1;letter-spacing:-.025em;border:0;margin:0;padding:0;
-}
-.institutional-signature .signature-affiliation{
- display:block;font:400 11.5px/1.35 var(--sans);color:var(--wine);margin-top:7px;
- padding:0;letter-spacing:.025em;text-transform:none;
-}
 .home-hero .home-intro h1{margin-top:0}
 @media(min-width:1181px){
  .nav{grid-template-columns:minmax(270px,1fr) auto minmax(170px,1fr)}
@@ -1331,19 +1320,16 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
 }
 @media(max-width:600px){
  .nav .brand.institutional-signature{max-width:calc(100% - 110px);padding:8px 0}
- .institutional-signature .center-wordmark{font-size:clamp(22px,7vw,28px);white-space:normal;line-height:1.05}
- .institutional-signature .center-name-secondary{margin:0}
- .institutional-signature .signature-affiliation{font-size:10.5px;margin-top:7px;letter-spacing:.025em}
 }
 
 /* Institutional Communications supplied this temporary wordmark on 28 Oct 2026.
    Frame only the transparent canvas; preserve all original pixels and proportions.
    Visible artwork bounds in the 1200px source: x117 y481, 971 by 226px. */
-.institutional-signature .center-mark{width:280px;max-width:100%}
+.institutional-signature .center-mark{width:240px;max-width:100%}
 .institutional-signature .institutional-wordmark{display:block;position:relative;width:100%;aspect-ratio:971/226;overflow:hidden}
 .institutional-wordmark img{display:block;position:absolute;width:calc(120000% / 971);max-width:none;height:auto;left:calc(-11700% / 971);top:calc(-48100% / 226)}
-.footer-brand.institutional-signature .center-mark{width:320px}
+.footer-brand.institutional-signature .center-mark{width:280px}
 @media(max-width:600px){
- .nav .brand.institutional-signature .center-mark{width:250px}
- .footer-brand.institutional-signature .center-mark{width:280px}
+ .nav .brand.institutional-signature .center-mark{width:210px}
+ .footer-brand.institutional-signature .center-mark{width:240px}
 }
