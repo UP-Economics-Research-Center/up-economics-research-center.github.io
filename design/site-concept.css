@@ -1125,7 +1125,8 @@ main .topic-link,main .output-link{text-decoration:none}
 header a.brand,footer a.footer-brand{text-decoration:none}
 
 header .language-switch a,footer .legal-footer a{text-decoration:none}
-.search-result-list a{text-decoration:underline}
+.search-result-list a{text-decoration:none}
+.search-result-list strong{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 
 button,[role=button],a.button{text-decoration:none}
 

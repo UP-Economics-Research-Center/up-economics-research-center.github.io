@@ -492,3 +492,8 @@ El usuario solicita recuperar los adjuntos del correo de Lizeth y usar la versi�
 Lizeth autoriza el uso temporal de estos archivos con tipografía institucional hasta la presentación y aprobación del Consejo en diciembre; la arquitectura definitiva queda pendiente. Esta indicación sustituye la propuesta propia del 26 de octubre. Procedencia y hashes en `institutional-wordmark-2026-10-28.json`. Los originales no se alteran: CSS excluye únicamente el margen transparente del lienzo al mostrarlos.
 
 Verificación previa a publicación: generación estática correcta (54 registros de búsqueda, 21 fichas, 15 personas); inspección de la sustitución en encabezado/pie de 82 rutas EN/ES, rutas de imagen y diff correctos. Capturas de escritorio ES y móvil EN en `docs/institutional-wordmark-2026-10-28/`. Sin tests, conforme a AGENTS.md.
+
+
+### Búsqueda: subrayar solo el título — 28 octubre 2026
+
+El usuario señala en una captura que los accesos Research, People y Publications subrayan también sus descripciones y flechas. La regla `.search-result-list a` aplicaba subrayado al enlace completo. Se traslada el subrayado al título `strong`; descripción y flecha quedan sin subrayado, conservando toda la fila como enlace, así como foco y hover existentes. Corrección compartida para resultados y sugerencias EN/ES. Se incluye en la publicación solicitada.
