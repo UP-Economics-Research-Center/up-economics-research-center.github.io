@@ -47,3 +47,8 @@ This repository contains the visual mock and assets for the UP Economics Researc
 - Hero university eyebrow stays removed. Existing licensed photographs and the expressly approved glasses illustration remain.
 - Official current wine #7A1A37 and gold #B9975B. The reviewed manual does not define a web button/tag component library. The site’s title-case/Regular layout is an editorial adaptation.
 - Website publication approval does not certify a formal institutional logo. See docs/center-logo-proposal-2026-10-26.md and docs/brand-interface-review-2026-10-26.md. Preserve unrelated journal-cover review and correspondence artifacts.
+
+## Temporary institutional identity — 28 October 2026
+- Use the original red PNG supplied by Institutional Communications in header/footer, both languages. Preserve its pixels, colour and proportions; the CSS frame removes only the transparent canvas for display. White original retained unused.
+- This supersedes the self-designed live Seravek Center mark and its icon links. Do not regenerate or restore them as the active identity. Only English artwork was supplied; do not invent a translated graphic.
+- Institutional architecture remains pending Council approval in December. Source and hashes: docs/institutional-wordmark-2026-10-28.json.

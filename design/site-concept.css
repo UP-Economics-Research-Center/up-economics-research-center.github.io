@@ -1334,3 +1334,15 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
  .institutional-signature .center-name-secondary{margin:0}
  .institutional-signature .signature-affiliation{font-size:10.5px;margin-top:7px;letter-spacing:.025em}
 }
+
+/* Institutional Communications supplied this temporary wordmark on 28 Oct 2026.
+   Frame only the transparent canvas; preserve all original pixels and proportions.
+   Visible artwork bounds in the 1200px source: x117 y481, 971 by 226px. */
+.institutional-signature .center-mark{width:280px;max-width:100%}
+.institutional-signature .institutional-wordmark{display:block;position:relative;width:100%;aspect-ratio:971/226;overflow:hidden}
+.institutional-wordmark img{display:block;position:absolute;width:calc(120000% / 971);max-width:none;height:auto;left:calc(-11700% / 971);top:calc(-48100% / 226)}
+.footer-brand.institutional-signature .center-mark{width:320px}
+@media(max-width:600px){
+ .nav .brand.institutional-signature .center-mark{width:250px}
+ .footer-brand.institutional-signature .center-mark{width:280px}
+}
