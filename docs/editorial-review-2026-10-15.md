@@ -497,3 +497,12 @@ Verificación previa a publicación: generación estática correcta (54 registro
 ### Búsqueda: subrayar solo el título — 28 octubre 2026
 
 El usuario señala en una captura que los accesos Research, People y Publications subrayan también sus descripciones y flechas. La regla `.search-result-list a` aplicaba subrayado al enlace completo. Se traslada el subrayado al título `strong`; descripción y flecha quedan sin subrayado, conservando toda la fila como enlace, así como foco y hover existentes. Corrección compartida para resultados y sugerencias EN/ES. Se incluye en la publicación solicitada.
+
+
+### Ajuste de firma y color del archivo recibido — 28 octubre 2026
+
+El usuario pide retirar School of Economics / Escuela de Economía debajo del logo, ajustar su tamaño y aplicar su rojo al resto de la identidad de la página. Se retira la afiliación de todas las plantillas y sus campos del CMS. Ancho de logo: 240 px en encabezado de escritorio, 210 px en móvil; pie de 280/240 px, siempre limitado al espacio disponible y sin deformar el original.
+
+Color dominante opaco del PNG original: RGB (141, 24, 56), #8D1838. Sustituye al vino anterior en los acentos compartidos: botones, enlaces, indicadores, marcos y foco; hover más oscuro derivado #71132D. Se conservan imágenes, tonos neutros y tipografías. El original del correo permanece idéntico. Publicación dentro del alcance autorizado de esta ronda.
+
+Verificación: generación estática correcta; 100 páginas generadas con el logo y sin afiliación inferior, YAML del CMS válido y diff correcto. Revisadas capturas de escritorio ES (1440 px), móvil EN (390 px) y móvil ES (320 px). Sin tests conforme a instrucciones del proyecto.

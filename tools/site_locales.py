@@ -180,7 +180,7 @@ def generate_languages(site: Path, data, settings, about):
             for project in row.get('projects', []):
                 if not project.get('title_es') or not project.get('summary_es'):
                     raise LocaleError(f'{row["slug"]}: project needs Spanish title and summary')
-    for label, record, fields in [('site settings', settings, ('center_name', 'hero_heading', 'hero_summary', 'campus_video_caption', 'footer_note', 'signature_affiliation')), ('home scope/contact', about, ('scope', 'research_scope', 'collaboration', 'contact_intro', 'affiliation', 'editorial_note'))]:
+    for label, record, fields in [('site settings', settings, ('center_name', 'hero_heading', 'hero_summary', 'campus_video_caption', 'footer_note')), ('home scope/contact', about, ('scope', 'research_scope', 'collaboration', 'contact_intro', 'affiliation', 'editorial_note'))]:
         if label == 'home scope/contact' and not record.get('published'):
             continue
         for field in fields:
@@ -297,7 +297,6 @@ def generate_languages(site: Path, data, settings, about):
         rel = path.relative_to(site).as_posix()
         english_url = '/' if rel == 'index.html' else '/' + rel.removesuffix('index.html') if rel.startswith('publications/') else '/' + rel
         source = path.read_text().replace('<b>At the Center</b>', '<b>At the Center</b><a href="/media.html">Media</a>').replace('</footer>', '<nav class="wrap legal-footer" aria-label="Legal information"><a href="/privacy.html">Privacy notice</a><a href="/terms.html">Terms of use</a><a href="/cookies.html">Storage and external services</a><a href="/rights.html">Copyright and attribution</a><a href="/photo-credits.html">Image credits</a></nav></footer>')
-        source = re.sub(r'(<span class="signature-affiliation">)[^<]*(</span>)', lambda m: m[1] + html.escape(settings['signature_affiliation']) + m[2], source)
         footer = ('<div class="footer-bottom"><span>' + html.escape(settings['university']) + ' · ' + html.escape(settings['center_name']) + '</span><span>' + html.escape(settings.get('footer_note', '')) + '</span></div>')
         if settings.get('faculty_portal_url'):
             footer = footer.removesuffix('</div>') + '<a href="' + html.escape(settings['faculty_portal_url'], quote=True) + '" target="_blank" rel="noopener noreferrer">UP ERC Faculty Portal (Log in)</a></div>'

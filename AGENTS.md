@@ -52,3 +52,8 @@ This repository contains the visual mock and assets for the UP Economics Researc
 - Use the original red PNG supplied by Institutional Communications in header/footer, both languages. Preserve its pixels, colour and proportions; the CSS frame removes only the transparent canvas for display. White original retained unused.
 - This supersedes the self-designed live Seravek Center mark and its icon links. Do not regenerate or restore them as the active identity. Only English artwork was supplied; do not invent a translated graphic.
 - Institutional architecture remains pending Council approval in December. Source and hashes: docs/institutional-wordmark-2026-10-28.json.
+
+## Signature scale and shared colour — 28 October 2026
+- Remove the school affiliation below the supplied logo in both languages. No signature-affiliation CMS fields remain.
+- Use the PNG's exact opaque artwork red #8D1838 for the website's primary accents, including buttons, links, focus and frames. Dark hover #71132D is derived from that red. This supersedes #7A1A37 as the active website accent; do not recolour source media.
+- Header logo width: 240px desktop, 210px mobile, constrained to available space; footer 280px/240px. Keep proportions and original image bytes.
