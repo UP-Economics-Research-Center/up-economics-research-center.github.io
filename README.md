@@ -7,12 +7,13 @@ Static website for the **UP Economics Research Center, Universidad Panamericana*
 - `index.html`, `design/`, and local media define the presentation.
 - `content/` contains Decap CMS records. Only records with `published: true` appear publicly.
 - `tools/build_site.py` validates editorial records and builds the complete static site into `_site/`.
-- `.github/workflows/pages.yml` builds `_site/` and deploys it to GitHub Pages after a change is committed to `main`.
+- `.github/workflows/pages.yml` builds `_site/` and deploys it to GitHub Pages after a change is committed to `main`, on manual deployment, and approximately hourly for seminar updates.
 - `admin/` contains the Decap CMS entry point; `oauth-worker/` contains the GitHub sign-in service source.
 
 Build locally with Python 3 (no packages required):
 
 ```sh
+python3 tools/seminar_sheet.py
 python3 tools/build_site.py
 python3 -m http.server --directory _site 8000
 ```
@@ -44,7 +45,53 @@ The bilingual [editor and reviewer guide](admin/editor-guide.html) is linked fro
 
 ### Seminar information and proposals
 
-The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the button is labeled Submit a proposal / Envía una propuesta without the removed language qualifier. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. Add individual confirmed events in the **Seminars** collection; upcoming and past entries are separated automatically. No event dates or speakers are currently entered.
+The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the button is labeled Submit a proposal / Envía una propuesta without the removed language qualifier. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. The schedule is edited in Google Sheets as described below. The **Seminars** CMS collection remains available for separate manually reviewed entries; imports never modify those records.
+
+
+### Edit the seminar schedule in Google Sheets
+
+Open the [schedule workbook](https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/edit?gid=1187319866#gid=1187319866). **Archivo** is the complete editing source; **Seminario** is an automatic view of sessions dated today or later in Mexico City. **Guía de edición** contains editing instructions and a link for manual refresh. Do not edit the formula output on Seminario. Past sessions stay in Archivo, and undated available slots remain there until confirmed. The original sheet is retained in a hidden backup.
+
+Use **one row per presentation**. Several rows can share one date: the website groups them into one dated session and gives each presentation its own title, speaker, time, duration, room and links. November's thesis presentation and workshop are two rows in one session. Leave unknown times and locations blank. Do not infer them from the general schedule. Existing institutional spelling, including Universidad de Pieura, is preserved.
+
+| Columns | What to edit |
+| --- | --- |
+| A — Publicar | Checkbox. Checking authorizes publication without a separate website review. Leave available slots/tentative entries unchecked. |
+| B — Fecha | A real calendar date, displayed YYYY-MM-DD. This is the only date field. |
+| C — Hora (CDMX) | Optional confirmed start time, HH:mm, in Mexico City. |
+| D–E — Ponente(s), Institución | Names and confirmed affiliation, shared across languages. |
+| F–G — Título (ES), Title (EN) | Title in each language; keep publication/paper titles in their original language when required. |
+| H–I — Descripción (ES), Description (EN) | Public descriptions in each language. |
+| J–K — Detalles (ES), Details (EN) | Optional public details for this presentation. |
+| L — Duración (min) | Optional integer minutes, 1–1440, for this presentation. |
+| M–O — Modalidad, Salón / auditorio, Edificio / campus | Format dropdown and confirmed physical location. |
+| P — Zoom / conexión | Optional public attendee HTTPS connection link. |
+| Q — RSVP / inscripción | Optional independent HTTPS registration link. |
+| R — Material | Optional HTTPS link to associated paper/material. |
+
+The technical session ID in S is hidden and protected with an edit warning. Existing dates retain their IDs, including November's two rows. A new presentation on an existing date can leave its ID blank; the importer uses that date's existing session ID. For entirely new dates the importer creates a deterministic date-based session ID. Do not give different IDs to the same date or reuse one ID on different dates.
+
+The sheet rejects invalid dates, invalid times, noninteger durations and non-HTTPS links. It highlights checked rows missing a date or named presentation. Formatting uses a Swiss grid with clear sans-serif typography, black/white surfaces and restrained red accents. The website keeps its approved styling.
+
+**Languages:** interface labels are translated by the site. Each route reads its ES or EN title, description and details. Names, dates, affiliations and links are shared. If a translation is missing, the original text remains visible with the correct language attribute; descriptions/details carry an original-language notice. The importer does not silently generate new translations after edits. Existing English session titles are faithful translations of the supplied Spanish titles. New descriptions remain empty until provided. The three unassociated paper titles stay excluded until their event associations and destination URLs are supplied.
+
+**Links:** Zoom, RSVP and material are independent. Each appears only when its own field contains a valid HTTPS URL, even if the other links are blank. Do not use private host links. The workbook/CSV is public: do not put confidential notes in any column. Unknown time and format appear as To be confirmed / Por confirmar. A known in-person/hybrid session without a room also shows a pending location.
+
+**Updates:** hourly refresh plus manual refresh when needed, as selected by the user. The deployment workflow on `main` imports the sheet before each hourly, pushed or manual deployment. An edit becomes visible after the next successful deployment. GitHub Actions runs approximately at minute 17 each hour and can be delayed. For an urgent update, follow **Guía de edición → Actualizar ahora**, then **Run workflow → main** in GitHub Actions (requires repository access). The sheet's Seminario view updates on edit and recalculates hourly; the website updates after a successful build/deployment. In a public repository GitHub can disable schedules after 60 days without repository activity; a maintainer should check Actions if updates stop. See [GitHub's schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+
+The public **Seminar archive / Archivo de seminarios** has an accent-insensitive search across titles, speakers, institutions and descriptions in both languages, a year filter, matching-session count and pagination of six sessions. Filters and page are preserved in the URL, so a filtered archive can be bookmarked or shared. Dates and individual presentation anchors provide direct links; arriving at a hidden archived entry reveals its page. Clearing filters restores the full archive. Without JavaScript, all past sessions remain available in their generated date order; inactive search/pagination controls stay hidden. Search and year options update when a session crosses midnight. The current schedule has no past sessions yet; it is not filled with demonstration history.
+
+Upcoming sessions are ordered nearest first; past sessions newest first. Today's sessions remain upcoming through the Mexico City day. The browser refreshes grouping on opening, midnight and return from sleep/background. Without JavaScript, visitors receive the grouping from the last build. The proposal form remains independent, and View full schedule / Ver calendario completo opens Seminario.
+
+#### Maintainer import and recovery
+
+`content/settings/seminar-sheet.json` pins Archivo's public CSV and the named headers. The importer recognizes the complete header row within the first 10 rows, so removing a decorative heading does not break the import. Preserve the column names; their order may change. The source tab has strict native date/time/duration/link validation through the prepared final row (initially 997). Add more prepared rows and update the view/validation ranges before exceeding the prepared range. Do not point the import at the upcoming-only view: it would erase past sessions from the website archive.
+
+Run `python3 tools/seminar_sheet.py` before `python3 tools/build_site.py`. The importer writes ignored `.seminar-import/feed.json`; the build publishes `/seminars-sheet.json` schema version 2 with the source, timezone, last successful refresh, sessions and nested presentations. Parent IDs remain stable when presentation details or translations change. Child IDs are deterministic from session, original title, speaker and time. The CMS `/seminars.json` feed and `content/seminars/` remain separate and are never overwritten. Imported data is never automatically committed.
+
+A failed CSV fetch or invalid checked row rejects the entire refresh, then tries the last successfully deployed feed from the same source/schema. Recovery retains its last successful timestamp and reports Actions warnings plus a job summary. Without a valid fallback, initial activation is blocked and the live site stays unchanged. A correctly headed schedule with no checked rows is a valid empty schedule. The schema-1 prototype was never released; schema 2 is the initial structured release.
+
+For offline inspection, `--csv-file /absolute/schedule.csv`, `--fallback-file /absolute/deployed-feed.json` and `--output /temporary/feed.json` accept local inspection files. Do not deploy illustrative inspection data. The real-sheet import and bilingual static build are verified; deployment status is available in GitHub Actions. Full history: [implementation notes](docs/seminar-sheet-2026-11-04.md).
 
 ### Adding a publication
 
