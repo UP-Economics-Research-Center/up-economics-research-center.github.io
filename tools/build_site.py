@@ -505,14 +505,15 @@ def render_sheet_seminar(item: dict, language="en") -> str:
     months = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
     label = f'{day.day} de {months[day.month - 1]} de {day.year}' if language == "es" else format_date(item["date"])
     presentations = "".join(render_presentation(row, language) for row in item["presentations"])
-    return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" id="{e(item["id"])}">'
-            f'<div class="event-date"><time datetime="{e(item["date"])}" data-seminar-day>{e(label)}</time></div>'
+    search_text = item["date"] + " " + " ".join(str(value) for row in item["presentations"] for key, value in row.items() if key in {"speaker", "institution", "title_es", "title_en", "description_es", "description_en", "details_es", "details_en", "location", "campus"})
+    return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" data-search="{e(search_text)}" id="{e(item["id"])}">'
+            f'<div class="event-date"><a href="#{e(item["id"])}"><time datetime="{e(item["date"])}" data-seminar-day>{e(label)}</time></a></div>'
             f'<div class="seminar-presentations">{presentations}</div><div></div></article>')
 
 
 def render_schedule(items: list[dict], *, archived=False, language="en") -> str:
     records = "".join(render_sheet_seminar(item, language) if "presentations" in item else render_seminar(item, archived) for item in items)
-    message = "Confirmed past seminars will appear here." if archived else "Confirmed upcoming seminars will appear here."
+    message = "Past seminars will appear here automatically after their date." if archived else "Confirmed upcoming seminars will appear here."
     hidden = " hidden" if items else ""
     return records + f'<p class="note" data-seminar-empty{hidden}>{message}</p>'
 
