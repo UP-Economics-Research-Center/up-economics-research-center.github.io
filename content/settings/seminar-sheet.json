@@ -1,12 +1,26 @@
 {
   "schedule_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/edit?gid=1187319866#gid=1187319866",
-  "csv_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/export?format=csv&gid=1187319866",
+  "csv_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/export?format=csv&gid=2026110401",
   "deployed_feed_url": "https://up-economics-research-center.github.io/seminars-sheet.json",
-  "header_row": 2,
-  "agenda_header": "Tema",
-  "original_date_header": "Fecha",
-  "duration_column": "D",
-  "format_header": "Modalidad",
-  "location_header": "Salón / auditorio",
-  "online_url_header": "Enlace de conexión"
+  "columns": {
+    "published": "Publicar",
+    "date": "Fecha",
+    "time": "Hora (CDMX)",
+    "speaker": "Ponente(s)",
+    "institution": "Institución",
+    "title_es": "Título (ES)",
+    "title_en": "Title (EN)",
+    "description_es": "Descripción (ES)",
+    "description_en": "Description (EN)",
+    "details_es": "Detalles (ES)",
+    "details_en": "Details (EN)",
+    "duration": "Duración (min)",
+    "format": "Modalidad",
+    "location": "Salón / auditorio",
+    "campus": "Edificio / campus",
+    "online_url": "Zoom / conexión",
+    "rsvp_url": "RSVP / inscripción",
+    "material_url": "Material",
+    "session_id": "ID de sesión"
+  }
 }

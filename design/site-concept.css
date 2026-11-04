@@ -1333,3 +1333,9 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
  .nav .brand.institutional-signature .center-mark{width:210px}
  .footer-brand.institutional-signature .center-mark{width:240px}
 }
+
+/* Several presentations share one dated seminar session. */
+.seminar-presentation{min-width:0}
+.seminar-presentation + .seminar-presentation{margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
+.seminar-presentation .seminar-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+.seminar-presentation p{overflow-wrap:anywhere}

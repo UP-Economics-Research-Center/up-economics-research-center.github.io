@@ -60,36 +60,55 @@ def read_url(url):
 
 def valid_day(value):
     if not isinstance(value, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
-        raise SheetError("Event date must use YYYY-MM-DD")
+        raise SheetError("Fecha must use YYYY-MM-DD")
     try:
         date.fromisoformat(value)
     except ValueError as exc:
-        raise SheetError(f"invalid Event date: {value}") from exc
+        raise SheetError(f"invalid Fecha: {value}") from exc
     return value
 
 
-def session_id(day, agenda):
-    # Deterministic across builds and spreadsheet reordering, independent of row numbers.
-    digest = hashlib.sha256((day + "\n" + agenda).encode("utf-8")).hexdigest()[:20]
-    return "sheet-" + digest
+def validate_https(value, label):
+    if not isinstance(value, str):
+        raise SheetError(f"{label} must be text")
+    if not value:
+        return
+    try:
+        parsed = urlsplit(value)
+        parsed.port
+        valid = parsed.scheme == "https" and parsed.hostname and not parsed.username and not parsed.password
+    except ValueError:
+        valid = False
+    if not valid or any(char.isspace() or ord(char) < 32 for char in value):
+        raise SheetError(f"{label} must be a valid HTTPS URL")
 
 
-def validate_participation(item):
-    mode = item.get("format", "")
-    if not isinstance(mode, str) or mode not in {"", "in_person", "online", "hybrid"}:
-        raise SheetError("invalid session format")
-    for key in ("location", "online_url"):
+def validate_presentation(item):
+    if not isinstance(item, dict):
+        raise SheetError("invalid presentation")
+    fields = ("speaker", "institution", "title_es", "title_en", "description_es", "description_en",
+              "details_es", "details_en", "location", "campus", "time")
+    for key in fields:
         if key in item and not isinstance(item[key], str):
             raise SheetError(f"{key} must be text")
-    if item.get("location") and mode not in {"in_person", "hybrid"}:
-        raise SheetError("Salón / auditorio requires Presencial or Híbrida")
-    if item.get("online_url"):
-        if mode not in {"online", "hybrid"}:
-            raise SheetError("Enlace de conexión requires En línea or Híbrida")
-        url = item["online_url"]
-        parsed = urlsplit(url)
-        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password or any(char.isspace() or ord(char) < 32 for char in url):
-            raise SheetError("Enlace de conexión must be a valid HTTPS URL")
+    if not any(item.get(key, "").strip() for key in ("speaker", "title_es", "title_en")):
+        raise SheetError("a published presentation needs a speaker or title")
+    if not item.get("speaker") and any(PLACEHOLDER.search(item.get(key, "")) for key in ("title_es", "title_en")):
+        raise SheetError("available slots cannot be published")
+    mode = item.get("format", "")
+    if not isinstance(mode, str) or mode not in {"", "in_person", "online", "hybrid"}:
+        raise SheetError("invalid presentation format")
+    if item.get("time") and not re.fullmatch(r"(?:[01]\d|2[0-3]):[0-5]\d", item["time"]):
+        raise SheetError("Hora (CDMX) must use HH:MM in 24-hour format")
+    if "duration" in item and (type(item["duration"]) is not int or not 1 <= item["duration"] <= 1440):
+        raise SheetError("Duración (min) must be an integer from 1 to 1440")
+    for key in ("online_url", "rsvp_url", "material_url"):
+        validate_https(item.get(key, ""), key)
+
+
+def presentation_id(parent, item):
+    identity = "\n".join((parent, item.get("speaker", ""), item.get("title_es") or item.get("title_en", ""), item.get("time", "")))
+    return "talk-" + hashlib.sha256(identity.encode("utf-8")).hexdigest()[:20]
 
 
 def parse_csv(text, config):
@@ -97,77 +116,88 @@ def parse_csv(text, config):
         rows = list(csv.reader(io.StringIO(text, newline=""), strict=True))
     except csv.Error as exc:
         raise SheetError(f"invalid CSV: {exc}") from exc
-    header_index = config["header_row"] - 1
-    if len(rows) <= header_index:
-        raise SheetError("missing schedule header row")
+    names = tuple(config["columns"].values())
+    candidates = [index for index, row in enumerate(rows[:10])
+                  if all([field.strip() for field in row].count(name) == 1 for name in names)]
+    if len(candidates) != 1:
+        raise SheetError("expected one complete schedule header within the first 10 rows")
+    header_index = candidates[0]
     headers = [field.strip() for field in rows[header_index]]
-    required = (config["agenda_header"], config["original_date_header"], "Event date", "Show on website")
-    for name in required:
+    columns = {}
+    for key, name in config["columns"].items():
         if headers.count(name) != 1:
             raise SheetError(f"expected exactly one {name!r} column on row {header_index + 1}")
-    columns = {name: headers.index(name) for name in required}
-    participation_columns = {}
-    for key in ("format", "location", "online_url"):
-        header = config[key + "_header"]
-        if headers.count(header) > 1:
-            raise SheetError(f"duplicate {header!r} column")
-        if header in headers:
-            participation_columns[key] = headers.index(header)
-    duration_index = 0
-    for letter in config["duration_column"]:
-        duration_index = duration_index * 26 + ord(letter) - ord("A") + 1
-    duration_index -= 1
-    sessions = []
-    seen = set()
+        columns[key] = headers.index(name)
+    entries = []
+    identities_by_day = {}
+    # Unpublished rows still own their existing session identity. Replacing a
+    # presentation must not change the date's anchor when the old row is unchecked.
+    for values in rows[header_index + 1:]:
+        day = values[columns["date"]].strip() if len(values) > columns["date"] else ""
+        source_id = values[columns["session_id"]].strip() if len(values) > columns["session_id"] else ""
+        if not source_id or not re.fullmatch(r"sheet-(?:[a-f0-9]{20}|day-\d{4}-\d{2}-\d{2})", source_id):
+            continue
+        try:
+            valid_day(day)
+        except SheetError:
+            continue
+        identities_by_day.setdefault(day, set()).add(source_id)
     for number, values in enumerate(rows[header_index + 1:], header_index + 2):
-        def cell(index):
+        def cell(key):
+            index = columns[key]
             return values[index].strip() if index < len(values) else ""
-        published = cell(columns["Show on website"]).upper()
+        published = cell("published").upper()
         if published in ("", "FALSE"):
             continue
         if published != "TRUE":
-            raise SheetError(f"row {number}: Show on website must be a checkbox (TRUE/FALSE)")
-        agenda = cell(columns[config["agenda_header"]])
-        original_date = cell(columns[config["original_date_header"]])
-        if not agenda or PLACEHOLDER.search(agenda) or "?" in original_date or re.search(r"tentativ|por confirmar|tbd", original_date, re.I):
-            raise SheetError(f"row {number}: checked row needs a named, confirmed session")
+            raise SheetError(f"row {number}: Publicar must be a checkbox")
         try:
-            day = valid_day(cell(columns["Event date"]))
+            day = valid_day(cell("date"))
+            item = {key: cell(key) for key in columns if key not in {"published", "date", "session_id", "duration", "format"} and cell(key)}
+            mode = cell("format").casefold()
+            if mode not in FORMATS:
+                raise SheetError("Modalidad must be Presencial, En línea, Híbrida or Por confirmar")
+            if FORMATS[mode]:
+                item["format"] = FORMATS[mode]
+            if cell("duration"):
+                if not re.fullmatch(r"[0-9]+", cell("duration")):
+                    raise SheetError("Duración (min) must be an integer")
+                item["duration"] = int(cell("duration"))
+            validate_presentation(item)
+            source_id = cell("session_id")
+            if source_id:
+                if not re.fullmatch(r"sheet-(?:[a-f0-9]{20}|day-\d{4}-\d{2}-\d{2})", source_id):
+                    raise SheetError("invalid ID de sesión")
+            entries.append((day, item))
         except SheetError as exc:
             raise SheetError(f"row {number}: {exc}") from exc
-        identifier = session_id(day, agenda)
-        if identifier in seen:
-            raise SheetError(f"row {number}: duplicate session")
-        seen.add(identifier)
-        item = {"id": identifier, "date": day, "title": agenda.splitlines()[0], "agenda": agenda}
-        duration = cell(duration_index)
-        if duration:
-            item["duration"] = duration
-        for key, index in participation_columns.items():
-            value = cell(index)
-            if key == "format":
-                if value.casefold() not in FORMATS:
-                    raise SheetError(f"row {number}: Modalidad must be Presencial, En línea, Híbrida or Por confirmar")
-                value = FORMATS[value.casefold()]
-            if value:
-                item[key] = value
-        try:
-            validate_participation(item)
-        except SheetError as exc:
-            raise SheetError(f"row {number}: {exc}") from exc
-        sessions.append(item)
+    sessions = {}
+    for day, item in entries:
+        existing_ids = identities_by_day.get(day, set())
+        if len(existing_ids) > 1:
+            raise SheetError("presentations on the same date must share ID de sesión")
+        identifier = next(iter(existing_ids), "sheet-day-" + day)
+        if identifier in sessions and sessions[identifier]["date"] != day:
+            raise SheetError("one ID de sesión cannot refer to different dates")
+        parent = sessions.setdefault(identifier, {"id": identifier, "date": day, "presentations": []})
+        item["id"] = presentation_id(identifier, item)
+        if any(existing["id"] == item["id"] for existing in parent["presentations"]):
+            raise SheetError("duplicate presentation; give repeated talks their actual start times")
+        parent["presentations"].append(item)
+    for parent in sessions.values():
+        parent["presentations"].sort(key=lambda item: item.get("time") or "99:99")
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "source_url": config["schedule_url"],
         "csv_url": config["csv_url"],
         "timezone": TIMEZONE,
         "last_successful_refresh": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "sessions": sorted(sessions, key=lambda item: (item["date"], item["id"])),
+        "sessions": sorted(sessions.values(), key=lambda item: (item["date"], item["id"])),
     }
 
 
 def validate_feed(feed, config):
-    if not isinstance(feed, dict) or feed.get("schema_version") != 1 or feed.get("timezone") != TIMEZONE:
+    if not isinstance(feed, dict) or feed.get("schema_version") != 2 or feed.get("timezone") != TIMEZONE:
         raise SheetError("unsupported seminar feed")
     if feed.get("csv_url") != config["csv_url"] or feed.get("source_url") != config["schedule_url"]:
         raise SheetError("feed belongs to a different schedule")
@@ -180,22 +210,25 @@ def validate_feed(feed, config):
     if not isinstance(feed.get("sessions"), list):
         raise SheetError("feed must contain a sessions list (which may be empty)")
     seen = set()
+    seen_days = set()
     for item in feed["sessions"]:
         if not isinstance(item, dict):
             raise SheetError("invalid session record")
         day = valid_day(item.get("date"))
-        for key in ("title", "agenda"):
-            if not isinstance(item.get(key), str) or not item[key].strip():
-                raise SheetError(f"session needs {key}")
-        if PLACEHOLDER.search(item["agenda"]) or item["title"] != item["agenda"].splitlines()[0]:
-            raise SheetError("feed contains an unnamed or inconsistent session")
-        if "duration" in item and not isinstance(item["duration"], str):
-            raise SheetError("duration must be text")
-        validate_participation(item)
-        identifier = session_id(day, item["agenda"])
-        if item.get("id") != identifier or identifier in seen:
-            raise SheetError("invalid or duplicate session ID")
+        identifier = item.get("id")
+        if not isinstance(identifier, str) or not re.fullmatch(r"sheet-(?:[a-f0-9]{20}|day-\d{4}-\d{2}-\d{2})", identifier) or identifier in seen or day in seen_days:
+            raise SheetError("invalid or duplicate session ID/date")
         seen.add(identifier)
+        seen_days.add(day)
+        presentations = item.get("presentations")
+        if not isinstance(presentations, list) or not presentations:
+            raise SheetError("session needs at least one presentation")
+        for presentation in presentations:
+            validate_presentation(presentation)
+            child_id = presentation_id(identifier, presentation)
+            if presentation.get("id") != child_id or child_id in seen:
+                raise SheetError("invalid or duplicate presentation ID")
+            seen.add(child_id)
     return feed
 
 

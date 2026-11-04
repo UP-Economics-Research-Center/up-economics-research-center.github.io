@@ -458,29 +458,60 @@ def render_seminar(item: dict, archived=False) -> str:
     return f'<article class="event-line seminar-record" data-event-date="{e(iso_day(item["date"]))}" id="{e(item["slug"])}"><div class="event-date">{event_date}</div><div><h3>{e(item["title"])}</h3><p>{summary}</p></div><div>{links}</div></article>'
 
 
-def render_sheet_seminar(item: dict) -> str:
-    agenda = item["agenda"].splitlines()
-    remainder = "<br>".join(e(line) for line in agenda[1:])
-    details = f'<p lang="es" translate="no">{remainder}</p>' if remainder else ""
+def seminar_text(item: dict, field: str, language: str):
+    other = "en" if language == "es" else "es"
+    return (item.get(field + "_" + language), language) if item.get(field + "_" + language) else (item.get(field + "_" + other, ""), other)
+
+
+def seminar_content(value: str, language: str, tag="span", cls="") -> str:
+    attribute = f' class="{cls}"' if cls else ""
+    text = "<br>".join(e(line) for line in value.splitlines())
+    return f'<{tag}{attribute} lang="{language}" translate="no">{text}</{tag}>'
+
+
+def render_presentation(item: dict, language: str) -> str:
+    title, title_language = seminar_text(item, "title", language)
+    if not title:
+        title, title_language = item.get("speaker", ""), language
+    body = seminar_content(title, title_language, "h3")
+    if item.get("speaker") and item["speaker"].casefold() not in title.casefold():
+        body += '<p class="seminar-speaker"><span>Speaker</span>: ' + seminar_content(item["speaker"], language) + '</p>'
+    if item.get("institution"):
+        body += '<p class="seminar-institution">' + seminar_content(item["institution"], language) + '</p>'
+    for field in ("description", "details"):
+        value, content_language = seminar_text(item, field, language)
+        if value:
+            if content_language != language:
+                body += '<p class="note"><span>Available in the original language</span></p>'
+            body += seminar_content(value, content_language, "p", "seminar-" + field)
+    time = seminar_content(item["time"] + " · CDMX", "es") if item.get("time") else '<span>To be confirmed</span>'
+    body += f'<p class="seminar-time"><span>Time</span>: {time}</p>'
     if item.get("duration"):
-        duration = "<br>".join(e(line) for line in item["duration"].splitlines())
-        details += f'<p class="seminar-duration"><span>Duration</span>: <span translate="no" lang="es">{duration}</span></p>'
-    mode = item.get("format", "")
-    mode_label = {"in_person": "In person", "online": "Online", "hybrid": "Hybrid"}.get(mode, "To be confirmed")
-    details += f'<p class="seminar-participation"><span>Format</span>: <span>{mode_label}</span></p>'
-    if mode in {"in_person", "hybrid"}:
-        location = f'<span lang="es" translate="no">{e(item["location"])}</span>' if item.get("location") else '<span>To be confirmed</span>'
-        details += f'<p class="seminar-location"><span>Location</span>: {location}</p>'
-    if mode in {"online", "hybrid"}:
-        connection = external_anchor(item["online_url"], "Join online") if item.get("online_url") else '<span>Online access</span>: <span>To be confirmed</span>'
-        details += f'<p class="seminar-online">{connection}</p>'
+        body += f'<p class="seminar-duration"><span>Duration</span>: {item["duration"]} min</p>'
+    mode = {"in_person": "In person", "online": "Online", "hybrid": "Hybrid"}.get(item.get("format"), "To be confirmed")
+    body += f'<p class="seminar-participation"><span>Format</span>: <span>{mode}</span></p>'
+    location = " · ".join(item[key] for key in ("location", "campus") if item.get(key))
+    if location or item.get("format") in {"in_person", "hybrid"}:
+        location_html = seminar_content(location, "es") if location else '<span>To be confirmed</span>'
+        body += f'<p class="seminar-location"><span>Location</span>: {location_html}</p>'
+    links = " ".join(external_anchor(item[key], label) for key, label in (("online_url", "Join online"), ("rsvp_url", "Register / RSVP"), ("material_url", "View material")) if item.get(key))
+    if links:
+        body += f'<p class="seminar-links">{links}</p>'
+    return f'<section class="seminar-presentation" id="{e(item["id"])}">{body}</section>'
+
+
+def render_sheet_seminar(item: dict, language="en") -> str:
+    day = date.fromisoformat(item["date"])
+    months = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
+    label = f'{day.day} de {months[day.month - 1]} de {day.year}' if language == "es" else format_date(item["date"])
+    presentations = "".join(render_presentation(row, language) for row in item["presentations"])
     return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" id="{e(item["id"])}">'
-            f'<div class="event-date"><time datetime="{e(item["date"])}" data-seminar-day>{e(format_date(item["date"]))}</time></div>'
-            f'<div><h3 lang="es" translate="no">{e(item["title"])}</h3>{details}</div><div></div></article>')
+            f'<div class="event-date"><time datetime="{e(item["date"])}" data-seminar-day>{e(label)}</time></div>'
+            f'<div class="seminar-presentations">{presentations}</div><div></div></article>')
 
 
-def render_schedule(items: list[dict], *, archived=False) -> str:
-    records = "".join(render_sheet_seminar(item) if "id" in item else render_seminar(item, archived) for item in items)
+def render_schedule(items: list[dict], *, archived=False, language="en") -> str:
+    records = "".join(render_sheet_seminar(item, language) if "presentations" in item else render_seminar(item, archived) for item in items)
     message = "Confirmed past seminars will appear here." if archived else "Confirmed upcoming seminars will appear here."
     hidden = " hidden" if items else ""
     return records + f'<p class="note" data-seminar-empty{hidden}>{message}</p>'
@@ -796,7 +827,8 @@ def build() -> None:
                 else:
                     # Blank settings preserve the currently approved template copy.
                     source = replace_slot(source, name, source.split(f"<!-- CMS_SLOT:{name}:START -->", 1)[1].split(f"<!-- CMS_SLOT:{name}:END -->", 1)[0], ROOT / relpath)
-            source = minify_slots(source)
+            if relpath != "design/seminars.html":
+                source = minify_slots(source)
             if relpath in {"index.html", "design/homepage-concept.html"}:
                 if "Working paper" in hidden_types:
                     source = re.sub(r'<a class="output-link" href="publications\.html\?type=Working%20paper">.*?</a>', '', source, flags=re.S)
@@ -892,7 +924,11 @@ def build() -> None:
         for item in data["seminars"]:
             search.append(page_entry(item["title"], item["description"], f'{item["speaker"]} {item["series"]} {item["date"]}', f'/seminars.html#{quote(item["slug"], safe="-")}', "Seminar"))
         for item in sheet_feed["sessions"] if sheet_feed else []:
-            search.append(page_entry(item["title"], item["agenda"], item["date"], f'/seminars.html#{item["id"]}', "Seminar"))
+            for talk in item["presentations"]:
+                title = seminar_text(talk, "title", "en")[0] or talk.get("speaker", "")
+                description = seminar_text(talk, "description", "en")[0] or seminar_text(talk, "details", "en")[0] or talk.get("institution", "")
+                keywords = " ".join((item["date"], talk.get("speaker", ""), talk.get("institution", "")))
+                search.append(page_entry(title, description, keywords, f'/seminars.html#{talk["id"]}', "Seminar"))
         write_json(site / "search-index.json", search)
 
         template_path = ROOT / "templates/publication-detail.html"
@@ -952,7 +988,10 @@ def build() -> None:
             page.write_text(source, encoding="utf-8")
         search = [row for row in search if not any(not site_settings.get("show_" + section, False) and re.search(r"/" + section + r"\.html(?:[?#]|$)", row["url"]) for section in ("news", "seminars"))]
         write_json(site / "search-index.json", search)
-        generate_languages(site, public_data, site_settings, about_settings, sheet_feed)
+        generate_languages(site, public_data, site_settings, about_settings, sheet_feed, {
+            "seminar_upcoming": render_schedule(upcoming_seminars, language="es"),
+            "seminar_archive": render_schedule(past_seminars, archived=True, language="es"),
+        })
         apply_seo(site, public_data, site_settings, image_html, render_authors, recency_badge)
 
         # Write metadata fields that remain public; source and validation-only values are not emitted as HTML.

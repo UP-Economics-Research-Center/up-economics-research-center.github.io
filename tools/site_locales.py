@@ -125,7 +125,7 @@ def decorate(source, english_url, language):
     return emphasize_center_name(source)
 
 
-def generate_languages(site: Path, data, settings, about, sheet_feed=None):
+def generate_languages(site: Path, data, settings, about, sheet_feed=None, seminar_spanish=None):
     style_version = hashlib.sha256((site / 'design/site-concept.css').read_bytes()).hexdigest()[:12]
     ui = json.loads((ROOT / 'content/settings/interface-es.json').read_text())
     legal = json.loads((ROOT / 'content/settings/legal.json').read_text())
@@ -217,6 +217,12 @@ def generate_languages(site: Path, data, settings, about, sheet_feed=None):
         for pub in es_data['publications']:
             if row['url'].endswith('/publications/' + pub['slug'] + '/'):
                 row['name'], row['description'] = pub['title'], pub['abstract']
+    for row in search:
+        for session in sheet_feed['sessions'] if sheet_feed else []:
+            for talk in session['presentations']:
+                if row['url'].endswith('/seminars.html#' + talk['id']):
+                    row['name'] = talk.get('title_es') or talk.get('title_en') or talk.get('speaker', '')
+                    row['description'] = talk.get('description_es') or talk.get('description_en') or talk.get('details_es') or talk.get('details_en') or talk.get('institution', '')
     (site / 'es/search-index.json').write_text(json.dumps(search, ensure_ascii=False) + '\n')
     # Credit only media used in this build, and describe its actual display treatment.
     catalog = {row['path']: row for row in json.loads((ROOT / 'design/assets/research/photo-sources.json').read_text())}
@@ -318,6 +324,15 @@ def generate_languages(site: Path, data, settings, about, sheet_feed=None):
             for row in credits.values():
                 translated = translated.replace('<h2>' + html.escape(row['title']) + '</h2>', '<h2>' + html.escape(row['title_es']) + '</h2>')
         translated = localize_markup(translated, pairs)
+        if rel.endswith('seminars.html') and seminar_spanish:
+            for slot, markup in seminar_spanish.items():
+                start = '<!-- CMS_SLOT:' + slot + ':START -->'
+                end = '<!-- CMS_SLOT:' + slot + ':END -->'
+                if start not in translated or end not in translated:
+                    raise LocaleError('Missing seminar slot: ' + slot)
+                prefix, remainder = translated.split(start, 1)
+                _, suffix = remainder.split(end, 1)
+                translated = prefix + start + localize_markup(markup, pairs) + end + suffix
         if rel in legal_routes:
             translated = re.sub(r'<main.*?</main>', lambda m: legal_main(legal_routes[rel], 'es'), translated, flags=re.S)
         if rel.startswith('publications/'):
@@ -327,6 +342,7 @@ def generate_languages(site: Path, data, settings, about, sheet_feed=None):
         target = site / 'es' / rel
         target.parent.mkdir(parents=True, exist_ok=True)
         def version_scripts(markup):
+            markup = re.sub(r'<!-- CMS_SLOT:[a-z_]+:(?:START|END) -->', '', markup)
             return re.sub(r'src="(/design/[^"?]+\.js)"', lambda m: 'src="' + m[1] + '?v=' + hashlib.sha256((site / m[1].lstrip('/')).read_bytes()).hexdigest()[:12] + '"', markup)
         target.write_text(version_scripts(decorate(translated, english_url, 'es')))
         path.write_text(version_scripts(decorate(source, english_url, 'en')))
