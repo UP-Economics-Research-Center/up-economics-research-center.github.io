@@ -29,8 +29,15 @@ Required owner change (or connect an account with edit access):
 | G5 | 2027-02-26 |
 | H3:H5 | Checked |
 | H6:H997 | Unchecked |
+| I2 | Modalidad |
+| J2 | Salón / auditorio |
+| K2 | Enlace de conexión |
 
 Format G as plain text and H3:H997 as native checkboxes. Preserve B:F. The original CSV has neither new header, so a real first deployment is intentionally blocked. Do not deploy the preview feed or bypass this gate. Re-fetch the real sheet and confirm these controls before release.
+
+For I3:I997, use a dropdown with Presencial, En línea, Híbrida and Por confirmar. J contains the room or auditorium, optionally including building/campus; K contains the public attendee HTTPS link. Leave I:K blank for existing sessions until someone confirms their participation details. These fields are optional, so old valid feeds still recover correctly. The website shows translated format labels, a physical venue for in-person/hybrid sessions, and an online-access link for online/hybrid sessions. Unknown details show Por confirmar / To be confirmed. Session IDs do not change when participation details change. Conflicting room/format combinations or invalid online links reject a checked row's refresh instead of publishing misleading information.
+
+The user identified `0251520@up.edu.mx` as the intended editing account and reported reconnecting it. Subsequent connector profile reads still returned the personal account. Writing an email in the conversation does not provide an account-selection parameter to the Sheets tool. Account switching remains an external connection issue; no participation details or other cells have been written to the real sheet.
 
 Final real-network import attempt confirmed the gate: the CSV was rejected for missing `Event date`, and the deployed fallback returned HTTP 404. The importer exited 1 without creating a feed at its requested temporary destination. The existing production site was not changed.
 
@@ -47,3 +54,7 @@ Simulated browser time immediately before and after Mexico City midnight: Novemb
 Independent read-only code review found one important recovery issue: an incomplete HTTP response could be accepted as a partial CSV, or a chunked-read exception could bypass recovery. Fixed by checking the advertised Content-Length against received bytes and converting HTTP client exceptions into import errors. Manual localhost response inspection accepted a complete three-session CSV, rejected a short Content-Length response as incomplete, and rejected truncated chunked data as `IncompleteRead`. Both failures now enter the same validated deployed-feed recovery path. No critical or minor findings remained in that review. The reviewer did not independently verify Google permissions, production CSV contents, Actions execution or live browser behavior; the evidence above comes from this implementation session. Actual Actions execution and deployment remain unverified until the owner completes sheet setup and authorizes release.
 
 No push, merge or deployment is part of this local implementation.
+
+## Participation fields verification
+
+Python compilation, the static build and diff whitespace inspection completed after adding the participation fields. Manual local scenario inspection covered Presencial with an auditorium, En línea with an HTTPS link, Híbrida with both, and blank details. EN/ES labels and the original room text were inspected. An unknown mode, a room attached to an online-only event and a non-HTTPS connection link were rejected. The prior valid feed without participation fields was accepted. Illustrative room names and example.org links were used only in temporary local inspection data; none were added to the actual sheet or a committed/public feed. Rendered the illustrative participation view at 1440px desktop and 390px mobile; labels, long auditorium text and online links remained readable without visible clipping. The illustrative page was removed by the final static rebuild. No test suite was run.

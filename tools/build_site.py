@@ -465,6 +465,15 @@ def render_sheet_seminar(item: dict) -> str:
     if item.get("duration"):
         duration = "<br>".join(e(line) for line in item["duration"].splitlines())
         details += f'<p class="seminar-duration"><span>Duration</span>: <span translate="no" lang="es">{duration}</span></p>'
+    mode = item.get("format", "")
+    mode_label = {"in_person": "In person", "online": "Online", "hybrid": "Hybrid"}.get(mode, "To be confirmed")
+    details += f'<p class="seminar-participation"><span>Format</span>: <span>{mode_label}</span></p>'
+    if mode in {"in_person", "hybrid"}:
+        location = f'<span lang="es" translate="no">{e(item["location"])}</span>' if item.get("location") else '<span>To be confirmed</span>'
+        details += f'<p class="seminar-location"><span>Location</span>: {location}</p>'
+    if mode in {"online", "hybrid"}:
+        connection = external_anchor(item["online_url"], "Join online") if item.get("online_url") else '<span>Online access</span>: <span>To be confirmed</span>'
+        details += f'<p class="seminar-online">{connection}</p>'
     return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" id="{e(item["id"])}">'
             f'<div class="event-date"><time datetime="{e(item["date"])}" data-seminar-day>{e(format_date(item["date"]))}</time></div>'
             f'<div><h3 lang="es" translate="no">{e(item["title"])}</h3>{details}</div><div></div></article>')

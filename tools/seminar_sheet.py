@@ -24,6 +24,7 @@ FEED = ROOT / ".seminar-import/feed.json"
 TIMEZONE = "America/Mexico_City"
 MAX_BYTES = 2_000_000
 PLACEHOLDER = re.compile(r"^(espacio disponible|available(?: slot)?|tbd|por confirmar|tentative|tentativo)\b", re.I)
+FORMATS = {"": "", "por confirmar": "", "presencial": "in_person", "en línea": "online", "híbrida": "hybrid"}
 
 
 class SheetError(ValueError):
@@ -73,6 +74,24 @@ def session_id(day, agenda):
     return "sheet-" + digest
 
 
+def validate_participation(item):
+    mode = item.get("format", "")
+    if not isinstance(mode, str) or mode not in {"", "in_person", "online", "hybrid"}:
+        raise SheetError("invalid session format")
+    for key in ("location", "online_url"):
+        if key in item and not isinstance(item[key], str):
+            raise SheetError(f"{key} must be text")
+    if item.get("location") and mode not in {"in_person", "hybrid"}:
+        raise SheetError("Salón / auditorio requires Presencial or Híbrida")
+    if item.get("online_url"):
+        if mode not in {"online", "hybrid"}:
+            raise SheetError("Enlace de conexión requires En línea or Híbrida")
+        url = item["online_url"]
+        parsed = urlsplit(url)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password or any(char.isspace() or ord(char) < 32 for char in url):
+            raise SheetError("Enlace de conexión must be a valid HTTPS URL")
+
+
 def parse_csv(text, config):
     try:
         rows = list(csv.reader(io.StringIO(text, newline=""), strict=True))
@@ -87,6 +106,13 @@ def parse_csv(text, config):
         if headers.count(name) != 1:
             raise SheetError(f"expected exactly one {name!r} column on row {header_index + 1}")
     columns = {name: headers.index(name) for name in required}
+    participation_columns = {}
+    for key in ("format", "location", "online_url"):
+        header = config[key + "_header"]
+        if headers.count(header) > 1:
+            raise SheetError(f"duplicate {header!r} column")
+        if header in headers:
+            participation_columns[key] = headers.index(header)
     duration_index = 0
     for letter in config["duration_column"]:
         duration_index = duration_index * 26 + ord(letter) - ord("A") + 1
@@ -117,6 +143,18 @@ def parse_csv(text, config):
         duration = cell(duration_index)
         if duration:
             item["duration"] = duration
+        for key, index in participation_columns.items():
+            value = cell(index)
+            if key == "format":
+                if value.casefold() not in FORMATS:
+                    raise SheetError(f"row {number}: Modalidad must be Presencial, En línea, Híbrida or Por confirmar")
+                value = FORMATS[value.casefold()]
+            if value:
+                item[key] = value
+        try:
+            validate_participation(item)
+        except SheetError as exc:
+            raise SheetError(f"row {number}: {exc}") from exc
         sessions.append(item)
     return {
         "schema_version": 1,
@@ -153,6 +191,7 @@ def validate_feed(feed, config):
             raise SheetError("feed contains an unnamed or inconsistent session")
         if "duration" in item and not isinstance(item["duration"], str):
             raise SheetError("duration must be text")
+        validate_participation(item)
         identifier = session_id(day, item["agenda"])
         if item.get("id") != identifier or identifier in seen:
             raise SheetError("invalid or duplicate session ID")

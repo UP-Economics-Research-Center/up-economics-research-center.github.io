@@ -279,5 +279,13 @@
   "Read paper ↗": "Leer artículo ↗",
   "View publication ↗": "Ver publicación ↗",
   "View full schedule ↗": "Ver calendario completo ↗",
-  "Duration": "Duración"
+  "Duration": "Duración",
+  "Format": "Modalidad",
+  "In person": "Presencial",
+  "Online": "En línea",
+  "Hybrid": "Híbrida",
+  "To be confirmed": "Por confirmar",
+  "Location": "Ubicación",
+  "Online access": "Acceso en línea",
+  "Join online ↗": "Acceder en línea ↗"
 }
