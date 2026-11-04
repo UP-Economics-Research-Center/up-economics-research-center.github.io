@@ -7,12 +7,13 @@ Static website for the **UP Economics Research Center, Universidad Panamericana*
 - `index.html`, `design/`, and local media define the presentation.
 - `content/` contains Decap CMS records. Only records with `published: true` appear publicly.
 - `tools/build_site.py` validates editorial records and builds the complete static site into `_site/`.
-- `.github/workflows/pages.yml` builds `_site/` and deploys it to GitHub Pages after a change is committed to `main`.
+- `.github/workflows/pages.yml` builds `_site/` and deploys it to GitHub Pages after a change is committed to `main`, on manual deployment, and approximately hourly for seminar updates.
 - `admin/` contains the Decap CMS entry point; `oauth-worker/` contains the GitHub sign-in service source.
 
 Build locally with Python 3 (no packages required):
 
 ```sh
+python3 tools/seminar_sheet.py
 python3 tools/build_site.py
 python3 -m http.server --directory _site 8000
 ```
@@ -44,7 +45,33 @@ The bilingual [editor and reviewer guide](admin/editor-guide.html) is linked fro
 
 ### Seminar information and proposals
 
-The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the button is labeled Submit a proposal / Envía una propuesta without the removed language qualifier. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. Add individual confirmed events in the **Seminars** collection; upcoming and past entries are separated automatically. No event dates or speakers are currently entered.
+The independent `/seminars.html` page and its Spanish version are linked from the header and footer. Edit the introduction, usual schedule, session confirmation note, proposal types and form link in **Home scope, contact and seminar information**. Fill both language fields. The official UP proposal form is in Spanish; the button is labeled Submit a proposal / Envía una propuesta without the removed language qualifier. Its description confirmed the usual monthly schedule on 2026-10-16. Verify changes against the source before editing the schedule. The schedule is edited in Google Sheets as described below. The **Seminars** CMS collection remains available for separate manually reviewed entries; imports never modify those records.
+
+
+### Edit the seminar schedule in Google Sheets
+
+Open the [Seminario schedule](https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/edit?gid=1187319866#gid=1187319866), tab **Seminario**. Keep the existing **Fecha**, **Tema** and duration text. The header is on row 2; duration is in column D. Add new sessions as rows under these headers.
+
+1. Enter the original session title and agenda in **Tema**. Keep a two-part agenda in one cell using line breaks; it stays one website session. Duration in D is optional text; keep per-part durations on separate lines when appropriate.
+2. In **Event date** (column G), enter the confirmed date as `YYYY-MM-DD`, including its year. Keep this column formatted as plain text. Dates are interpreted in Mexico City. Do not put a question mark or tentative wording in a confirmed row's **Fecha**.
+3. Check **Show on website** (column H) when the session is ready for public display. **Checking the box authorizes publication without a separate website review.** Leave available slots, tentative dates and private drafts unchecked. Unchecking a session removes it on the next successful refresh.
+4. Expect the website to update approximately hourly after this integration is released. GitHub Actions can delay scheduled runs. A maintainer can refresh sooner using **Actions → Deploy static site to GitHub Pages → Run workflow**, selecting `main`. Visitors need no Google account; the site displays local HTML, not a spreadsheet embed.
+
+The initial confirmed dates are November 27, 2026; January 29, 2027; and February 26, 2027 (rows 3–5). November remains one session. Keep “Universidad de Pieura” as supplied. The three unassociated paper titles are excluded until their event associations and destination URLs are supplied. Do not infer affiliations, start times or paper links. Original session titles and agenda text appear unchanged in both languages; only interface labels and date formatting change. The proposal form remains independent. **View full schedule / Ver calendario completo** opens the sheet.
+
+Upcoming sessions are ordered nearest first; past sessions are newest first. Today's sessions remain upcoming until the end of the Mexico City day. The browser refreshes grouping when opened, across midnight, and after returning to a sleeping or background tab. Without JavaScript the page uses the grouping at its last successful build; the next hourly build updates it.
+
+#### Maintainer setup and recovery
+
+The owner must add **Event date** in G2 and **Show on website** in H2, with native checkboxes in H3:H997. Set G3:G5 to `2026-11-27`, `2027-01-29`, `2027-02-26`; check H3:H5 and leave all other slots unchecked. The integration requires these headers before initial activation. The public CSV is already readable. If editing is denied, open the sheet with the UP account that has edit access, or grant edit access to the connected account; public read access alone cannot edit it. Setup status and the local verification record are in [the implementation notes](docs/seminar-sheet-2026-11-04.md).
+
+`content/settings/seminar-sheet.json` pins the schedule tab, public CSV, header row and duration column. The CSV importer uses Python's standard library, handles quoted commas and multiline agenda cells, and validates publication flags and exact dates. A checked row with an invalid date, a tentative date, a missing/nonnamed session or a duplicate session rejects the refresh as a whole. Unchecked incomplete rows are ignored. A correctly headed schedule with no checked rows is valid and shows the existing empty messages.
+
+Run `python3 tools/seminar_sheet.py` before `python3 tools/build_site.py`. The importer writes an ignored `.seminar-import/feed.json`; the build publishes `/seminars-sheet.json` with schema version, source URLs, Mexico City timezone, last successful refresh time and session IDs, dates, original title/agenda and optional duration. IDs are deterministic from the event date and agenda, so rebuilding or moving rows does not change them; changing a date or agenda gives that session a new ID. Imported data is never automatically committed. `/seminars.json` remains the separate CMS feed, and `content/seminars/` is never overwritten.
+
+On a failed fetch or invalid checked row, the importer retrieves the last **successfully deployed** `/seminars-sheet.json`, validates that it belongs to the same sheet, and retains its last successful refresh timestamp. GitHub Actions shows warnings and a summary while still deploying other approved edits. If no valid deployed feed exists, the build is blocked and the live site remains unchanged. Do not create an empty placeholder feed to bypass initial activation. A valid empty schedule, deliberately published by unchecking every row, is different from an import failure.
+
+For offline inspection only, `--csv-file /absolute/schedule.csv` and `--fallback-file /absolute/deployed-feed.json` accept already downloaded files; use `--output` for a temporary destination. Preview data is not a substitute for confirming the real sheet's columns and checkboxes before release. Pull-request previews use the same import/recovery rules as deployments. No additional service, dependency or Google credential is needed in GitHub Actions.
 
 ### Adding a publication
 

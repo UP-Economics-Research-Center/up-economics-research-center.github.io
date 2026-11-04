@@ -64,7 +64,7 @@ def localize_markup(source, pairs):
         def preserve_title(match):
             original_titles.append(match[0])
             return f'__ORIGINAL_PUBLICATION_TITLE_{len(original_titles) - 1}__'
-        value = re.sub(r'<(a|h1)\b(?=[^>]*\blang="(?:en|es)")(?=[^>]*\btranslate="no")[^>]*>.*?</\1>', preserve_title, blocks[index], flags=re.S)
+        value = re.sub(r'<(a|h1|h3|p|span)\b(?=[^>]*\blang="(?:en|es)")(?=[^>]*\btranslate="no")[^>]*>.*?</\1>', preserve_title, blocks[index], flags=re.S)
         value = re.sub(r'(?<=>)([^<>]+)(?=<)', lambda m: translate_text(m[1], pairs), value)
         value = re.sub(r'\b(alt|aria-label|placeholder|title)="([^"]*)"', lambda m: m[1] + '="' + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + '"', value)
         value = re.sub(r'(<meta name="description" content=")([^"]*)(">)', lambda m: m[1] + html.escape(pairs.get(html.unescape(m[2]), html.unescape(m[2])), quote=True) + m[3], value)
@@ -125,7 +125,7 @@ def decorate(source, english_url, language):
     return emphasize_center_name(source)
 
 
-def generate_languages(site: Path, data, settings, about):
+def generate_languages(site: Path, data, settings, about, sheet_feed=None):
     style_version = hashlib.sha256((site / 'design/site-concept.css').read_bytes()).hexdigest()[:12]
     ui = json.loads((ROOT / 'content/settings/interface-es.json').read_text())
     legal = json.loads((ROOT / 'content/settings/legal.json').read_text())
@@ -163,6 +163,9 @@ def generate_languages(site: Path, data, settings, about):
         if item.get('date'):
             day = date.fromisoformat(item['date'][:10])
             pairs[day.strftime('%B %d, %Y')] = f'{day.day} de {months_es[day.month - 1]} de {day.year}'
+    for item in sheet_feed['sessions'] if sheet_feed else []:
+        day = date.fromisoformat(item['date'])
+        pairs[day.strftime('%B %d, %Y')] = f'{day.day} de {months_es[day.month - 1]} de {day.year}'
     collect_pairs(legal, pairs)
     for page in legal["pages"]:
         pairs[page["title"]] = page["title_es"]

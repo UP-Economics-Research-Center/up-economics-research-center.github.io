@@ -1,0 +1,9 @@
+{
+  "schedule_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/edit?gid=1187319866#gid=1187319866",
+  "csv_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/export?format=csv&gid=1187319866",
+  "deployed_feed_url": "https://up-economics-research-center.github.io/seminars-sheet.json",
+  "header_row": 2,
+  "agenda_header": "Tema",
+  "original_date_header": "Fecha",
+  "duration_column": "D"
+}
