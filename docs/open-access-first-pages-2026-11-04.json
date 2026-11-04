@@ -1,7 +1,7 @@
 {
   "verified_on": "2026-11-04",
   "request": "Use authentic first pages for the three unique requested open-access papers. The land-tenure title was supplied twice.",
-  "presentation": "Existing local full-page PNGs retained without alteration; no cropping or new artwork. Publication records remain the source of truth for image rights.",
+  "presentation": "All three local full-page PNGs retained without alteration; no cropping or new artwork. The free-trade article image was supplied by the user. Publication records remain the source of truth for image rights.",
   "publications": {
     "land-tenure-security-agrarian-investments-peruvian-highlands": {
       "status": "published-first-page",
@@ -34,19 +34,28 @@
       "verification": "Title, authors, DOI, full-page bounds and Creative Commons footer visually checked against the existing local first-page PNG and official repository/editor records."
     },
     "fta-member-gdp-synthetic-control": {
-      "status": "awaiting-accessible-publisher-pdf",
+      "status": "published-first-page",
       "doi": "10.1111/rsp3.12402",
       "license": "CC BY-NC-ND 4.0",
       "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
       "rights_url": "https://api.crossref.org/works/10.1111/rsp3.12402",
       "publisher_metadata_url": "https://api.elsevier.com/content/article/pii/S1757780223000872?httpAccept=text/xml",
       "publisher_url": "https://www.sciencedirect.com/science/article/pii/S1757780223000872",
-      "verification": "Crossref version-of-record license and Elsevier openaccessArticle=true / openaccessUserLicense agree. Wiley and ScienceDirect public PDF links returned 403; the Navarra repository record contains metadata and a deposit license only. No publisher PDF could be retrieved, so the existing bibliographic card is preserved. The RedNIE working paper is a submitted version with no matching reuse license supplied by its index and was not substituted."
+      "verification": "Title, authors, DOI 10.1111/rsp3.12402, first-page number 1129 and full-page boundaries visually checked. The supplied Wiley page retains its original copyright footer and has no Creative Commons statement on-page. Current publisher metadata and the Crossref version-of-record license both identify CC BY-NC-ND 4.0, independently rechecked on 2026-11-04. The image is reproduced without alteration; no publisher PDF was downloaded.",
+      "image": "/design/assets/publications/fta-member-gdp-synthetic-control-first-page.png",
+      "image_sha256": "9e44ea3983df9479b25217c40f79cabb4462851c57652684a5b4ea710ef79412",
+      "dimensions": [
+        648,
+        932
+      ],
+      "source_url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/rsp3.12402",
+      "source_type": "User-supplied PNG of the published first page; copied byte for byte from the conversation attachment.",
+      "retrieval_history": "The prior 403 PDF download blocker was resolved by the user supplying the authentic first-page image."
     }
   },
   "verification": {
     "static_build": "python3 tools/seminar_sheet.py && python3 tools/build_site.py succeeded; 58 search records, 21 publication pages, 15 people.",
-    "bilingual_output": "Both first-page assets appear in English and Spanish Publications and Agricultural Economics; existing individual article pages retain their text-only layout.",
+    "bilingual_output": "All three first-page assets appear in the appropriate English and Spanish Publications and research-area pages; existing individual article pages retain their text-only layout.",
     "visual_review": "Desktop 1440px and mobile 390px renders; existing image styles use contain and preserve document proportions.",
     "tests": "Not run, as requested by project instructions."
   }
