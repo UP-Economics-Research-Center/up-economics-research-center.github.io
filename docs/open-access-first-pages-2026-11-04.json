@@ -1,0 +1,53 @@
+{
+  "verified_on": "2026-11-04",
+  "request": "Use authentic first pages for the three unique requested open-access papers. The land-tenure title was supplied twice.",
+  "presentation": "Existing local full-page PNGs retained without alteration; no cropping or new artwork. Publication records remain the source of truth for image rights.",
+  "publications": {
+    "land-tenure-security-agrarian-investments-peruvian-highlands": {
+      "status": "published-first-page",
+      "doi": "10.1016/j.landusepol.2021.105651",
+      "image": "/design/assets/publications/land-tenure-security-agrarian-investments-peruvian-highlands-first-page.png",
+      "image_sha256": "b3605b6d42a058d0fdde17ac97d66e4d9b982a7a03239901abd948092cf9648a",
+      "dimensions": [
+        901,
+        1200
+      ],
+      "source_url": "https://ebuah.uah.es/dspace/bitstream/handle/10017/58830/land_burguillo_LUP_2021.pdf?sequence=3&isAllowed=y",
+      "rights_url": "https://ebuah.uah.es/dspace/handle/10017/58830",
+      "license": "CC BY-NC-ND 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "verification": "Title, authors, DOI, full-page bounds and Creative Commons footer visually checked against the existing local first-page PNG and official repository/editor records."
+    },
+    "harvest-postharvest-loss-soybean-brazil": {
+      "status": "published-first-page",
+      "doi": "10.1016/j.foodpol.2022.102363",
+      "image": "/design/assets/publications/harvest-postharvest-loss-soybean-brazil-first-page.png",
+      "image_sha256": "4c040b82e96764f609e539236deb7370253004280f748f0049dc273294686a01",
+      "dimensions": [
+        901,
+        1200
+      ],
+      "source_url": "https://repositorio.ufla.br/bitstreams/f9dc7603-110d-4ad6-8869-9e70f6bebe70/download",
+      "rights_url": "https://api.crossref.org/works/10.1016/j.foodpol.2022.102363",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "verification": "Title, authors, DOI, full-page bounds and Creative Commons footer visually checked against the existing local first-page PNG and official repository/editor records."
+    },
+    "fta-member-gdp-synthetic-control": {
+      "status": "awaiting-accessible-publisher-pdf",
+      "doi": "10.1111/rsp3.12402",
+      "license": "CC BY-NC-ND 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "rights_url": "https://api.crossref.org/works/10.1111/rsp3.12402",
+      "publisher_metadata_url": "https://api.elsevier.com/content/article/pii/S1757780223000872?httpAccept=text/xml",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S1757780223000872",
+      "verification": "Crossref version-of-record license and Elsevier openaccessArticle=true / openaccessUserLicense agree. Wiley and ScienceDirect public PDF links returned 403; the Navarra repository record contains metadata and a deposit license only. No publisher PDF could be retrieved, so the existing bibliographic card is preserved. The RedNIE working paper is a submitted version with no matching reuse license supplied by its index and was not substituted."
+    }
+  },
+  "verification": {
+    "static_build": "python3 tools/seminar_sheet.py && python3 tools/build_site.py succeeded; 58 search records, 21 publication pages, 15 people.",
+    "bilingual_output": "Both first-page assets appear in English and Spanish Publications and Agricultural Economics; existing individual article pages retain their text-only layout.",
+    "visual_review": "Desktop 1440px and mobile 390px renders; existing image styles use contain and preserve document proportions.",
+    "tests": "Not run, as requested by project instructions."
+  }
+}
