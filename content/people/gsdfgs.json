@@ -1,0 +1,16 @@
+{
+  "bio_es": "gsdf",
+  "bio": "gsdfgsdg",
+  "name": "cvsdfgvdfgdg",
+  "slug": "gsdfgs",
+  "published": false,
+  "display_order": 999,
+  "portrait_crop": {
+    "left": 0,
+    "top": 0,
+    "width": 100,
+    "height": 100
+  },
+  "role": "Research affiliate",
+  "verified_on": "2026-11-12"
+}
