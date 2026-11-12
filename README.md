@@ -30,18 +30,16 @@ Python's basic local HTTP server above displays its own error response at missin
 
 ## Using Decap CMS
 
-The CMS is at <https://up-economics-research-center.github.io/admin/>. GitHub sign-in was verified in the published editor on 2026-10-15. Only GitHub accounts invited to this repository with write access can edit. The invite must be accepted first; sign-in alone does not grant access.
+The CMS is at <https://up-economics-research-center.github.io/admin/>. Editing requires signing in with a GitHub account that has write access to the website repository. This can include organization owners, members with write access, and outside collaborators granted write access.
 
 1. Open `/admin/` and choose **Login with GitHub**.
 2. Choose Researchers, Research Areas, Publications, Site Settings, or Home scope and contact.
 3. Edit the fields and use the preview pane to review the record. For Researchers, keep the complete name in **Name** and enter the preferred abbreviated form in **Public display name / Nombre público**. If that field is empty, the complete name appears. Publication citations keep their own author names and citation order. Research areas are selected from the existing area list. You do not need to edit HTML or CSS.
 4. Save a **Draft**, then move it to **In review** when both languages, sources and media are ready. Saving a draft keeps the public site unchanged. The **Include on website / Mostrar en el sitio** switch controls visibility after publication; it does not approve or publish the draft. Keep it on when updating a public record.
-5. A different invited editor reviews and approves the change in GitHub. The **Build editorial changes** check must pass. If changes are requested, revise the same draft; new edits need another review. Decap's **Ready** status does not replace GitHub approval.
+5. GitHub requires one approval from someone else with repository write access. Check that **Build editorial changes** passes before publishing. If you revise the draft, ask the reviewer to review the updated version. Decap's **Ready** status does not replace GitHub approval.
 6. Publish the approved entry, or have a maintainer merge its approved pull request. GitHub Pages updates the live site after deployment succeeds. If the build or deployment fails, ask a maintainer to inspect **Actions**.
 
-**Activation status:** this review workflow is prepared locally. The live site still has its previous direct-publish configuration until the reviewed release is deployed. A second reviewer and GitHub approval/build requirements must be configured as part of that release. Follow [the owner activation checklist](docs/cms-approval-setup.md). Do not claim approval is enforced based only on the CMS setting.
-
-The bilingual [editor and reviewer guide](admin/editor-guide.html) is linked from `/admin/`. Draft builds provide downloadable site files; there is no automatically hosted pull-request preview.
+The bilingual [editor and reviewer guide](https://up-economics-research-center.github.io/admin/editor-guide.html) is available on the published site. Draft builds provide downloadable site files; there is no automatically hosted pull-request preview.
 
 ### Seminar information and proposals
 
