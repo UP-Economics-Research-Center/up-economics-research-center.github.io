@@ -898,7 +898,7 @@ footer{padding-top:48px;padding-bottom:28px}
 .seminar-information>h2{font-size:32px;margin-bottom:24px}
 .seminar-overview{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start}
 .seminar-information p{font-size:19px;line-height:1.65;margin-bottom:18px}
-.seminar-schedule{background:var(--paper);padding:28px 32px;border-left:3px solid var(--wine)}
+.seminar-schedule{background:var(--paper);padding:28px 32px;border-left:1px solid var(--wine)}
 .seminar-schedule h3{font-size:22px;line-height:1.3;margin-bottom:16px;}
 .seminar-schedule p{font-size:17px;line-height:1.65}
 .seminar-schedule p:last-child{margin-bottom:0;font-size:15px;color:var(--muted)}
@@ -913,7 +913,7 @@ footer{padding-top:48px;padding-bottom:28px}
 .seminar-proposal-heading h2{font-size:30px;}
 .seminar-proposal-action{margin:0}
 .seminar-proposal-types{gap:24px 48px;margin:32px 0 0}
-.seminar-proposal-types li{border-top:0;border-left:2px solid #d6c9ce;padding:0 0 0 20px}
+.seminar-proposal-types li{border-top:0;border-left:1px solid var(--line);padding:0 0 0 20px}
 .seminar-proposal-types h3{font-size:21px;margin-bottom:12px}
 .seminar-proposal-types p{font-size:17px;line-height:1.6}
 /* Shared hover feedback; scroll entrances are managed by site-motion.js. */
@@ -1335,10 +1335,20 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
 }
 
 /* Several presentations share one dated seminar session. */
-.seminar-presentation{min-width:0}
+.seminar-presentations{min-width:0;max-width:75ch}
+.seminar-presentation{min-width:0;scroll-margin-top:128px}
+.seminar-presentation h3{line-height:1.3;overflow-wrap:anywhere}
+.seminar-presentation p{overflow-wrap:anywhere;margin:0 0 12px}
+.seminar-presentation :is(.seminar-time,.seminar-duration,.seminar-participation,.seminar-location){margin:4px 0;line-height:1.5}
+.seminar-presentation :is(.seminar-description,.seminar-details){color:var(--ink)}
+.seminar-presentation .seminar-time{margin-top:16px;font-variant-numeric:tabular-nums}
 .seminar-presentation + .seminar-presentation{margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
-.seminar-presentation .seminar-links{display:flex;flex-wrap:wrap;gap:12px 24px}
-.seminar-presentation p{overflow-wrap:anywhere}
+.seminar-presentation .seminar-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:12px 0 0}
+.seminar-record .event-date a{display:inline-flex;align-items:center;min-height:44px;max-width:100%}
+@media(min-width:901px){
+ .seminar-agenda .seminar-record[data-source=sheet]{grid-template-columns:180px minmax(0,1fr);gap:32px}
+ .seminar-record[data-source=sheet] .event-date a{align-items:flex-start;padding-block:3px}
+}
 
 /* Searchable seminar archive reuses the site's filter and pagination controls. */
 .seminar-page .seminar-archive-filters{grid-template-columns:minmax(0,2fr) minmax(140px,1fr) auto}

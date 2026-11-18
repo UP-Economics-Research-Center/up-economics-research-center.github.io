@@ -110,7 +110,7 @@
   const updateArchive = createArchiveBrowser();
   let groupedDay;
   let timer;
-  function refresh() {
+  function refreshGrouping() {
     clearTimeout(timer);
     const now = new Date();
     const parts = Object.fromEntries(clock.formatToParts(now).map(part => [part.type, part.value]));
@@ -132,10 +132,10 @@
       updateArchive(past);
     }
     const remaining = (86400 - (+parts.hour * 3600 + +parts.minute * 60 + +parts.second)) * 1000 - now.getMilliseconds();
-    timer = setTimeout(refresh, Math.min(60000, remaining + 50));
+    timer = setTimeout(refreshGrouping, Math.min(60000, remaining + 50));
   }
-  refresh();
-  document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
-  window.addEventListener('pageshow', refresh);
-  window.addEventListener('focus', refresh);
+  refreshGrouping();
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshGrouping(); });
+  window.addEventListener('pageshow', refreshGrouping);
+  window.addEventListener('focus', refreshGrouping);
 })();
