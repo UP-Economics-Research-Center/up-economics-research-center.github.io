@@ -302,5 +302,7 @@
   "No archived seminars match these filters. Clear filters or try another search.": "Ningún seminario del archivo coincide con estos filtros. Quita los filtros o prueba otra búsqueda.",
   "Past seminars will appear here automatically after their date.": "Los seminarios aparecerán aquí automáticamente cuando haya pasado su fecha.",
   "Previous": "Anterior",
-  "Next": "Siguiente"
+  "Next": "Siguiente",
+  "Add to calendar": "Agregar al calendario",
+  "Saved copies do not update automatically.": "Las copias guardadas no se actualizan automáticamente."
 }

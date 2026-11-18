@@ -15,6 +15,7 @@ from site_locales import generate_languages, LocaleError
 from media_dimensions import image_dimensions
 from site_seo import apply_seo
 from seminar_sheet import load_feed, split_sessions, settings as sheet_settings, SheetError
+from seminar_calendar import seminar_text, calendar_event, calendar_path, google_calendar_url, write_calendars
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "_site"
@@ -458,18 +459,13 @@ def render_seminar(item: dict, archived=False) -> str:
     return f'<article class="event-line seminar-record" data-event-date="{e(iso_day(item["date"]))}" id="{e(item["slug"])}"><div class="event-date">{event_date}</div><div><h3>{e(item["title"])}</h3><p>{summary}</p></div><div>{links}</div></article>'
 
 
-def seminar_text(item: dict, field: str, language: str):
-    other = "en" if language == "es" else "es"
-    return (item.get(field + "_" + language), language) if item.get(field + "_" + language) else (item.get(field + "_" + other, ""), other)
-
-
 def seminar_content(value: str, language: str, tag="span", cls="") -> str:
     attribute = f' class="{cls}"' if cls else ""
     text = "<br>".join(e(line) for line in value.splitlines())
     return f'<{tag}{attribute} lang="{language}" translate="no">{text}</{tag}>'
 
 
-def render_presentation(item: dict, language: str) -> str:
+def render_presentation(item: dict, language: str, day: str) -> str:
     title, title_language = seminar_text(item, "title", language)
     if not title:
         title, title_language = item.get("speaker", ""), language
@@ -497,6 +493,16 @@ def render_presentation(item: dict, language: str) -> str:
     links = " ".join(external_anchor(item[key], label) for key, label in (("online_url", "Join online"), ("rsvp_url", "Register / RSVP"), ("material_url", "View material")) if item.get(key))
     if links:
         body += f'<p class="seminar-links">{links}</p>'
+    event = calendar_event(day, item, language)
+    if event:
+        body += (
+            '<details class="seminar-calendar"><summary>Add to calendar</summary>'
+            '<div class="seminar-calendar-options">'
+            + external_anchor(google_calendar_url(event), "Google Calendar")
+            + f'<a class="text-link" href="{e(calendar_path(item, language))}" download>Outlook / Apple Calendar (.ics)</a>'
+            '<p class="note">Saved copies do not update automatically.</p>'
+            '</div></details>'
+        )
     return f'<section class="seminar-presentation" id="{e(item["id"])}">{body}</section>'
 
 
@@ -504,7 +510,7 @@ def render_sheet_seminar(item: dict, language="en") -> str:
     day = date.fromisoformat(item["date"])
     months = ("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre")
     label = f'{day.day} de {months[day.month - 1]} de {day.year}' if language == "es" else format_date(item["date"])
-    presentations = "".join(render_presentation(row, language) for row in item["presentations"])
+    presentations = "".join(render_presentation(row, language, item["date"]) for row in item["presentations"])
     search_text = item["date"] + " " + " ".join(str(value) for row in item["presentations"] for key, value in row.items() if key in {"speaker", "institution", "title_es", "title_en", "description_es", "description_en", "details_es", "details_en", "location", "campus"})
     return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" data-search="{e(search_text)}" id="{e(item["id"])}">'
             f'<div class="event-date"><a href="#{e(item["id"])}"><time datetime="{e(item["date"])}" data-seminar-day>{e(label)}</time></a></div>'
@@ -907,6 +913,7 @@ def build() -> None:
             write_json(site / name, value)
         if sheet_feed:
             write_json(site / "seminars-sheet.json", sheet_feed)
+            write_calendars(site, sheet_feed)
 
         search = list(pages)
         search.append(page_entry("Media", "Media", "BOLD blog podcast", "/media.html", "Media"))
