@@ -303,6 +303,5 @@
   "Past seminars will appear here automatically after their date.": "Los seminarios aparecerán aquí automáticamente cuando haya pasado su fecha.",
   "Previous": "Anterior",
   "Next": "Siguiente",
-  "Add to calendar": "Agregar al calendario",
-  "Saved copies do not update automatically.": "Las copias guardadas no se actualizan automáticamente."
+  "Add to calendar (.ics)": "Agregar al calendario (.ics)"
 }

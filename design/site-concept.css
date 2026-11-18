@@ -1345,11 +1345,7 @@ button,input,select,textarea,.button,.text-link,.filter-field,.filters label,
 .seminar-presentation + .seminar-presentation{margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
 .seminar-presentation .seminar-links{display:flex;flex-wrap:wrap;gap:8px 24px;margin:12px 0 0}
 .seminar-record .event-date a{display:inline-flex;align-items:center;min-height:44px;max-width:100%}
-.seminar-calendar{margin-top:12px;font-size:17px}
-.seminar-calendar summary{width:fit-content;max-width:100%;min-height:44px;padding-block:8px;color:var(--wine);cursor:pointer}
-.seminar-calendar summary:hover{text-decoration:underline;text-underline-offset:3px}
-.seminar-calendar-options{display:flex;flex-wrap:wrap;gap:8px 24px;padding-block:4px}
-.seminar-calendar-options .note{flex-basis:100%;margin:0;font-size:15px;line-height:1.5}
+.seminar-presentation .seminar-calendar{margin:12px 0 0}
 @media(min-width:901px){
  .seminar-agenda .seminar-record[data-source=sheet]{grid-template-columns:180px minmax(0,1fr);gap:32px}
  .seminar-record[data-source=sheet] .event-date a{align-items:flex-start;padding-block:3px}

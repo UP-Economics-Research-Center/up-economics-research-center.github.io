@@ -15,7 +15,7 @@ from site_locales import generate_languages, LocaleError
 from media_dimensions import image_dimensions
 from site_seo import apply_seo
 from seminar_sheet import load_feed, split_sessions, settings as sheet_settings, SheetError
-from seminar_calendar import seminar_text, calendar_event, calendar_path, google_calendar_url, write_calendars
+from seminar_calendar import seminar_text, calendar_event, calendar_path, write_calendars
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "_site"
@@ -496,12 +496,8 @@ def render_presentation(item: dict, language: str, day: str) -> str:
     event = calendar_event(day, item, language)
     if event:
         body += (
-            '<details class="seminar-calendar"><summary>Add to calendar</summary>'
-            '<div class="seminar-calendar-options">'
-            + external_anchor(google_calendar_url(event), "Google Calendar")
-            + f'<a class="text-link" href="{e(calendar_path(item, language))}" download>Outlook / Apple Calendar (.ics)</a>'
-            '<p class="note">Saved copies do not update automatically.</p>'
-            '</div></details>'
+            f'<p class="seminar-calendar"><a class="text-link" href="{e(calendar_path(item, language))}" download>'
+            '<span>Add to calendar (.ics)</span></a></p>'
         )
     return f'<section class="seminar-presentation" id="{e(item["id"])}">{body}</section>'
 

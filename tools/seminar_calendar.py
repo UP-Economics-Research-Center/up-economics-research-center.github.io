@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
-from urllib.parse import urlencode
 from zoneinfo import ZoneInfo
 
 from seminar_sheet import TIMEZONE
@@ -54,17 +53,6 @@ def calendar_event(day: str, item: dict, language: str):
         "description": "\n\n".join(details),
         "url": url,
     }
-
-
-def google_calendar_url(event: dict) -> str:
-    return "https://calendar.google.com/calendar/render?" + urlencode({
-        "action": "TEMPLATE",
-        "text": event["title"],
-        "dates": event["start"] + "/" + event["end"],
-        "ctz": TIMEZONE,
-        "details": event["description"],
-        "location": event["location"],
-    })
 
 
 def ical_text(value: str) -> str:
