@@ -508,7 +508,7 @@ def render_sheet_seminar(item: dict, language="en") -> str:
     search_text = item["date"] + " " + " ".join(str(value) for row in item["presentations"] for key, value in row.items() if key in {"speaker", "institution", "title_es", "title_en", "description_es", "description_en", "details_es", "details_en", "location", "campus"})
     return (f'<article class="event-line seminar-record" data-event-date="{e(item["date"])}" data-source="sheet" data-search="{e(search_text)}" id="{e(item["id"])}">'
             f'<div class="event-date"><a href="#{e(item["id"])}"><time datetime="{e(item["date"])}" data-seminar-day>{e(label)}</time></a></div>'
-            f'<div class="seminar-presentations">{presentations}</div><div></div></article>')
+            f'<div class="seminar-presentations">{presentations}</div></article>')
 
 
 def render_schedule(items: list[dict], *, archived=False, language="en") -> str:

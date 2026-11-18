@@ -5,7 +5,7 @@ on:
     branches: [main]
   workflow_dispatch:
   schedule:
-    - cron: '0,30 * * * *'
+    - cron: '17,47 * * * *'
 
 permissions:
   contents: read
@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -26,6 +26,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Refresh seminar schedule (retain last deployed feed on failure)
+        id: seminars
         run: python3 tools/seminar_sheet.py
       - name: Build approved content and static pages
         run: python3 tools/build_site.py
@@ -38,3 +39,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Flag retained seminar data for maintainer attention
+        if: steps.seminars.outputs.status == 'recovered'
+        run: |
+          echo "::error::The site was deployed safely, but the seminar import failed and retained the previous schedule. Check the Seminar schedule job summary, correct the reported source problem, and run this workflow again."
+          exit 1

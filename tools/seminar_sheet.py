@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import html
 import io
 import json
 import os
@@ -258,11 +259,15 @@ def report(message, level="warning"):
 
 def refresh(output, csv_file=None, fallback_file=None):
     config = settings()
+    outcome = "fresh"
+    refresh_error = ""
     try:
         text = csv_file.read_text(encoding="utf-8-sig") if csv_file else read_url(config["csv_url"])
         feed = validate_feed(parse_csv(text, config), config)
         status = "Refreshed seminar schedule from Google Sheets."
     except (OSError, URLError, ValueError, KeyError, TypeError) as exc:
+        outcome = "recovered"
+        refresh_error = str(exc)
         report(f"Seminar refresh failed: {exc}. Trying the last successfully deployed feed.")
         try:
             raw = fallback_file.read_text(encoding="utf-8") if fallback_file else read_url(config["deployed_feed_url"])
@@ -275,10 +280,30 @@ def refresh(output, csv_file=None, fallback_file=None):
     temporary = output.with_suffix(".tmp")
     temporary.write_text(json.dumps(feed, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary.replace(output)
+    refreshed = datetime.fromisoformat(feed["last_successful_refresh"])
+    age_minutes = int((datetime.now(timezone.utc) - refreshed).total_seconds() // 60)
+    if outcome == "recovered":
+        report(f"Retained seminar schedule is {age_minutes} minutes old; source refresh needs maintainer attention.")
+    if os.environ.get("GITHUB_OUTPUT"):
+        with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as outputs:
+            outputs.write(f"status={outcome}\nage_minutes={age_minutes}\n")
     print(status)
     if os.environ.get("GITHUB_STEP_SUMMARY"):
         with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
-            summary.write("\n### Seminar schedule\n\n" + status + "\n")
+            summary.write(
+                "\n### Seminar schedule\n\n"
+                f"- Import outcome: **{outcome}**\n"
+                f"- Last successful source refresh (UTC): {feed['last_successful_refresh']}\n"
+                f"- Source data age: {age_minutes} minutes\n"
+            )
+            if refresh_error:
+                summary.write(
+                    "\nThe previous schedule is retained. This deployment will be marked failed "
+                    "after publication so recovery is not mistaken for a fresh import.\n\n"
+                    f"Source error:<pre>{html.escape(refresh_error)}</pre>\n\n"
+                    "Correct the reported published row in Archivo (or resolve the source access problem), "
+                    "then run this workflow again. Do not uncheck unrelated presentations to bypass validation.\n"
+                )
 
 
 def main():
