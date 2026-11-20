@@ -1,0 +1,457 @@
+{
+  "/design/assets/people/akito-original.png": {
+    "sha256": "e7271c60fd3e309974ba2d58a8d11935f8b025a9f113d38a1d202b97c4c9f10f",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/akito-original-e7271c60fd3e-480.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/design/assets/responsive/akito-original-e7271c60fd3e-960.webp",
+        "width": 960,
+        "height": 1440
+      },
+      {
+        "src": "/design/assets/responsive/akito-original-e7271c60fd3e-1024.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ]
+  },
+  "/design/assets/people/andrea-original.png": {
+    "sha256": "dc254a94524e8ccf6b892df5ee81621b5fdc181883c133ad5ac3dc9be19d4183",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/andrea-original-dc254a94524e-480.webp",
+        "width": 480,
+        "height": 456
+      },
+      {
+        "src": "/design/assets/responsive/andrea-original-dc254a94524e-960.webp",
+        "width": 960,
+        "height": 913
+      },
+      {
+        "src": "/design/assets/responsive/andrea-original-dc254a94524e-1140.webp",
+        "width": 1140,
+        "height": 1084
+      }
+    ]
+  },
+  "/design/assets/people/arnulfo-original.jpg": {
+    "sha256": "d64d75de0aaae622233cabab7ed2bd0b5d8cb5f173c7c44a9bfe2dc21af0532c",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/arnulfo-original-d64d75de0aaa-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/design/assets/responsive/arnulfo-original-d64d75de0aaa-960.webp",
+        "width": 960,
+        "height": 1280
+      },
+      {
+        "src": "/design/assets/responsive/arnulfo-original-d64d75de0aaa-1440.webp",
+        "width": 1440,
+        "height": 1920
+      }
+    ]
+  },
+  "/design/assets/people/isabel-original.jpg": {
+    "sha256": "17ae97fdc014d3637e9a39b217f7af214e7a23698f06752aeb4ff4b8841849e4",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/isabel-original-17ae97fdc014-480.webp",
+        "width": 480,
+        "height": 600
+      },
+      {
+        "src": "/design/assets/responsive/isabel-original-17ae97fdc014-960.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/design/assets/responsive/isabel-original-17ae97fdc014-1440.webp",
+        "width": 1440,
+        "height": 1800
+      }
+    ]
+  },
+  "/design/assets/people/jose-miguel-original.jpeg": {
+    "sha256": "e877f25b5ec6d60598a02c7e29993f2b5be4210c9a2b9c0d1c1af4135e33712c",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/jose-miguel-original-e877f25b5ec6-480.webp",
+        "width": 480,
+        "height": 378
+      },
+      {
+        "src": "/design/assets/responsive/jose-miguel-original-e877f25b5ec6-960.webp",
+        "width": 960,
+        "height": 757
+      },
+      {
+        "src": "/design/assets/responsive/jose-miguel-original-e877f25b5ec6-1200.webp",
+        "width": 1200,
+        "height": 946
+      }
+    ]
+  },
+  "/design/assets/people/joshua-original.jpeg": {
+    "sha256": "19f49d0e6811e33181db5c2f9bbac66863e0046af2c237204077352d8e8acae8",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/joshua-original-19f49d0e6811-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/design/assets/responsive/joshua-original-19f49d0e6811-960.webp",
+        "width": 960,
+        "height": 1280
+      },
+      {
+        "src": "/design/assets/responsive/joshua-original-19f49d0e6811-1440.webp",
+        "width": 1440,
+        "height": 1920
+      }
+    ]
+  },
+  "/design/assets/people/juan-alvaro-original.png": {
+    "sha256": "9a4c69cf8e628155558ab5982747dfee8aa986966a179682337e6f24d84cb53d",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/juan-alvaro-original-9a4c69cf8e62-480.webp",
+        "width": 480,
+        "height": 674
+      },
+      {
+        "src": "/design/assets/responsive/juan-alvaro-original-9a4c69cf8e62-850.webp",
+        "width": 850,
+        "height": 1194
+      }
+    ]
+  },
+  "/design/assets/people/luciano-original.jpeg": {
+    "sha256": "e0dcc9e18019358c19dcbb46e4c34308976b9d525a394287aa72c16b94cf783f",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/luciano-original-e0dcc9e18019-480.webp",
+        "width": 480,
+        "height": 657
+      },
+      {
+        "src": "/design/assets/responsive/luciano-original-e0dcc9e18019-960.webp",
+        "width": 960,
+        "height": 1314
+      },
+      {
+        "src": "/design/assets/responsive/luciano-original-e0dcc9e18019-1021.webp",
+        "width": 1021,
+        "height": 1398
+      }
+    ]
+  },
+  "/design/assets/people/majo-original.jpg": {
+    "sha256": "0d3a376993483363aa6d66f8d513c64f60e665a4de4c933a0b7867c445ab75d5",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/majo-original-0d3a37699348-480.webp",
+        "width": 480,
+        "height": 600
+      },
+      {
+        "src": "/design/assets/responsive/majo-original-0d3a37699348-960.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/design/assets/responsive/majo-original-0d3a37699348-1440.webp",
+        "width": 1440,
+        "height": 1800
+      }
+    ]
+  },
+  "/design/assets/people/patricio-original.png": {
+    "sha256": "b2704cc9b23e0b47437609a6421012fbd721a658968a025d436563bb4b9dcef0",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/patricio-original-b2704cc9b23e-480.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "/design/assets/responsive/patricio-original-b2704cc9b23e-960.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/design/assets/responsive/patricio-original-b2704cc9b23e-1254.webp",
+        "width": 1254,
+        "height": 1254
+      }
+    ]
+  },
+  "/design/assets/research/area-photography/digital-and-business-economics.webp": {
+    "sha256": "515a08302247a43918fd00234336c1d94eb06dc863de9628c3dc02822c298be1",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/digital-and-business-economics-515a08302247-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/design/assets/responsive/digital-and-business-economics-515a08302247-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/design/assets/responsive/digital-and-business-economics-515a08302247-1440.webp",
+        "width": 1440,
+        "height": 960
+      }
+    ]
+  },
+  "/design/assets/research/area-photography/economic-demography.webp": {
+    "sha256": "96a19b1026e249f23fdc1d1ea988b109be95334fb05438972abe3705fe7ad12c",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/economic-demography-96a19b1026e2-480.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/design/assets/responsive/economic-demography-96a19b1026e2-960.webp",
+        "width": 960,
+        "height": 1440
+      },
+      {
+        "src": "/design/assets/responsive/economic-demography-96a19b1026e2-1067.webp",
+        "width": 1067,
+        "height": 1600
+      }
+    ]
+  },
+  "/design/assets/research/glasses-classroom-horizontal-2026-10-26.png": {
+    "sha256": "1ab6410708ecbec93fb42a7d08f84c9c717722b16c491c7a123055c0ea39b74e",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/glasses-classroom-horizontal-2026-10-26-1ab6410708ec-480.webp",
+        "width": 480,
+        "height": 240
+      },
+      {
+        "src": "/design/assets/responsive/glasses-classroom-horizontal-2026-10-26-1ab6410708ec-960.webp",
+        "width": 960,
+        "height": 480
+      },
+      {
+        "src": "/design/assets/responsive/glasses-classroom-horizontal-2026-10-26-1ab6410708ec-1440.webp",
+        "width": 1440,
+        "height": 720
+      }
+    ]
+  },
+  "/design/assets/research/golden-wheat.jpg": {
+    "sha256": "c7d545ac1d3e2bdeb5445ce7def0e3ca4128c6a8ec561fbd8724ed305fbca80e",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/golden-wheat-c7d545ac1d3e-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/design/assets/responsive/golden-wheat-c7d545ac1d3e-960.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/design/assets/responsive/golden-wheat-c7d545ac1d3e-1280.webp",
+        "width": 1280,
+        "height": 853
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/development-economics-project-1.jpg": {
+    "sha256": "6d177ccea3da1dcc792e5b571720be1fa370bfdc0b4055a586f2fb0baf8c6a05",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/development-economics-project-1-6d177ccea3da-480.webp",
+        "width": 480,
+        "height": 272
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-1-6d177ccea3da-960.webp",
+        "width": 960,
+        "height": 543
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-1-6d177ccea3da-1280.webp",
+        "width": 1280,
+        "height": 724
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/development-economics-project-2.jpg": {
+    "sha256": "65d0c9b4eb97fb3cdf4a7fb41c855fa7ba4cac2b676b22d9a7eada7f4abcb22b",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/development-economics-project-2-65d0c9b4eb97-480.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-2-65d0c9b4eb97-960.webp",
+        "width": 960,
+        "height": 539
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-2-65d0c9b4eb97-1024.webp",
+        "width": 1024,
+        "height": 575
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/development-economics-project-3.jpg": {
+    "sha256": "c1300a5823165fa0b673faa82dc49bb9b4cd0cc244bd9cd30fc0098688f1ffbf",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/development-economics-project-3-c1300a582316-480.webp",
+        "width": 480,
+        "height": 272
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-3-c1300a582316-960.webp",
+        "width": 960,
+        "height": 543
+      },
+      {
+        "src": "/design/assets/responsive/development-economics-project-3-c1300a582316-1280.webp",
+        "width": 1280,
+        "height": 724
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/education-and-human-capital-thumbnail.png": {
+    "sha256": "30539f7462c8470846ec9a8f4f41c54010bfab467268de9f907baf140172567a",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/education-and-human-capital-thumbnail-30539f7462c8-480.webp",
+        "width": 480,
+        "height": 478
+      },
+      {
+        "src": "/design/assets/responsive/education-and-human-capital-thumbnail-30539f7462c8-779.webp",
+        "width": 779,
+        "height": 776
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/environmental-economics-project-1.jpg": {
+    "sha256": "f45e1a323047e5bdd959edd314cf98e937c353bc356157bfe33158ab7c64e962",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/environmental-economics-project-1-f45e1a323047-480.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "/design/assets/responsive/environmental-economics-project-1-f45e1a323047-960.webp",
+        "width": 960,
+        "height": 539
+      },
+      {
+        "src": "/design/assets/responsive/environmental-economics-project-1-f45e1a323047-1280.webp",
+        "width": 1280,
+        "height": 719
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/environmental-economics-project-2.jpg": {
+    "sha256": "e5f6fddc941f001be165c1a4b1d346066bb4f05794416a50c2c6b867d899aabd",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/environmental-economics-project-2-e5f6fddc941f-480.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "/design/assets/responsive/environmental-economics-project-2-e5f6fddc941f-910.webp",
+        "width": 910,
+        "height": 511
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/environmental-economics-thumbnail.jpg": {
+    "sha256": "9ee0522189ed267b82b33740fc2fc6af8e4bd1c3365c226e596ff4764642409b",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/environmental-economics-thumbnail-9ee0522189ed-480.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "/design/assets/responsive/environmental-economics-thumbnail-9ee0522189ed-960.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/design/assets/responsive/environmental-economics-thumbnail-9ee0522189ed-1280.webp",
+        "width": 1280,
+        "height": 1280
+      }
+    ]
+  },
+  "/design/assets/research/original-pages/macroeconomics-project-1.jpg": {
+    "sha256": "3643f556a70c02b4c9d1862e59a352e660dcac861a8915e1d03849794302c0ac",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/macroeconomics-project-1-3643f556a70c-480.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "/design/assets/responsive/macroeconomics-project-1-3643f556a70c-960.webp",
+        "width": 960,
+        "height": 539
+      },
+      {
+        "src": "/design/assets/responsive/macroeconomics-project-1-3643f556a70c-1280.webp",
+        "width": 1280,
+        "height": 719
+      }
+    ]
+  },
+  "/design/assets/research/rocinha-panorama.jpg": {
+    "sha256": "de66915f94d5836ca1cc8dd01eb953976601510e93a5f47de061de7bfbeda698",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/rocinha-panorama-de66915f94d5-480.webp",
+        "width": 480,
+        "height": 267
+      },
+      {
+        "src": "/design/assets/responsive/rocinha-panorama-de66915f94d5-960.webp",
+        "width": 960,
+        "height": 534
+      }
+    ]
+  },
+  "/design/assets/people/sergio-rodriguez-garcia.png": {
+    "sha256": "4cbbe6fd824397eccabf06c1a8e316cde7dcca5fae1cfeb6a6f02df128a5548d",
+    "variants": [
+      {
+        "src": "/design/assets/responsive/sergio-rodriguez-garcia-4cbbe6fd8243-480.webp",
+        "width": 480,
+        "height": 691
+      },
+      {
+        "src": "/design/assets/responsive/sergio-rodriguez-garcia-4cbbe6fd8243-936.webp",
+        "width": 936,
+        "height": 1347
+      }
+    ]
+  }
+}

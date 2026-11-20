@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree as ET
 from site_locales import spanish, language_switch
+from responsive_images import portrait_source
 
 ROOT = Path(__file__).resolve().parents[1]
 e = html.escape
@@ -89,7 +90,7 @@ def area_main(area, people, publications, language, image_html, render_authors, 
             if crop:
                 style = f' style="--crop-width:{10000 / crop["width"]:.4f}%;--crop-height:{10000 / crop["height"]:.4f}%;--crop-left:{-100 * crop["left"] / crop["width"]:.4f}%;--crop-top:{-100 * crop["top"] / crop["height"]:.4f}%"'
             classes = 'area-portrait' + (' reference-portrait' if person.get('reference_portrait') else '') + (' portrait-frame' if crop else '')
-            portrait = f'<div class="{classes}"{style}><img src="{e(person["portrait"])}" alt="" width="240" height="300" loading="lazy"></div>'
+            portrait = f'<div class="{classes}"{style}><img {portrait_source(person, 136)} alt="" width="240" height="300" loading="lazy"></div>'
         team += f'<a class="area-person" href="{prefix}/people.html#{e(person["slug"])}">{portrait}<span><strong>{e(person.get("display_name") or person["name"])}</strong><small>{t("View profile →")}</small></span></a>'
     if not team:
         team = '<p class="note">' + t('No published researcher profiles are linked to this area yet.') + '</p>'

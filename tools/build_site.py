@@ -13,6 +13,7 @@ from pathlib import Path
 from urllib.parse import quote, urlparse
 from site_locales import generate_languages, LocaleError
 from media_dimensions import image_dimensions
+from responsive_images import image_source, portrait_source
 from site_seo import apply_seo
 from seminar_sheet import load_feed, split_sessions, settings as sheet_settings, SheetError
 from seminar_calendar import seminar_text, calendar_event, google_calendar_url
@@ -337,13 +338,17 @@ def image_html(record: dict, cls: str = "research-photo") -> str:
         cls += " thematic-photo"
     size = image_dimensions(str(ROOT / record["image"].lstrip("/")))
     dimensions = f' width="{size[0]}" height="{size[1]}"' if size else ""
-    responsive = ""
-    if "/area-photography/" in record["image"] and size:
+    sizes = "(max-width:700px) calc(100vw - 40px), (max-width:1000px) 46vw, 640px"
+    if cls == "research-photo":
+        sizes = "(max-width:550px) calc(100vw - 40px), (max-width:1000px) 46vw, 405px"
+    source = image_source(record["image"], sizes)
+    if 'srcset=' not in source and "/area-photography/" in record["image"] and size:
         source = Path(record["image"])
         variants = [(source.with_name(source.stem + f"-{width}.webp").as_posix(), width) for width in (480, 960) if width < size[0]]
+        variants = [(url, width) for url, width in variants if (ROOT / url.lstrip("/")).is_file()]
         variants.append((record["image"], size[0]))
-        responsive = ' srcset="' + ', '.join(e(url) + ' ' + str(width) + 'w' for url, width in variants) + '" sizes="(max-width:700px) calc(100vw - 40px), (max-width:1000px) 46vw, 640px"'
-    return f'<img class="{cls}" src="{e(record["image"])}" alt="{e(record.get("image_alt", ""))}"{dimensions}{responsive} loading="lazy">'
+        source = 'src="' + e(record["image"]) + '" srcset="' + ', '.join(e(url) + ' ' + str(width) + 'w' for url, width in variants) + '" sizes="' + sizes + '"'
+    return f'<img class="{cls}" {source} alt="{e(record.get("image_alt", ""))}"{dimensions} loading="lazy">'
 
 
 def render_area(area: dict, index: int, *, home=False) -> str:
@@ -356,7 +361,7 @@ def render_area(area: dict, index: int, *, home=False) -> str:
 
 
 def render_person(person: dict, areas: dict[str, dict], publication_authors: set[str]) -> str:
-    portrait = f'<img class="person-portrait" src="{e(person["portrait"])}" alt="{e(person.get("portrait_alt") or person["name"])}" width="240" height="300" loading="lazy">' if person.get("portrait") else ""
+    portrait = f'<img class="person-portrait" {portrait_source(person, 240)} alt="{e(person.get("portrait_alt") or person["name"])}" width="240" height="300" loading="lazy">' if person.get("portrait") else ""
     if portrait and person.get("portrait_crop"):
         crop = person["portrait_crop"]
         style = f'--crop-width:{10000 / crop["width"]:.4f}%;--crop-height:{10000 / crop["height"]:.4f}%;--crop-left:{-100 * crop["left"] / crop["width"]:.4f}%;--crop-top:{-100 * crop["top"] / crop["height"]:.4f}%'

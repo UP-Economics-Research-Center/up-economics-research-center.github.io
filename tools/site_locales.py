@@ -266,8 +266,10 @@ def generate_languages(site: Path, data, settings, about, sheet_feed=None, semin
         if row['license_url']:
             license_link = '<p><a href="' + html.escape(row['license_url'], quote=True) + '">' + html.escape(row['license'] or 'License') + '</a></p>'
         items += ('<article class="photo-source"><div class="eyebrow">' + html.escape(row['kind']) + '</div><h2>' + html.escape(row['title']) + '</h2><p>' + html.escape(row['creator']) + '</p><p><a href="' + html.escape(row['source'], quote=True) + '">Image source</a></p>' + license_link + '<p>' + html.escape(row['treatment']) + '</p></article>')
-    credit_page = (site / 'research.html').read_text()
-    credit_page = re.sub(r'<main.*?</main>', '<main id="main-content" tabindex="-1"><section class="section"><div class="wrap"><h1>Image credits</h1>' + items + '</div></section></main>', credit_page, flags=re.S)
+    # Auxiliary pages share the site shell, not a section's current-page state.
+    template = (site / 'research.html').read_text().replace('class="active" aria-current="page"', 'class=""')
+    credit_main = (ROOT / 'templates/image-credits.html').read_text().replace('{{items}}', items)
+    credit_page = re.sub(r'<main.*?</main>', lambda _: credit_main, template, flags=re.S)
     credit_page = re.sub(r'<title>.*?</title>', '<title>Image credits | UP Economics Research Center</title>', credit_page)
     credit_page = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Sources and credits for images used on the Center’s website.">', credit_page)
     (site / 'photo-credits.html').write_text(credit_page)
@@ -289,7 +291,6 @@ def generate_languages(site: Path, data, settings, about, sheet_feed=None, semin
         version = '' if page['slug'] in {'privacy', 'terms'} else '<p class="legal-version">' + version_label + ': ' + html.escape(legal['version']) + '</p>'
         return '<main id="main-content" class="legal-page" tabindex="-1"><section class="page-hero"><div class="wrap"><div class="crumb"><a href="' + home_url + '">' + home_label + '</a> / ' + title + '</div><h1>' + title + '</h1><p>' + html.escape(page['summary' + suffix]) + '</p></div></section><div class="wrap legal-content">' + body + version + '</div></main>'
 
-    template = (site / 'research.html').read_text()
     legal_routes = {page['slug'] + '.html': page for page in legal['pages']}
     for route, page in legal_routes.items():
         markup = re.sub(r'<main.*?</main>', lambda m: legal_main(page, 'en'), template, flags=re.S)
