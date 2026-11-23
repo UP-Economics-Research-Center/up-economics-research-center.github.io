@@ -112,6 +112,11 @@ def presentation_id(parent, item):
     return "talk-" + hashlib.sha256(identity.encode("utf-8")).hexdigest()[:20]
 
 
+def session_id(day, config):
+    # Date owns grouping. Keep released anchors without trusting spreadsheet IDs.
+    return config.get("legacy_session_ids", {}).get(day, "sheet-day-" + day)
+
+
 def parse_csv(text, config):
     try:
         rows = list(csv.reader(io.StringIO(text, newline=""), strict=True))
@@ -121,7 +126,10 @@ def parse_csv(text, config):
     candidates = [index for index, row in enumerate(rows[:10])
                   if all([field.strip() for field in row].count(name) == 1 for name in names)]
     if len(candidates) != 1:
-        raise SheetError("expected one complete schedule header within the first 10 rows")
+        likely = next((row for row in rows[:10] if "Publicar" in row), [])
+        missing = [name for name in names if name not in [field.strip() for field in likely]]
+        detail = "; missing columns: " + ", ".join(missing) if missing else ""
+        raise SheetError("Archivo needs one complete, uniquely named header within the first 10 rows" + detail)
     header_index = candidates[0]
     headers = [field.strip() for field in rows[header_index]]
     columns = {}
@@ -129,20 +137,7 @@ def parse_csv(text, config):
         if headers.count(name) != 1:
             raise SheetError(f"expected exactly one {name!r} column on row {header_index + 1}")
         columns[key] = headers.index(name)
-    entries = []
-    identities_by_day = {}
-    # Unpublished rows still own their existing session identity. Replacing a
-    # presentation must not change the date's anchor when the old row is unchecked.
-    for values in rows[header_index + 1:]:
-        day = values[columns["date"]].strip() if len(values) > columns["date"] else ""
-        source_id = values[columns["session_id"]].strip() if len(values) > columns["session_id"] else ""
-        if not source_id or not re.fullmatch(r"sheet-(?:[a-f0-9]{20}|day-\d{4}-\d{2}-\d{2})", source_id):
-            continue
-        try:
-            valid_day(day)
-        except SheetError:
-            continue
-        identities_by_day.setdefault(day, set()).add(source_id)
+    sessions = {}
     for number, values in enumerate(rows[header_index + 1:], header_index + 2):
         def cell(key):
             index = columns[key]
@@ -154,7 +149,7 @@ def parse_csv(text, config):
             raise SheetError(f"row {number}: Publicar must be a checkbox")
         try:
             day = valid_day(cell("date"))
-            item = {key: cell(key) for key in columns if key not in {"published", "date", "session_id", "duration", "format"} and cell(key)}
+            item = {key: cell(key) for key in columns if key not in {"published", "date", "duration", "format"} and cell(key)}
             mode = cell("format").casefold()
             if mode not in FORMATS:
                 raise SheetError("Modalidad must be Presencial, En línea, Híbrida or Por confirmar")
@@ -165,26 +160,14 @@ def parse_csv(text, config):
                     raise SheetError("Duración (min) must be an integer")
                 item["duration"] = int(cell("duration"))
             validate_presentation(item)
-            source_id = cell("session_id")
-            if source_id:
-                if not re.fullmatch(r"sheet-(?:[a-f0-9]{20}|day-\d{4}-\d{2}-\d{2})", source_id):
-                    raise SheetError("invalid ID de sesión")
-            entries.append((day, item))
+            identifier = session_id(day, config)
+            parent = sessions.setdefault(day, {"id": identifier, "date": day, "presentations": []})
+            item["id"] = presentation_id(identifier, item)
+            if any(existing["id"] == item["id"] for existing in parent["presentations"]):
+                raise SheetError("duplicate presentation; give repeated talks their actual start times")
+            parent["presentations"].append(item)
         except SheetError as exc:
-            raise SheetError(f"row {number}: {exc}") from exc
-    sessions = {}
-    for day, item in entries:
-        existing_ids = identities_by_day.get(day, set())
-        if len(existing_ids) > 1:
-            raise SheetError("presentations on the same date must share ID de sesión")
-        identifier = next(iter(existing_ids), "sheet-day-" + day)
-        if identifier in sessions and sessions[identifier]["date"] != day:
-            raise SheetError("one ID de sesión cannot refer to different dates")
-        parent = sessions.setdefault(identifier, {"id": identifier, "date": day, "presentations": []})
-        item["id"] = presentation_id(identifier, item)
-        if any(existing["id"] == item["id"] for existing in parent["presentations"]):
-            raise SheetError("duplicate presentation; give repeated talks their actual start times")
-        parent["presentations"].append(item)
+            raise SheetError(f"Archivo row {number} ({cell('speaker') or cell('title_es') or cell('title_en') or 'unnamed presentation'}): {exc}") from exc
     for parent in sessions.values():
         parent["presentations"].sort(key=lambda item: item.get("time") or "99:99")
     return {

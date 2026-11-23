@@ -2,6 +2,11 @@
   "schedule_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/edit?gid=1187319866#gid=1187319866",
   "csv_url": "https://docs.google.com/spreadsheets/d/10-ZeGcNtUeQB5wXC0-f6FYuosoiduBeAyMvPtvR1KzI/export?format=csv&gid=2026110401",
   "deployed_feed_url": "https://up-economics-research-center.github.io/seminars-sheet.json",
+  "legacy_session_ids": {
+    "2026-11-27": "sheet-a05f83a9d35f897da8e6",
+    "2027-01-29": "sheet-cc7c7a576e392858fb0c",
+    "2027-02-26": "sheet-8b85d35f978f00d4148d"
+  },
   "columns": {
     "published": "Publicar",
     "date": "Fecha",
@@ -20,7 +25,6 @@
     "campus": "Edificio / campus",
     "online_url": "Zoom / conexión",
     "rsvp_url": "RSVP / inscripción",
-    "material_url": "Material",
-    "session_id": "ID de sesión"
+    "material_url": "Material"
   }
 }
