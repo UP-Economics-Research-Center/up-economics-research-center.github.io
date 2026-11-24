@@ -30,7 +30,8 @@ no website credentials go into the workbook or the public site.
 6. In GitHub Actions, verify a new **workflow_dispatch** run on **main**, a
    **fresh** Seminar schedule summary and successful Pages deployment. Confirm
    `/seminars-sheet.json` and both website languages reflect the workbook.
-7. Keep Apps Script trigger failure notifications enabled. If a token expires or
+7. Set both Apps Script triggers' failure notifications to **Notify me immediately**.
+   If a token expires or
    is revoked, renew the Script Property and run **requestSeminarRefresh** again.
 
 After setup, editors only change **Archivo**, keep **Publicar** checked for
@@ -48,6 +49,14 @@ correcting the row reported in Actions. Do not uncheck unrelated presentations.
 - Install triggers under the institutional maintainer's account. Triggers belong
   to their creator; a departing maintainer must transfer setup to a successor.
 - To stop this integration, delete its two triggers and revoke its scoped token.
-- **Release status:** code and instructions are supplied; activation requires the
-  owner to complete the private account/token authorization above. Do not describe
-  it as active until an external-triggered deployment is verified.
+- **Activation — 24 November 2026 (UTC):** the institutional account owns the
+  private “UP ERC seminar refresh” project. Its edit trigger and 30-minute timer
+  are installed. A repository-scoped Actions read/write token is stored only in
+  private Script Properties; metadata is its only other permission. It expires
+  **24 November 2027**, the organization’s maximum permitted lifetime.
+- The first Google-script dispatch reached GitHub successfully (run
+  `45330296764`), exposing a separate Pages artifact-indexing failure. Deployment
+  actions and an explicit artifact-readiness gate address that failure; completed
+  deployment verification is recorded in the activation release notes.
+- Renew the scoped token before **24 November 2027** and replace the private
+  property. No service or token can be promised to work forever without maintenance.

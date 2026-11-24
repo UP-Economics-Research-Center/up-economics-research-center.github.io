@@ -85,7 +85,9 @@ Upcoming sessions are ordered nearest first; past sessions newest first. Today's
 
 #### Reliable edit-triggered refresh
 
-The optional [Google trigger setup](docs/seminar-refresh-setup.md) requests deployment after edits to Archivo and adds an independent 30-minute safety timer, without requiring a running computer. Its code is in `tools/seminar_refresh.gs`. An institutional maintainer must authorize the private script and supply a repository-scoped Actions token once; it is **not active merely because this code is published**. GitHub's native schedule remains a fallback.
+The private institutional **UP ERC seminar refresh** Google script requests deployment after edits to Archivo and adds an independent 30-minute safety timer, without requiring a running computer. Both triggers were installed on 24 November 2026 (UTC). Its code is in `tools/seminar_refresh.gs`; [setup and renewal instructions](docs/seminar-refresh-setup.md) explain its ownership, failure notifications and narrowly scoped token. Renew that token before **24 November 2027**. GitHub's native schedule remains a fallback. Bursts of edits are coalesced for one minute; the independent timer catches changes missed during that short window.
+
+The Pages workflow waits for its exact uploaded artifact to become visible before asking GitHub to deploy, avoiding the observed “artifact not found” race immediately after a successful upload. The wait is bounded to two minutes and fails visibly without replacing the live site if GitHub does not index the upload.
 
 #### Maintainer import and recovery
 
