@@ -38,14 +38,12 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: _site/
-      - name: Wait for the uploaded Pages artifact to become visible
+      - name: Deploy this run's exact artifact to GitHub Pages
+        id: deployment
         env:
           GH_TOKEN: ${{ github.token }}
           PAGES_ARTIFACT_ID: ${{ steps.artifact.outputs.artifact_id }}
-        run: python3 tools/wait_for_pages_artifact.py
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.1
+        run: python3 tools/deploy_pages.py
       - name: Flag retained seminar data for maintainer attention
         if: steps.seminars.outputs.status == 'recovered'
         run: |
