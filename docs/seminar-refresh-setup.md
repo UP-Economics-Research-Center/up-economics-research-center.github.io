@@ -11,17 +11,19 @@ edits and bursts of edits. GitHub still validates and publishes the site.
 
 - Both triggers are installed under the institutional Google account; failure
   notifications are **Notify me immediately**.
-- The live script still uses the private `GITHUB_ACTIONS_TOKEN` personal token.
-  It expires **24 November 2027** under the organization's 366-day maximum.
-- The owner authorized migration to a GitHub App rather than weakening that policy.
+- The live script uses GitHub App authentication. It automatically obtains a new
+  short-lived installation token on each deployment request.
 - **UP ERC Seminar Refresh** (`up-erc-seminar-refresh`, app ID `5905208`) is
   registered under UP-Economics-Research-Center and installed as `185404009` on
   **only this repository**. Its only permissions are Actions read/write and
   mandatory metadata read. Webhooks and user authorization are disabled.
-- The new source is prepared, but the app credentials and source have **not yet
-  been connected to the live script**. Chrome reported an extension popup blocking
-  the private settings page, including after user handoff. Do not claim app-based
-  refresh is active until cutover and deployment verification succeed.
+- The three app properties are saved privately, and the running source matches
+  `tools/seminar_refresh.gs`. The earlier browser-extension blocker was resolved.
+- The former **UP ERC seminar refresh** personal token was revoked, and its
+  `GITHUB_ACTIONS_TOKEN` property was removed. App-triggered deployment succeeded
+  both before and after retirement; no annual personal-token renewal remains.
+- See [app migration evidence](seminar-github-app-2026-11-24.md) for the verified
+  bot identity and deployment runs.
 - Earlier personal-token activation and successful publication are recorded in
   [the activation notes](seminar-refresh-activation-2026-11-24.md).
 
@@ -55,7 +57,7 @@ directly into the private Script Property; never put it in source, workbook cell
 screenshots, chat or deployment logs. Store local migration material only in an
 ignored, owner-private directory, not alongside publishable site assets.
 
-## Cut over the existing private script
+## Migration procedure (completed; retain for recovery)
 
 1. Leave the working personal token in place until verification succeeds. Add all
    three app properties before replacing the running script.
@@ -97,9 +99,10 @@ correcting the row reported in Actions. Do not uncheck unrelated presentations.
   updates. GitHub queue time and deployment time still apply.
 - Install triggers under the institutional maintainer's account. Triggers belong
   to their creator; a departing maintainer must transfer setup to a successor.
-- Before cutover, renew the personal token before **24 November 2027** if migration
-  has not completed. Pushing new source does not change the separate Google project.
-- After cutover, the app key remains a sensitive, long-lived credential. Rotate it
+- The old **24 November 2027** personal-token deadline no longer applies. Do not
+  recreate a personal token or relax the organization's expiry policy to recover
+  this integration. Restore the app installation/key instead.
+- The app key remains a sensitive, long-lived credential. Rotate it
   if compromised, revoked or affected by an ownership transition. App installation
   tokens expire after about an hour and are renewed automatically.
 - To stop app-based refresh, remove its two Google triggers and suspend/uninstall
